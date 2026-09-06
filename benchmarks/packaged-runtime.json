@@ -1,0 +1,22 @@
+{
+  "agent_sha256": "9b216c7302b55094bc028107507245fad56d083c61aa1492cfd7a9effe4d8708",
+  "init_seconds": 1.1560000001918525,
+  "checks": [
+    {
+      "remaining_ms": 5000,
+      "move": "g1f3",
+      "round_trip_ms": 156.99999989010394
+    },
+    {
+      "remaining_ms": 1000,
+      "move": "e5d6",
+      "round_trip_ms": 30.999999959021807
+    },
+    {
+      "remaining_ms": 1,
+      "move": "g1h3",
+      "round_trip_ms": 0.0
+    }
+  ],
+  "stderr": ""
+}

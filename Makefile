@@ -17,4 +17,5 @@ zip:
 gate:
 	uv run ruff check .
 	uv run mypy
+	uv run python -m unittest discover -s tests
 	uv run python -m harness.arena --opponent baselines/random --games 2 --base-ms 5000

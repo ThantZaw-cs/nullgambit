@@ -114,177 +114,9 @@ _compiled_evaluate = cast(
 )
 
 
-_PAWN_ATTACKS = np.asarray(chess.BB_PAWN_ATTACKS, dtype=np.uint64)
-_KNIGHT_ATTACKS = np.asarray(chess.BB_KNIGHT_ATTACKS, dtype=np.uint64)
-_KING_ATTACKS = np.asarray(chess.BB_KING_ATTACKS, dtype=np.uint64)
-_PASSED_MASKS = np.asarray(
-    [
-        [
-            sum(
-                chess.BB_SQUARES[target]
-                for target in chess.SQUARES
-                if abs(chess.square_file(target) - chess.square_file(square)) <= 1
-                and (
-                    chess.square_rank(target) > chess.square_rank(square)
-                    if color
-                    else chess.square_rank(target) < chess.square_rank(square)
-                )
-            )
-            for square in chess.SQUARES
-        ]
-        for color in range(2)
-    ],
-    dtype=np.uint64,
-)
-
-
-def _attacks_numeric(piece: int, square: int, side: int, occupied: int) -> int:
-    """Pseudo-attacks for evaluation, including the first blocker on each ray."""
-    if piece == 1:
-        return int(_PAWN_ATTACKS[side, square])
-    if piece == 2:
-        return int(_KNIGHT_ATTACKS[square])
-    if piece == 6:
-        return int(_KING_ATTACKS[square])
-    result = np.uint64(0)
-    file, rank = square % 8, square // 8
-    directions = ((1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (1, -1), (-1, 1), (-1, -1))
-    for index in range(8):
-        if (piece == 3 and index < 4) or (piece == 4 and index >= 4):
-            continue
-        df, dr = directions[index]
-        f, r = file + df, rank + dr
-        while 0 <= f < 8 and 0 <= r < 8:
-            bit = np.uint64(1) << np.uint64(r * 8 + f)
-            result |= bit
-            if occupied & bit:
-                break
-            f += df
-            r += dr
-    return int(result)
-
-
-_compiled_attacks = cast(
-    Callable[[int, int, int, int], int],
-    njit("uint64(int64,int64,int64,uint64)", cache=False)(_attacks_numeric),
-)
-
-
-def _structure_numeric(
-    pawns: int,
-    knights: int,
-    bishops: int,
-    rooks: int,
-    queens: int,
-    kings: int,
-    white: int,
-    black: int,
-) -> int:
-    """Pawn structure, rook files, and phase-scaled shelter and king pressure."""
-    files = np.zeros((2, 8), dtype=np.int64)
-    king_squares = np.full(2, -1, dtype=np.int64)
-    masks = (pawns, knights, bishops, rooks, queens, kings)
-    phase = 0
-    for square in range(64):
-        bit = np.uint64(1) << np.uint64(square)
-        if not (white | black) & bit:
-            continue
-        side = int(bool(white & bit))
-        if pawns & bit:
-            files[side, square % 8] += 1
-        if kings & bit:
-            king_squares[side] = square
-        for index in range(6):
-            if masks[index] & bit:
-                phase += PHASE_WEIGHTS[index + 1]
-                break
-
-    middlegame = endgame = 0
-    for side in range(2):
-        own = white if side else black
-        enemy = black if side else white
-        sign = 1 if side else -1
-        own_pawns, enemy_pawns = pawns & own, pawns & enemy
-        mg = eg = pressure = 0
-        enemy_king = king_squares[1 - side]
-        zone = _KING_ATTACKS[enemy_king] if enemy_king >= 0 else np.uint64(0)
-        for file in range(8):
-            extra = max(0, files[side, file] - 1)
-            mg -= 12 * extra
-            eg -= 18 * extra
-        for square in range(64):
-            bit = np.uint64(1) << np.uint64(square)
-            if not own & bit:
-                continue
-            file, rank = square % 8, square // 8
-            piece = 0
-            for index in range(6):
-                if masks[index] & bit:
-                    piece = index + 1
-                    break
-            if piece == 1:
-                neighbours = 0
-                if file > 0:
-                    neighbours += files[side, file - 1]
-                if file < 7:
-                    neighbours += files[side, file + 1]
-                if neighbours == 0:
-                    mg -= 10
-                    eg -= 12
-                if not _PASSED_MASKS[side, square] & enemy_pawns:
-                    advance = rank if side else 7 - rank
-                    bonus = (0, 0, 4, 10, 22, 45, 80, 0)[advance]
-                    mg += bonus // 3
-                    eg += bonus
-                if _PAWN_ATTACKS[1 - side, square] & own_pawns:
-                    mg += 6
-                    eg += 8
-            elif piece == 4 and files[side, file] == 0:
-                mg += 20 if files[1 - side, file] == 0 else 10
-                eg += 10 if files[1 - side, file] == 0 else 5
-            if piece != 6 and zone:
-                hits = np.uint64(_compiled_attacks(piece, square, side, white | black)) & zone
-                count = 0
-                while hits:
-                    count += 1
-                    hits &= hits - np.uint64(1)
-                pressure += count * (0, 1, 2, 2, 3, 5, 0)[piece]
-        # Multiple pieces attacking the king zone matter more than one lone attacker.
-        danger = min(240, pressure * pressure * 2)
-        if not queens & own:
-            danger //= 4
-        mg += danger
-
-        king = king_squares[side]
-        if king >= 0:
-            file, rank = king % 8, king // 8
-            advance = rank if side else 7 - rank
-            direction = 1 if side else -1
-            if advance <= 2:
-                for f in range(max(0, file - 1), min(8, file + 2)):
-                    near = np.uint64(1) << np.uint64((rank + direction) * 8 + f)
-                    far = np.uint64(1) << np.uint64((rank + 2 * direction) * 8 + f)
-                    mg += 12 if near & own_pawns else 6 if far & own_pawns else -15
-                    if files[side, f] == 0 and (rooks | queens) & enemy:
-                        mg -= 8
-        middlegame += sign * mg
-        endgame += sign * eg
-    phase = min(phase, FULL_PHASE)
-    numerator = int(middlegame * phase + endgame * (FULL_PHASE - phase))
-    return numerator // FULL_PHASE if numerator >= 0 else -((-numerator) // FULL_PHASE)
-
-
-_compiled_structure = cast(
-    Callable[[int, int, int, int, int, int, int, int], int],
-    njit("int64(uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64)", cache=False)(
-        _structure_numeric
-    ),
-)
-
-
 def evaluate(board: chess.Board) -> int:
-    """Material, piece placement, pawn structure, rook activity, and king safety."""
-    arguments = (
+    """Material and piece placement, smoothly switching to an endgame king."""
+    score = _compiled_evaluate(
         board.pawns,
         board.knights,
         board.bishops,
@@ -294,7 +126,6 @@ def evaluate(board: chess.Board) -> int:
         board.occupied_co[chess.WHITE],
         board.occupied_co[chess.BLACK],
     )
-    score = _compiled_evaluate(*arguments) + _compiled_structure(*arguments)
     return score if board.turn == chess.WHITE else -score
 
 
@@ -489,10 +320,6 @@ class Search:
         if ply >= MAX_PLY - 1:
             return evaluate(board)
 
-        in_check = board.is_check()
-        if in_check:
-            # A forced evasion should not consume the whole remaining horizon.
-            depth += 1
         key = _position_key(board)
         score_key = self.score_key(board)
         entry = self.table.get(score_key)
@@ -518,24 +345,9 @@ class Search:
                 if index == 0:
                     score = -self.negamax(board, depth - 1, -beta, -alpha, ply + 1)
                 else:
-                    child_depth = depth - 1
-                    reduced = (
-                        depth >= 3
-                        and index >= 4
-                        and quiet
-                        and not in_check
-                        and not board.is_check()
-                        and beta == alpha + 1
-                    )
-                    if reduced:
-                        # Try late quiet moves one ply shallower at non-PV nodes.
-                        # A move that improves alpha must pass a full-depth search.
-                        child_depth -= 1
                     # First ask whether this move beats the incumbent. Only a
                     # promising result needs another search with the full window.
-                    score = -self.negamax(board, child_depth, -alpha - 1, -alpha, ply + 1)
-                    if reduced and score > alpha:
-                        score = -self.negamax(board, depth - 1, -alpha - 1, -alpha, ply + 1)
+                    score = -self.negamax(board, depth - 1, -alpha - 1, -alpha, ply + 1)
                     if alpha < score < beta:
                         score = -self.negamax(board, depth - 1, -beta, -alpha, ply + 1)
             finally:

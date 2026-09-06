@@ -1,0 +1,124 @@
+{
+  "agent": ".",
+  "opponent": "baselines\\classical_v2",
+  "agent_sha256": "8d3ac4ac4dc8deda8f0124fc5f9a7b5cc1a869950fd9a9ddd67778f83c1de3ae",
+  "opponent_sha256": "9b216c7302b55094bc028107507245fad56d083c61aa1492cfd7a9effe4d8708",
+  "suite": "development",
+  "base_ms": 5000,
+  "increment_ms": 100,
+  "wins": 4,
+  "draws": 5,
+  "losses": 3,
+  "failures": 0,
+  "score": 0.5416666666666666,
+  "games": [
+    {
+      "opening": "ruy_lopez",
+      "fen": "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq - 0 8",
+      "agent_white": true,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 63
+    },
+    {
+      "opening": "ruy_lopez",
+      "fen": "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq - 0 8",
+      "agent_white": false,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 79
+    },
+    {
+      "opening": "sicilian",
+      "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+      "agent_white": true,
+      "result": "white",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 71
+    },
+    {
+      "opening": "sicilian",
+      "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+      "agent_white": false,
+      "result": "white",
+      "termination": "checkmate",
+      "score": 0.0,
+      "plies": 63
+    },
+    {
+      "opening": "french",
+      "fen": "rnbqkb1r/pp1n1ppp/4p3/2ppP3/3P1P2/2N2N2/PPP3PP/R1BQKB1R b KQkq - 1 6",
+      "agent_white": true,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 53
+    },
+    {
+      "opening": "french",
+      "fen": "rnbqkb1r/pp1n1ppp/4p3/2ppP3/3P1P2/2N2N2/PPP3PP/R1BQKB1R b KQkq - 1 6",
+      "agent_white": false,
+      "result": "black",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 81
+    },
+    {
+      "opening": "caro_kann",
+      "fen": "rn1qkbnr/pp2ppp1/2p3bp/8/3P3P/6N1/PPP2PP1/R1BQKBNR w KQkq - 0 7",
+      "agent_white": true,
+      "result": "black",
+      "termination": "checkmate",
+      "score": 0.0,
+      "plies": 132
+    },
+    {
+      "opening": "caro_kann",
+      "fen": "rn1qkbnr/pp2ppp1/2p3bp/8/3P3P/6N1/PPP2PP1/R1BQKBNR w KQkq - 0 7",
+      "agent_white": false,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 86
+    },
+    {
+      "opening": "queens_gambit",
+      "fen": "rnbq1rk1/ppp1bppp/4pn2/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R b KQ - 2 6",
+      "agent_white": true,
+      "result": "black",
+      "termination": "checkmate",
+      "score": 0.0,
+      "plies": 89
+    },
+    {
+      "opening": "queens_gambit",
+      "fen": "rnbq1rk1/ppp1bppp/4pn2/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R b KQ - 2 6",
+      "agent_white": false,
+      "result": "black",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 63
+    },
+    {
+      "opening": "slav",
+      "fen": "rn1qkb1r/pp2pppp/2p2n2/5b2/P1pP4/2N2N2/1P2PPPP/R1BQKB1R w KQkq - 1 6",
+      "agent_white": true,
+      "result": "white",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 89
+    },
+    {
+      "opening": "slav",
+      "fen": "rn1qkb1r/pp2pppp/2p2n2/5b2/P1pP4/2N2N2/1P2PPPP/R1BQKB1R w KQkq - 1 6",
+      "agent_white": false,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 30
+    }
+  ]
+}

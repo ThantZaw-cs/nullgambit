@@ -23,7 +23,31 @@ def get_move(fen: str, time_left_ms: int) -> str:
     return "e2e4"
 ```
 
-The fork ships a legal random-mover, so the loop works before you write anything. Replace the body.
+This fork's `agent.py` uses iterative-deepening alpha-beta search, capture and promotion
+quiescence, and material plus piece-square evaluation. Numba compiles the evaluator at import;
+legal moves still come from `python-chess`. A bounded transposition table reuses scores while
+accounting for the fifty-move clock and repetition history. Principal-variation search, check
+extensions, and conservative late-move reductions help it search further.
+
+It budgets each move from the remaining clock and keeps the result of the last completed search
+depth. `baselines/classical_v1` preserves our first classical engine for comparisons, and
+`baselines/search_speed` preserves the intermediate version before extensions and reductions.
+
+Run the tactical and timeout regression tests with:
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+Measure search throughput and play both colours from ten opening positions:
+
+```powershell
+.\.venv\Scripts\python.exe -m tools.benchmark
+.\.venv\Scripts\python.exe -m tools.compare --out benchmarks/my-comparison
+```
+
+The comparison writes a JSON report and a PGN with every game. Run measurements without other
+CPU-heavy work. See [the performance notes](docs/PERFORMANCE.md) for measured results and limits.
 
 ```
 make play                                          # one game, real time control
@@ -47,7 +71,7 @@ evaluation worth searching with.
 | greedy vs minimax | 6 | 120 s + 0.5 s | 0.0% (+0 =0 -6) |
 | numba vs minimax | 6 | 10 s + 0.5 s | 66.7% (+2 =4 -0) |
 
-- `baselines/random` plays a uniformly random legal move. It is what `agent.py` starts as.
+- `baselines/random` plays a uniformly random legal move, matching the original starter agent.
 - `baselines/greedy` searches one ply on material.
 - `baselines/minimax` searches two plies on material and mobility, with no time management.
 - `baselines/numba` is `minimax` with the evaluation jitted. It is barely stronger, which is
@@ -59,6 +83,8 @@ evaluation worth searching with.
 ```
 agent.py             your submission
 baselines/           random, greedy, minimax, numba; each is a directory with an agent.py
+tools/               search benchmarks and comparisons against previous versions
+tests/               tactical, timeout, evaluation, and score-cache regressions
 harness/runner.py    the process the platform runs your agent in
 harness/referee.py   the clock, legality, draw and adjudication rules
 harness/rules.py     the event constants the harness enforces
