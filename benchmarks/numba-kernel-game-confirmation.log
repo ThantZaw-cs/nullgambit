@@ -1,0 +1,25 @@
+1/20 london agent=white: draw by threefold_repetition (+0 =1 -0)
+2/20 london agent=black: black by checkmate (+1 =1 -0)
+3/20 colle agent=white: draw by threefold_repetition (+1 =2 -0)
+4/20 colle agent=black: black by checkmate (+2 =2 -0)
+5/20 dutch agent=white: white by checkmate (+3 =2 -0)
+6/20 dutch agent=black: black by checkmate (+4 =2 -0)
+7/20 benoni agent=white: white by checkmate (+5 =2 -0)
+8/20 benoni agent=black: black by checkmate (+6 =2 -0)
+9/20 alekhine agent=white: white by checkmate (+7 =2 -0)
+10/20 alekhine agent=black: draw by threefold_repetition (+7 =3 -0)
+11/20 closed_sicilian agent=white: white by checkmate (+8 =3 -0)
+12/20 closed_sicilian agent=black: white by checkmate (+8 =3 -1)
+13/20 french_tarrasch agent=white: white by checkmate (+9 =3 -1)
+14/20 french_tarrasch agent=black: black by checkmate (+10 =3 -1)
+15/20 caro_advance agent=white: white by checkmate (+11 =3 -1)
+16/20 caro_advance agent=black: white by checkmate (+11 =3 -2)
+17/20 nimzo_indian agent=white: white by checkmate (+12 =3 -2)
+18/20 nimzo_indian agent=black: black by checkmate (+13 =3 -2)
+19/20 grunfeld agent=white: white by checkmate (+14 =3 -2)
+20/20 grunfeld agent=black: black by checkmate (+15 =3 -2)
+Final: +15 =3 -2, failures=0
+
+real	15m32.811s
+user	15m14.178s
+sys	0m23.912s

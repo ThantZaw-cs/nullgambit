@@ -1,0 +1,34 @@
+{
+  "agent": "prototypes/numba_kernel",
+  "opponent": "baselines/zaw_original",
+  "agent_sha256": "7ffb2370d69dbbf906551bc8892a5197f29670f6a27261ba082f12241b5a5142",
+  "opponent_sha256": "887d8ca093d429d305cac98272d28447611bdcf07ac25ab5174c41ca6b6018f5",
+  "suite": "development",
+  "base_ms": 120000,
+  "increment_ms": 500,
+  "wins": 1,
+  "draws": 0,
+  "losses": 1,
+  "failures": 0,
+  "score": 0.5,
+  "games": [
+    {
+      "opening": "ruy_lopez",
+      "fen": "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq - 0 8",
+      "agent_white": true,
+      "result": "black",
+      "termination": "checkmate",
+      "score": 0.0,
+      "plies": 68
+    },
+    {
+      "opening": "ruy_lopez",
+      "fen": "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq - 0 8",
+      "agent_white": false,
+      "result": "black",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 108
+    }
+  ]
+}

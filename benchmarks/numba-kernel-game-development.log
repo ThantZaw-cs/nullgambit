@@ -1,0 +1,25 @@
+1/20 ruy_lopez agent=white: white by checkmate (+1 =0 -0)
+2/20 ruy_lopez agent=black: black by checkmate (+2 =0 -0)
+3/20 sicilian agent=white: draw by threefold_repetition (+2 =1 -0)
+4/20 sicilian agent=black: black by checkmate (+3 =1 -0)
+5/20 french agent=white: white by checkmate (+4 =1 -0)
+6/20 french agent=black: black by checkmate (+5 =1 -0)
+7/20 caro_kann agent=white: black by checkmate (+5 =1 -1)
+8/20 caro_kann agent=black: draw by threefold_repetition (+5 =2 -1)
+9/20 queens_gambit agent=white: white by checkmate (+6 =2 -1)
+10/20 queens_gambit agent=black: black by checkmate (+7 =2 -1)
+11/20 slav agent=white: white by checkmate (+8 =2 -1)
+12/20 slav agent=black: draw by threefold_repetition (+8 =3 -1)
+13/20 kings_indian agent=white: white by checkmate (+9 =3 -1)
+14/20 kings_indian agent=black: black by checkmate (+10 =3 -1)
+15/20 english agent=white: draw by insufficient_material (+10 =4 -1)
+16/20 english agent=black: black by checkmate (+11 =4 -1)
+17/20 scotch agent=white: white by checkmate (+12 =4 -1)
+18/20 scotch agent=black: black by checkmate (+13 =4 -1)
+19/20 italian agent=white: white by checkmate (+14 =4 -1)
+20/20 italian agent=black: black by checkmate (+15 =4 -1)
+Final: +15 =4 -1, failures=0
+
+real	16m0.148s
+user	15m42.756s
+sys	0m23.190s

@@ -1,0 +1,244 @@
+{
+  "commit": "fe9bf59e386340e25e617db2682afaa4d8988932",
+  "agent_sha256": "887d8ca093d429d305cac98272d28447611bdcf07ac25ab5174c41ca6b6018f5",
+  "seed": 20260906,
+  "positions": 29,
+  "total_nodes": 5508,
+  "total_elapsed_ms": 324.5188150002605,
+  "median_nodes": 68,
+  "max_nodes": 1781,
+  "rows": [
+    {
+      "fen": "3q3r/prpp2p1/b1n2k2/1pb1pQ1P/PP1P4/2P1n2P/3BPP2/3RKBNR b K - 2 22",
+      "nodes": 193,
+      "elapsed_ms": 9.67919400000028,
+      "score": 771,
+      "captures": 2,
+      "in_check": true
+    },
+    {
+      "fen": "r3kbnr/pb2p1p1/n2qp1P1/1pp4p/2P1Pp1P/8/PP1P1P2/RNBQKB1R w KQkq - 1 12",
+      "nodes": 12,
+      "elapsed_ms": 0.8722339999849282,
+      "score": -359,
+      "captures": 2,
+      "in_check": false
+    },
+    {
+      "fen": "6r1/2PNkp2/2n4b/3ppbqp/2PP2PR/4PP2/5K2/Rr3BN1 b - - 2 34",
+      "nodes": 1781,
+      "elapsed_ms": 118.55758000001515,
+      "score": 1528,
+      "captures": 12,
+      "in_check": false
+    },
+    {
+      "fen": "r1b1kbr1/pppqp1p1/8/nP1p3p/Q1P1Pp2/3N2PB/P2P1P1n/RNB1K1R1 w Qq - 4 12",
+      "nodes": 111,
+      "elapsed_ms": 10.361265000028652,
+      "score": 828,
+      "captures": 6,
+      "in_check": false
+    },
+    {
+      "fen": "rnbq1k2/2ppbr2/p3p2p/1pP2pP1/1P6/N2RP1n1/P1QPKPP1/1RB2BN1 w - - 3 17",
+      "nodes": 18,
+      "elapsed_ms": 2.2540830000252754,
+      "score": 266,
+      "captures": 1,
+      "in_check": true
+    },
+    {
+      "fen": "2q1kb2/rb1pn3/3p1pnr/6pp/pPP4P/1Q2P1K1/PB1P3R/R7 w - - 2 26",
+      "nodes": 18,
+      "elapsed_ms": 1.0959730000195123,
+      "score": -1312,
+      "captures": 3,
+      "in_check": false
+    },
+    {
+      "fen": "rn3b1r/2p2k2/ppb1p2p/3n1p2/1PPP1P1P/P1N3Pp/1R1K4/2B2B1q b - - 5 22",
+      "nodes": 36,
+      "elapsed_ms": 2.1317270000054123,
+      "score": 2081,
+      "captures": 5,
+      "in_check": false
+    },
+    {
+      "fen": "r3n2r/p2B2b1/k5p1/1b1pn3/PppPp2p/8/2P1PK1P/BR2Q1NR w - - 3 29",
+      "nodes": 31,
+      "elapsed_ms": 2.028290999987803,
+      "score": 920,
+      "captures": 6,
+      "in_check": false
+    },
+    {
+      "fen": "r1bq1b1r/3pp1pp/5k2/pP1P4/p3KP2/P2P2PR/R7/1NB1QB2 b - - 3 24",
+      "nodes": 1,
+      "elapsed_ms": 2.733465000005708,
+      "score": -513,
+      "captures": 0,
+      "in_check": false
+    },
+    {
+      "fen": "3r1r1k/1b3pb1/p4nQ1/1ppp3p/5PP1/PPn1P2N/RB1K3P/7R b - - 1 26",
+      "nodes": 65,
+      "elapsed_ms": 3.728503999923305,
+      "score": 590,
+      "captures": 4,
+      "in_check": false
+    },
+    {
+      "fen": "1r3k2/p2qNp2/4b2n/2Pp2r1/3n1PP1/P1N1P2B/R4K1R/4Q3 b - - 0 29",
+      "nodes": 314,
+      "elapsed_ms": 16.811757000027683,
+      "score": -139,
+      "captures": 5,
+      "in_check": false
+    },
+    {
+      "fen": "5qn1/p4rkr/b4ppp/1pPpp1b1/PP1N1PP1/2N4P/4BK2/B2Q3R w - - 1 35",
+      "nodes": 835,
+      "elapsed_ms": 43.37622800005647,
+      "score": -13,
+      "captures": 7,
+      "in_check": false
+    },
+    {
+      "fen": "6nr/2rk3p/p1pNp3/PpPpR1pP/1B1PPp2/5PNb/P4KP1/1Q3B2 b - - 3 29",
+      "nodes": 15,
+      "elapsed_ms": 1.0351060000175494,
+      "score": -1039,
+      "captures": 3,
+      "in_check": false
+    },
+    {
+      "fen": "2bqk3/1r1p2pr/n2b4/PP2pp1p/4Q1PP/P2P4/R2P1P2/1NB1KBNR b K - 1 20",
+      "nodes": 119,
+      "elapsed_ms": 6.312788999935037,
+      "score": 276,
+      "captures": 7,
+      "in_check": false
+    },
+    {
+      "fen": "1n1k1rr1/p1p4R/2ppp1pn/1P3p2/4P2N/2PP2P1/P5P1/2BKRB2 b - - 0 29",
+      "nodes": 12,
+      "elapsed_ms": 0.8631550000472998,
+      "score": -464,
+      "captures": 2,
+      "in_check": false
+    },
+    {
+      "fen": "rn4nr/p3k3/b3pp1p/1pp1Q1b1/1PN5/B1Pq1NKP/P2P2P1/R3R3 b - - 3 25",
+      "nodes": 41,
+      "elapsed_ms": 2.3444980000704163,
+      "score": 1194,
+      "captures": 8,
+      "in_check": false
+    },
+    {
+      "fen": "1r1r4/2p3p1/pn2bk1P/1pB2p2/P1P4P/1P3P2/2NP2B1/RN2KQR1 b Q - 6 28",
+      "nodes": 321,
+      "elapsed_ms": 17.3662099999774,
+      "score": -1773,
+      "captures": 7,
+      "in_check": false
+    },
+    {
+      "fen": "7r/p1N2k1p/p1r1p2B/n2pq3/4p3/1b1K1N2/P1P2PP1/2R4R w - - 0 26",
+      "nodes": 324,
+      "elapsed_ms": 16.043703000036658,
+      "score": -1174,
+      "captures": 0,
+      "in_check": true
+    },
+    {
+      "fen": "4kb1r/p3pp2/1p1r1n1p/2p4b/2P3P1/P5K1/R4QP1/2B1q1NR w - - 4 27",
+      "nodes": 27,
+      "elapsed_ms": 1.763876999916647,
+      "score": 48,
+      "captures": 4,
+      "in_check": false
+    },
+    {
+      "fen": "2b4r/r1pq4/3k1p1B/2b1p3/p2n2P1/4PP1B/P1P2N1P/R5KR b - - 0 33",
+      "nodes": 94,
+      "elapsed_ms": 4.978325000024597,
+      "score": 1056,
+      "captures": 4,
+      "in_check": false
+    },
+    {
+      "fen": "6n1/4k1b1/n1rp4/pppb2p1/2PPp1Q1/PP2P3/RB2KP1R/1N6 w - - 10 35",
+      "nodes": 157,
+      "elapsed_ms": 8.02596200003336,
+      "score": 1305,
+      "captures": 5,
+      "in_check": false
+    },
+    {
+      "fen": "r1k1qbn1/p1n5/3pp1p1/1Np2p1r/5P2/PPPPP1KN/1B5P/RB3Q1R w - - 1 23",
+      "nodes": 10,
+      "elapsed_ms": 0.8206140000766027,
+      "score": 361,
+      "captures": 3,
+      "in_check": false
+    },
+    {
+      "fen": "r1b1q1nr/p2p2kp/n3p2b/2p3p1/1BP1PPp1/P7/RP2QN1P/1N2KB1R w K - 0 19",
+      "nodes": 135,
+      "elapsed_ms": 7.007894000025772,
+      "score": -31,
+      "captures": 4,
+      "in_check": false
+    },
+    {
+      "fen": "rnk1q1r1/p3b2n/1p1pp1pp/2p2p2/1PN5/B1PPRKPN/P3Q1BP/3R4 w - - 13 36",
+      "nodes": 29,
+      "elapsed_ms": 1.8311400000357025,
+      "score": 223,
+      "captures": 4,
+      "in_check": false
+    },
+    {
+      "fen": "rn3b2/pkpqp1rp/b2p3n/2p2p2/3P2p1/P1N2PP1/1PK1PB1P/RN1Q1B1R b - - 3 19",
+      "nodes": 125,
+      "elapsed_ms": 6.663032999995266,
+      "score": 129,
+      "captures": 3,
+      "in_check": false
+    },
+    {
+      "fen": "r1bq2k1/1ppp2pr/p1n4n/4p1Bp/PP2P2R/b2P2P1/2P1NPB1/RN2K3 w Q - 1 15",
+      "nodes": 43,
+      "elapsed_ms": 2.7053590000605254,
+      "score": -93,
+      "captures": 5,
+      "in_check": false
+    },
+    {
+      "fen": "4kbrn/1p6/r1np4/pPPp1Pp1/4p2p/6PB/PP5P/1RB2KNR w - g6 0 29",
+      "nodes": 68,
+      "elapsed_ms": 3.9099739999528538,
+      "score": 381,
+      "captures": 6,
+      "in_check": false
+    },
+    {
+      "fen": "r3kr2/p2bnp2/2n2Q1b/1qp3P1/1N1Pp1P1/1Pp1P2N/5P2/R1B2K1R w - - 0 29",
+      "nodes": 246,
+      "elapsed_ms": 12.985974999992322,
+      "score": -302,
+      "captures": 0,
+      "in_check": true
+    },
+    {
+      "fen": "1nb2bn1/1N1pk1p1/Rpp3Pr/4p2p/3Pp3/1qP4B/4PP2/2B1K2R b - d3 0 25",
+      "nodes": 327,
+      "elapsed_ms": 16.230899999982284,
+      "score": 1319,
+      "captures": 6,
+      "in_check": false
+    }
+  ]
+}

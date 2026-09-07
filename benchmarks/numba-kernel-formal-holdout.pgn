@@ -1,0 +1,279 @@
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "prototypes/numba_kernel"]
+[Black "baselines/zaw_original"]
+[Result "1/2-1/2"]
+[FEN "r1bqk2r/ppp1bppp/2n5/3p4/3Pn3/3B1N2/PPP2PPP/RNBQ1RK1 w kq - 4 8"]
+[SetUp "1"]
+[Termination "threefold_repetition"]
+[Opening "petroff"]
+
+8. c4 O-O 9. cxd5 Qxd5 10. Nc3 Nxc3 11. bxc3 Bg4 12. Bf4 Bd6 13. c4 Qh5 14. Bxd6 Bxf3 15. Qxf3 Qxf3 16. gxf3 cxd6 17. Rad1 g5 18. Bf5 Rae8 19. a4 a6 20. Be4 h5 21. c5 dxc5 22. dxc5 Re5 23. Rd7 Rxc5 24. Rxb7 Ne5 25. Rd1 Re8 26. Rb6 a5 27. Rb5 Rxb5 28. axb5 Rb8 29. Rd5 f6 30. h4 gxh4 31. f4 Nf7 32. Rxh5 Nd6 33. Bd5+ Kg7 34. Rxh4 Rxb5 35. Rg4+ Kh6 36. Bc6 Rc5 37. Bd7 Rc7 38. Rh4+ Kg6 39. Ba4 f5 40. f3 Rc4 41. Bb3 Rc3 42. Bd5 a4 43. Rh3 a3 44. Rg3+ Kf6 45. Rg2 Rd3 46. Bc6 Rd4 47. Ra2 Rc4 48. Bd5 Rd4 49. Bc6 Rc4 50. Bd5 Rc5 51. Bb3 Ra5 52. Re2 Rb5 53. Re3 Rb6 54. Ba2 Nb5 55. Bc4 Nd6 56. Ba2 Nb5 57. Bc4 Rc6 58. Bxb5 Rc1+ 59. Kf2 a2 60. Ra3 a1=Q 61. Rxa1 Rxa1 62. Ke2 Ra2+ 63. Ke3 Ra3+ 64. Bd3 Ke6 65. Kd4 Ra4+ 66. Ke3 Rb4 67. Bc2 Rb2 68. Bd3 Rb4 69. Bc2 Rb5 70. Bd3 1/2-1/2
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "baselines/zaw_original"]
+[Black "prototypes/numba_kernel"]
+[Result "1/2-1/2"]
+[FEN "r1bqk2r/ppp1bppp/2n5/3p4/3Pn3/3B1N2/PPP2PPP/RNBQ1RK1 w kq - 4 8"]
+[SetUp "1"]
+[Termination "threefold_repetition"]
+[Opening "petroff"]
+
+8. c4 O-O 9. cxd5 Qxd5 10. Nc3 Nxc3 11. bxc3 Bg4 12. Be3 Qh5 13. Rb1 Bd6 14. h3 Bxf3 15. Qxf3 Qxf3 16. gxf3 Rab8 17. f4 Ne7 18. c4 Ng6 19. f5 Nf4 20. Bxf4 Bxf4 21. Rfe1 b6 22. d5 Rbe8 23. Re4 Rxe4 24. Bxe4 a5 25. a4 g5 26. Re1 f6 27. Bd3 Be5 28. Be2 Bc3 29. Rc1 Bb2 30. Rc2 Bd4 31. Bh5 h6 32. Re2 Be5 33. Bf3 Re8 34. Bh5 Re7 35. Bg4 Kf8 36. f3 c6 37. f4 Bd4+ 38. Kg2 cxd5 39. cxd5 gxf4 40. Rxe7 Kxe7 41. Kf3 Kd6 42. Ke4 Bf2 43. Bh5 Kc5 44. Bd1 Bh4 45. Bg4 Bf2 46. Bd1 Bh4 47. Bf3 Bg3 48. Bh5 Bh2 49. Bf7 Bg3 50. Bh5 Bh2 51. Bf3 b5 52. axb5 Kxb5 53. h4 a4 54. Kd4 a3 55. Kc3 Kc5 56. Kb3 Bg1 57. h5 Kd6 58. Kxa3 Ke5 59. Kb4 Kxf5 60. Kb5 Ke5 61. Kc6 Bf2 62. d6 Be1 63. d7 Ba5 64. Kb7 Kd6 65. Kc8 Ke7 66. Ba8 Bb6 67. Bd5 Bd8 68. Ba8 Bb6 69. Bd5 Bd8 70. Bb7 Bb6 1/2-1/2
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "prototypes/numba_kernel"]
+[Black "baselines/zaw_original"]
+[Result "1-0"]
+[FEN "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2NP1N2/PPP2PPP/R1BQ1RK1 w - - 2 7"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "vienna"]
+
+7. Na4 Be6 8. Bxe6 fxe6 9. Ng5 Qe7 10. Nxc5 dxc5 11. b3 h6 12. Nf3 Rad8 13. Re1 b6 14. h3 Nd7 15. c3 Qd6 16. c4 Nb4 17. Re3 Nf6 18. Ne1 Qd4 19. Ba3 Nxe4 20. Rxe4 Qxf2+ 21. Kh2 Rf5 22. Bxb4 cxb4 23. Qe2 Qxe2 24. Rxe2 h5 25. Rd1 Kf7 26. Nf3 Kf6 27. Re3 b5 28. cxb5 g5 29. Rde1 Rd5 30. g4 hxg4 31. hxg4 Rf4 32. Nxe5 Rxb5 33. Nc4 Rxg4 34. Rxe6+ Kf5 35. Re7 Rf4 36. Rxc7 Rh4+ 37. Kg1 Rg4+ 38. Kf2 Rd4 39. Rf7+ Kg4 40. Rxa7 Rxd3 41. Ne5+ Rxe5 42. Rxe5 Kf4 43. Rb5 Rd2+ 44. Ke1 Rd4 45. Rab7 Re4+ 46. Kf2 Rd4 47. Rf7+ Ke4 48. Kg3 Ke3 49. Rxg5 Re4 50. Rd5 Re8 51. Rdd7 Rg8+ 52. Kh2 Re8 53. Kh3 Ke4 54. Rb7 Rh8+ 55. Kg3 Rg8+ 56. Kf2 Rh8 57. Rxb4+ Kd5 58. a4 Rh2+ 59. Kg3 Ra2 60. Rbb7 Ke5 61. Rbe7+ Kd4 62. Rf3 Kc5 63. Kf4 Rd2 64. a5 Rd6 65. Ke4 Kb4 66. Ra7 Re6+ 67. Kd4 Rd6+ 68. Ke5 Rd2 69. a6 Re2+ 70. Kf4 Kb5 71. Rd3 Ra2 72. Rd6 Kc5 73. Rdd7 Rf2+ 74. Ke4 Re2+ 75. Kd3 Rb2 76. Kc3 Re2 77. Rac7+ Kb5 78. a7 Re3+ 79. Rd3 Re8 80. Rb7+ Ka6 81. Rb8 Kxa7 82. Rxe8 Kb6 83. Re6+ Kc7 84. b4 Kb8 85. Rd7 Kc8 86. Ree7 Kb8 87. Rd8# 1-0
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "baselines/zaw_original"]
+[Black "prototypes/numba_kernel"]
+[Result "0-1"]
+[FEN "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2NP1N2/PPP2PPP/R1BQ1RK1 w - - 2 7"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "vienna"]
+
+7. Na4 Be6 8. Bxe6 fxe6 9. Ng5 Qd7 10. Nxc5 dxc5 11. Be3 b6 12. b3 h6 13. Nf3 Rad8 14. h3 Qf7 15. Nd2 a5 16. a4 Kh8 17. g3 Nd7 18. f4 exf4 19. Bxf4 Qg6 20. Bxc7 Nce5 21. g4 Rde8 22. Bxe5 Nxe5 23. Kh1 Qg5 24. Nc4 Rxf1+ 25. Qxf1 Nxc4 26. bxc4 Qe3 27. Rb1 Rb8 28. Qg2 Kg8 29. Rf1 e5 30. Rf3 Qd4 31. g5 hxg5 32. Qxg5 Qa1+ 33. Kg2 Qc3 34. Kg3 Qxc2 35. Qe7 Qd2 36. Qxe5 Rd8 37. Qe6+ Kh8 38. Qxb6 Rxd3 39. Qb8+ Kh7 40. Qf4 Qe2 41. Qf5+ Kh8 42. Qh5+ Kg8 43. Qf7+ Kh7 44. Qf5+ Kh8 45. Qh5+ Kg8 46. Qe8+ Kh7 47. Rxd3 Qxd3+ 48. Kh4 Qxc4 49. Qh5+ Kg8 50. Qd5+ Qxd5 51. exd5 c4 52. Kg4 c3 53. d6 Kf7 54. d7 Ke7 55. Kf5 c2 56. Kg6 c1=Q 57. d8=Q+ Kxd8 58. Kxg7 Qh1 59. Kf6 Qxh3 60. Kf7 Qb3+ 61. Kf6 Qxa4 62. Ke5 Qc4 63. Kf5 a4 64. Kg6 Qe4+ 65. Kf6 a3 66. Kg5 a2 67. Kh5 a1=Q 68. Kg5 Qg1+ 69. Kf6 Qgg6# 0-1
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "prototypes/numba_kernel"]
+[Black "baselines/zaw_original"]
+[Result "1-0"]
+[FEN "rnbq1rk1/pp2ppbp/2pp1np1/8/3PP3/2N1BN2/PPPQ1PPP/R3KB1R w KQ - 0 7"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "pirc"]
+
+7. Bd3 Nbd7 8. h3 e5 9. O-O exd4 10. Nxd4 c5 11. Ndb5 Qe7 12. Bh6 a6 13. Bxg7 axb5 14. Bxf8 Qxf8 15. Bxb5 Ra5 16. a4 b6 17. Rad1 Ne8 18. f3 Ndf6 19. b4 cxb4 20. Ne2 Be6 21. Qxb4 Nc7 22. Bc6 Rc5 23. Qxb6 Qc8 24. c3 Bxh3 25. Bb7 Qf8 26. gxh3 Rg5+ 27. Kh2 Nce8 28. Bc6 Re5 29. Qd8 h5 30. a5 Rc5 31. Bxe8 Nxe8 32. a6 Rc7 33. Ra1 Qe7 34. Qxe7 Rxe7 35. a7 Nc7 36. a8=Q+ Nxa8 37. Rxa8+ Kh7 38. Nd4 Rd7 39. Rd1 h4 40. Nb5 f5 41. Nxd6 f4 42. Ra5 Re7 43. c4 Rc7 44. c5 g5 45. e5 Kg6 46. Ra6 Rh7 47. Ne8+ Kf7 48. Rd7+ Kf8 49. Ng7 Rxg7 50. Ra8# 1-0
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "baselines/zaw_original"]
+[Black "prototypes/numba_kernel"]
+[Result "1-0"]
+[FEN "rnbq1rk1/pp2ppbp/2pp1np1/8/3PP3/2N1BN2/PPPQ1PPP/R3KB1R w KQ - 0 7"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "pirc"]
+
+7. O-O-O b5 8. Bh6 Bxh6 9. Qxh6 b4 10. Ne2 Nxe4 11. h4 Nf6 12. Ng5 Qa5 13. Kb1 Bf5 14. Rc1 Qa4 15. Ng3 Nbd7 16. Nxf5 gxf5 17. f4 c5 18. dxc5 dxc5 19. Bd3 e6 20. Rhd1 Rfe8 21. b3 Qa3 22. Bxf5 exf5 23. Rxd7 Rad8 24. Rxf7 Qxc1+ 25. Kxc1 Re1+ 26. Kb2 Rb1+ 27. Kxb1 Rd1+ 28. Kb2 Rb1+ 29. Kxb1 a5 30. Rf8# 1-0
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "prototypes/numba_kernel"]
+[Black "baselines/zaw_original"]
+[Result "1-0"]
+[FEN "rn2kb1r/pp2pppp/2p2n2/q4b2/2BP4/2N2N2/PPP2PPP/R1BQK2R w KQkq - 2 7"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "scandinavian"]
+
+7. Ne5 Nd5 8. O-O Nd7 9. Nxd5 cxd5 10. Bd2 Qc7 11. Bb5 O-O-O 12. Nxf7 Bxc2 13. Qg4 Rg8 14. Rac1 h5 15. Qe6 a6 16. Ba4 Kb8 17. Rxc2 Qxc2 18. Bxc2 Rc8 19. Bh7 Nf6 20. Bf4+ Ka7 21. Qxc8 e5 22. Nd8 Kb6 23. Qxb7+ Ka5 24. Bd2+ Ka4 25. Qxa6# 1-0
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "baselines/zaw_original"]
+[Black "prototypes/numba_kernel"]
+[Result "1/2-1/2"]
+[FEN "rn2kb1r/pp2pppp/2p2n2/q4b2/2BP4/2N2N2/PPP2PPP/R1BQK2R w KQkq - 2 7"]
+[SetUp "1"]
+[Termination "threefold_repetition"]
+[Opening "scandinavian"]
+
+7. Ne5 e6 8. O-O Nbd7 9. Nxd7 Nxd7 10. Bf4 Bb4 11. Bd2 b5 12. Be2 O-O 13. a4 Bxc3 14. Bxc3 b4 15. Bd2 Rfd8 16. c3 c5 17. Bf3 Rac8 18. dxc5 bxc3 19. Bxc3 Qxc5 20. Qd4 e5 21. Qxc5 Rxc5 22. Rfe1 f6 23. Bb4 Rc2 24. Bc3 Rb8 25. Bd5+ Kh8 26. Rac1 Nb6 27. Bb3 Rxc1 28. Rxc1 Rd8 29. a5 Nd5 30. Rd1 Be6 31. Bc4 g5 32. Bb4 Rb8 33. Bxd5 Bxd5 34. Be7 Rxb2 35. Bxf6+ Kg8 36. a6 Bb3 37. Re1 Ra2 38. h4 gxh4 39. Bxh4 Rxa6 40. Rxe5 Ra1+ 41. Kh2 a5 42. Re8+ Kf7 43. Re7+ Kg6 44. g4 h5 45. Rb7 Be6 46. gxh5+ Kxh5 47. Kg3 Rg1+ 48. Kf4 a4 49. Rh7+ Kg6 50. Re7 Rg4+ 51. Ke5 Bc4 52. Bf6 a3 53. Rg7+ Kh5 54. Rh7+ Kg6 55. Rg7+ Kh5 56. Rh7+ Kg6 1/2-1/2
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "prototypes/numba_kernel"]
+[Black "baselines/zaw_original"]
+[Result "1-0"]
+[FEN "rnbq1rk1/1pp1bppp/p3pn2/8/2pP4/5NP1/PPQ1PPBP/RNB2RK1 w - - 0 8"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "catalan"]
+
+8. Nbd2 Nc6 9. Qxc4 Nb4 10. Ng5 Nfd5 11. Nge4 b5 12. Qb3 f5 13. Nc5 Bxc5 14. dxc5 Nc6 15. e4 Nd4 16. Qd1 fxe4 17. Nxe4 e5 18. Qh5 Bf5 19. Be3 Qe8 20. Qh4 Nxe3 21. fxe3 Nc2 22. Ng5 h6 23. Bd5+ Kh8 24. Bxa8 Qxa8 25. e4 Nxa1 26. exf5 Qd5 27. Ne6 Rxf5 28. Rxf5 Qxe6 29. Qe4 g5 30. Rf1 c6 31. Rxa1 Qd5 32. Qxd5 cxd5 33. c6 d4 34. c7 Kg7 35. c8=Q d3 36. Qxa6 e4 37. Rc1 Kh8 38. Rc7 Kg8 39. Qa8# 1-0
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "baselines/zaw_original"]
+[Black "prototypes/numba_kernel"]
+[Result "1/2-1/2"]
+[FEN "rnbq1rk1/1pp1bppp/p3pn2/8/2pP4/5NP1/PPQ1PPBP/RNB2RK1 w - - 0 8"]
+[SetUp "1"]
+[Termination "threefold_repetition"]
+[Opening "catalan"]
+
+8. Nbd2 b5 9. e3 g6 10. Ne5 Nd5 11. e4 Nb4 12. Qc3 f6 13. Nef3 c5 14. b3 cxd4 15. Qxd4 Qxd4 16. Nxd4 c3 17. N2f3 e5 18. Ne2 c2 19. Bh6 Rd8 20. a3 Nd3 21. Ra2 Bb7 22. Rxc2 Bxe4 23. Nc3 Bc6 24. b4 a5 25. bxa5 Rxa5 26. Nb1 e4 27. Ne1 Bxa3 28. Nxd3 exd3 29. Rxc6 Nxc6 30. Bxc6 b4 31. Nd2 Rc5 32. Ba4 Re5 33. Bf4 Re7 34. Bb3+ Kg7 35. h4 h5 36. Be3 Rde8 37. Re1 Bb2 38. Ba4 Ra8 39. Bc6 Rc8 40. Bb5 Bc1 41. Rd1 Rxe3 42. fxe3 Rc2 43. Ne4 d2 44. Kf2 f5 45. Ba4 Rb2 46. Nc5 Ra2 47. Bb3 Rb2 48. Bd5 Rc2 49. Nd3 b3 50. Bxb3 Rc3 51. Ke2 Rxb3 52. Nxc1 dxc1=N+ 53. Rxc1 Rb2+ 54. Kf3 Kf7 55. Rc7+ Kf6 56. Rc6+ Kg7 57. Rc7+ Kf6 58. Rc6+ Kg7 59. Rc7+ 1/2-1/2
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "prototypes/numba_kernel"]
+[Black "baselines/zaw_original"]
+[Result "1-0"]
+[FEN "rn1q1rk1/pbppbppp/1p2p3/8/2PPn3/2N2NP1/PP2PPBP/R1BQ1RK1 w - - 7 8"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "queens_indian"]
+
+8. d5 f5 9. Nd4 Nxc3 10. bxc3 c5 11. Nc2 g5 12. d6 Bxg2 13. dxe7 Qxe7 14. Kxg2 Nc6 15. f4 gxf4 16. Bxf4 e5 17. Bh6 Rf7 18. Qd2 f4 19. gxf4 Qh4 20. fxe5 Qg4+ 21. Kh1 Qe4+ 22. Rf3 Nxe5 23. Rf1 Nxf3 24. exf3 Qe6 25. Re1 Qc6 26. Rg1+ Kh8 27. Ne1 Re8 28. Qg5 Qg6 29. Qh4 Qe6 30. Qh5 Ree7 31. Bg5 Rf5 32. Ng2 Qf7 33. Qxf7 Rexf7 34. f4 Rf8 35. Ne3 Rxf4 36. Bxf4 Rxf4 37. a4 d6 38. Nd5 Rf2 39. Re1 Kg8 40. Re6 Rc2 41. Rxd6 Rc1+ 42. Kg2 h5 43. Rd7 Rc2+ 44. Kh3 a5 45. Rb7 Ra2 46. Nxb6 Rb2 47. Kg3 Rb3 48. Kh4 Rxc3 49. Kxh5 Rc2 50. h4 Rb2 51. Kh6 Rf2 52. h5 Rb2 53. Rg7+ Kh8 54. Nd7 Rb6+ 55. Rg6 Rb2 56. Ra6 Kg8 57. Rf6 Rb8 58. Nxb8 Kh8 59. Rf8# 1-0
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "baselines/zaw_original"]
+[Black "prototypes/numba_kernel"]
+[Result "0-1"]
+[FEN "rn1q1rk1/pbppbppp/1p2p3/8/2PPn3/2N2NP1/PP2PPBP/R1BQ1RK1 w - - 7 8"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "queens_indian"]
+
+8. Nxe4 Bxe4 9. Bf4 g5 10. Be3 g4 11. Ne5 Bxg2 12. Kxg2 f5 13. Bh6 d6 14. Bxf8 Qxf8 15. Nd3 Qh6 16. Kg1 c6 17. e4 Nd7 18. Re1 Re8 19. exf5 exf5 20. d5 cxd5 21. Qb3 Nf6 22. cxd5 a6 23. Qxb6 Qh3 24. Rxe7 Rxe7 25. Qd8+ Kf7 26. Qxd6 Ne4 27. Qb8 Ng5 28. Kh1 Nf3 29. Ne5+ Rxe5 30. Qb7+ Kg6 31. Qxa6+ Kg5 32. Qh6+ Kxh6 33. d6 Qxh2# 0-1
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "prototypes/numba_kernel"]
+[Black "baselines/zaw_original"]
+[Result "1/2-1/2"]
+[FEN "r1bqk2r/pp2bppp/2n2n2/2pp4/3P4/2N2NP1/PP2PPBP/R1BQK2R w KQkq - 3 8"]
+[SetUp "1"]
+[Termination "threefold_repetition"]
+[Opening "tarrasch"]
+
+8. dxc5 Bxc5 9. Bg5 d4 10. Bxf6 gxf6 11. Ne4 Bb4+ 12. Ned2 O-O 13. a3 Bxd2+ 14. Qxd2 Qb6 15. O-O Re8 16. Rae1 Bg4 17. Qh6 Qxb2 18. Ng5 fxg5 19. Qxg5+ Kf8 20. Qxg4 Qxa3 21. Bxc6 bxc6 22. Qxd4 Kg8 23. Qg4+ Kh8 24. Qd4+ Kg8 25. Qg4+ Kh8 26. Qc4 Re6 27. Qd4+ f6 28. Qg4 Qa2 29. e4 Rg8 30. Qh5 Rg7 31. Re3 Qc4 32. Rfe1 Rg6 33. Qa5 a6 34. R3e2 Qd3 35. Qc7 Qd6 36. Qc8+ Rg8 37. Qxa6 Qd4 38. Qb7 Rge8 39. Qf7 R6e7 40. Qh5 Kg8 41. h4 c5 42. Kh2 Rxe4 43. Qxe8+ Rxe8 44. Rxe8+ Kg7 45. R8e7+ Kh6 46. R1e3 c4 47. R7e6 Qa1 48. f4 Kh5 49. Re1 Qd4 50. Kh3 f5 51. Re7 h6 52. Rc7 Qd2 53. Rce7 Qf2 54. R1e3 Qf1+ 55. Kh2 Qf2+ 56. Kh3 Qf1+ 57. Kh2 Qf2+ 1/2-1/2
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "baselines/zaw_original"]
+[Black "prototypes/numba_kernel"]
+[Result "0-1"]
+[FEN "r1bqk2r/pp2bppp/2n2n2/2pp4/3P4/2N2NP1/PP2PPBP/R1BQK2R w KQkq - 3 8"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "tarrasch"]
+
+8. dxc5 Bxc5 9. Bg5 d4 10. Bxf6 gxf6 11. Ne4 Bb4+ 12. Ned2 O-O 13. O-O Bf5 14. Nb3 d3 15. a3 dxe2 16. Qxe2 Bd3 17. Qd1 Bxf1 18. Bxf1 Be7 19. Bb5 Ne5 20. Nxe5 fxe5 21. Qg4+ Kh8 22. Qe4 f6 23. Bd3 Rf7 24. Bc4 Rg7 25. Bd5 Rb8 26. Re1 Qd7 27. f4 Rd8 28. Bc4 b5 29. Bf1 Qd5 30. Qxd5 Rxd5 31. f5 Rg5 32. Bh3 Rd3 33. Na5 b4 34. axb4 Bxb4 35. Ra1 e4 36. Nc4 Bc5+ 37. Kh1 e3 38. Re1 Bd4 39. b4 a6 40. Bf1 Rb3 41. Nd6 Rg7 42. Nc4 Rd7 43. Rd1 h6 44. Be2 Kg7 45. Kg2 Rxb4 46. Kf3 Rb8 47. Nxe3 Rb3 48. Rd3 Rxd3 49. Bxd3 a5 50. Ke4 Bxe3 51. Kxe3 a4 52. h4 a3 53. Bc4 Rc7 54. Bd5 Rc5 55. Be6 Rxf5 56. Ba2 Rb5 57. Ke4 Rb2 58. Bd5 h5 59. Bc4 Rb4 60. Kd5 Rxc4 61. Kxc4 a2 62. Kd4 a1=Q+ 63. Ke4 Qc3 64. Kd5 Qxg3 65. Ke6 Qxh4 66. Kd5 Qb4 67. Kc6 h4 68. Kd7 h3 69. Ke6 h2 70. Kf5 h1=Q 71. Ke6 Qd1 72. Kf5 Qd5# 0-1
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "prototypes/numba_kernel"]
+[Black "baselines/zaw_original"]
+[Result "1/2-1/2"]
+[FEN "r1bq1rk1/pp2bppp/2n1pn2/2pp4/4P3/3P1NP1/PPPN1PBP/R1BQ1RK1 w - - 1 8"]
+[SetUp "1"]
+[Termination "threefold_repetition"]
+[Opening "reti"]
+
+8. c4 b6 9. Ng5 h6 10. cxd5 exd5 11. exd5 Nxd5 12. Qf3 Ncb4 13. a3 Bxg5 14. axb4 Be6 15. bxc5 bxc5 16. Ne4 Be7 17. Nc3 Nb6 18. Re1 a5 19. Qh5 Qxd3 20. Bxa8 Rxa8 21. Be3 Qc4 22. Bxh6 gxh6 23. Qxh6 Bf8 24. Qg5+ Bg7 25. Rad1 Nd7 26. Ne4 f5 27. Rxd7 Bxd7 28. Nf6+ Kf7 29. Nxd7 Qd4 30. Qxf5+ Kg8 31. Qe6+ Kh8 32. b3 Rd8 33. Qh3+ Kg8 34. Qe6+ Kh8 35. Qh3+ Kg8 36. Nb6 Rf8 37. Qe6+ Rf7 38. Qe8+ Rf8 39. Qe6+ Kh8 40. Qe2 Rf6 41. Nc4 Bh6 42. Nxa5 Qd2 43. Nc4 Qd4 44. h4 Rf8 45. Ne5 Rf5 46. g4 Rf4 47. Ng6+ Kh7 48. Nxf4 Qxf4 49. g5 Bxg5 50. Qd3+ Kg7 51. hxg5 Qxg5+ 52. Qg3 Qxg3+ 53. fxg3 Kf6 54. Rc1 Kf5 55. Rxc5+ Ke4 56. g4 Kd4 57. g5 Kxc5 58. g6 Kb4 59. g7 Kxb3 60. g8=Q+ Kb4 61. Qd5 Kc3 62. Kf2 Kb4 63. Ke3 Ka4 64. Qc4+ Ka5 65. Kd4 Kb6 66. Qc5+ Kb7 67. Ke4 Kb8 68. Qc6 Ka7 69. Kd4 Kb8 70. Ke4 Ka7 71. Kd4 Kb8 1/2-1/2
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "baselines/zaw_original"]
+[Black "prototypes/numba_kernel"]
+[Result "1/2-1/2"]
+[FEN "r1bq1rk1/pp2bppp/2n1pn2/2pp4/4P3/3P1NP1/PPPN1PBP/R1BQ1RK1 w - - 1 8"]
+[SetUp "1"]
+[Termination "threefold_repetition"]
+[Opening "reti"]
+
+8. c4 d4 9. b3 e5 10. a4 b6 11. Ba3 h6 12. h3 Be6 13. Rc1 Qd7 14. g4 g5 15. Re1 a5 16. Qe2 Rad8 17. Rb1 Ne8 18. Rbc1 Nd6 19. Rb1 h5 20. Nh2 hxg4 21. Nxg4 f6 22. Rbc1 Nb4 23. Bf3 Nf7 24. Bxb4 axb4 25. Ra1 Qc6 26. Rac1 Rfe8 27. Bg2 Nd6 28. Bf3 Nf7 29. Bg2 Nd6 30. Bf3 1/2-1/2
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "prototypes/numba_kernel"]
+[Black "baselines/zaw_original"]
+[Result "1/2-1/2"]
+[FEN "r1bq1rk1/ppp2ppp/2np1n2/1B2p3/1b2P3/2NP1N2/PPP2PPP/R1BQ1RK1 w - - 0 7"]
+[SetUp "1"]
+[Termination "threefold_repetition"]
+[Opening "four_knights"]
+
+7. a3 Bxc3 8. bxc3 a6 9. Bxc6 bxc6 10. Bg5 h6 11. Bxf6 Qxf6 12. Rb1 Bg4 13. Rb7 Bxf3 14. Qxf3 Qxf3 15. gxf3 Rfc8 16. Rfb1 c5 17. a4 a5 18. h4 g6 19. Kf1 f5 20. Ke2 f4 21. c4 h5 22. c3 Kf8 23. Kd2 Kf7 24. d4 Ke6 25. d5+ Kf6 26. Kd3 Ra6 27. Kc2 Kg7 28. Kd3 Kf7 29. Rf1 Kf6 30. Rfb1 Kf7 31. Rf1 Kg7 32. Re1 Kf6 33. Reb1 1/2-1/2
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "baselines/zaw_original"]
+[Black "prototypes/numba_kernel"]
+[Result "0-1"]
+[FEN "r1bq1rk1/ppp2ppp/2np1n2/1B2p3/1b2P3/2NP1N2/PPP2PPP/R1BQ1RK1 w - - 0 7"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "four_knights"]
+
+7. a3 Bxc3 8. bxc3 a6 9. Bxc6 bxc6 10. Bg5 h6 11. Bxf6 Qxf6 12. Rb1 Qg6 13. Nh4 Qg5 14. Nf3 Qh5 15. a4 Bg4 16. Rb7 Rac8 17. c4 c5 18. a5 f6 19. Re1 Rfe8 20. h3 Bxh3 21. gxh3 Qxh3 22. Ra7 Qg4+ 23. Kf1 Rf8 24. Re3 f5 25. exf5 Rxf5 26. Qe2 Qh3+ 27. Ke1 Rcf8 28. Ng1 Qh1 29. Qf1 Qh4 30. Nh3 Qd4 31. Kd2 Qb2 32. Qe1 Qb8 33. Rxa6 Qb7 34. Rxd6 cxd6 35. Kc1 Rb8 36. f4 Qb2+ 37. Kd2 exf4 38. Re8+ Kh7 39. Rxb8 Qxb8 40. Qe6 Re5 41. Qg4 Qb4+ 42. c3 Qb2+ 43. Kd1 Qxc3 44. Qh4 Qxd3+ 45. Kc1 Re2 46. Ng5+ Kg8 47. Qxf4 Qc2# 0-1
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "prototypes/numba_kernel"]
+[Black "baselines/zaw_original"]
+[Result "1/2-1/2"]
+[FEN "r1bq1rk1/pp1pppbp/2n2np1/8/2PN4/2N3P1/PP2PPBP/R1BQ1RK1 b - - 0 8"]
+[SetUp "1"]
+[Termination "threefold_repetition"]
+[Opening "english_symmetrical"]
+
+8... e5 9. Ndb5 Ng4 10. e4 h5 11. h3 Nf6 12. Be3 b6 13. b3 Nb4 14. a4 Bb7 15. Bf3 a6 16. Nd6 Bc6 17. Nd5 Bxd5 18. exd5 a5 19. Re1 Qe7 20. Ne4 Nxe4 21. Bxe4 Qd6 22. f4 f5 23. Bg2 e4 24. Rb1 Nd3 25. Rf1 Bc3 26. Qc2 Qb4 27. Rfd1 Ne1 28. Qf2 Nd3 29. Qc2 Ne1 30. Qf2 Nd3 1/2-1/2
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "baselines/zaw_original"]
+[Black "prototypes/numba_kernel"]
+[Result "1/2-1/2"]
+[FEN "r1bq1rk1/pp1pppbp/2n2np1/8/2PN4/2N3P1/PP2PPBP/R1BQ1RK1 b - - 0 8"]
+[SetUp "1"]
+[Termination "threefold_repetition"]
+[Opening "english_symmetrical"]
+
+8... e5 9. Nxc6 dxc6 10. c5 Be6 11. Qd6 Ne8 12. Qxd8 Rxd8 13. Be3 f5 14. Rad1 Rxd1 15. Rxd1 e4 16. a4 Nc7 17. f4 a5 18. h4 Bxc3 19. bxc3 Bd5 20. Bd4 Ne6 21. e3 Rf7 22. Kf2 Bb3 23. Ra1 h5 24. Bf1 Re7 25. Ra3 Bc2 26. Bc4 Bd3 27. Bf6 Re8 28. Bxe6+ Rxe6 29. Bd8 Bc4 30. Ra1 Re8 31. Bxa5 Bd3 32. Bb6 Kf7 33. Rd1 Re7 34. Ba5 Rd7 35. Bb4 Ke6 36. a5 Kd5 37. Rd2 Rd8 38. Kg2 Rd7 39. Rd1 Rd8 40. Rd2 Rd7 41. Rd1 Rd8 1/2-1/2
