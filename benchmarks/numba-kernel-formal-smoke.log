@@ -1,0 +1,7 @@
+1/2 ruy_lopez agent=white: black by checkmate (+0 =0 -1)
+2/2 ruy_lopez agent=black: black by checkmate (+1 =0 -1)
+Final: +1 =0 -1, failures=0
+
+real	7m1.826s
+user	6m59.821s
+sys	0m2.566s

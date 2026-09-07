@@ -1,0 +1,321 @@
+{
+  "stable_sha256": "887d8ca093d429d305cac98272d28447611bdcf07ac25ab5174c41ca6b6018f5",
+  "kernel_sha256": "ab9faedd8a0db02dc452e8526c6b8e8ab8ffc7253f31c17438374ded02fe85c4",
+  "python": "3.14.4",
+  "warmup_seconds": 16.442387124996458,
+  "max_rss_kib": 278784,
+  "rows": [
+    {
+      "name": "ruy_lopez",
+      "fen": "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq - 0 8",
+      "timed": {
+        "0.25": {
+          "stable": {
+            "move": "a2a4",
+            "depth": 3,
+            "nodes": 4221,
+            "elapsed_s": 0.2500810229976196
+          },
+          "kernel": {
+            "move": "a2a4",
+            "depth": 3,
+            "nodes": 20959,
+            "elapsed_s": 0.26060665499971947
+          }
+        },
+        "1.0": {
+          "stable": {
+            "move": "a2a4",
+            "depth": 3,
+            "nodes": 17154,
+            "elapsed_s": 1.0002456000001985
+          },
+          "kernel": {
+            "move": "a2a4",
+            "depth": 3,
+            "nodes": 88543,
+            "elapsed_s": 1.0011215240010642
+          }
+        },
+        "2.5": {
+          "stable": {
+            "move": "b1c3",
+            "depth": 4,
+            "nodes": 43609,
+            "elapsed_s": 2.5001119719963754
+          },
+          "kernel": {
+            "move": "b1c3",
+            "depth": 4,
+            "nodes": 239036,
+            "elapsed_s": 2.5051470329999574
+          }
+        }
+      },
+      "kernel_fixed": {
+        "d2": {
+          "elapsed_ms": 28.384188997733872,
+          "nodes": 2601,
+          "score": -30
+        },
+        "d3": {
+          "elapsed_ms": 156.22058600274613,
+          "nodes": 14573,
+          "score": 10
+        }
+      }
+    },
+    {
+      "name": "sicilian",
+      "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+      "timed": {
+        "0.25": {
+          "stable": {
+            "move": "f1c4",
+            "depth": 2,
+            "nodes": 4644,
+            "elapsed_s": 0.25009191499702865
+          },
+          "kernel": {
+            "move": "f1c4",
+            "depth": 3,
+            "nodes": 22803,
+            "elapsed_s": 0.25567832800152246
+          }
+        },
+        "1.0": {
+          "stable": {
+            "move": "f1c4",
+            "depth": 3,
+            "nodes": 17533,
+            "elapsed_s": 1.0000690010056132
+          },
+          "kernel": {
+            "move": "f1c4",
+            "depth": 3,
+            "nodes": 89363,
+            "elapsed_s": 1.0087784670031397
+          }
+        },
+        "2.5": {
+          "stable": {
+            "move": "f1c4",
+            "depth": 4,
+            "nodes": 42612,
+            "elapsed_s": 2.500281900000118
+          },
+          "kernel": {
+            "move": "f1c4",
+            "depth": 3,
+            "nodes": 221459,
+            "elapsed_s": 2.5089344669977436
+          }
+        }
+      },
+      "kernel_fixed": {
+        "d2": {
+          "elapsed_ms": 29.617554995638784,
+          "nodes": 2544,
+          "score": -6
+        },
+        "d3": {
+          "elapsed_ms": 197.57703199866228,
+          "nodes": 18400,
+          "score": 15
+        }
+      }
+    },
+    {
+      "name": "french",
+      "fen": "rnbqkb1r/pp1n1ppp/4p3/2ppP3/3P1P2/2N2N2/PPP3PP/R1BQKB1R b KQkq - 1 6",
+      "timed": {
+        "0.25": {
+          "stable": {
+            "move": "b8c6",
+            "depth": 2,
+            "nodes": 4336,
+            "elapsed_s": 0.25006761999975424
+          },
+          "kernel": {
+            "move": "f8e7",
+            "depth": 3,
+            "nodes": 23030,
+            "elapsed_s": 0.26008938000450144
+          }
+        },
+        "1.0": {
+          "stable": {
+            "move": "f8e7",
+            "depth": 3,
+            "nodes": 18337,
+            "elapsed_s": 1.000082143000327
+          },
+          "kernel": {
+            "move": "b8c6",
+            "depth": 4,
+            "nodes": 88362,
+            "elapsed_s": 1.001447452006687
+          }
+        },
+        "2.5": {
+          "stable": {
+            "move": "f8e7",
+            "depth": 3,
+            "nodes": 44925,
+            "elapsed_s": 2.50005026999861
+          },
+          "kernel": {
+            "move": "b8c6",
+            "depth": 4,
+            "nodes": 223530,
+            "elapsed_s": 2.5087064699982875
+          }
+        }
+      },
+      "kernel_fixed": {
+        "d2": {
+          "elapsed_ms": 23.310860997298732,
+          "nodes": 2041,
+          "score": -7
+        },
+        "d3": {
+          "elapsed_ms": 110.89645399624715,
+          "nodes": 10038,
+          "score": 16
+        }
+      }
+    },
+    {
+      "name": "caro_kann",
+      "fen": "rn1qkbnr/pp2ppp1/2p3bp/8/3P3P/6N1/PPP2PP1/R1BQKBNR w KQkq - 0 7",
+      "timed": {
+        "0.25": {
+          "stable": {
+            "move": "g1f3",
+            "depth": 3,
+            "nodes": 4860,
+            "elapsed_s": 0.25006425099854823
+          },
+          "kernel": {
+            "move": "g1f3",
+            "depth": 3,
+            "nodes": 24407,
+            "elapsed_s": 0.2607921519957017
+          }
+        },
+        "1.0": {
+          "stable": {
+            "move": "g1f3",
+            "depth": 4,
+            "nodes": 17062,
+            "elapsed_s": 1.0000529300014023
+          },
+          "kernel": {
+            "move": "g1f3",
+            "depth": 4,
+            "nodes": 95345,
+            "elapsed_s": 1.0045629369997187
+          }
+        },
+        "2.5": {
+          "stable": {
+            "move": "g1f3",
+            "depth": 4,
+            "nodes": 41290,
+            "elapsed_s": 2.5001653720028116
+          },
+          "kernel": {
+            "move": "g1f3",
+            "depth": 4,
+            "nodes": 232561,
+            "elapsed_s": 2.501228515000548
+          }
+        }
+      },
+      "kernel_fixed": {
+        "d2": {
+          "elapsed_ms": 8.980620994407218,
+          "nodes": 824,
+          "score": 13
+        },
+        "d3": {
+          "elapsed_ms": 64.20318099844735,
+          "nodes": 6275,
+          "score": 65
+        }
+      }
+    },
+    {
+      "name": "queens_gambit",
+      "fen": "rnbq1rk1/ppp1bppp/4pn2/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R b KQ - 2 6",
+      "timed": {
+        "0.25": {
+          "stable": {
+            "move": "h7h6",
+            "depth": 2,
+            "nodes": 4329,
+            "elapsed_s": 0.2500521609981661
+          },
+          "kernel": {
+            "move": "b8d7",
+            "depth": 3,
+            "nodes": 23319,
+            "elapsed_s": 0.2509563139974489
+          }
+        },
+        "1.0": {
+          "stable": {
+            "move": "b8d7",
+            "depth": 3,
+            "nodes": 16875,
+            "elapsed_s": 1.0000454010005342
+          },
+          "kernel": {
+            "move": "b8d7",
+            "depth": 4,
+            "nodes": 92164,
+            "elapsed_s": 1.0037955840016366
+          }
+        },
+        "2.5": {
+          "stable": {
+            "move": "b8d7",
+            "depth": 4,
+            "nodes": 42410,
+            "elapsed_s": 2.5000841060027597
+          },
+          "kernel": {
+            "move": "b8d7",
+            "depth": 4,
+            "nodes": 227332,
+            "elapsed_s": 2.5070339710000553
+          }
+        }
+      },
+      "kernel_fixed": {
+        "d2": {
+          "elapsed_ms": 17.894072996568866,
+          "nodes": 1677,
+          "score": 1
+        },
+        "d3": {
+          "elapsed_ms": 429.2196890019113,
+          "nodes": 39183,
+          "score": 39
+        }
+      }
+    }
+  ],
+  "mean_depth_0.25": {
+    "stable": 2.4,
+    "kernel": 3
+  },
+  "mean_depth_1.0": {
+    "stable": 3.2,
+    "kernel": 3.6
+  },
+  "mean_depth_2.5": {
+    "stable": 3.8,
+    "kernel": 3.8
+  }
+}

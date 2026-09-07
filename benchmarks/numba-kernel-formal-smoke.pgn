@@ -1,0 +1,27 @@
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "prototypes/numba_kernel"]
+[Black "baselines/zaw_original"]
+[Result "0-1"]
+[FEN "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq - 0 8"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "ruy_lopez"]
+
+8. a4 b4 9. Qe2 Be6 10. Bxe6 fxe6 11. c3 a5 12. Qc4 Qd7 13. Ng5 d5 14. Qe2 O-O 15. d3 h6 16. Nf3 Bd6 17. Nbd2 Rad8 18. g3 Bc5 19. exd5 Qxd5 20. c4 Qxd3 21. Qxd3 Rxd3 22. Nxe5 Bxf2+ 23. Kh1 Nxe5 24. Rxe5 Be3 25. Rxe3 Rxe3 26. c5 Ng4 27. Nc4 Re1+ 28. Kg2 Re4 29. Bxh6 Rxc4 30. Bf4 e5 31. Bg5 Rf2+ 32. Kg1 Rxh2 33. Rc1 Rxc1+ 34. Bxc1 b3 35. c6 Rc2 36. Bg5 e4 37. Be7 e3 38. Bb4 axb4 39. Kf1 Nh2+ 40. Ke1 Nf3+ 41. Kd1 e2# 0-1
+
+[Event "Local version comparison"]
+[Site "?"]
+[Date "2026.09.07"]
+[Round "?"]
+[White "baselines/zaw_original"]
+[Black "prototypes/numba_kernel"]
+[Result "0-1"]
+[FEN "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq - 0 8"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "ruy_lopez"]
+
+8. Nc3 O-O 9. d4 Bg4 10. dxe5 Nxe5 11. Bf4 c5 12. Bxe5 Bxf3 13. Qxf3 dxe5 14. Rad1 Qc8 15. Bd5 Ra7 16. Qg3 b4 17. Ne2 Nxd5 18. Rxd5 f6 19. c4 g6 20. f4 exf4 21. Nxf4 g5 22. a3 a5 23. e5 Qf5 24. Nd3 fxe5 25. Qxe5 Qxe5 26. Rexe5 Bf6 27. Rxg5+ Bxg5 28. Rxg5+ Kh8 29. Nxc5 Rf4 30. Nb3 Re7 31. h3 a4 32. Nd2 Re1+ 33. Kh2 bxa3 34. bxa3 Rd1 35. Rd5 Rxc4 36. Rd8+ Kg7 37. Rd7+ Kf8 38. Nxc4 Rxd7 39. Nb6 Rd4 40. g4 Rd2+ 41. Kg3 Rd3+ 42. Kf4 Rxa3 43. h4 Rc3 44. Nd7+ Ke7 45. Nb6 Ke6 46. Nxa4 Rc4+ 47. Kg3 Rxa4 48. h5 Kf6 49. Kh4 h6 50. Kg3 Kg5 51. Kf3 Rxg4 52. Ke2 Kxh5 53. Ke3 Kg5 54. Kd3 h5 55. Ke3 h4 56. Kd3 h3 57. Kc3 h2 58. Kb3 h1=Q 59. Ka2 Rb4 60. Ka3 Qe4 61. Ka2 Qa8# 0-1

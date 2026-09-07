@@ -1,0 +1,359 @@
+{
+  "stable_sha256": "887d8ca093d429d305cac98272d28447611bdcf07ac25ab5174c41ca6b6018f5",
+  "kernel_sha256": "47851c5e58be73dde2b19e0d2ab9a85b0907dc9454cac757b22ce4864231c9fc",
+  "python": "3.14.4",
+  "warmup_seconds": 16.319667877003667,
+  "max_rss_kib": 276460,
+  "rows": [
+    {
+      "name": "ruy_lopez",
+      "fen": "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq - 0 8",
+      "fixed": {
+        "stable_d2": {
+          "elapsed_ms": 86.57783799571916,
+          "nodes": 1457,
+          "score": -30
+        },
+        "kernel_d2": {
+          "elapsed_ms": 68.28848199802451,
+          "nodes": 6294,
+          "score": -30
+        },
+        "stable_d3": {
+          "elapsed_ms": 309.7554370033322,
+          "nodes": 5177,
+          "score": 10
+        },
+        "kernel_d3": {
+          "elapsed_ms": 682.0278140003211,
+          "nodes": 64893,
+          "score": 10
+        }
+      },
+      "timed": {
+        "0.25": {
+          "stable": {
+            "move": "a2a4",
+            "depth": 3,
+            "nodes": 4508,
+            "elapsed_s": 0.25007049599662423
+          },
+          "kernel": {
+            "move": "a2a4",
+            "depth": 2,
+            "nodes": 24767,
+            "elapsed_s": 0.2580513200009591
+          }
+        },
+        "1.0": {
+          "stable": {
+            "move": "a2a4",
+            "depth": 3,
+            "nodes": 17808,
+            "elapsed_s": 1.000075358999311
+          },
+          "kernel": {
+            "move": "a2a4",
+            "depth": 3,
+            "nodes": 94780,
+            "elapsed_s": 1.0054111089993967
+          }
+        },
+        "2.5": {
+          "stable": {
+            "move": "b1c3",
+            "depth": 4,
+            "nodes": 42798,
+            "elapsed_s": 2.5002077399985865
+          },
+          "kernel": {
+            "move": "a2a4",
+            "depth": 3,
+            "nodes": 241212,
+            "elapsed_s": 2.510827893005626
+          }
+        }
+      }
+    },
+    {
+      "name": "sicilian",
+      "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+      "fixed": {
+        "stable_d2": {
+          "elapsed_ms": 48.693649005144835,
+          "nodes": 848,
+          "score": -6
+        },
+        "kernel_d2": {
+          "elapsed_ms": 162.5139739990118,
+          "nodes": 15552,
+          "score": -6
+        },
+        "stable_d3": {
+          "elapsed_ms": 751.7239440057892,
+          "nodes": 13155,
+          "score": 15
+        },
+        "kernel_d3": {
+          "elapsed_ms": 1990.450999001041,
+          "nodes": 186741,
+          "score": 15
+        }
+      },
+      "timed": {
+        "0.25": {
+          "stable": {
+            "move": "f1c4",
+            "depth": 2,
+            "nodes": 4237,
+            "elapsed_s": 0.2500655319963698
+          },
+          "kernel": {
+            "move": "f1c4",
+            "depth": 2,
+            "nodes": 24859,
+            "elapsed_s": 0.26036491099512205
+          }
+        },
+        "1.0": {
+          "stable": {
+            "move": "f1c4",
+            "depth": 3,
+            "nodes": 17365,
+            "elapsed_s": 1.0000929960006033
+          },
+          "kernel": {
+            "move": "f1c4",
+            "depth": 2,
+            "nodes": 91419,
+            "elapsed_s": 1.0076385790016502
+          }
+        },
+        "2.5": {
+          "stable": {
+            "move": "f1c4",
+            "depth": 4,
+            "nodes": 42651,
+            "elapsed_s": 2.5001682080037426
+          },
+          "kernel": {
+            "move": "f1c4",
+            "depth": 3,
+            "nodes": 239248,
+            "elapsed_s": 2.501385452997056
+          }
+        }
+      }
+    },
+    {
+      "name": "french",
+      "fen": "rnbqkb1r/pp1n1ppp/4p3/2ppP3/3P1P2/2N2N2/PPP3PP/R1BQKB1R b KQkq - 1 6",
+      "fixed": {
+        "stable_d2": {
+          "elapsed_ms": 82.48599799844669,
+          "nodes": 1420,
+          "score": -7
+        },
+        "kernel_d2": {
+          "elapsed_ms": 118.92650699883234,
+          "nodes": 10976,
+          "score": -7
+        },
+        "stable_d3": {
+          "elapsed_ms": 230.65557399968384,
+          "nodes": 4024,
+          "score": 16
+        },
+        "kernel_d3": {
+          "elapsed_ms": 859.2540430036024,
+          "nodes": 76377,
+          "score": 16
+        }
+      },
+      "timed": {
+        "0.25": {
+          "stable": {
+            "move": "b8c6",
+            "depth": 2,
+            "nodes": 4327,
+            "elapsed_s": 0.2500635489996057
+          },
+          "kernel": {
+            "move": "b8c6",
+            "depth": 2,
+            "nodes": 23972,
+            "elapsed_s": 0.2579394909989787
+          }
+        },
+        "1.0": {
+          "stable": {
+            "move": "f8e7",
+            "depth": 3,
+            "nodes": 18065,
+            "elapsed_s": 1.0000789949990576
+          },
+          "kernel": {
+            "move": "f8e7",
+            "depth": 3,
+            "nodes": 91133,
+            "elapsed_s": 1.0023356750025414
+          }
+        },
+        "2.5": {
+          "stable": {
+            "move": "f8e7",
+            "depth": 3,
+            "nodes": 44752,
+            "elapsed_s": 2.5000336519951816
+          },
+          "kernel": {
+            "move": "f8e7",
+            "depth": 3,
+            "nodes": 226301,
+            "elapsed_s": 2.5061929570001666
+          }
+        }
+      }
+    },
+    {
+      "name": "caro_kann",
+      "fen": "rn1qkbnr/pp2ppp1/2p3bp/8/3P3P/6N1/PPP2PP1/R1BQKBNR w KQkq - 0 7",
+      "fixed": {
+        "stable_d2": {
+          "elapsed_ms": 41.19429599813884,
+          "nodes": 683,
+          "score": 13
+        },
+        "kernel_d2": {
+          "elapsed_ms": 119.39425399759784,
+          "nodes": 11332,
+          "score": 13
+        },
+        "stable_d3": {
+          "elapsed_ms": 237.7648580004461,
+          "nodes": 4439,
+          "score": 65
+        },
+        "kernel_d3": {
+          "elapsed_ms": 975.5184960013139,
+          "nodes": 89763,
+          "score": 65
+        }
+      },
+      "timed": {
+        "0.25": {
+          "stable": {
+            "move": "g1f3",
+            "depth": 3,
+            "nodes": 4597,
+            "elapsed_s": 0.25019655899814097
+          },
+          "kernel": {
+            "move": "g1e2",
+            "depth": 2,
+            "nodes": 24120,
+            "elapsed_s": 0.2588775539989001
+          }
+        },
+        "1.0": {
+          "stable": {
+            "move": "g1f3",
+            "depth": 4,
+            "nodes": 15964,
+            "elapsed_s": 1.0000544540016563
+          },
+          "kernel": {
+            "move": "g1e2",
+            "depth": 2,
+            "nodes": 93752,
+            "elapsed_s": 1.0006903239991516
+          }
+        },
+        "2.5": {
+          "stable": {
+            "move": "g1f3",
+            "depth": 4,
+            "nodes": 40540,
+            "elapsed_s": 2.500181914001587
+          },
+          "kernel": {
+            "move": "g1f3",
+            "depth": 3,
+            "nodes": 230619,
+            "elapsed_s": 2.502172390995838
+          }
+        }
+      }
+    },
+    {
+      "name": "queens_gambit",
+      "fen": "rnbq1rk1/ppp1bppp/4pn2/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R b KQ - 2 6",
+      "fixed": {
+        "stable_d2": {
+          "elapsed_ms": 107.72708599688485,
+          "nodes": 1872,
+          "score": 1
+        },
+        "kernel_d2": {
+          "elapsed_ms": 557.9692059982335,
+          "nodes": 54309,
+          "score": 1
+        },
+        "stable_d3": {
+          "elapsed_ms": 872.7566310044494,
+          "nodes": 14167,
+          "score": 39
+        },
+        "kernel_d3": {
+          "elapsed_ms": 7499.938027998724,
+          "nodes": 689317,
+          "score": 39
+        }
+      },
+      "timed": {
+        "0.25": {
+          "stable": {
+            "move": "h7h6",
+            "depth": 2,
+            "nodes": 4219,
+            "elapsed_s": 0.25017293199925916
+          },
+          "kernel": {
+            "move": "b8d7",
+            "depth": 1,
+            "nodes": 19205,
+            "elapsed_s": 0.25429281600372633
+          }
+        },
+        "1.0": {
+          "stable": {
+            "move": "b8d7",
+            "depth": 3,
+            "nodes": 16352,
+            "elapsed_s": 1.0000453980028396
+          },
+          "kernel": {
+            "move": "h7h6",
+            "depth": 2,
+            "nodes": 97066,
+            "elapsed_s": 1.0073001380005735
+          }
+        },
+        "2.5": {
+          "stable": {
+            "move": "b8d7",
+            "depth": 4,
+            "nodes": 40402,
+            "elapsed_s": 2.500112198998977
+          },
+          "kernel": {
+            "move": "h7h6",
+            "depth": 2,
+            "nodes": 234282,
+            "elapsed_s": 2.509189166004944
+          }
+        }
+      }
+    }
+  ]
+}

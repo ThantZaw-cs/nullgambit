@@ -1,0 +1,25 @@
+1/20 petroff agent=white: draw by threefold_repetition (+0 =1 -0)
+2/20 petroff agent=black: draw by threefold_repetition (+0 =2 -0)
+3/20 vienna agent=white: white by checkmate (+1 =2 -0)
+4/20 vienna agent=black: black by checkmate (+2 =2 -0)
+5/20 pirc agent=white: white by checkmate (+3 =2 -0)
+6/20 pirc agent=black: white by checkmate (+3 =2 -1)
+7/20 scandinavian agent=white: white by checkmate (+4 =2 -1)
+8/20 scandinavian agent=black: draw by threefold_repetition (+4 =3 -1)
+9/20 catalan agent=white: white by checkmate (+5 =3 -1)
+10/20 catalan agent=black: draw by threefold_repetition (+5 =4 -1)
+11/20 queens_indian agent=white: white by checkmate (+6 =4 -1)
+12/20 queens_indian agent=black: black by checkmate (+7 =4 -1)
+13/20 tarrasch agent=white: draw by threefold_repetition (+7 =5 -1)
+14/20 tarrasch agent=black: black by checkmate (+8 =5 -1)
+15/20 reti agent=white: draw by threefold_repetition (+8 =6 -1)
+16/20 reti agent=black: draw by threefold_repetition (+8 =7 -1)
+17/20 four_knights agent=white: draw by threefold_repetition (+8 =8 -1)
+18/20 four_knights agent=black: black by checkmate (+9 =8 -1)
+19/20 english_symmetrical agent=white: draw by threefold_repetition (+9 =9 -1)
+20/20 english_symmetrical agent=black: draw by threefold_repetition (+9 =10 -1)
+Final: +9 =10 -1, failures=0
+
+real	69m38.545s
+user	69m11.886s
+sys	0m32.339s
