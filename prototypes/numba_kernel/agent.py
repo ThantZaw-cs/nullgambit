@@ -728,6 +728,7 @@ def _quiescence(
     if state[3] >= 100 or _insufficient_material(board):
         return 0
     if _draw_by_history(board, state, history, history_len):
+        counters[3] += 1
         return 0
     if ply >= MAX_PLY - 1:
         return _evaluate(board, side)
@@ -815,6 +816,7 @@ def _negamax(
     if state[3] >= 100 or _insufficient_material(board):
         return 0
     if _draw_by_history(board, state, history, history_len):
+        counters[3] += 1
         return 0
     if ply >= MAX_PLY - 1:
         return _evaluate(board, int(state[0]))
@@ -940,7 +942,7 @@ def _root_search(
                 deadline,
                 counters,
                 history,
-                history_len,
+                history_len + 1,
                 tt_keys,
                 tt_moves,
             )
@@ -955,7 +957,7 @@ def _root_search(
                 deadline,
                 counters,
                 history,
-                history_len,
+                history_len + 1,
                 tt_keys,
                 tt_moves,
             )
@@ -970,7 +972,7 @@ def _root_search(
                     deadline,
                     counters,
                     history,
-                    history_len,
+                    history_len + 1,
                     tt_keys,
                     tt_moves,
                 )
@@ -1001,7 +1003,7 @@ def timed_search(source: chess.Board, seconds: float) -> tuple[str, int, int]:
     tt_keys = np.zeros(TT_LIMIT, dtype=np.uint64)
     tt_moves = np.full(TT_LIMIT, -1, dtype=np.int64)
     for candidate_depth in range(1, 64):
-        counters = np.zeros(3, dtype=np.int64)
+        counters = np.zeros(4, dtype=np.int64)
         candidate, _ = compiled_root_search(
             board,
             state,
@@ -1026,7 +1028,7 @@ def fixed_score(source: chess.Board, depth: int) -> int:
     board, state = from_chess(source)
     history = np.zeros(256, dtype=np.uint64)
     history_len = _seed_history(source, history)
-    counters = np.zeros(3, dtype=np.int64)
+    counters = np.zeros(4, dtype=np.int64)
     tt_keys = np.zeros(TT_LIMIT, dtype=np.uint64)
     tt_moves = np.full(TT_LIMIT, -1, dtype=np.int64)
     return int(
@@ -1079,10 +1081,12 @@ def get_move(fen: str, time_left_ms: int) -> str:
     reserve = max(0.01, min(0.25, remaining * 0.15))
     budget = min(2.5, remaining / 35.0, max(0.0, remaining - reserve))
     move = legal[0]
+    global LAST_SEARCH_DEPTH
+    LAST_SEARCH_DEPTH = 0
     if budget >= 0.02:
         source = _restore_history(fen)
         search_budget = max(0.0, budget - (time.monotonic() - started))
-        uci, _, _ = timed_search(source, search_budget)
+        uci, LAST_SEARCH_DEPTH, _ = timed_search(source, search_budget)
         move = chess.Move.from_uci(uci)
         if move not in incoming.legal_moves:
             move = legal[0]
@@ -1107,7 +1111,10 @@ def _seed_history(source: chess.Board, output: np.ndarray) -> int:
     return len(positions)
 
 
-_search_counters = np.zeros(3, dtype=np.int64)
+LAST_SEARCH_DEPTH = 0
+
+
+_search_counters = np.zeros(4, dtype=np.int64)
 _search_history = np.zeros(256, dtype=np.uint64)
 _search_tt_keys = np.zeros(TT_LIMIT, dtype=np.uint64)
 _search_tt_moves = np.full(TT_LIMIT, -1, dtype=np.int64)

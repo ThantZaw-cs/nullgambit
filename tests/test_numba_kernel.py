@@ -3,6 +3,7 @@
 import random
 import time
 import unittest
+from itertools import pairwise
 from pathlib import Path
 
 import chess
@@ -127,6 +128,69 @@ class NumbaKernelTests(unittest.TestCase):
         self.assertTrue(board.is_repetition(3))
         self.assertEqual(kernel.fixed_score(board, 2), 0)
 
+    def test_root_history_survives_children_and_detects_third_occurrence(self) -> None:
+        board = chess.Board()
+        for move in ("g1f3", "g8f6", "f3g1", "f6g8"):
+            board.push_uci(move)
+        compiled_board, state = kernel.from_chess(board)
+        original_board, original_state = compiled_board.copy(), state.copy()
+        history = np.zeros(256, dtype=np.uint64)
+        history_len = kernel._seed_history(board, history)
+        prefix = history[:history_len].copy()
+        root_key = kernel._position_hash(compiled_board, state)
+        tt_keys = np.zeros(kernel.TT_LIMIT, dtype=np.uint64)
+        tt_moves = np.full(kernel.TT_LIMIT, -1, dtype=np.int64)
+
+        def encoded(position: chess.Board, uci: str) -> int:
+            inner_board, inner_state = kernel.from_chess(position)
+            moves = np.empty(256, dtype=np.int64)
+            count = kernel.compiled_legal_moves(inner_board, inner_state, moves)
+            return next(int(move) for move in moves[:count] if kernel.move_to_uci(int(move)) == uci)
+
+        cycle = ("g1f3", "g8f6", "f3g1", "f6g8")
+        cursor = board.copy()
+        preferred = encoded(cursor, cycle[0])
+        for uci, reply in pairwise(cycle):
+            cursor.push_uci(uci)
+            inner_board, inner_state = kernel.from_chess(cursor)
+            key = kernel._position_hash(inner_board, inner_state)
+            index = int(key & np.uint64(kernel.TT_LIMIT - 1))
+            tt_keys[index] = key
+            tt_moves[index] = encoded(cursor, reply)
+        initial_tt_keys = tt_keys.copy()
+        initial_tt_moves = tt_moves.copy()
+
+        first_result: tuple[int, int] | None = None
+        deadlines = (time.monotonic() + 10, time.monotonic() + 10, time.monotonic() - 1)
+        for run, deadline in enumerate(deadlines):
+            tt_keys[:] = initial_tt_keys
+            tt_moves[:] = initial_tt_moves
+            counters = np.zeros(4, dtype=np.int64)
+            result = kernel.compiled_root_search(
+                compiled_board,
+                state,
+                4,
+                deadline,
+                counters,
+                preferred,
+                history,
+                history_len,
+                tt_keys,
+                tt_moves,
+            )
+            np.testing.assert_array_equal(compiled_board, original_board)
+            np.testing.assert_array_equal(state, original_state)
+            np.testing.assert_array_equal(history[:history_len], prefix)
+            self.assertEqual(history[history_len], root_key)
+            if run == 0:
+                first_result = result
+                self.assertGreater(counters[3], 0)
+            elif run == 1:
+                self.assertEqual(result, first_result)
+                self.assertGreater(counters[3], 0)
+            else:
+                self.assertEqual(counters[1], 1)
+
     def test_repetition_hash_uses_only_legal_en_passant(self) -> None:
         unavailable = chess.Board()
         unavailable.push_uci("e2e4")
@@ -165,6 +229,23 @@ class NumbaKernelTests(unittest.TestCase):
         restored = kernel._restore_history(incoming.fen())
         self.assertEqual(len(restored.move_stack), 2)
 
+    def test_real_entry_searches_with_overhead_and_long_history(self) -> None:
+        line = ("g1f3", "g8f6", "b1c3", "b8c6", "f3g1", "f6g8", "c3b1", "c6b8")
+        complete = chess.Board()
+        for uci in line:
+            complete.push_uci(uci)
+        previous = complete.copy()
+        previous.pop()
+        for clock in (700, 800, 1000, 2000):
+            for _ in range(3):
+                kernel._previous_board = previous.copy()
+                started = time.monotonic()
+                move = chess.Move.from_uci(kernel.get_move(complete.fen(), clock))
+                elapsed = time.monotonic() - started
+                self.assertIn(move, complete.legal_moves)
+                self.assertGreater(kernel.LAST_SEARCH_DEPTH, 0)
+                self.assertLess(elapsed, clock / 1000.0)
+
     def test_move_only_tt_is_bounded(self) -> None:
         self.assertEqual(kernel.TT_LIMIT, 65_536)
 
@@ -172,9 +253,17 @@ class NumbaKernelTests(unittest.TestCase):
         runner = local(Path("prototypes/numba_kernel"))
         try:
             runner.start(INIT_BUDGET_S)
-            board = chess.Board()
-            move = chess.Move.from_uci(runner.move(board.fen(), 500))
-            self.assertIn(move, board.legal_moves)
+            board = chess.Board(
+                "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq - 0 8"
+            )
+            for clock in (700, 800, 1000, 2000):
+                started = time.monotonic()
+                move = chess.Move.from_uci(runner.move(board.fen(), clock))
+                self.assertLess(time.monotonic() - started, clock / 1000.0)
+                self.assertIn(move, board.legal_moves)
+                board.push(move)
+                if not board.is_game_over():
+                    board.push(next(iter(board.legal_moves)))
         finally:
             runner.stop()
 

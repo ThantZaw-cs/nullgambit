@@ -1,0 +1,109 @@
+{
+  "agent_sha256": "b08ab63e695f971e6322353eb5bba4657c91e901ac9b0b6fb9a326f1def56297",
+  "python": "3.14.4",
+  "direct_long_history": [
+    {
+      "time_left_ms": 700,
+      "runs": [
+        {
+          "elapsed_ms": 22.534214000188513,
+          "move": "b1c3",
+          "completed_depth": 3
+        },
+        {
+          "elapsed_ms": 25.062823999178363,
+          "move": "b1c3",
+          "completed_depth": 3
+        },
+        {
+          "elapsed_ms": 24.047675000474555,
+          "move": "b1c3",
+          "completed_depth": 3
+        }
+      ]
+    },
+    {
+      "time_left_ms": 800,
+      "runs": [
+        {
+          "elapsed_ms": 23.48135699867271,
+          "move": "b1c3",
+          "completed_depth": 3
+        },
+        {
+          "elapsed_ms": 24.218556998675922,
+          "move": "b1c3",
+          "completed_depth": 3
+        },
+        {
+          "elapsed_ms": 24.512680000043474,
+          "move": "b1c3",
+          "completed_depth": 3
+        }
+      ]
+    },
+    {
+      "time_left_ms": 1000,
+      "runs": [
+        {
+          "elapsed_ms": 34.4014549991698,
+          "move": "b1c3",
+          "completed_depth": 3
+        },
+        {
+          "elapsed_ms": 33.16887999972096,
+          "move": "b1c3",
+          "completed_depth": 3
+        },
+        {
+          "elapsed_ms": 33.95364900279674,
+          "move": "b1c3",
+          "completed_depth": 3
+        }
+      ]
+    },
+    {
+      "time_left_ms": 2000,
+      "runs": [
+        {
+          "elapsed_ms": 65.65520000003744,
+          "move": "b1c3",
+          "completed_depth": 4
+        },
+        {
+          "elapsed_ms": 63.55610299942782,
+          "move": "b1c3",
+          "completed_depth": 4
+        },
+        {
+          "elapsed_ms": 61.095885997929145,
+          "move": "b1c3",
+          "completed_depth": 4
+        }
+      ]
+    }
+  ],
+  "runner_init_seconds": 28.89592493499731,
+  "runner_complex_sequence": [
+    {
+      "time_left_ms": 700,
+      "round_trip_ms": 42.41398099838989,
+      "move": "a2a4"
+    },
+    {
+      "time_left_ms": 800,
+      "round_trip_ms": 29.615711002406897,
+      "move": "a4b5"
+    },
+    {
+      "time_left_ms": 1000,
+      "round_trip_ms": 34.58046000014292,
+      "move": "b5c6"
+    },
+    {
+      "time_left_ms": 2000,
+      "round_trip_ms": 58.97326299964334,
+      "move": "d2d4"
+    }
+  ]
+}
