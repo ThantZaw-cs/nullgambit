@@ -1,0 +1,8 @@
+slav11:25 online e5 v3 depth 6 best e4e5 -20 {'e5': -20}
+slav11:25 online e5 v4 depth 7 best e4e5 10 {'e5': 10}
+slav11:36 online f5 v3 depth 7 best a4a5 -204 {'a5': -204, 'f5': -217}
+slav11:36 online f5 v4 depth 7 best a4a5 -204 {'a5': -204, 'f5': -217}
+slav12:21 online Nxe4 v3 depth 6 best h5d1 76 {'Nxe4': -67, 'Qxd1+': 76}
+slav12:21 online Nxe4 v4 depth 6 best h5d1 76 {'Nxe4': -67, 'Qxd1+': 76}
+slav12:22 online Nd6 v3 depth 6 best e4d6 -35 {'Nd6': -35}
+slav12:22 online Nd6 v4 depth 7 best e4d6 35 {'Nd6': 35}

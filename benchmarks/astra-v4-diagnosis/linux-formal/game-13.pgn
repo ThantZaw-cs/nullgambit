@@ -1,0 +1,13 @@
+[Event "?"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "13"]
+[White "v4"]
+[Black "v3"]
+[Result "1-0"]
+[FEN "rnbq1rk1/ppp2pbp/3p1np1/4p3/2PPP3/2N2N2/PP2BPPP/R1BQK2R w KQ - 0 7"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "kings_indian"]
+
+7. d5 c6 8. O-O cxd5 9. cxd5 Nbd7 10. h3 Qb6 11. Qc2 Nc5 12. Be3 Bd7 13. Rac1 Rac8 14. a3 Qb3 15. Qb1 a5 16. Nd2 Qb6 17. b4 Qc7 18. bxc5 dxc5 19. Nc4 Rcd8 20. Qb6 Rc8 21. Qxc7 Rxc7 22. Nxa5 b6 23. d6 Rcc8 24. Nc4 Rc6 25. Rb1 Rb8 26. Nxe5 Rxd6 27. Bxc5 Re6 28. f4 Rc8 29. Bd4 Rxc3 30. Bxc3 Nxe4 31. Bd4 Nd2 32. Rxb6 Nxf1 33. Rb8+ Re8 34. Rxe8+ Bxe8 35. Kxf1 Bf8 36. Bb2 Bd6 37. g3 h5 38. h4 f5 39. Bc4+ Kh7 40. Kg2 Ba4 41. Bc3 Bc2 42. Kf1 Bc7 43. Bb5 Be4 44. a4 Bd5 45. a5 Be4 46. a6 Kh6 47. a7 Ba8 48. Bc6 Bxe5 49. Bxa8 Bxc3 50. Bd5 Bf6 51. a8=Q Kg7 52. Qg8+ Kh6 53. Bf7 Bg7 54. Ke2 g5 55. fxg5# 1-0

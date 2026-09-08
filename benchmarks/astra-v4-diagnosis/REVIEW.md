@@ -156,8 +156,86 @@ An independent tracked export without `data/online/` or its own virtual
 environment also passes 56 tests (12.046 s), ruff and strict mypy, reusing the
 installed Mac dependencies. Aggregate Mac measurements are in `mac-summary.json`;
 complete online histories and probes remain private.
-Formal results are pending completion; no result or recommendation is inferred
-from the fact that the workflow is running.
+The fixed batch completed **20/20 games**, 09:21:13–10:41:54 UTC (80 min
+41.565 s), without a retry or early stop. v4 scores **+9 =7 -4, 62.5%**;
+failures, voids and cap adjudications are all zero. Endings are 13 checkmates,
+6 threefold repetitions and 1 insufficient-material draw. All 2,098 plies and
+corresponding per-move traces replay correctly. Every side starts with 120,000 ms,
+every reply fits its supplied clock, and measured initialization ranges from
+18.102 to 20.202 s. Clock accounting is separately checked in `clock-audit.json`.
+
+| Opening (regression set) | v4 as White | v4 as Black | Pair score |
+| --- | --- | --- | --- |
+| Ruy Lopez | Win | Draw | 75% |
+| Sicilian | Draw | Win | 75% |
+| French | Loss | Win | 50% |
+| Caro-Kann | Win | Draw | 75% |
+| Queen's Gambit | Draw | Draw | 50% |
+| Slav | Loss | Loss | 0% |
+| King's Indian | Win | Loss | 50% |
+| English | Draw | Win | 75% |
+| Scotch | Win | Draw | 75% |
+| Italian | Win | Win | 100% |
+
+Six pairs favor v4, one favors v3 and three are tied. Pair bootstrap 95% interval:
+**45%–77.5%**; descriptive two-sided pair sign test **p=0.125**. The interval
+includes equality. The positive total supports provisional retention on this
+control, not a demonstrated universal strength or Elo increase. The Slav double
+loss is retained as a concrete negative signal, not hidden by the total.
+
+Actual host: Linux 6.17.0-1022-azure / Ubuntu 24.04 image
+`20260831.293.1`, AMD EPYC 7763, four visible CPUs but affinity `[0]` for the
+whole process tree; Python **3.12.3**, NumPy 2.5.2, Numba 0.67.0, llvmlite 0.49.0,
+chess 1.11.2. All four numeric thread limits are 1. About 15.6 GiB host memory is
+visible; address-space limit is unlimited, with no imposed 2 GB quota. Dependencies
+are locked; the complete installed package list and resource fields are retained.
+
+All 46 original artifact members are byte-preserved in `linux-formal/`, including
+20 PGNs, 20 move logs, the plan, raw results and environment. Downloaded artifact
+SHA-256: `a8244b633b64079de885fa3d3367ef7e03a11a8078ad1ae18997d4672a2ef906`.
+The ZIP remains outside Git; `original-files-sha256.json` records member digests.
+
+## Bounded post-hoc check of the Slav losses
+
+After retaining the complete formal result, four public test-game decisions were
+fixed in `slav-probe-plan.json`: game 11 moves 25/36, game 12 moves 21/22. There
+are **24 additional Mac entry calls**, three per version and position, using the
+exact recorded Linux clock and full history. These are position probes, not
+rerun matches, and do not change the twenty-game score or become a holdout.
+All are legal, preserve history and fit their clocks.
+
+- Game 11: both versions repeat 25.e5 and 36.f5. At common depth 7, f5 is -217 cp
+  versus a5 -204, with the position already unfavorable.
+- Game 12: at 21... the original known v4 Linux move is Nxe4. Mac v3 repeats
+  Nxe4/d5; Mac v4 repeats Qxd1+/d6. At **common completed depth 6**, both versions
+  score Nxe4 -67 cp and Qxd1+ +76 cp. This is a shared horizon concern and a
+  concrete example of why Mac move matching cannot fingerprint an online build.
+  It does not establish the unlogged depth reached on Linux.
+- Both repeat 22...Nd6. The requested depth-7 diagnostics complete only depth 6
+  in four of eight root searches under their 15 s caps; each comparison uses
+  its actual completed depth. Unequal-depth root scores are not compared as if
+  they were equal-depth results. No timeout is selectively rerun.
+
+The helper's `online` field means the observed move here; these four source
+positions are **public Linux test games**, not additional online matches.
+Files `slav-mac-probes.json`, `slav-depth7.json` and their logs retain every probe.
+This bounded spot check does not exhaustively explain the two losses.
+
+## Recommendation and next hypothesis
+
+**Provisionally continue v4; a rollback to v3 is not supported by the current
+combined evidence.** No v4-specific implementation failure or reproducible
+version-wide regression is established. The Linux total is positive but
+statistically inconclusive, and the Slav pair remains a local negative signal.
+Rounds 61/62 still lack per-game build IDs; neither their losses nor their move
+choices establish a v4 regression. Keep the frozen v3 available for comparison.
+
+The next best-supported development experiment is a **bounded search extension
+for passed-pawn/promotion defense**, tested first on a newly held-out endgame set
+and then under equal resources. The 61/35 and 62/38 depth changes support testing
+that hypothesis; they do not prove it will improve strength. Search and evaluation
+effects still need separation. No such extension, time-policy change, algorithm
+change, competition upload or PR merge is performed in this diagnosis.
 
 ## Private evidence and reproduction
 

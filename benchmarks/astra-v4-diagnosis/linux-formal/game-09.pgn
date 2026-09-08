@@ -1,0 +1,13 @@
+[Event "?"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "9"]
+[White "v4"]
+[Black "v3"]
+[Result "1/2-1/2"]
+[FEN "rnbq1rk1/ppp1bppp/4pn2/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R b KQ - 2 6"]
+[SetUp "1"]
+[Termination "threefold_repetition"]
+[Opening "queens_gambit"]
+
+6... Nbd7 7. Bd3 dxc4 8. Bxc4 Nb6 9. Bd3 Nbd5 10. Ne5 h6 11. Bxf6 Bxf6 12. Qh5 Bxe5 13. Qxe5 c6 14. O-O Qg5 15. Qxg5 hxg5 16. a4 g4 17. a5 Nb4 18. Rfd1 f5 19. e4 Bd7 20. Bc4 Kh8 21. Ra4 c5 22. Raa1 cxd4 23. Rxd4 Be8 24. Rd6 e5 25. exf5 Rxf5 26. Nd5 Nxd5 27. Bxd5 Rb8 28. Re1 Bc6 29. Be6 Rg5 30. b4 a6 31. Bd5 Bxd5 32. Rxd5 Rc8 33. g3 Rc4 34. b5 Rd4 35. Rc5 Rd2 36. Rexe5 Rxe5 37. Rxe5 axb5 38. Rxb5 Ra2 39. Rxb7 Rxa5 40. Kg2 Kg8 41. h4 gxh3+ 42. Kxh3 Rd5 43. f4 g5 44. Kg4 gxf4 45. gxf4 Rd6 46. f5 Rf6 47. Kf4 Rf8 48. Rd7 Rf7 49. Rxf7 Kxf7 50. Ke5 Ke7 51. f6+ Kf7 52. Kf5 Kf8 53. Ke6 Ke8 54. Kd6 Kf8 55. Kd5 Kf7 56. Ke5 Kf8 57. Kf5 Kf7 58. Kg5 Kf8 59. Kg6 Kg8 60. Kh6 Kf7 61. Kg5 Kf8 62. Kg6 Kg8 63. Kf5 Kf8 1/2-1/2

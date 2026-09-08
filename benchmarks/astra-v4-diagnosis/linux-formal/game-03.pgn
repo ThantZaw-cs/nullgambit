@@ -1,0 +1,13 @@
+[Event "?"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "3"]
+[White "v4"]
+[Black "v3"]
+[Result "1/2-1/2"]
+[FEN "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6"]
+[SetUp "1"]
+[Termination "threefold_repetition"]
+[Opening "sicilian"]
+
+6. Be2 e5 7. Nf3 Be7 8. O-O O-O 9. b3 b5 10. Bd3 Nbd7 11. Nd5 Nc5 12. Ba3 Nxd5 13. exd5 Nxd3 14. Qxd3 f5 15. Nxe5 dxe5 16. d6 Bxd6 17. Qd5+ Kh8 18. Bxd6 Bb7 19. Qxe5 Qg5 20. f3 Rfe8 21. Qf4 Qxf4 22. Bxf4 Rac8 23. Rfe1 h6 24. Rxe8+ Rxe8 25. h4 Re2 26. Rc1 Bd5 27. Kf1 Re7 28. c4 bxc4 29. bxc4 Be6 30. a3 Rd7 31. c5 Rd4 32. Bg3 f4 33. Bf2 Rc4 34. Rxc4 Bxc4+ 35. Ke1 Bd5 36. Ke2 Kg8 37. g3 g5 38. gxf4 gxf4 39. Bd4 a5 40. Be5 h5 41. Bxf4 a4 42. Be5 Kf7 43. f4 Ke6 44. Kd3 Kf5 45. Ke3 Bg2 46. Bd6 Kg4 47. Be7 Kf5 48. Kf2 Bd5 49. Ke3 Bg2 50. Bg5 Ke6 51. Kd4 Bh1 52. Bh6 Kf5 53. Kc4 Bc6 54. Kd3 Ke6 55. Kd4 Kf5 56. Kd3 Ke6 57. Kd4 Kf5 1/2-1/2

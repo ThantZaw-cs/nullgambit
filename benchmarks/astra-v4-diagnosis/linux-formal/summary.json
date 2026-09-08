@@ -1,0 +1,40 @@
+{
+  "requested_games": 20,
+  "actual_games": 20,
+  "complete": true,
+  "wins": 9,
+  "draws": 7,
+  "losses": 4,
+  "voids": 0,
+  "failures": 0,
+  "adjudications": 0,
+  "raw_referee_score": 0.625,
+  "terminations": {
+    "checkmate": 13,
+    "threefold_repetition": 6,
+    "insufficient_material": 1
+  },
+  "paired_scores": [
+    0.75,
+    0.75,
+    0.5,
+    0.75,
+    0.5,
+    0.0,
+    0.5,
+    0.75,
+    0.75,
+    1.0
+  ],
+  "pair_bootstrap_95": [
+    0.45,
+    0.775
+  ],
+  "descriptive_two_sided_pair_sign_p": 0.125,
+  "elapsed_s": 4841.564824,
+  "plan_sha256": "e12b549b44039d70594a85c42327156abec7461e5da6217ef466d4877f5ac9e4",
+  "candidate_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+  "opponent_sha256": "b08ab63e695f971e6322353eb5bba4657c91e901ac9b0b6fb9a326f1def56297",
+  "all_completed_pgns_and_traces_audited": true,
+  "interpretation": "Previously used regression openings, one opponent, ten pairs. Small-sample descriptive uncertainty; not an Elo estimate or official container test. Raw referee scores are preserved; any cap adjudications must be considered separately."
+}
