@@ -1,5 +1,10 @@
 # Astra v4: online evidence and a bounded ordering experiment
 
+Release review update: the source described here remains frozen. The separate
+`RELEASE.md` records Draft PR #2 and actual Linux compatibility validation. Its
+two short Linux smoke games were both losses by checkmate, with no program
+failure; this does not extend or replace the Mac strength evidence below.
+
 Started 2026-09-08 02:04 UTC on `astra-v4`, commit
 `639fc47922b49d363962a5c0a73a7b4e69192f49`. The only initial untracked work was
 `data/`. Root agent and `harness/` are unchanged. No push, merge, upload, external

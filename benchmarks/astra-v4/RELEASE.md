@@ -64,6 +64,40 @@ search-depth/time telemetry and `validation.json`. Artifacts are retained for
 Actual status must be taken from the linked Actions run; configuration alone is
 not a passing result.
 
+## Actual Linux result
+
+[PR #2](https://github.com/ThantZaw-cs/nullgambit/pull/2) remains a draft into
+`codex`. [Run 34185678463](https://github.com/ThantZaw-cs/nullgambit/actions/runs/34185678463)
+passed all steps on 2026-09-08. It tested head `bd76aac9eff3ac302da5abaac3af900f218e60e5`
+through GitHub's synthetic PR merge `f4032e322613e7cc36d31da79df84b3e449d18a7`;
+no branch was merged by this task. Raw results are copied unchanged into
+`release-linux/`, excluding the ZIP. `provenance.json` records the run and artifact.
+
+- Ubuntu 24.04.4 x86_64, Python 3.12.3, AMD EPYC 9V45 host, CPU affinity `[0]`,
+  approximately 15.6 GiB host memory, unlimited RLIMIT_AS. The complete lock
+  installed successfully, including torch 2.13.0+cpu and onnxruntime 1.29.0.
+- All 55 tests passed (22.760 s test execution, excluding module import), ruff
+  0.16.5 and strict mypy 2.3.1 passed. Original root smoke checks also passed.
+- Extracted v4 initialized in 12.407 s. Runner round trips were 143.438 / 30.511 /
+  0.136 ms under supplied 5000 / 1000 / 1 ms clocks. Isolated real searches
+  completed depths 5 and 4 in 144.848 and 31.294 ms. Child peak RSS was 301,532 KiB;
+  this is an observation, not a memory-quota test.
+- **V4 lost both smoke games by checkmate: +0 =0 -2, failures/voids 0.** Both
+  swapped-color PGNs replay to natural results. Compatibility passes despite
+  these losses; they are not evidence of improved Linux strength. No algorithm
+  change or outcome-selected retry follows these results. Any automatic CI run
+  after the evidence-only documentation commit remains separate and visible.
+- The [artifact](https://github.com/ThantZaw-cs/nullgambit/actions/runs/34185678463/artifacts/10040464657)
+  was downloaded and its outer SHA-256 verified as
+  `5f98d65b5630b7b4d02ca4f7ae0045ebc4eee77842cbfed488eaec9638778a24`.
+  The inner candidate ZIP SHA-256 is
+  `b379a6f0a8003227fe0951a7564976bdb2431fc065be59e2290b58e6e71671e4`,
+  identical to the clean Mac build; its `agent.py` matches the frozen v4 hash.
+
+Keep this candidate available for review. Linux playing strength at formal time
+control and the official full-container check remain unverified. The historical
+Mac strength results and these two Linux compatibility games stay separate.
+
 ## Limits of this validation
 
 `validation.json` records OS/image/architecture, Python and package versions,

@@ -11,7 +11,13 @@
   mypy 通过。该检查复用了已安装的 Mac 依赖，不冒充 Linux 或全新依赖安装验证。
   解压后的 v4 搜索/独立 runner 通过，换色两局对 v3 均三次重复和棋，失败 0；原始记录在
   `benchmarks/astra-v4/release-mac/`，不混入此前棋力测试样本。
-- Linux 实际状态以新 Draft PR 的 Actions 检查和 artifact 为准；配置本身不算通过。
+- [新 Draft PR #2](https://github.com/ThantZaw-cs/nullgambit/pull/2) 已创建，目标 `codex`。
+  [Linux 首次完整 CI](https://github.com/ThantZaw-cs/nullgambit/actions/runs/34185678463)
+  实际通过：55 项测试、ruff、strict mypy、候选 ZIP、隔离真实搜索和 runner、两局短局。
+  Ubuntu 24.04.4 x86_64 / Python 3.12.3，CPU affinity 为单核 0，未设置 2 GB 内存配额。
+  初始化 12.407 秒；两次搜索完成深度 5 / 4；三个 runner 往返均低于各自时钟。
+  **Linux 冒烟候选 +0 =0 -2，均正常被将死，程序失败 0。** 不改算法、不挑选重跑来改善结果，
+  不将兼容性通过说成 Linux 棋力提升。完整记录在 `benchmarks/astra-v4/release-linux/`。
   ZIP 只保存在本地/Actions artifact，不进入 Git。详细复现、环境记录与限制见
   `benchmarks/astra-v4/RELEASE.md`。普通 Linux CI 仅能确认兼容性，官网容器验证仍未完成。
 - 本轮只授权推送 `astra-v4` 并新建 `astra-v4 → codex` Draft PR；不更新旧 PR #1，不合并、

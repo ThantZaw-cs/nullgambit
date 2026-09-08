@@ -1,0 +1,134 @@
+{
+  "environment": {
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+    "cpu_count": 4,
+    "packages": {
+      "chess": "1.11.2",
+      "numpy": "2.5.2",
+      "numba": "0.67.0",
+      "llvmlite": "0.49.0",
+      "torch": "2.13.0+cpu",
+      "onnxruntime": "1.29.0",
+      "ruff": "0.16.5",
+      "mypy": "2.3.1"
+    },
+    "uv_lock_sha256": "206d8c2f00d47060d2c2b9749c8a33baa99f35e3c9d699fb9dbff2ba77a74fbe",
+    "address_space_limit": [
+      -1,
+      -1
+    ],
+    "runner_os": "Linux",
+    "runner_arch": "X64",
+    "image_os": "ubuntu24",
+    "image_version": "20260831.293.1",
+    "github_sha": "f4032e322613e7cc36d31da79df84b3e449d18a7",
+    "github_run_id": "34185678463",
+    "thread_limits": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "NUMBA_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "scope": "Host compatibility only; not the official competition container",
+    "limitations": [
+      "No 2 GB memory quota or read-only filesystem imposed",
+      "Network isolation and opponent process suspension are not reproduced",
+      "Unmodified local referee: 60 s init, 300-ply material adjudication, claim_draw=True",
+      "Two short smoke games do not measure playing strength"
+    ],
+    "cpu_affinity": [
+      0
+    ],
+    "meminfo": "MemTotal:       16373452 kB\nMemFree:        11713440 kB\nMemAvailable:   15332332 kB\nBuffers:          104120 kB\nCached:          3731620 kB\nSwapCached:            0 kB\nActive:           717792 kB\nInactive:        3411512 kB\nActive(anon):     351276 kB\nInactive(anon):        0 kB\nActive(file):     366516 kB\nInactive(file):  3411512 kB\nUnevictable:       46720 kB\nMlocked:           43648 kB\nSwapTotal:       3145724 kB\nSwapFree:        3145724 kB\nZswap:                 0 kB\nZswapped:              0 kB\nDirty:              6572 kB\nWriteback:             0 kB\nAnonPages:        337560 kB\nMapped:           343052 kB\nShmem:             48988 kB\nKReclaimable:     186816 kB\nSlab:             272384 kB\nSReclaimable:     186816 kB\nSUnreclaim:        85568 kB\nKernelStack:        4132 kB\nPageTables:         6252 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    11332448 kB\nCommitted_AS:    2034528 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:       37796 kB\nVmallocChunk:          0 kB\nPercpu:             2208 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:    120832 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nCmaTotal:              0 kB\nCmaFree:               0 kB\nUnaccepted:            0 kB\nBalloon:               0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:      117888 kB\nDirectMap2M:     5120000 kB\nDirectMap1G:    13631488 kB\n",
+    "cpuinfo": "processor\t: 0\nvendor_id\t: AuthenticAMD\ncpu family\t: 26\nmodel\t\t: 2\nmodel name\t: AMD EPYC 9V45 96-Core Processor\nstepping\t: 1\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3985.621\ncache size\t: 1024 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 0\ncpu cores\t: 2\napicid\t\t: 0\ninitial apicid\t: 0\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves user_shstk avx_vnni avx512_bf16 clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm avx512_vp2intersect\nbugs\t\t: sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass srso spectre_v2_user\nbogomips\t: 5192.25\nTLB size\t: 192 4K pages\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 48 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 1\nvendor_id\t: AuthenticAMD\ncpu family\t: 26\nmodel\t\t: 2\nmodel name\t: AMD EPYC 9V45 96-Core Processor\nstepping\t: 1\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2596.126\ncache size\t: 1024 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 0\ncpu cores\t: 2\napicid\t\t: 1\ninitial apicid\t: 1\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves user_shstk avx_vnni avx512_bf16 clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm avx512_vp2intersect\nbugs\t\t: sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass srso spectre_v2_user\nbogomips\t: 5192.25\nTLB size\t: 192 4K pages\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 48 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 2\nvendor_id\t: AuthenticAMD\ncpu family\t: 26\nmodel\t\t: 2\nmodel name\t: AMD EPYC 9V45 96-Core Processor\nstepping\t: 1\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2596.126\ncache size\t: 1024 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 1\ncpu cores\t: 2\napicid\t\t: 2\ninitial apicid\t: 2\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves user_shstk avx_vnni avx512_bf16 clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm avx512_vp2intersect\nbugs\t\t: sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass srso spectre_v2_user\nbogomips\t: 5192.25\nTLB size\t: 192 4K pages\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 48 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 3\nvendor_id\t: AuthenticAMD\ncpu family\t: 26\nmodel\t\t: 2\nmodel name\t: AMD EPYC 9V45 96-Core Processor\nstepping\t: 1\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 4023.794\ncache size\t: 1024 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 1\ncpu cores\t: 2\napicid\t\t: 3\ninitial apicid\t: 3\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves user_shstk avx_vnni avx512_bf16 clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm avx512_vp2intersect\nbugs\t\t: sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass srso spectre_v2_user\nbogomips\t: 5192.25\nTLB size\t: 192 4K pages\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 48 bits physical, 48 bits virtual\npower management:\n\n"
+  },
+  "status": "passed",
+  "candidate_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+  "archive_sha256": "b379a6f0a8003227fe0951a7564976bdb2431fc065be59e2290b58e6e71671e4",
+  "runner": {
+    "init_seconds": 12.407172736999996,
+    "checks": [
+      {
+        "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+        "remaining_ms": 5000,
+        "move": "g1f3",
+        "round_trip_ms": 143.4376240000006
+      },
+      {
+        "fen": "7k/8/8/3pP3/8/8/8/K7 w - d6 0 1",
+        "remaining_ms": 1000,
+        "move": "e5d6",
+        "round_trip_ms": 30.511423999996623
+      },
+      {
+        "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+        "remaining_ms": 1,
+        "move": "g1h3",
+        "round_trip_ms": 0.13636599999244936
+      }
+    ],
+    "stderr": ""
+  },
+  "isolated_search": {
+    "agent_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+    "init_seconds": 12.661512987999998,
+    "checks": [
+      {
+        "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+        "remaining_ms": 5000,
+        "move": "g1f3",
+        "elapsed_ms": 144.84828400000538,
+        "completed_depth": 5
+      },
+      {
+        "fen": "rnbqkb1r/pppppppp/7n/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 2 2",
+        "remaining_ms": 1000,
+        "move": "b1c3",
+        "elapsed_ms": 31.2944439999967,
+        "completed_depth": 4
+      }
+    ]
+  },
+  "games": [
+    {
+      "game": 1,
+      "candidate_color": "white",
+      "candidate_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+      "opponent_sha256": "b08ab63e695f971e6322353eb5bba4657c91e901ac9b0b6fb9a326f1def56297",
+      "opening": {
+        "name": "trompowsky",
+        "fen": "rnbq1rk1/ppp1bpp1/4pn1p/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 7",
+        "line": "d4 Nf6 Bg5 d5 e3 e6 Nf3 Be7 c4 O-O Nc3 h6"
+      },
+      "base_ms": 10000,
+      "increment_ms": 100,
+      "result": "black",
+      "termination": "checkmate",
+      "elapsed_seconds": 44.276179763000016,
+      "white_stderr": "",
+      "black_stderr": ""
+    },
+    {
+      "game": 2,
+      "candidate_color": "black",
+      "candidate_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+      "opponent_sha256": "b08ab63e695f971e6322353eb5bba4657c91e901ac9b0b6fb9a326f1def56297",
+      "opening": {
+        "name": "trompowsky",
+        "fen": "rnbq1rk1/ppp1bpp1/4pn1p/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 7",
+        "line": "d4 Nf6 Bg5 d5 e3 e6 Nf3 Be7 c4 O-O Nc3 h6"
+      },
+      "base_ms": 10000,
+      "increment_ms": 100,
+      "result": "white",
+      "termination": "checkmate",
+      "elapsed_seconds": 42.897481677,
+      "white_stderr": "",
+      "black_stderr": ""
+    }
+  ],
+  "children_maxrss": 301532,
+  "maxrss_unit": "KiB"
+}
