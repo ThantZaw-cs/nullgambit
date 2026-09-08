@@ -1,0 +1,12 @@
+[Event "?"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "?"]
+[Black "?"]
+[Result "1/2-1/2"]
+[FEN "rnbq1rk1/ppp1bpp1/4pn1p/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 7"]
+[SetUp "1"]
+[Termination "threefold_repetition"]
+
+7. Bxf6 Bxf6 8. cxd5 exd5 9. Bd3 Nc6 10. O-O Bg4 11. Qb3 Ne7 12. Qxb7 Rb8 13. Qxa7 Bxf3 14. gxf3 Qd7 15. e4 dxe4 16. Bxe4 Rxb2 17. Rad1 Qh3 18. Qxc7 Rc8 19. Qd6 Bg5 20. Nd5 Nxd5 21. Bxd5 Rd8 22. Qe5 Rc2 23. Qe4 Rc7 24. Bb3 Bf6 25. d5 Rc3 26. Qg4 Qxf3 27. Qxf3 Rxf3 28. Rfe1 Rf4 29. a4 Bd4 30. Re2 Rg4+ 31. Kf1 g5 32. a5 Ra8 33. Ra2 Be5 34. a6 Bxh2 35. f3 Rg1+ 36. Kf2 Rxd1 37. Bxd1 Bd6 38. Bc2 h5 39. Ra5 h4 40. Bf5 Kg7 41. Ra4 Kf6 42. Bd7 Ra7 43. Bc8 Rc7 44. Bb7 h3 45. a7 h2 46. a8=Q Rc2+ 47. Ke3 Bf4+ 48. Rxf4+ gxf4+ 49. Kd3 h1=Q 50. Qd8+ Kg6 51. Qg8+ Kf6 52. Qd8+ Kg6 53. Qg8+ Kf6 1/2-1/2

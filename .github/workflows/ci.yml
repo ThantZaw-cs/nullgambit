@@ -4,8 +4,20 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: ci-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
 jobs:
   gate:
+    if: (github.head_ref || github.ref_name) != 'astra-v4'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -17,6 +29,7 @@ jobs:
       - run: make gate
 
   harness:
+    if: (github.head_ref || github.ref_name) != 'astra-v4'
     strategy:
       fail-fast: false
       matrix:
@@ -30,3 +43,50 @@ jobs:
           enable-cache: true
       - run: uv sync
       - run: uv run python -m harness.arena --opponent baselines/random --games 2 --base-ms 5000
+
+  v4-linux:
+    if: (github.head_ref || github.ref_name) == 'astra-v4'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      NUMBA_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.11.28"
+          python-version: "3.12"
+          enable-cache: false
+      - name: Install the complete locked environment
+        run: uv sync --locked
+      - name: Select one available CPU and verify clean inputs
+        run: |
+          mkdir -p artifacts/v4-ci
+          test ! -e data/online
+          test -z "$(git status --porcelain --untracked-files=all)"
+          uv run --no-sync python -c 'import os; print("V4_CPU=" + str(min(os.sched_getaffinity(0))))' >> "$GITHUB_ENV"
+          uv pip freeze > artifacts/v4-ci/installed.txt
+          git rev-parse HEAD > artifacts/v4-ci/checkout.txt
+      - name: Ruff
+        run: taskset -c "$V4_CPU" uv run --no-sync ruff check . 2>&1 | tee artifacts/v4-ci/ruff.log
+      - name: Strict mypy
+        run: taskset -c "$V4_CPU" uv run --no-sync mypy 2>&1 | tee artifacts/v4-ci/mypy.log
+      - name: Complete test suite
+        run: taskset -c "$V4_CPU" uv run --no-sync python -m unittest discover -s tests -v 2>&1 | tee artifacts/v4-ci/tests.log
+      - name: Preserve existing root protocol smoke checks
+        run: taskset -c "$V4_CPU" uv run --no-sync python -m harness.arena --opponent baselines/random --games 2 --base-ms 5000 2>&1 | tee artifacts/v4-ci/root-smoke.log
+      - name: Frozen v4 ZIP, independent search and runner, two complete smoke games
+        run: taskset -c "$V4_CPU" uv run --no-sync python -m tools.validate_v4 --require-linux 2>&1 | tee artifacts/v4-ci/v4-validation.log
+      - name: Verify tracked files were not changed
+        if: always()
+        run: git diff --exit-code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: astra-v4-linux-${{ github.sha }}
+          path: artifacts/v4-ci/
+          if-no-files-found: error
+          retention-days: 14

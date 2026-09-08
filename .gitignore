@@ -5,6 +5,7 @@ __pycache__/
 submission.zip
 artifacts/*.zip
 artifacts/*.zip.sha256
+artifacts/v4-ci/
 *.pgn
 # Private online originals and derived move logs stay local.
 data/online/

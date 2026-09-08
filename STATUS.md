@@ -1,5 +1,22 @@
 # NullGambit 开发状态
 
+## Astra v4 发布前审查（2026-09-08）
+
+- 核对本地 `f747ddf4b5f0c9cb527e43cc8ea9d1d49f25e823`，候选仍为
+  `7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4`。
+  候选、冻结线上 v3、根目录旧版与 `harness/` 均不改；现有对战结果保留。
+- 新增固定 v4 哈希打包检查、隔离搜索探针、两局对线上 v3 的完整短局、公开 fixture 说明，
+  以及 Linux x86_64 / Python 3.12 Actions 工作流；按不变的 `uv.lock` 安装完整依赖。
+- 无私有资料、无项目虚拟环境的独立源码导出目录中，Mac 完整 **55 项测试**、ruff、strict
+  mypy 通过。该检查复用了已安装的 Mac 依赖，不冒充 Linux 或全新依赖安装验证。
+  解压后的 v4 搜索/独立 runner 通过，换色两局对 v3 均三次重复和棋，失败 0；原始记录在
+  `benchmarks/astra-v4/release-mac/`，不混入此前棋力测试样本。
+- Linux 实际状态以新 Draft PR 的 Actions 检查和 artifact 为准；配置本身不算通过。
+  ZIP 只保存在本地/Actions artifact，不进入 Git。详细复现、环境记录与限制见
+  `benchmarks/astra-v4/RELEASE.md`。普通 Linux CI 仅能确认兼容性，官网容器验证仍未完成。
+- 本轮只授权推送 `astra-v4` 并新建 `astra-v4 → codex` Draft PR；不更新旧 PR #1，不合并、
+  不强推、不上传比赛、不付费。原始线上资料仍留在被忽略的 `data/online/`。
+
 ## Astra v4 本地阶段完成（2026-09-08）
 
 **结论：建议保留历史排序候选。** 固定深度效率与独立开局配对结果均正向；样本仍小，尚无
