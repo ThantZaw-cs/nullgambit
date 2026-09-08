@@ -1,0 +1,13 @@
+1/12 trompowsky agent=white: white by checkmate (+1 =0 -0)
+2/12 trompowsky agent=black: black by checkmate (+2 =0 -0)
+3/12 bogo_indian agent=white: white by checkmate (+3 =0 -0)
+4/12 bogo_indian agent=black: black by checkmate (+4 =0 -0)
+5/12 accelerated_dragon agent=white: draw by threefold_repetition (+4 =1 -0)
+6/12 accelerated_dragon agent=black: draw by threefold_repetition (+4 =2 -0)
+7/12 french_exchange agent=white: draw by threefold_repetition (+4 =3 -0)
+8/12 french_exchange agent=black: black by checkmate (+5 =3 -0)
+9/12 kings_gambit_declined agent=white: draw by threefold_repetition (+5 =4 -0)
+10/12 kings_gambit_declined agent=black: draw by threefold_repetition (+5 =5 -0)
+11/12 slav_exchange agent=white: white by checkmate (+6 =5 -0)
+12/12 slav_exchange agent=black: draw by threefold_repetition (+6 =6 -0)
+Final: +6 =6 -0, failures=0

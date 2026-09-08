@@ -1,0 +1,13 @@
+[Event "?"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "2"]
+[White "v3"]
+[Black "v4"]
+[Result "1/2-1/2"]
+[FEN "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq - 0 8"]
+[SetUp "1"]
+[Termination "threefold_repetition"]
+[Opening "ruy_lopez"]
+
+8. a4 b4 9. Qe2 Be6 10. Bxe6 fxe6 11. c3 a5 12. d4 O-O 13. dxe5 Nxe5 14. Nxe5 dxe5 15. Rd1 Qe8 16. Nd2 Bc5 17. cxb4 axb4 18. Nb3 Bxf2+ 19. Qxf2 Rxa4 20. Qc5 Nxe4 21. Qxe5 Rxa1 22. Nxa1 Qf7 23. Be3 Nf2 24. Rc1 Nd3 25. Qxc7 Nxc1 26. Qxf7+ Kxf7 27. Bxc1 Rd8 28. Nb3 e5 29. Be3 Rd1+ 30. Kf2 Rb1 31. Bc1 h5 32. Ke3 Ke6 33. Kd2 e4 34. Kc2 Rxc1+ 35. Nxc1 h4 36. Kd2 Kd5 37. Ke3 g6 38. Nb3 g5 39. h3 Ke5 40. Nc5 Kf5 41. b3 g4 42. hxg4+ Kg5 43. Na6 Kxg4 44. Nxb4 Kg3 45. Nd5 Kxg2 46. Nf4+ Kg3 47. Nh5+ Kg4 48. Nf6+ Kg3 49. Nh5+ Kg4 50. Nf6+ Kg3 1/2-1/2

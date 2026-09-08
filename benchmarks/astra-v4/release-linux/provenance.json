@@ -1,0 +1,8 @@
+{
+  "run_url": "https://github.com/ThantZaw-cs/nullgambit/actions/runs/34185678463",
+  "head_sha": "bd76aac9eff3ac302da5abaac3af900f218e60e5",
+  "tested_merge_sha": "f4032e322613e7cc36d31da79df84b3e449d18a7",
+  "artifact_id": 10040464657,
+  "artifact_sha256": "5f98d65b5630b7b4d02ca4f7ae0045ebc4eee77842cbfed488eaec9638778a24",
+  "scope": "Linux compatibility; v4 smoke +0 =0 -2, failures 0; no strength claim"
+}

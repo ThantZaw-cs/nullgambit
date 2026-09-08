@@ -1,0 +1,32 @@
+[
+  {
+    "name": "trompowsky",
+    "fen": "rnbq1rk1/ppp1bpp1/4pn1p/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 7",
+    "line": "d4 Nf6 Bg5 d5 e3 e6 Nf3 Be7 c4 O-O Nc3 h6"
+  },
+  {
+    "name": "bogo_indian",
+    "fen": "r1b2rk1/ppp1qppp/2nppn2/8/1bPP4/5NP1/PP1BPPBP/RN1Q1RK1 w - - 0 8",
+    "line": "d4 Nf6 c4 e6 Nf3 Bb4+ Bd2 Qe7 g3 Nc6 Bg2 O-O O-O d6"
+  },
+  {
+    "name": "accelerated_dragon",
+    "fen": "r1bq1rk1/pp1pppbp/2n2np1/8/2PNP3/2N1B3/PP3PPP/R2QKB1R w KQ - 5 8",
+    "line": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 g6 c4 Bg7 Be3 Nf6 Nc3 O-O"
+  },
+  {
+    "name": "french_exchange",
+    "fen": "rnbq1rk1/ppp2ppp/3b1n2/3p4/3P4/3B1N2/PPP2PPP/RNBQ1RK1 w - - 6 7",
+    "line": "e4 e6 d4 d5 exd5 exd5 Nf3 Nf6 Bd3 Bd6 O-O O-O"
+  },
+  {
+    "name": "kings_gambit_declined",
+    "fen": "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1PP2/2NP1N2/PPP3PP/R1BQK2R w KQ - 1 7",
+    "line": "e4 e5 f4 Bc5 Nf3 d6 Nc3 Nf6 Bc4 Nc6 d3 O-O"
+  },
+  {
+    "name": "slav_exchange",
+    "fen": "r2qkb1r/pp3ppp/2n1pn2/3p1b2/3P1B2/2N1PN2/PP3PPP/R2QKB1R w KQkq - 0 8",
+    "line": "d4 d5 c4 c6 cxd5 cxd5 Nc3 Nf6 Nf3 Nc6 Bf4 Bf5 e3 e6"
+  }
+]

@@ -1,0 +1,13 @@
+[Event "?"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "18"]
+[White "v3"]
+[Black "v4"]
+[Result "1/2-1/2"]
+[FEN "r1b1k2r/ppppnppp/2n2q2/2b5/3NP3/2P1B3/PP3PPP/RN1QKB1R w KQkq - 1 7"]
+[SetUp "1"]
+[Termination "threefold_repetition"]
+[Opening "scotch"]
+
+7. Qf3 Nxd4 8. Qxf6 Nc2+ 9. Kd2 gxf6 10. Kxc2 Bxe3 11. fxe3 f5 12. exf5 Nxf5 13. e4 Ne3+ 14. Kd2 Ng4 15. Bd3 Rg8 16. g3 b5 17. a4 c6 18. axb5 Nf2 19. Rf1 Nxd3 20. Kxd3 cxb5 21. Rf5 Rg6 22. Na3 a6 23. Nxb5 Rb8 24. Na7 Bb7 25. Re5+ Re6 26. Rxe6+ fxe6 27. Kd4 Ke7 28. c4 h5 29. b4 Ra8 30. Kc5 d6+ 31. Kb6 Bxe4 32. Rxa6 Kd7 33. Nb5 Rxa6+ 34. Kxa6 Bd3 35. Na3 d5 36. Kb5 Kd6 37. Ka4 dxc4 38. b5 Kc5 39. b6 Be4 40. Nb5 Kxb6 41. Kb4 Kc6 42. Na3 Kd5 43. Nxc4 e5 44. Kc3 Bf3 45. h4 e4 46. Ne3+ Ke5 47. Kc4 Be2+ 48. Kc5 Bd3 49. Ng2 Bc2 50. Ne3 Bb3 51. Ng2 Bf7 52. Ne3 Be6 53. Ng2 Bg8 54. Ne3 Bf7 55. Ng2 Bb3 56. Ne3 Ba2 57. Ng2 Bg8 58. Ne3 Bb3 59. Ng2 1/2-1/2

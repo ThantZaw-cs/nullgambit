@@ -1,0 +1,13 @@
+[Event "?"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "19"]
+[White "v4"]
+[Black "v3"]
+[Result "1-0"]
+[FEN "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQ1RK1 w - - 2 7"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "italian"]
+
+7. d4 Bb6 8. Qd3 exd4 9. cxd4 d5 10. exd5 Nb4 11. Qb3 Nbxd5 12. Bg5 Qd6 13. Nc3 c6 14. g3 Bh3 15. Rfe1 g6 16. Bxf6 Nxf6 17. Ng5 Bg4 18. Re3 Bxd4 19. Nxf7 Qc7 20. Rd3 c5 21. Nb5 Qe7 22. Ng5+ Kh8 23. Nxd4 cxd4 24. Rxd4 Qc5 25. Qe3 b5 26. Be6 Bxe6 27. Nxe6 Qc6 28. Nxf8 Rxf8 29. Qe7 Qe8 30. Re1 Qxe7 31. Rxe7 a6 32. Re6 a5 33. a4 b4 34. Ra6 h5 35. Rxa5 Ng4 36. Rxb4 Nxf2 37. Rb6 Kh7 38. Ra7+ Kh6 39. Raa6 Nd3 40. Rxg6+ Kh7 41. Rh6+ Kg8 42. Rxh5 Nxb2 43. a5 Nc4 44. Rg5+ Kf7 45. h4 Nd2 46. Rf5+ Kg8 47. Rg6+ Kh7 48. Rxf8 Kxg6 49. a6 Nc4 50. Rb8 Ne5 51. a7 Nf3+ 52. Kh1 Nd4 53. a8=Q Ne6 54. Qe4+ Kf6 55. Rb6 Ke7 56. Rxe6+ Kd7 57. Qc6+ Kd8 58. Re8# 1-0

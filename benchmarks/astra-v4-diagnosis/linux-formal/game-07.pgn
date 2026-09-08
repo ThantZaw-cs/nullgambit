@@ -1,0 +1,13 @@
+[Event "?"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "7"]
+[White "v4"]
+[Black "v3"]
+[Result "1-0"]
+[FEN "rn1qkbnr/pp2ppp1/2p3bp/8/3P3P/6N1/PPP2PP1/R1BQKBNR w KQkq - 0 7"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "caro_kann"]
+
+7. h5 Bh7 8. Be2 Nd7 9. Nf3 Qa5+ 10. Bd2 Qb6 11. b4 e6 12. c3 Ngf6 13. Ne5 Nxe5 14. dxe5 Nd5 15. c4 Nxb4 16. O-O O-O-O 17. a4 Qc7 18. f4 Bc5+ 19. Kh2 Nc2 20. Ra2 Qe7 21. Kh3 Be3 22. Rxc2 Bxc2 23. Qxc2 Bxd2 24. Ne4 Bb4 25. c5 g6 26. Nd6+ Kb8 27. hxg6 fxg6 28. Qc4 a5 29. Bg4 b6 30. cxb6 h5 31. Bf3 g5 32. fxg5 Rxd6 33. exd6 Qxg5 34. Qxc6 Qf5+ 35. Kh2 Qf4+ 36. g3 Qd2+ 37. Kh1 Qd5 38. Qc7+ Ka8 39. Qa7# 1-0

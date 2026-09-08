@@ -1,0 +1,13 @@
+[Event "?"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "12"]
+[White "v3"]
+[Black "v4"]
+[Result "1-0"]
+[FEN "rn1qkb1r/pp2pppp/2p2n2/5b2/P1pP4/2N2N2/1P2PPPP/R1BQKB1R w KQkq - 1 6"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "slav"]
+
+6. e3 Qa5 7. Bxc4 b5 8. Bb3 b4 9. Ne2 e6 10. O-O Bd6 11. Ng3 O-O 12. Nxf5 Qxf5 13. Bc2 Qd5 14. Bb3 Qf5 15. Bc2 Qd5 16. Qd3 Qh5 17. h3 c5 18. e4 cxd4 19. Nxd4 Rd8 20. Rd1 Bc5 21. Qc4 Nxe4 22. Be3 Nd6 23. Nxe6 Bxe3 24. Rxd6 Re8 25. Nc7 Bxf2+ 26. Kxf2 Qe5 27. Nxe8 Qxe8 28. Qe4 Nd7 29. Qxh7+ Kf8 30. Re1 Qxe1+ 31. Kxe1 Re8+ 32. Kf1 Nf6 33. Rxf6 gxf6 34. Bb3 Ke7 35. Qxf7+ Kd8 36. Be6 Rxe6 37. Qxe6 Kc7 38. Qxf6 Kd7 39. a5 Kc7 40. a6 Kd7 41. Qd4+ Kc6 42. Qxa7 Kb5 43. Qb7+ Kc4 44. a7 Kb3 45. a8=Q Kxb2 46. Qxb4+ Kc1 47. Qae4 Kd1 48. Qbe1# 1-0

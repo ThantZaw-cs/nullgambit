@@ -1,0 +1,129 @@
+{
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "python": "3.12.13 (main, Jun 23 2026, 15:44:24) [Clang 22.1.3 ]",
+    "cpu_count": 10,
+    "packages": {
+      "chess": "1.11.2",
+      "numpy": "2.5.2",
+      "numba": "0.67.0",
+      "llvmlite": "0.49.0",
+      "torch": "not installed",
+      "onnxruntime": "not installed",
+      "ruff": "0.16.6",
+      "mypy": "2.3.1"
+    },
+    "uv_lock_sha256": "206d8c2f00d47060d2c2b9749c8a33baa99f35e3c9d699fb9dbff2ba77a74fbe",
+    "address_space_limit": [
+      9223372036854775807,
+      9223372036854775807
+    ],
+    "runner_os": null,
+    "runner_arch": null,
+    "image_os": null,
+    "image_version": null,
+    "github_sha": null,
+    "github_run_id": null,
+    "thread_limits": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "NUMBA_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "scope": "Host compatibility only; not the official competition container",
+    "limitations": [
+      "No 2 GB memory quota or read-only filesystem imposed",
+      "Network isolation and opponent process suspension are not reproduced",
+      "Unmodified local referee: 60 s init, 300-ply material adjudication, claim_draw=True",
+      "Two short smoke games do not measure playing strength"
+    ]
+  },
+  "status": "passed",
+  "candidate_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+  "archive_sha256": "b379a6f0a8003227fe0951a7564976bdb2431fc065be59e2290b58e6e71671e4",
+  "runner": {
+    "init_seconds": 5.266156124998815,
+    "checks": [
+      {
+        "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+        "remaining_ms": 5000,
+        "move": "g1f3",
+        "round_trip_ms": 144.9364160071127
+      },
+      {
+        "fen": "7k/8/8/3pP3/8/8/8/K7 w - d6 0 1",
+        "remaining_ms": 1000,
+        "move": "e5d6",
+        "round_trip_ms": 29.42420798353851
+      },
+      {
+        "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+        "remaining_ms": 1,
+        "move": "g1h3",
+        "round_trip_ms": 0.08208397775888443
+      }
+    ],
+    "stderr": ""
+  },
+  "isolated_search": {
+    "agent_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+    "init_seconds": 5.318069375003688,
+    "checks": [
+      {
+        "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+        "remaining_ms": 5000,
+        "move": "g1f3",
+        "elapsed_ms": 145.34262503730133,
+        "completed_depth": 5
+      },
+      {
+        "fen": "rnbqkb1r/pppppppp/7n/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 2 2",
+        "remaining_ms": 1000,
+        "move": "b1c3",
+        "elapsed_ms": 30.02420795382932,
+        "completed_depth": 4
+      }
+    ]
+  },
+  "games": [
+    {
+      "game": 1,
+      "candidate_color": "white",
+      "candidate_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+      "opponent_sha256": "b08ab63e695f971e6322353eb5bba4657c91e901ac9b0b6fb9a326f1def56297",
+      "opening": {
+        "name": "trompowsky",
+        "fen": "rnbq1rk1/ppp1bpp1/4pn1p/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 7",
+        "line": "d4 Nf6 Bg5 d5 e3 e6 Nf3 Be7 c4 O-O Nc3 h6"
+      },
+      "base_ms": 10000,
+      "increment_ms": 100,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "elapsed_seconds": 29.37601241702214,
+      "white_stderr": "",
+      "black_stderr": ""
+    },
+    {
+      "game": 2,
+      "candidate_color": "black",
+      "candidate_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+      "opponent_sha256": "b08ab63e695f971e6322353eb5bba4657c91e901ac9b0b6fb9a326f1def56297",
+      "opening": {
+        "name": "trompowsky",
+        "fen": "rnbq1rk1/ppp1bpp1/4pn1p/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 7",
+        "line": "d4 Nf6 Bg5 d5 e3 e6 Nf3 Be7 c4 O-O Nc3 h6"
+      },
+      "base_ms": 10000,
+      "increment_ms": 100,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "elapsed_seconds": 17.784872916992754,
+      "white_stderr": "",
+      "black_stderr": ""
+    }
+  ],
+  "children_maxrss": 293634048,
+  "maxrss_unit": "bytes"
+}

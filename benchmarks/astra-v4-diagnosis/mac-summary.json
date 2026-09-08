@@ -1,0 +1,679 @@
+{
+  "scope": "Mac local counterfactual diagnosis; not deployed-build attribution or Linux result",
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "python": "3.12.13 (main, Jun 23 2026, 15:44:24) [Clang 22.1.3 ]",
+    "cpu_count": 10,
+    "packages": {
+      "chess": "1.11.2",
+      "numpy": "2.5.2",
+      "numba": "0.67.0",
+      "llvmlite": "0.49.0",
+      "torch": "not installed",
+      "onnxruntime": "not installed",
+      "ruff": "0.16.6",
+      "mypy": "2.3.1"
+    },
+    "thread_limits": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "NUMBA_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "uv_lock_sha256": "206d8c2f00d47060d2c2b9749c8a33baa99f35e3c9d699fb9dbff2ba77a74fbe"
+  },
+  "v3_sha256": "b08ab63e695f971e6322353eb5bba4657c91e901ac9b0b6fb9a326f1def56297",
+  "v4_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+  "clock_calls": {
+    "calls": 284,
+    "groups": {
+      "clock-scan.json": {
+        "positions": 67,
+        "calls": 134,
+        "flags": 0,
+        "history_mismatches": 0,
+        "versions": {
+          "v3": {
+            "min_elapsed_s": 1.6948759999941103,
+            "max_elapsed_s": 2.5032663749880157
+          },
+          "v4": {
+            "min_elapsed_s": 1.6937222079723142,
+            "max_elapsed_s": 2.502762249961961
+          }
+        }
+      },
+      "clock-repeats.json": {
+        "positions": 19,
+        "calls": 114,
+        "flags": 0,
+        "history_mismatches": 0,
+        "versions": {
+          "v3": {
+            "min_elapsed_s": 1.7293890839791857,
+            "max_elapsed_s": 2.503088666999247
+          },
+          "v4": {
+            "min_elapsed_s": 1.7281912500038743,
+            "max_elapsed_s": 2.502898874983657
+          }
+        }
+      },
+      "pre-v4-round60.json": {
+        "positions": 4,
+        "calls": 24,
+        "flags": 0,
+        "history_mismatches": 0,
+        "versions": {
+          "v3": {
+            "min_elapsed_s": 1.879939375037793,
+            "max_elapsed_s": 2.5033730000141077
+          },
+          "v4": {
+            "min_elapsed_s": 1.8804660409805365,
+            "max_elapsed_s": 2.5026043339748867
+          }
+        }
+      },
+      "timing-sensitive.json": {
+        "positions": 1,
+        "calls": 12,
+        "flags": 0,
+        "history_mismatches": 0,
+        "versions": {
+          "v3": {
+            "min_elapsed_s": 1.8798310839920305,
+            "max_elapsed_s": 1.8809773750253953
+          },
+          "v4": {
+            "min_elapsed_s": 1.879694459028542,
+            "max_elapsed_s": 1.8809470410342328
+          }
+        }
+      }
+    }
+  },
+  "selected_repeats": [
+    {
+      "group": "clock-repeats.json",
+      "key": "61:24",
+      "clock_ms": 83955,
+      "runs": [
+        {
+          "version": "v4",
+          "repeat": 1,
+          "san": "Rbc8",
+          "depth": 6,
+          "elapsed_s": 2.399923207995016,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v3",
+          "repeat": 1,
+          "san": "Rb6",
+          "depth": 5,
+          "elapsed_s": 2.4003231250098906,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v3",
+          "repeat": 2,
+          "san": "Rb6",
+          "depth": 5,
+          "elapsed_s": 2.4007094590342604,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v4",
+          "repeat": 2,
+          "san": "Rbc8",
+          "depth": 6,
+          "elapsed_s": 2.4010991669492796,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v4",
+          "repeat": 3,
+          "san": "Rbc8",
+          "depth": 6,
+          "elapsed_s": 2.3988251659902744,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v3",
+          "repeat": 3,
+          "san": "Rb6",
+          "depth": 5,
+          "elapsed_s": 2.401105583005119,
+          "within_clock": true,
+          "history_verified": true
+        }
+      ]
+    },
+    {
+      "group": "clock-repeats.json",
+      "key": "61:35",
+      "clock_ms": 65774,
+      "runs": [
+        {
+          "version": "v3",
+          "repeat": 1,
+          "san": "Nc8",
+          "depth": 6,
+          "elapsed_s": 1.8797848329995759,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v4",
+          "repeat": 1,
+          "san": "Nc6",
+          "depth": 8,
+          "elapsed_s": 1.8798546659527346,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v4",
+          "repeat": 2,
+          "san": "Nc6",
+          "depth": 8,
+          "elapsed_s": 1.8800149590242654,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v3",
+          "repeat": 2,
+          "san": "Nc8",
+          "depth": 6,
+          "elapsed_s": 1.8808579170145094,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v3",
+          "repeat": 3,
+          "san": "Nc8",
+          "depth": 6,
+          "elapsed_s": 1.8799805409507826,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v4",
+          "repeat": 3,
+          "san": "Nc6",
+          "depth": 8,
+          "elapsed_s": 1.8803603749838658,
+          "within_clock": true,
+          "history_verified": true
+        }
+      ]
+    },
+    {
+      "group": "clock-repeats.json",
+      "key": "62:29",
+      "clock_ms": 80205,
+      "runs": [
+        {
+          "version": "v4",
+          "repeat": 1,
+          "san": "cxd5",
+          "depth": 8,
+          "elapsed_s": 2.291711167024914,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v3",
+          "repeat": 1,
+          "san": "exd5",
+          "depth": 7,
+          "elapsed_s": 2.292605167021975,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v3",
+          "repeat": 2,
+          "san": "exd5",
+          "depth": 7,
+          "elapsed_s": 2.2922459580004215,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v4",
+          "repeat": 2,
+          "san": "cxd5",
+          "depth": 8,
+          "elapsed_s": 2.2921424999949522,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v4",
+          "repeat": 3,
+          "san": "cxd5",
+          "depth": 8,
+          "elapsed_s": 2.292536207998637,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v3",
+          "repeat": 3,
+          "san": "exd5",
+          "depth": 7,
+          "elapsed_s": 2.2933971250313334,
+          "within_clock": true,
+          "history_verified": true
+        }
+      ]
+    },
+    {
+      "group": "clock-repeats.json",
+      "key": "62:38",
+      "clock_ms": 65785,
+      "runs": [
+        {
+          "version": "v4",
+          "repeat": 1,
+          "san": "Kf4",
+          "depth": 9,
+          "elapsed_s": 1.880496374971699,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v3",
+          "repeat": 1,
+          "san": "Bd3",
+          "depth": 8,
+          "elapsed_s": 1.8800902920193039,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v3",
+          "repeat": 2,
+          "san": "Bd3",
+          "depth": 8,
+          "elapsed_s": 1.8799489999655634,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v4",
+          "repeat": 2,
+          "san": "Kf4",
+          "depth": 9,
+          "elapsed_s": 1.8808831250062212,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v4",
+          "repeat": 3,
+          "san": "Kf4",
+          "depth": 9,
+          "elapsed_s": 1.8803898749756627,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v3",
+          "repeat": 3,
+          "san": "Kf4",
+          "depth": 9,
+          "elapsed_s": 1.8802760830149055,
+          "within_clock": true,
+          "history_verified": true
+        }
+      ]
+    },
+    {
+      "group": "timing-sensitive.json",
+      "key": "62:38",
+      "clock_ms": 65785,
+      "runs": [
+        {
+          "version": "v3",
+          "repeat": 1,
+          "san": "Kf4",
+          "depth": 9,
+          "elapsed_s": 1.8799021250451915,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v4",
+          "repeat": 1,
+          "san": "Kf4",
+          "depth": 9,
+          "elapsed_s": 1.8809301250148565,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v4",
+          "repeat": 2,
+          "san": "Kf4",
+          "depth": 9,
+          "elapsed_s": 1.880330917018,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v3",
+          "repeat": 2,
+          "san": "Kf4",
+          "depth": 9,
+          "elapsed_s": 1.8805382080026902,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v3",
+          "repeat": 3,
+          "san": "Kf4",
+          "depth": 9,
+          "elapsed_s": 1.8805719999945723,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v4",
+          "repeat": 3,
+          "san": "Kf4",
+          "depth": 9,
+          "elapsed_s": 1.879694459028542,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v4",
+          "repeat": 4,
+          "san": "Kf4",
+          "depth": 9,
+          "elapsed_s": 1.8809470410342328,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v3",
+          "repeat": 4,
+          "san": "Kf4",
+          "depth": 9,
+          "elapsed_s": 1.8809773750253953,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v3",
+          "repeat": 5,
+          "san": "Kf4",
+          "depth": 9,
+          "elapsed_s": 1.8798310839920305,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v4",
+          "repeat": 5,
+          "san": "Kf4",
+          "depth": 9,
+          "elapsed_s": 1.8808829169720411,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v4",
+          "repeat": 6,
+          "san": "Kf4",
+          "depth": 9,
+          "elapsed_s": 1.880608959007077,
+          "within_clock": true,
+          "history_verified": true
+        },
+        {
+          "version": "v3",
+          "repeat": 6,
+          "san": "Kf4",
+          "depth": 9,
+          "elapsed_s": 1.8802547919913195,
+          "within_clock": true,
+          "history_verified": true
+        }
+      ]
+    }
+  ],
+  "common_depth_branches": {
+    "note": "Identical observed history, same full-window choice depth, cap 45 s per call. Extra budget only diagnostic. All results retained, including aborted searches.",
+    "cases": [
+      {
+        "key": "61:24",
+        "depth": 7,
+        "moves": [
+          "b8b6",
+          "b8c8"
+        ],
+        "scores": {
+          "v3": {
+            "b8b6": {
+              "score_cp": -83,
+              "aborted": false,
+              "nodes": 1558058,
+              "elapsed_s": 4.464934874966275
+            },
+            "b8c8": {
+              "score_cp": -2,
+              "aborted": false,
+              "nodes": 649737,
+              "elapsed_s": 1.7499189170193858
+            }
+          },
+          "v4": {
+            "b8b6": {
+              "score_cp": -83,
+              "aborted": false,
+              "nodes": 620581,
+              "elapsed_s": 1.9376359999878332
+            },
+            "b8c8": {
+              "score_cp": -2,
+              "aborted": false,
+              "nodes": 168244,
+              "elapsed_s": 0.483204249991104
+            }
+          }
+        }
+      },
+      {
+        "key": "61:35",
+        "depth": 9,
+        "moves": [
+          "e7c8",
+          "e7c6"
+        ],
+        "scores": {
+          "v3": {
+            "e7c8": {
+              "score_cp": -318,
+              "aborted": false,
+              "nodes": 3955297,
+              "elapsed_s": 8.20547683298355
+            },
+            "e7c6": {
+              "score_cp": -199,
+              "aborted": false,
+              "nodes": 5761225,
+              "elapsed_s": 11.8087492500199
+            }
+          },
+          "v4": {
+            "e7c8": {
+              "score_cp": -318,
+              "aborted": false,
+              "nodes": 958315,
+              "elapsed_s": 1.93732245801948
+            },
+            "e7c6": {
+              "score_cp": -199,
+              "aborted": false,
+              "nodes": 1535149,
+              "elapsed_s": 3.3348087079939432
+            }
+          }
+        }
+      },
+      {
+        "key": "61:39",
+        "depth": 10,
+        "moves": [
+          "f7e8",
+          "d4a4"
+        ],
+        "scores": {
+          "v3": {
+            "f7e8": {
+              "score_cp": -750,
+              "aborted": false,
+              "nodes": 16317890,
+              "elapsed_s": 30.519823999959044
+            },
+            "d4a4": {
+              "score_cp": null,
+              "aborted": true,
+              "nodes": 20663296,
+              "elapsed_s": 45.00116970797535
+            }
+          },
+          "v4": {
+            "f7e8": {
+              "score_cp": -750,
+              "aborted": false,
+              "nodes": 2039730,
+              "elapsed_s": 4.471115749969613
+            },
+            "d4a4": {
+              "score_cp": -537,
+              "aborted": false,
+              "nodes": 6105787,
+              "elapsed_s": 12.837468667014036
+            }
+          }
+        }
+      },
+      {
+        "key": "62:29",
+        "depth": 10,
+        "moves": [
+          "e4d5",
+          "c4d5"
+        ],
+        "scores": {
+          "v3": {
+            "e4d5": {
+              "score_cp": 3,
+              "aborted": false,
+              "nodes": 12441027,
+              "elapsed_s": 23.708928417006973
+            },
+            "c4d5": {
+              "score_cp": 51,
+              "aborted": false,
+              "nodes": 14719838,
+              "elapsed_s": 26.29420345800463
+            }
+          },
+          "v4": {
+            "e4d5": {
+              "score_cp": 3,
+              "aborted": false,
+              "nodes": 9935148,
+              "elapsed_s": 17.44560941698728
+            },
+            "c4d5": {
+              "score_cp": 51,
+              "aborted": false,
+              "nodes": 2970279,
+              "elapsed_s": 5.321203333034646
+            }
+          }
+        }
+      },
+      {
+        "key": "62:38",
+        "depth": 10,
+        "moves": [
+          "e2d3",
+          "f3f4",
+          "f3e4"
+        ],
+        "scores": {
+          "v3": {
+            "e2d3": {
+              "score_cp": -332,
+              "aborted": false,
+              "nodes": 896863,
+              "elapsed_s": 1.4099307080032304
+            },
+            "f3f4": {
+              "score_cp": -182,
+              "aborted": false,
+              "nodes": 1324881,
+              "elapsed_s": 1.9666330000036396
+            },
+            "f3e4": {
+              "score_cp": -174,
+              "aborted": false,
+              "nodes": 1390975,
+              "elapsed_s": 2.071187583031133
+            }
+          },
+          "v4": {
+            "e2d3": {
+              "score_cp": -332,
+              "aborted": false,
+              "nodes": 953927,
+              "elapsed_s": 1.391877916001249
+            },
+            "f3f4": {
+              "score_cp": -182,
+              "aborted": false,
+              "nodes": 758143,
+              "elapsed_s": 1.0720441250014119
+            },
+            "f3e4": {
+              "score_cp": -174,
+              "aborted": false,
+              "nodes": 568986,
+              "elapsed_s": 0.8097152080154046
+            }
+          }
+        }
+      }
+    ]
+  },
+  "local_checks": {
+    "tests": 56,
+    "test_body_s": 12.097,
+    "ruff": "passed",
+    "strict_mypy": "passed",
+    "checked_source_files": 29,
+    "independent_export_tests": 56,
+    "independent_export_test_body_s": 12.046,
+    "independent_export_ruff": "passed",
+    "independent_export_mypy": "passed",
+    "limitation": "Independent tracked export has no private data or venv; tests reuse already installed Mac dependencies."
+  },
+  "privacy": "Full online FENs, PGNs, logs, move histories and complete per-position probes stay private. Only aggregate measurements and selected decision comparisons are included here."
+}

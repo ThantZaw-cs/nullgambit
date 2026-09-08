@@ -19,6 +19,7 @@ def main() -> None:
     parser.add_argument("--agent", type=Path, default=Path("."))
     parser.add_argument("--opponent", type=Path, default=Path("baselines/classical_v2"))
     parser.add_argument("--pairs", type=int, default=10)
+    parser.add_argument("--positions-file", type=Path)
     parser.add_argument(
         "--suite", choices=("development", "holdout", "confirmation"), default="development"
     )
@@ -27,6 +28,13 @@ def main() -> None:
     parser.add_argument("--out", type=Path, default=Path("benchmarks/latest-comparison"))
     args = parser.parse_args()
     starts = positions(args.suite)
+    if args.positions_file is not None:
+        supplied = json.loads(args.positions_file.read_text())
+        starts = [(str(row["name"]), str(row["fen"])) for row in supplied]
+        if len({fen for _, fen in starts}) != len(starts):
+            parser.error("--positions-file contains duplicate FENs")
+        if any(not chess.Board(fen).is_valid() for _, fen in starts):
+            parser.error("--positions-file contains an invalid FEN")
     if not 1 <= args.pairs <= len(starts):
         parser.error(f"--pairs must be between 1 and {len(starts)}")
     if args.base_ms <= 0 or args.increment_ms < 0:
@@ -109,7 +117,8 @@ def main() -> None:
                 "opponent": str(args.opponent),
                 "agent_sha256": agent_hash,
                 "opponent_sha256": opponent_hash,
-                "suite": args.suite,
+                "suite": "external_positions" if args.positions_file else args.suite,
+                "positions_file": str(args.positions_file) if args.positions_file else None,
                 "base_ms": args.base_ms,
                 "increment_ms": args.increment_ms,
                 "wins": wins,

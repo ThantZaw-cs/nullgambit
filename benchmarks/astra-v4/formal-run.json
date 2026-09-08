@@ -1,0 +1,8 @@
+{
+  "phase": "formal validation",
+  "started_utc": "2026-09-08T02:35:58.476079+00:00",
+  "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMBA_NUM_THREADS=1 .venv/bin/python -m tools.compare --agent prototypes/numba_kernel --opponent baselines/online_v3 --pairs 6 --positions-file benchmarks/astra-v4/validation-openings.json --base-ms 120000 --increment-ms 500 --out benchmarks/astra-v4/formal-validation",
+  "compare_script_sha256": "892f92dc8ad36225271a28885d15488886315b8ff9412a6be0ac10cb84e04269",
+  "planned_games": 12,
+  "gate": "Completed all 20 screen games at 55%, zero failures; full 53-test suite and static checks pass. No engine changes after screen."
+}

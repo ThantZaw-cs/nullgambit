@@ -1,0 +1,543 @@
+{
+  "depth": 7,
+  "seconds_per_search_cap": 15.0,
+  "note": "Extra budget is diagnostic only, not the deployed clock policy. Own-engine deep scores are not ground truth.",
+  "positions": [
+    {
+      "key": "slav11:25",
+      "online": "e5",
+      "online_uci": "e4e5",
+      "versions": {
+        "v3": {
+          "root": {
+            "move": "e4e5",
+            "depth": 6,
+            "score_cp": -20,
+            "nodes": 4941794,
+            "elapsed_s": 15.002550292003434,
+            "iterations": [
+              {
+                "depth": 1,
+                "score_cp": -81,
+                "move": "f2f3",
+                "nodes": 452
+              },
+              {
+                "depth": 2,
+                "score_cp": -82,
+                "move": "e4e5",
+                "nodes": 3707
+              },
+              {
+                "depth": 3,
+                "score_cp": -85,
+                "move": "e4e5",
+                "nodes": 4891
+              },
+              {
+                "depth": 4,
+                "score_cp": -82,
+                "move": "e4e5",
+                "nodes": 72803
+              },
+              {
+                "depth": 5,
+                "score_cp": -43,
+                "move": "e4e5",
+                "nodes": 130257
+              },
+              {
+                "depth": 6,
+                "score_cp": -20,
+                "move": "e4e5",
+                "nodes": 1455956
+              }
+            ]
+          },
+          "choices": {
+            "e4e5": {
+              "san": "e5",
+              "score_cp": -20,
+              "aborted": false,
+              "note": "completed root optimum"
+            }
+          },
+          "comparison_depth": 6,
+          "requested_depth_reached": false
+        },
+        "v4": {
+          "root": {
+            "move": "e4e5",
+            "depth": 7,
+            "score_cp": 10,
+            "nodes": 2731314,
+            "elapsed_s": 8.61697454098612,
+            "iterations": [
+              {
+                "depth": 1,
+                "score_cp": -81,
+                "move": "f2f3",
+                "nodes": 452
+              },
+              {
+                "depth": 2,
+                "score_cp": -82,
+                "move": "e4e5",
+                "nodes": 2918
+              },
+              {
+                "depth": 3,
+                "score_cp": -85,
+                "move": "e4e5",
+                "nodes": 3897
+              },
+              {
+                "depth": 4,
+                "score_cp": -82,
+                "move": "e4e5",
+                "nodes": 31927
+              },
+              {
+                "depth": 5,
+                "score_cp": -43,
+                "move": "e4e5",
+                "nodes": 85745
+              },
+              {
+                "depth": 6,
+                "score_cp": -20,
+                "move": "e4e5",
+                "nodes": 522420
+              },
+              {
+                "depth": 7,
+                "score_cp": 10,
+                "move": "e4e5",
+                "nodes": 2083955
+              }
+            ]
+          },
+          "choices": {
+            "e4e5": {
+              "san": "e5",
+              "score_cp": 10,
+              "aborted": false,
+              "note": "completed root optimum"
+            }
+          },
+          "comparison_depth": 7,
+          "requested_depth_reached": true
+        }
+      }
+    },
+    {
+      "key": "slav11:36",
+      "online": "f5",
+      "online_uci": "f4f5",
+      "versions": {
+        "v3": {
+          "root": {
+            "move": "a4a5",
+            "depth": 7,
+            "score_cp": -204,
+            "nodes": 1710262,
+            "elapsed_s": 3.8038189579965547,
+            "iterations": [
+              {
+                "depth": 1,
+                "score_cp": -159,
+                "move": "c5c7",
+                "nodes": 55
+              },
+              {
+                "depth": 2,
+                "score_cp": -195,
+                "move": "c5e5",
+                "nodes": 216
+              },
+              {
+                "depth": 3,
+                "score_cp": -187,
+                "move": "a4a5",
+                "nodes": 1258
+              },
+              {
+                "depth": 4,
+                "score_cp": -200,
+                "move": "c5e5",
+                "nodes": 10311
+              },
+              {
+                "depth": 5,
+                "score_cp": -178,
+                "move": "c5e5",
+                "nodes": 22755
+              },
+              {
+                "depth": 6,
+                "score_cp": -217,
+                "move": "f4f5",
+                "nodes": 472137
+              },
+              {
+                "depth": 7,
+                "score_cp": -204,
+                "move": "a4a5",
+                "nodes": 1203530
+              }
+            ]
+          },
+          "choices": {
+            "a4a5": {
+              "san": "a5",
+              "score_cp": -204,
+              "aborted": false,
+              "note": "completed root optimum"
+            },
+            "f4f5": {
+              "san": "f5",
+              "score_cp": -217,
+              "aborted": false,
+              "nodes": 316070,
+              "elapsed_s": 0.7101080830325373
+            }
+          },
+          "comparison_depth": 7,
+          "requested_depth_reached": true
+        },
+        "v4": {
+          "root": {
+            "move": "a4a5",
+            "depth": 7,
+            "score_cp": -204,
+            "nodes": 1144025,
+            "elapsed_s": 2.4489865839714184,
+            "iterations": [
+              {
+                "depth": 1,
+                "score_cp": -159,
+                "move": "c5c7",
+                "nodes": 55
+              },
+              {
+                "depth": 2,
+                "score_cp": -195,
+                "move": "c5e5",
+                "nodes": 249
+              },
+              {
+                "depth": 3,
+                "score_cp": -187,
+                "move": "a4a5",
+                "nodes": 1045
+              },
+              {
+                "depth": 4,
+                "score_cp": -200,
+                "move": "c5e5",
+                "nodes": 7433
+              },
+              {
+                "depth": 5,
+                "score_cp": -178,
+                "move": "c5e5",
+                "nodes": 18656
+              },
+              {
+                "depth": 6,
+                "score_cp": -217,
+                "move": "f4f5",
+                "nodes": 233651
+              },
+              {
+                "depth": 7,
+                "score_cp": -204,
+                "move": "a4a5",
+                "nodes": 882936
+              }
+            ]
+          },
+          "choices": {
+            "a4a5": {
+              "san": "a5",
+              "score_cp": -204,
+              "aborted": false,
+              "note": "completed root optimum"
+            },
+            "f4f5": {
+              "san": "f5",
+              "score_cp": -217,
+              "aborted": false,
+              "nodes": 102084,
+              "elapsed_s": 0.21675958298146725
+            }
+          },
+          "comparison_depth": 7,
+          "requested_depth_reached": true
+        }
+      }
+    },
+    {
+      "key": "slav12:21",
+      "online": "Nxe4",
+      "online_uci": "f6e4",
+      "versions": {
+        "v3": {
+          "root": {
+            "move": "h5d1",
+            "depth": 6,
+            "score_cp": 76,
+            "nodes": 4929090,
+            "elapsed_s": 15.001276124967262,
+            "iterations": [
+              {
+                "depth": 1,
+                "score_cp": 117,
+                "move": "f6e4",
+                "nodes": 339
+              },
+              {
+                "depth": 2,
+                "score_cp": 87,
+                "move": "f6e4",
+                "nodes": 5804
+              },
+              {
+                "depth": 3,
+                "score_cp": 66,
+                "move": "f6e4",
+                "nodes": 12160
+              },
+              {
+                "depth": 4,
+                "score_cp": 76,
+                "move": "h5d1",
+                "nodes": 73914
+              },
+              {
+                "depth": 5,
+                "score_cp": 84,
+                "move": "f6e4",
+                "nodes": 216347
+              },
+              {
+                "depth": 6,
+                "score_cp": 76,
+                "move": "h5d1",
+                "nodes": 2706670
+              }
+            ]
+          },
+          "choices": {
+            "f6e4": {
+              "san": "Nxe4",
+              "score_cp": -67,
+              "aborted": false,
+              "nodes": 758574,
+              "elapsed_s": 2.3554525829968043
+            },
+            "h5d1": {
+              "san": "Qxd1+",
+              "score_cp": 76,
+              "aborted": false,
+              "note": "completed root optimum"
+            }
+          },
+          "comparison_depth": 6,
+          "requested_depth_reached": false
+        },
+        "v4": {
+          "root": {
+            "move": "h5d1",
+            "depth": 6,
+            "score_cp": 76,
+            "nodes": 4814042,
+            "elapsed_s": 15.001119082968216,
+            "iterations": [
+              {
+                "depth": 1,
+                "score_cp": 117,
+                "move": "f6e4",
+                "nodes": 339
+              },
+              {
+                "depth": 2,
+                "score_cp": 87,
+                "move": "f6e4",
+                "nodes": 2412
+              },
+              {
+                "depth": 3,
+                "score_cp": 66,
+                "move": "f6e4",
+                "nodes": 8916
+              },
+              {
+                "depth": 4,
+                "score_cp": 76,
+                "move": "h5d1",
+                "nodes": 48922
+              },
+              {
+                "depth": 5,
+                "score_cp": 84,
+                "move": "f6e4",
+                "nodes": 111854
+              },
+              {
+                "depth": 6,
+                "score_cp": 76,
+                "move": "h5d1",
+                "nodes": 588607
+              }
+            ]
+          },
+          "choices": {
+            "f6e4": {
+              "san": "Nxe4",
+              "score_cp": -67,
+              "aborted": false,
+              "nodes": 124314,
+              "elapsed_s": 0.3887834999477491
+            },
+            "h5d1": {
+              "san": "Qxd1+",
+              "score_cp": 76,
+              "aborted": false,
+              "note": "completed root optimum"
+            }
+          },
+          "comparison_depth": 6,
+          "requested_depth_reached": false
+        }
+      }
+    },
+    {
+      "key": "slav12:22",
+      "online": "Nd6",
+      "online_uci": "e4d6",
+      "versions": {
+        "v3": {
+          "root": {
+            "move": "e4d6",
+            "depth": 6,
+            "score_cp": -35,
+            "nodes": 4897334,
+            "elapsed_s": 15.001949207973666,
+            "iterations": [
+              {
+                "depth": 1,
+                "score_cp": 66,
+                "move": "e4d6",
+                "nodes": 1220
+              },
+              {
+                "depth": 2,
+                "score_cp": 56,
+                "move": "c5d4",
+                "nodes": 2477
+              },
+              {
+                "depth": 3,
+                "score_cp": 84,
+                "move": "e4d6",
+                "nodes": 14814
+              },
+              {
+                "depth": 4,
+                "score_cp": -67,
+                "move": "e4d6",
+                "nodes": 69593
+              },
+              {
+                "depth": 5,
+                "score_cp": -22,
+                "move": "e4d6",
+                "nodes": 162300
+              },
+              {
+                "depth": 6,
+                "score_cp": -35,
+                "move": "e4d6",
+                "nodes": 1813522
+              }
+            ]
+          },
+          "choices": {
+            "e4d6": {
+              "san": "Nd6",
+              "score_cp": -35,
+              "aborted": false,
+              "note": "completed root optimum"
+            }
+          },
+          "comparison_depth": 6,
+          "requested_depth_reached": false
+        },
+        "v4": {
+          "root": {
+            "move": "e4d6",
+            "depth": 7,
+            "score_cp": 35,
+            "nodes": 2693307,
+            "elapsed_s": 8.655928542022593,
+            "iterations": [
+              {
+                "depth": 1,
+                "score_cp": 66,
+                "move": "e4d6",
+                "nodes": 1220
+              },
+              {
+                "depth": 2,
+                "score_cp": 56,
+                "move": "c5d4",
+                "nodes": 2187
+              },
+              {
+                "depth": 3,
+                "score_cp": 84,
+                "move": "e4d6",
+                "nodes": 6983
+              },
+              {
+                "depth": 4,
+                "score_cp": -67,
+                "move": "e4d6",
+                "nodes": 27447
+              },
+              {
+                "depth": 5,
+                "score_cp": -22,
+                "move": "e4d6",
+                "nodes": 85154
+              },
+              {
+                "depth": 6,
+                "score_cp": -35,
+                "move": "e4d6",
+                "nodes": 451191
+              },
+              {
+                "depth": 7,
+                "score_cp": 35,
+                "move": "e4d6",
+                "nodes": 2119125
+              }
+            ]
+          },
+          "choices": {
+            "e4d6": {
+              "san": "Nd6",
+              "score_cp": 35,
+              "aborted": false,
+              "note": "completed root optimum"
+            }
+          },
+          "comparison_depth": 7,
+          "requested_depth_reached": true
+        }
+      }
+    }
+  ]
+}

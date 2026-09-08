@@ -1,0 +1,12 @@
+{
+  "checked_utc": "2026-09-08T03:22:35.715562+00:00",
+  "candidate_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+  "original_files_unchanged": true,
+  "frozen_baseline_matches_original_zip": true,
+  "root_agent_and_harness_unchanged": true,
+  "predeclared_validation_openings_unchanged": true,
+  "branch": "astra-v4",
+  "candidate_uploaded": false,
+  "online_winning_game_review": "blocked by missing PGN/LOG",
+  "linux_candidate_validation": "not run; no existing Docker/Podman/Lima runtime"
+}

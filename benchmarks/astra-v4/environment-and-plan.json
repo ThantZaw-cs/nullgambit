@@ -1,0 +1,12 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.13 (main, Jun 23 2026, 15:44:24) [Clang 22.1.3 ]",
+  "numpy": "2.5.2",
+  "numba": "0.67.0",
+  "chess": "1.11.2",
+  "processes": "independent runner per side per game; serial matches; only one agent searches at a time",
+  "threads": "NUMBA_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1",
+  "limits": "Mac CPU scheduling and memory are not Linux one-core/2GB isolation; harness init remains 60 s (online 90 s); no harness edits",
+  "pre_registration": "Candidate not yet edited. Fast screen: 10 development opening pairs at 10s+0.1s; if no failures and no clear regression, all 6 new validation opening pairs at 120s+0.5s, no tuning after validation starts. Existing holdout has historical use and is not a fresh validation set.",
+  "validation_sha256": "4422d65776badb995d99b06d1f78a21b4a412079ca0d638bf75813c21127367f"
+}

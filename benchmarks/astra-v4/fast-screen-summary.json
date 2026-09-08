@@ -1,0 +1,47 @@
+{
+  "source": "benchmarks/astra-v4/fast-screen.json",
+  "agent_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+  "opponent_sha256": "b08ab63e695f971e6322353eb5bba4657c91e901ac9b0b6fb9a326f1def56297",
+  "games": 20,
+  "pairs": 10,
+  "wins": 7,
+  "draws": 8,
+  "losses": 5,
+  "voids": 0,
+  "failures": 0,
+  "terminations": {
+    "threefold_repetition": 7,
+    "checkmate": 12,
+    "insufficient_material": 1
+  },
+  "score": 0.55,
+  "pair_scores": [
+    0.75,
+    0.75,
+    0.25,
+    0.5,
+    0.0,
+    0.75,
+    0.75,
+    0.5,
+    0.75,
+    0.5
+  ],
+  "pair_bootstrap_95": [
+    0.4,
+    0.675
+  ],
+  "positive_negative_tied_pairs": [
+    5,
+    2,
+    3
+  ],
+  "descriptive_two_sided_pair_sign_p": 0.453125,
+  "uncertainty_note": "Exploratory paired bootstrap; few pairs and a single opponent do not establish Elo or general strength. Voids are excluded, never counted as draws.",
+  "base_ms": 10000,
+  "increment_ms": 100,
+  "all_pgns_replayed_legally": true,
+  "started_utc": "2026-09-08T02:23:46.339819+00:00",
+  "finished_utc": "2026-09-08T02:34:22.521486+00:00",
+  "elapsed_s": 636.1816668510437
+}

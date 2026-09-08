@@ -1,0 +1,197 @@
+{
+  "agent": "prototypes/numba_kernel",
+  "opponent": "baselines/online_v3",
+  "agent_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+  "opponent_sha256": "b08ab63e695f971e6322353eb5bba4657c91e901ac9b0b6fb9a326f1def56297",
+  "suite": "development",
+  "positions_file": null,
+  "base_ms": 10000,
+  "increment_ms": 100,
+  "wins": 7,
+  "draws": 8,
+  "losses": 5,
+  "failures": 0,
+  "score": 0.55,
+  "games": [
+    {
+      "opening": "ruy_lopez",
+      "fen": "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq - 0 8",
+      "agent_white": true,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 109
+    },
+    {
+      "opening": "ruy_lopez",
+      "fen": "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq - 0 8",
+      "agent_white": false,
+      "result": "black",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 88
+    },
+    {
+      "opening": "sicilian",
+      "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+      "agent_white": true,
+      "result": "white",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 93
+    },
+    {
+      "opening": "sicilian",
+      "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+      "agent_white": false,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 35
+    },
+    {
+      "opening": "french",
+      "fen": "rnbqkb1r/pp1n1ppp/4p3/2ppP3/3P1P2/2N2N2/PPP3PP/R1BQKB1R b KQkq - 1 6",
+      "agent_white": true,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 48
+    },
+    {
+      "opening": "french",
+      "fen": "rnbqkb1r/pp1n1ppp/4p3/2ppP3/3P1P2/2N2N2/PPP3PP/R1BQKB1R b KQkq - 1 6",
+      "agent_white": false,
+      "result": "white",
+      "termination": "checkmate",
+      "score": 0.0,
+      "plies": 146
+    },
+    {
+      "opening": "caro_kann",
+      "fen": "rn1qkbnr/pp2ppp1/2p3bp/8/3P3P/6N1/PPP2PP1/R1BQKBNR w KQkq - 0 7",
+      "agent_white": true,
+      "result": "white",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 119
+    },
+    {
+      "opening": "caro_kann",
+      "fen": "rn1qkbnr/pp2ppp1/2p3bp/8/3P3P/6N1/PPP2PP1/R1BQKBNR w KQkq - 0 7",
+      "agent_white": false,
+      "result": "white",
+      "termination": "checkmate",
+      "score": 0.0,
+      "plies": 91
+    },
+    {
+      "opening": "queens_gambit",
+      "fen": "rnbq1rk1/ppp1bppp/4pn2/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R b KQ - 2 6",
+      "agent_white": true,
+      "result": "black",
+      "termination": "checkmate",
+      "score": 0.0,
+      "plies": 127
+    },
+    {
+      "opening": "queens_gambit",
+      "fen": "rnbq1rk1/ppp1bppp/4pn2/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R b KQ - 2 6",
+      "agent_white": false,
+      "result": "white",
+      "termination": "checkmate",
+      "score": 0.0,
+      "plies": 114
+    },
+    {
+      "opening": "slav",
+      "fen": "rn1qkb1r/pp2pppp/2p2n2/5b2/P1pP4/2N2N2/1P2PPPP/R1BQKB1R w KQkq - 1 6",
+      "agent_white": true,
+      "result": "white",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 109
+    },
+    {
+      "opening": "slav",
+      "fen": "rn1qkb1r/pp2pppp/2p2n2/5b2/P1pP4/2N2N2/1P2PPPP/R1BQKB1R w KQkq - 1 6",
+      "agent_white": false,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 118
+    },
+    {
+      "opening": "kings_indian",
+      "fen": "rnbq1rk1/ppp2pbp/3p1np1/4p3/2PPP3/2N2N2/PP2BPPP/R1BQK2R w KQ - 0 7",
+      "agent_white": true,
+      "result": "white",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 115
+    },
+    {
+      "opening": "kings_indian",
+      "fen": "rnbq1rk1/ppp2pbp/3p1np1/4p3/2PPP3/2N2N2/PP2BPPP/R1BQK2R w KQ - 0 7",
+      "agent_white": false,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 85
+    },
+    {
+      "opening": "english",
+      "fen": "rnbqkb1r/ppp2ppp/1n6/4p3/8/2N3P1/PP1PPPBP/R1BQK1NR w KQkq - 2 6",
+      "agent_white": true,
+      "result": "draw",
+      "termination": "insufficient_material",
+      "score": 0.5,
+      "plies": 141
+    },
+    {
+      "opening": "english",
+      "fen": "rnbqkb1r/ppp2ppp/1n6/4p3/8/2N3P1/PP1PPPBP/R1BQK1NR w KQkq - 2 6",
+      "agent_white": false,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 156
+    },
+    {
+      "opening": "scotch",
+      "fen": "r1b1k2r/ppppnppp/2n2q2/2b5/3NP3/2P1B3/PP3PPP/RN1QKB1R w KQkq - 1 7",
+      "agent_white": true,
+      "result": "white",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 123
+    },
+    {
+      "opening": "scotch",
+      "fen": "r1b1k2r/ppppnppp/2n2q2/2b5/3NP3/2P1B3/PP3PPP/RN1QKB1R w KQkq - 1 7",
+      "agent_white": false,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 53
+    },
+    {
+      "opening": "italian",
+      "fen": "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQ1RK1 w - - 2 7",
+      "agent_white": true,
+      "result": "white",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 203
+    },
+    {
+      "opening": "italian",
+      "fen": "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQ1RK1 w - - 2 7",
+      "agent_white": false,
+      "result": "white",
+      "termination": "checkmate",
+      "score": 0.0,
+      "plies": 57
+    }
+  ]
+}

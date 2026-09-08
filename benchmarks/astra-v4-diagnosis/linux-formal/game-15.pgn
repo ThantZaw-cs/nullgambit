@@ -1,0 +1,13 @@
+[Event "?"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "15"]
+[White "v4"]
+[Black "v3"]
+[Result "1/2-1/2"]
+[FEN "rnbqkb1r/ppp2ppp/1n6/4p3/8/2N3P1/PP1PPPBP/R1BQK1NR w KQkq - 2 6"]
+[SetUp "1"]
+[Termination "insufficient_material"]
+[Opening "english"]
+
+6. Nf3 Nc6 7. O-O Be7 8. e3 O-O 9. d4 exd4 10. exd4 Bg4 11. Be3 Nc4 12. b3 Nxe3 13. fxe3 g6 14. d5 Ne5 15. Qd4 Bxf3 16. Bxf3 Bf6 17. Qd2 c6 18. Rac1 Nxf3+ 19. Rxf3 Bxc3 20. Qxc3 Qxd5 21. Rcf1 Rae8 22. a4 a5 23. b4 axb4 24. Qxb4 c5 25. Qf4 f6 26. Qh6 Qg5 27. Qxg5 fxg5 28. Rxf8+ Rxf8 29. Rb1 Rf7 30. Rb5 Rc7 31. a5 c4 32. Rb2 c3 33. Rc2 g4 34. Kf2 Rc5 35. e4 Rxa5 36. Ke3 Ra3 37. Kd4 Ra4+ 38. Kd3 b5 39. Rxc3 b4 40. Rc8+ Kg7 41. Rc7+ Kg8 42. e5 b3 43. Rb7 Ra5 44. Ke4 Ra4+ 45. Ke3 Ra3 46. Kf4 Ra4+ 47. Kg5 Ra5 48. Kf6 Ra8 49. Rxb3 Rf8+ 50. Ke6 Rf2 51. Rb8+ Kg7 52. Kd5 Rxh2 53. Rb7+ Kh6 54. e6 Rd2+ 55. Kc5 Rc2+ 56. Kd4 Re2 57. Kd5 g5 58. Rb4 Kg6 59. Re4 Rxe4 60. Kxe4 Kf6 61. e7 Kxe7 62. Kf5 h6 63. Kxg4 Ke6 64. Kh5 Kf5 65. Kxh6 Kg4 66. Kg6 Kf3 67. Kxg5 Kxg3 1/2-1/2

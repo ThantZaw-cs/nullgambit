@@ -1,0 +1,265 @@
+{
+  "note": "Trace round trips exclude outer referee/logging overhead; estimated overhead also includes integer clock quantization. All first side clocks are 120000 ms; all responses fit supplied clocks. Both versions share CPU affinity [0].",
+  "games": [
+    {
+      "game": 1,
+      "init_seconds": {
+        "white": 20.201879286999997,
+        "black": 18.714425296
+      },
+      "moves": 119,
+      "max_round_trip_ms": 2507.397578999999,
+      "clock_extra_overhead_ms_range": [
+        -0.7117980000184616,
+        1.1015800000168383
+      ]
+    },
+    {
+      "game": 2,
+      "init_seconds": {
+        "white": 19.158238968999967,
+        "black": 19.445130164000034
+      },
+      "moves": 86,
+      "max_round_trip_ms": 2507.5449979999576,
+      "clock_extra_overhead_ms_range": [
+        -0.6719939999602502,
+        0.953776000009384
+      ]
+    },
+    {
+      "game": 3,
+      "init_seconds": {
+        "white": 19.54053947,
+        "black": 18.77542667
+      },
+      "moves": 104,
+      "max_round_trip_ms": 2507.382407000023,
+      "clock_extra_overhead_ms_range": [
+        -0.7366079998901114,
+        1.0692280000512255
+      ]
+    },
+    {
+      "game": 4,
+      "init_seconds": {
+        "white": 18.53643294599999,
+        "black": 19.430481051000015
+      },
+      "moves": 58,
+      "max_round_trip_ms": 2507.247881000012,
+      "clock_extra_overhead_ms_range": [
+        -0.7535249999782536,
+        1.1811460000026273
+      ]
+    },
+    {
+      "game": 5,
+      "init_seconds": {
+        "white": 19.818852295999932,
+        "black": 19.67534303599996
+      },
+      "moves": 117,
+      "max_round_trip_ms": 2507.876839000005,
+      "clock_extra_overhead_ms_range": [
+        -0.6667149999702815,
+        1.0897489998824312
+      ]
+    },
+    {
+      "game": 6,
+      "init_seconds": {
+        "white": 18.499692463999963,
+        "black": 19.712204174000135
+      },
+      "moves": 61,
+      "max_round_trip_ms": 2507.727738000085,
+      "clock_extra_overhead_ms_range": [
+        -0.5200650000042515,
+        1.0138459998706821
+      ]
+    },
+    {
+      "game": 7,
+      "init_seconds": {
+        "white": 19.676899247999927,
+        "black": 19.538900904000002
+      },
+      "moves": 65,
+      "max_round_trip_ms": 2508.278589999918,
+      "clock_extra_overhead_ms_range": [
+        -0.6780009998765308,
+        1.0341139998636208
+      ]
+    },
+    {
+      "game": 8,
+      "init_seconds": {
+        "white": 18.429594132000148,
+        "black": 19.097821107000073
+      },
+      "moves": 140,
+      "max_round_trip_ms": 2507.447546999856,
+      "clock_extra_overhead_ms_range": [
+        -0.6975150000434951,
+        1.085427999991225
+      ]
+    },
+    {
+      "game": 9,
+      "init_seconds": {
+        "white": 20.018626933000178,
+        "black": 18.651319179999973
+      },
+      "moves": 115,
+      "max_round_trip_ms": 2506.692510999983,
+      "clock_extra_overhead_ms_range": [
+        -0.6952900000178488,
+        1.0958130001672544
+      ]
+    },
+    {
+      "game": 10,
+      "init_seconds": {
+        "white": 18.90386749199979,
+        "black": 19.352838705000067
+      },
+      "moves": 129,
+      "max_round_trip_ms": 2506.4111770002455,
+      "clock_extra_overhead_ms_range": [
+        -0.8218269998760661,
+        1.0523610000818735
+      ]
+    },
+    {
+      "game": 11,
+      "init_seconds": {
+        "white": 18.879491916999996,
+        "black": 18.115237440000328
+      },
+      "moves": 112,
+      "max_round_trip_ms": 2507.7794700000595,
+      "clock_extra_overhead_ms_range": [
+        -0.6695650001638569,
+        0.9769720001204405
+      ]
+    },
+    {
+      "game": 12,
+      "init_seconds": {
+        "white": 18.12919964699995,
+        "black": 18.888074093999876
+      },
+      "moves": 85,
+      "max_round_trip_ms": 2507.7531500000987,
+      "clock_extra_overhead_ms_range": [
+        -0.6741249999322463,
+        0.8378519999678247
+      ]
+    },
+    {
+      "game": 13,
+      "init_seconds": {
+        "white": 18.797175272999993,
+        "black": 18.104443035999793
+      },
+      "moves": 97,
+      "max_round_trip_ms": 2508.8768209998307,
+      "clock_extra_overhead_ms_range": [
+        -0.8301799999608193,
+        1.0470449998683762
+      ]
+    },
+    {
+      "game": 14,
+      "init_seconds": {
+        "white": 18.23588131400038,
+        "black": 18.81668706900018
+      },
+      "moves": 121,
+      "max_round_trip_ms": 2508.713338000234,
+      "clock_extra_overhead_ms_range": [
+        -0.8194790000925423,
+        1.0359160002699355
+      ]
+    },
+    {
+      "game": 15,
+      "init_seconds": {
+        "white": 18.82439856200017,
+        "black": 18.146151374000056
+      },
+      "moves": 124,
+      "max_round_trip_ms": 2507.235082999614,
+      "clock_extra_overhead_ms_range": [
+        -0.743876999913482,
+        0.9905070000240812
+      ]
+    },
+    {
+      "game": 16,
+      "init_seconds": {
+        "white": 18.138699424999686,
+        "black": 18.913450979000118
+      },
+      "moves": 158,
+      "max_round_trip_ms": 2508.0360110000584,
+      "clock_extra_overhead_ms_range": [
+        -0.6838650000281632,
+        0.9856469997903332
+      ]
+    },
+    {
+      "game": 17,
+      "init_seconds": {
+        "white": 19.146210361000158,
+        "black": 19.280287765999674
+      },
+      "moves": 55,
+      "max_round_trip_ms": 2510.8169989998714,
+      "clock_extra_overhead_ms_range": [
+        -0.695160999923246,
+        1.044809000013629
+      ]
+    },
+    {
+      "game": 18,
+      "init_seconds": {
+        "white": 18.49888983800065,
+        "black": 19.2765775630005
+      },
+      "moves": 105,
+      "max_round_trip_ms": 2507.183407999946,
+      "clock_extra_overhead_ms_range": [
+        -0.7207410007395083,
+        1.1540279997861944
+      ]
+    },
+    {
+      "game": 19,
+      "init_seconds": {
+        "white": 18.788091501999588,
+        "black": 18.10175481799979
+      },
+      "moves": 103,
+      "max_round_trip_ms": 2507.930278999993,
+      "clock_extra_overhead_ms_range": [
+        -0.7079899993841536,
+        1.1567129997420125
+      ]
+    },
+    {
+      "game": 20,
+      "init_seconds": {
+        "white": 18.406061255000168,
+        "black": 19.299315589999424
+      },
+      "moves": 144,
+      "max_round_trip_ms": 2506.8565609999496,
+      "clock_extra_overhead_ms_range": [
+        -0.7093229999954929,
+        1.214143000135664
+      ]
+    }
+  ]
+}
