@@ -115,8 +115,7 @@ def read_games(directory: Path) -> list[tuple[dict[str, Any], chess.pgn.Game]]:
                     "log": str(log_path) if log_path else None,
                     "log_sha256": sha256(log_path) if log_path else None,
                     "headers": dict(game.headers), "start_fen": game.board().fen(),
-                    "version": "unknown", "version_hint": "numba_v3_likely" if
-                    float((field(log_text, "Ready in") or "0").split()[0]) >= 15 else "unknown",
+                    "version": "unknown", "version_hint": "unknown",
                     "version_reason": "No per-match submission hash/ID in supplied logs",
                     "our_moves": own_index, "plies": len(moves),
                     "replayed_result": outcome.result() if outcome else None,
@@ -191,15 +190,14 @@ def main() -> None:
             assert int(linked["moves"]) == metadata["our_moves"]
     summary_records = []
     for row in unique_summary.values():
-        hint = "numba_v3_likely" if float(row["init_s"]) >= 15 else "legacy_likely"
-        summary_records.append({**row, "version": "unknown", "version_hint": hint,
+        summary_records.append({**row, "version": "unknown", "version_hint": "unknown",
                                 "pgn_log_available": row["round"] in linked_rounds})
     report = {
         "platform": platform.platform(), "summary_rows": len(summary),
         "unique_summary_rounds": len(unique_summary),
         "summary": summary_records,
-        "version_note": "Timing cohorts only; no supplied per-game submission ID/hash. "
-        "Do not count either cohort as cryptographically verified v3 results.",
+        "version_note": "No supplied per-game submission ID/hash. Neither initialization "
+        "duration nor finishing time identifies the source version.",
         "games": [metadata for metadata, _ in games],
     }
     (output / "intake.json").write_text(json.dumps(report, indent=2) + "\n")

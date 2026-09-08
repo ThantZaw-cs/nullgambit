@@ -41,6 +41,19 @@ class OnlineReviewTests(unittest.TestCase):
             (directory / "b.pgn").write_bytes((directory / "a.pgn").read_bytes())
             self.assertEqual(len(read_games(directory)), 1)
 
+    def test_long_init_and_later_finish_do_not_identify_a_version(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            game = self.fixture(directory)
+            (directory / "a.log").write_text(
+                "  Round          Rated 58\n  Opponent       Opponent\n"
+                f"  Start FEN      {game.board().fen()}\n"
+                "  Ready in       21.7 s\n  Finished       2026-09-08 08:45:53 UTC\n"
+            )
+            [(record, _)] = read_games(directory)
+            self.assertEqual(record["version"], "unknown")
+            self.assertEqual(record["version_hint"], "unknown")
+
     def test_conflicting_same_round_export_is_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             directory = Path(temporary)

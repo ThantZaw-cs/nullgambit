@@ -1,0 +1,67 @@
+{
+  "fixed_utc": "2026-09-08T09:19:02.996581+00:00",
+  "source_commit": "b32c1c574d21f97d833e102c2176670f1a6aa82a",
+  "candidate_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+  "opponent_sha256": "b08ab63e695f971e6322353eb5bba4657c91e901ac9b0b6fb9a326f1def56297",
+  "base_ms": 120000,
+  "increment_ms": 500,
+  "requested_games": 20,
+  "pairs": 10,
+  "classification": "All ten openings are previously used public development/regression inputs, NOT unseen validation.",
+  "execution": "Sequential, both colors per opening, same one-CPU affinity and installed dependencies. No outcome-based stopping or retries.",
+  "runner_time_limit_minutes": 95,
+  "referee": "Unchanged harness referee; 600-ply cap with raw material adjudication retained and reported separately, no score rewriting. Init limit remains local 60 seconds.",
+  "environment_limitations": "Ordinary Linux host, not official full container. One CPU affinity, numeric threads 1; no special 2 GB quota or network/filesystem isolation.",
+  "openings": [
+    {
+      "name": "ruy_lopez",
+      "fen": "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq - 0 8",
+      "classification": "regression"
+    },
+    {
+      "name": "sicilian",
+      "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+      "classification": "regression"
+    },
+    {
+      "name": "french",
+      "fen": "rnbqkb1r/pp1n1ppp/4p3/2ppP3/3P1P2/2N2N2/PPP3PP/R1BQKB1R b KQkq - 1 6",
+      "classification": "regression"
+    },
+    {
+      "name": "caro_kann",
+      "fen": "rn1qkbnr/pp2ppp1/2p3bp/8/3P3P/6N1/PPP2PP1/R1BQKBNR w KQkq - 0 7",
+      "classification": "regression"
+    },
+    {
+      "name": "queens_gambit",
+      "fen": "rnbq1rk1/ppp1bppp/4pn2/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R b KQ - 2 6",
+      "classification": "regression"
+    },
+    {
+      "name": "slav",
+      "fen": "rn1qkb1r/pp2pppp/2p2n2/5b2/P1pP4/2N2N2/1P2PPPP/R1BQKB1R w KQkq - 1 6",
+      "classification": "regression"
+    },
+    {
+      "name": "kings_indian",
+      "fen": "rnbq1rk1/ppp2pbp/3p1np1/4p3/2PPP3/2N2N2/PP2BPPP/R1BQK2R w KQ - 0 7",
+      "classification": "regression"
+    },
+    {
+      "name": "english",
+      "fen": "rnbqkb1r/ppp2ppp/1n6/4p3/8/2N3P1/PP1PPPBP/R1BQK1NR w KQkq - 2 6",
+      "classification": "regression"
+    },
+    {
+      "name": "scotch",
+      "fen": "r1b1k2r/ppppnppp/2n2q2/2b5/3NP3/2P1B3/PP3PPP/RN1QKB1R w KQkq - 1 7",
+      "classification": "regression"
+    },
+    {
+      "name": "italian",
+      "fen": "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQ1RK1 w - - 2 7",
+      "classification": "regression"
+    }
+  ]
+}

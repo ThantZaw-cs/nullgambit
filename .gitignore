@@ -6,6 +6,7 @@ submission.zip
 artifacts/*.zip
 artifacts/*.zip.sha256
 artifacts/v4-ci/
+artifacts/v4-formal/
 *.pgn
 # Private online originals and derived move logs stay local.
 data/online/

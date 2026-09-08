@@ -1,0 +1,51 @@
+name: v4-formal-control
+on:
+  push:
+    branches: [astra-v4]
+    paths:
+      - .github/workflows/v4-formal-control.yml
+      - benchmarks/astra-v4-diagnosis/plan.json
+permissions:
+  contents: read
+defaults:
+  run:
+    shell: bash
+concurrency:
+  group: frozen-v4-formal-control
+  cancel-in-progress: false
+jobs:
+  formal:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 105
+    env:
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      NUMBA_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.11.28"
+          python-version: "3.12"
+          enable-cache: false
+      - run: uv sync --locked
+      - name: Verify inputs and choose one available CPU
+        run: |
+          mkdir -p artifacts/v4-formal
+          test ! -e data/online
+          uv run --no-sync python -c 'import os; print("V4_CPU=" + str(min(os.sched_getaffinity(0))))' >> "$GITHUB_ENV"
+          uv pip freeze > artifacts/v4-formal/installed.txt
+          git rev-parse HEAD > artifacts/v4-formal/checkout.txt
+      - name: Complete the fixed twenty formal games without score-based stopping
+        run: timeout --signal=TERM --kill-after=30s 95m taskset -c "$V4_CPU" uv run --no-sync python -m tools.formal_v4_control 2>&1 | tee artifacts/v4-formal/formal.log
+      - name: Check frozen tracked inputs
+        if: always()
+        run: git diff --exit-code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: frozen-v4-formal-${{ github.sha }}
+          path: artifacts/v4-formal/
+          if-no-files-found: error
+          retention-days: 14
