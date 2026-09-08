@@ -13,12 +13,18 @@ import numpy as np
 
 from harness.referee import FAILED_TERMINATIONS
 from tools.online_review import sha256
+from tools.validate_v4 import BASELINE_SHA256, CANDIDATE_SHA256
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def summarize(directory: Path) -> dict[str, Any]:
     report = json.loads((directory / "formal.json").read_text())
     plan = json.loads((directory / "plan.json").read_text())
     assert report["plan_sha256"] == sha256(directory / "plan.json")
+    assert report["plan_sha256"] == sha256(ROOT / "benchmarks/astra-v4-diagnosis/plan.json")
+    assert report["candidate_sha256"] == CANDIDATE_SHA256
+    assert report["opponent_sha256"] == BASELINE_SHA256
     for key in ("candidate_sha256", "opponent_sha256"):
         assert report[key] == plan[key]
     assert plan["base_ms"] == 120_000 and plan["increment_ms"] == 500

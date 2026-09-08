@@ -28,6 +28,11 @@ and supplied upload context, not encoded in that log. Initialization times and
 finishing after validation do not identify the builds used in rounds 61/62.
 `tools.online_review` now leaves its timing-based version hint unknown as well.
 Historical timing cohorts are not counted as verified v3/v4 win rates.
+The supplied validation filename has the prefix of the previously checked
+release ZIP (`b379a6f0a8003227fe0951a7564976bdb2431fc065be59e2290b58e6e71671e4`),
+and its 41,094 expanded bytes match that package. This supports the supplied v4
+label, but the log body does not encode the source hash and neither game LOG
+links to its container build ID. Package provenance does not resolve 61/62.
 
 ## Replay and actual-clock probes on Mac
 
@@ -113,6 +118,15 @@ frozen quiet-move ordering changes. The shared passer/promotion horizon is a
 supported development hypothesis; an evaluation bias is plausible but not yet
 isolated from search. No new engine defect has been established by these probes.
 
+| Classification before the formal result | Current evidence |
+| --- | --- |
+| v4-specific regression | Not established by the local probes; sampled same-depth completed branch scores agree |
+| Shared search weakness | Passer/promotion horizon is a supported hypothesis, with choices changing at greater depth; not an externally verified chess verdict |
+| Shared evaluation bias | Possible, but not separated from the horizon effect |
+| Time allocation | Identical policy and substantial unused clock; causal benefit of spending more time is not established |
+| Implementation failure | None observed in the supplied games or 284 probes; this is not proof that no defect exists elsewhere |
+| Insufficient evidence | Exact builds for 61/62, unseen Linux openings, and an independent chess oracle are unavailable |
+
 ## Predeclared Linux formal control
 
 `plan.json` was fixed before launch, SHA-256
@@ -138,6 +152,10 @@ The separate ordinary CI run passed all 56 tests, ruff and strict mypy. Its
 short smoke games are not included in or substituted for this formal batch.
 After adding the local diagnosis/audit tools, the Mac rerun also passes all
 56 tests (12.097 s test body), ruff and strict mypy (29 checked source files).
+An independent tracked export without `data/online/` or its own virtual
+environment also passes 56 tests (12.046 s), ruff and strict mypy, reusing the
+installed Mac dependencies. Aggregate Mac measurements are in `mac-summary.json`;
+complete online histories and probes remain private.
 Formal results are pending completion; no result or recommendation is inferred
 from the fact that the workflow is running.
 
