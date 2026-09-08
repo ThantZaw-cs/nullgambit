@@ -1,0 +1,96 @@
+{
+  "starting_commit": "639fc47922b49d363962a5c0a73a7b4e69192f49",
+  "branch": "astra-v4",
+  "initial_dirty": [
+    "?? data/"
+  ],
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "files": [
+    {
+      "path": "data/online/2026-09-08/aichessathon-games.csv",
+      "size": 4405,
+      "sha256": "1636be03bca7286b2f45df5710a236f28eb9fa55af46adf630375957575f9144"
+    },
+    {
+      "path": "data/online/2026-09-08/aichessathon-round-54-alphagambit.log",
+      "size": 2941,
+      "sha256": "967e7b57ffae53364ab97978dfd8c56382c838aae1e1f9948e6e28e641a040da"
+    },
+    {
+      "path": "data/online/2026-09-08/aichessathon-round-54-alphagambit.pgn",
+      "size": 3519,
+      "sha256": "5300393fde4efe0be98bbd9348e85ff5edf3a6cda70669b32cb34cadc3c05462"
+    },
+    {
+      "path": "data/online/2026-09-08/aichessathon-round-58-alpha-knights.log",
+      "size": 2843,
+      "sha256": "cb716ea2a9793e925f3b4604cca896b2c466e373ad99d31f510ddc46f55157cc"
+    },
+    {
+      "path": "data/online/2026-09-08/aichessathon-round-58-alpha-knights.pgn",
+      "size": 3386,
+      "sha256": "3f5824d16ac5e49e0e4e595e8c725b5db29a1519ad305211b46e186018d9a5a3"
+    },
+    {
+      "path": "data/online/2026-09-08/aichessathon-round-60-queenc4.log",
+      "size": 2957,
+      "sha256": "b643f987a2c6a14040a59ac85256e52bf9e1fa322d6fc9614e892a48034b9cee"
+    },
+    {
+      "path": "data/online/2026-09-08/aichessathon-round-60-queenc4.pgn",
+      "size": 3535,
+      "sha256": "1eeac955971175cf3df19d8cc14c8b46a531fa54dbb2138a0de6b9fdea70a8fa"
+    },
+    {
+      "path": "data/online/2026-09-08/aichessathon-v3-db1700f30644.log",
+      "size": 1428,
+      "sha256": "5fd46be41a05c2f820aa8d407616735afcb306335878da57acbd4b7b32d3953a"
+    },
+    {
+      "path": "data/online/2026-09-08/nullgambit-numba-v3-b08ab63e.zip",
+      "size": 8822,
+      "sha256": "db1700f30644f721779fbf97591817778fbedd1a8471bec6092f3b799e01c493"
+    }
+  ],
+  "online_v3_sha256": "b08ab63e695f971e6322353eb5bba4657c91e901ac9b0b6fb9a326f1def56297",
+  "zip_bytes_match": true,
+  "root_is_old": true,
+  "missing": [
+    "online winning-game PGN and per-move LOG",
+    "explicit per-game submission ID/hash or authoritative version mapping",
+    "candidate Linux competition-environment validation"
+  ],
+  "summary_rows": 38,
+  "unique_rounds": 38,
+  "replayed_rounds": [
+    58,
+    60,
+    54
+  ],
+  "matched_games": [
+    {
+      "round": 54,
+      "match_id": "dc972c49-a77e-45f3-88d6-9ddee04ac59e",
+      "version": "unknown",
+      "hint": "numba_v3_likely",
+      "plies": 101,
+      "own_moves": 50
+    },
+    {
+      "round": 58,
+      "match_id": "3a25d711-0e9b-44fa-95b4-98d387447be2",
+      "version": "unknown",
+      "hint": "numba_v3_likely",
+      "plies": 97,
+      "own_moves": 48
+    },
+    {
+      "round": 60,
+      "match_id": "2b67a824-cf41-49cd-9d8d-14f821fc5371",
+      "version": "unknown",
+      "hint": "numba_v3_likely",
+      "plies": 102,
+      "own_moves": 51
+    }
+  ]
+}

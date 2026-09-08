@@ -1,0 +1,125 @@
+{
+  "agent": "prototypes/numba_kernel",
+  "opponent": "baselines/online_v3",
+  "agent_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+  "opponent_sha256": "b08ab63e695f971e6322353eb5bba4657c91e901ac9b0b6fb9a326f1def56297",
+  "suite": "external_positions",
+  "positions_file": "benchmarks/astra-v4/validation-openings.json",
+  "base_ms": 120000,
+  "increment_ms": 500,
+  "wins": 6,
+  "draws": 6,
+  "losses": 0,
+  "failures": 0,
+  "score": 0.75,
+  "games": [
+    {
+      "opening": "trompowsky",
+      "fen": "rnbq1rk1/ppp1bpp1/4pn1p/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 7",
+      "agent_white": true,
+      "result": "white",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 49
+    },
+    {
+      "opening": "trompowsky",
+      "fen": "rnbq1rk1/ppp1bpp1/4pn1p/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R w KQ - 0 7",
+      "agent_white": false,
+      "result": "black",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 92
+    },
+    {
+      "opening": "bogo_indian",
+      "fen": "r1b2rk1/ppp1qppp/2nppn2/8/1bPP4/5NP1/PP1BPPBP/RN1Q1RK1 w - - 0 8",
+      "agent_white": true,
+      "result": "white",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 59
+    },
+    {
+      "opening": "bogo_indian",
+      "fen": "r1b2rk1/ppp1qppp/2nppn2/8/1bPP4/5NP1/PP1BPPBP/RN1Q1RK1 w - - 0 8",
+      "agent_white": false,
+      "result": "black",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 170
+    },
+    {
+      "opening": "accelerated_dragon",
+      "fen": "r1bq1rk1/pp1pppbp/2n2np1/8/2PNP3/2N1B3/PP3PPP/R2QKB1R w KQ - 5 8",
+      "agent_white": true,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 68
+    },
+    {
+      "opening": "accelerated_dragon",
+      "fen": "r1bq1rk1/pp1pppbp/2n2np1/8/2PNP3/2N1B3/PP3PPP/R2QKB1R w KQ - 5 8",
+      "agent_white": false,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 113
+    },
+    {
+      "opening": "french_exchange",
+      "fen": "rnbq1rk1/ppp2ppp/3b1n2/3p4/3P4/3B1N2/PPP2PPP/RNBQ1RK1 w - - 6 7",
+      "agent_white": true,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 193
+    },
+    {
+      "opening": "french_exchange",
+      "fen": "rnbq1rk1/ppp2ppp/3b1n2/3p4/3P4/3B1N2/PPP2PPP/RNBQ1RK1 w - - 6 7",
+      "agent_white": false,
+      "result": "black",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 132
+    },
+    {
+      "opening": "kings_gambit_declined",
+      "fen": "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1PP2/2NP1N2/PPP3PP/R1BQK2R w KQ - 1 7",
+      "agent_white": true,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 98
+    },
+    {
+      "opening": "kings_gambit_declined",
+      "fen": "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1PP2/2NP1N2/PPP3PP/R1BQK2R w KQ - 1 7",
+      "agent_white": false,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 125
+    },
+    {
+      "opening": "slav_exchange",
+      "fen": "r2qkb1r/pp3ppp/2n1pn2/3p1b2/3P1B2/2N1PN2/PP3PPP/R2QKB1R w KQkq - 0 8",
+      "agent_white": true,
+      "result": "white",
+      "termination": "checkmate",
+      "score": 1.0,
+      "plies": 101
+    },
+    {
+      "opening": "slav_exchange",
+      "fen": "r2qkb1r/pp3ppp/2n1pn2/3p1b2/3P1B2/2N1PN2/PP3PPP/R2QKB1R w KQkq - 0 8",
+      "agent_white": false,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "score": 0.5,
+      "plies": 72
+    }
+  ]
+}

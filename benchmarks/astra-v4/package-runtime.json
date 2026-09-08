@@ -1,0 +1,27 @@
+{
+  "source": "prototypes/numba_kernel/agent.py",
+  "archive": "artifacts/astra-v4-history-7f451006.zip",
+  "agent_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+  "init_seconds": 6.042070875002537,
+  "checks": [
+    {
+      "remaining_ms": 5000,
+      "move": "g1f3",
+      "round_trip_ms": 144.00858303997666
+    },
+    {
+      "remaining_ms": 1000,
+      "move": "e5d6",
+      "round_trip_ms": 28.808040951844305
+    },
+    {
+      "remaining_ms": 1,
+      "move": "g1h3",
+      "round_trip_ms": 0.09425001917406917
+    }
+  ],
+  "stderr": "",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "runner_peak_rss_bytes": 289849344,
+  "memory_note": "macOS reports ru_maxrss in bytes; own runner child only. No Linux container or hard memory limit was applied."
+}

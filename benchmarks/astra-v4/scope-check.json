@@ -1,0 +1,15 @@
+{
+  "unchanged_functions": [
+    "_piece_square",
+    "_evaluate_numeric",
+    "_structure_numeric",
+    "_evaluate",
+    "_quiescence",
+    "_draw_by_history",
+    "_seed_history",
+    "_restore_history",
+    "get_move",
+    "timed_search"
+  ],
+  "source_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4"
+}

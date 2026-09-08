@@ -698,39 +698,6 @@ def _pick_ordered(board: np.ndarray, moves: np.ndarray, start: int, count: int) 
 
 
 @njit(cache=False)
-def _pick_search_ordered(
-    board: np.ndarray,
-    state: np.ndarray,
-    moves: np.ndarray,
-    start: int,
-    count: int,
-    quiet_scores: np.ndarray,
-) -> int:
-    """Try tactical moves first, then quiet moves that caused earlier cutoffs."""
-    best_index, best_priority = start, -1
-    side_index = int(state[0] == WHITE)
-    for index in range(start, count):
-        move = int(moves[index])
-        source, target = move & 63, (move >> 6) & 63
-        victim = abs(int(board[target]))
-        promotion = (move >> 12) & 7
-        if victim or promotion or move & EP_FLAG:
-            if move & EP_FLAG:
-                victim = PAWN
-            priority = 100_000 + victim * 16 - abs(int(board[source]))
-            if promotion:
-                priority += 100 + promotion
-        else:
-            priority = int(quiet_scores[side_index, source, target])
-        if priority > best_priority:
-            best_index, best_priority = index, priority
-    chosen = int(moves[best_index])
-    moves[best_index] = moves[start]
-    moves[start] = chosen
-    return chosen
-
-
-@njit(cache=False)
 def _quiescence(
     board: np.ndarray,
     state: np.ndarray,
@@ -818,7 +785,6 @@ def _negamax(
     history_len: int,
     tt_keys: np.ndarray,
     tt_moves: np.ndarray,
-    quiet_scores: np.ndarray,
 ) -> int:
     if depth <= 0:
         return _quiescence(
@@ -863,17 +829,12 @@ def _negamax(
     best = -101_000
     best_move = -1
     for index in range(count):
-        use_preferred = False
         if index == 0 and preferred >= 0:
             for preferred_index in range(count):
                 if moves[preferred_index] == preferred:
                     moves[0], moves[preferred_index] = moves[preferred_index], moves[0]
-                    use_preferred = True
                     break
-        move = (
-            int(moves[0]) if use_preferred else
-            _pick_search_ordered(board, state, moves, index, count, quiet_scores)
-        )
+        move = int(moves[index]) if index == 0 else _pick_ordered(board, moves, index, count)
         undo = np.empty(10, dtype=np.int64)
         _make(board, state, move, undo)
         if index == 0:
@@ -890,7 +851,6 @@ def _negamax(
                 history_len + 1,
                 tt_keys,
                 tt_moves,
-                quiet_scores,
             )
         else:
             score = -_negamax(
@@ -906,7 +866,6 @@ def _negamax(
                 history_len + 1,
                 tt_keys,
                 tt_moves,
-                quiet_scores,
             )
             if alpha < score < beta and not counters[1]:
                 score = -_negamax(
@@ -922,7 +881,6 @@ def _negamax(
                     history_len + 1,
                     tt_keys,
                     tt_moves,
-                    quiet_scores,
                 )
         _unmake(board, state, undo)
         if counters[1]:
@@ -933,13 +891,6 @@ def _negamax(
         if score > alpha:
             alpha = score
         if alpha >= beta:
-            source, target = move & 63, (move >> 6) & 63
-            if board[target] == 0 and not move & (EP_FLAG | (7 << 12)):
-                side_index = int(state[0] == WHITE)
-                bonus = depth * depth
-                quiet_scores[side_index, source, target] = min(
-                    16_384, quiet_scores[side_index, source, target] + bonus
-                )
             break
     tt_keys[tt_index] = key
     tt_moves[tt_index] = best_move
@@ -970,21 +921,14 @@ def _root_search(
         or _draw_by_history(board, state, history, history_len)
     ):
         return best_move, 0
-    # Per-root scratch: learned ordering never caches a score or draw outcome.
-    quiet_scores = np.zeros((2, 64, 64), dtype=np.int64)
     alpha = -101_000
     for index in range(count):
-        use_preferred = False
         if index == 0 and preferred >= 0:
             for preferred_index in range(count):
                 if moves[preferred_index] == preferred:
                     moves[0], moves[preferred_index] = moves[preferred_index], moves[0]
-                    use_preferred = True
                     break
-        move = (
-            int(moves[0]) if use_preferred else
-            _pick_search_ordered(board, state, moves, index, count, quiet_scores)
-        )
+        move = int(moves[index]) if index == 0 else _pick_ordered(board, moves, index, count)
         undo = np.empty(10, dtype=np.int64)
         _make(board, state, move, undo)
         if index == 0:
@@ -1001,7 +945,6 @@ def _root_search(
                 history_len + 1,
                 tt_keys,
                 tt_moves,
-                quiet_scores,
             )
         else:
             score = -_negamax(
@@ -1017,7 +960,6 @@ def _root_search(
                 history_len + 1,
                 tt_keys,
                 tt_moves,
-                quiet_scores,
             )
             if alpha < score < 101_000 and not counters[1]:
                 score = -_negamax(
@@ -1033,7 +975,6 @@ def _root_search(
                     history_len + 1,
                     tt_keys,
                     tt_moves,
-                    quiet_scores,
                 )
         _unmake(board, state, undo)
         if counters[1]:
@@ -1104,7 +1045,6 @@ def fixed_score(source: chess.Board, depth: int) -> int:
             history_len,
             tt_keys,
             tt_moves,
-            np.zeros((2, 64, 64), dtype=np.int64),
         )
     )
 

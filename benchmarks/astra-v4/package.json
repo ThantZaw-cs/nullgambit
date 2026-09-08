@@ -1,0 +1,12 @@
+{
+  "path": "artifacts/astra-v4-history-7f451006.zip",
+  "zip_sha256": "7d9991b8436d1b7b2a1c4e267cd0bcd0c1fc319af8313809f38e54c49bb9ea95",
+  "agent_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+  "members": {
+    "agent.py": 40026,
+    "LICENSE": 1068
+  },
+  "uploaded": false,
+  "status": "Retain candidate; local tests and matches passed; Linux validation pending",
+  "runtime_verified": true
+}

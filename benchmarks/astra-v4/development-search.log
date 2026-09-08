@@ -1,0 +1,12 @@
+r58-m14 fixed nodes {'baseline': 361625, 'candidate': 113514} 2.5s depth {'baseline': 5, 'candidate': 6}
+r58-m16 fixed nodes {'candidate': 188802, 'baseline': 463844} 2.5s depth {'candidate': 6, 'baseline': 5}
+r58-m17 fixed nodes {'baseline': 427251, 'candidate': 178283} 2.5s depth {'baseline': 5, 'candidate': 6}
+r58-m18 fixed nodes {'candidate': 103946, 'baseline': 296257} 2.5s depth {'candidate': 6, 'baseline': 5}
+r58-m27 fixed nodes {'baseline': 289159, 'candidate': 120926} 2.5s depth {'baseline': 5, 'candidate': 6}
+r58-m31 fixed nodes {'candidate': 45245, 'baseline': 88743} 2.5s depth {'candidate': 7, 'baseline': 6}
+r60-m7 fixed nodes {'baseline': 1079071, 'candidate': 283534} 2.5s depth {'baseline': 4, 'candidate': 5}
+r60-m8 fixed nodes {'candidate': 161169, 'baseline': 560892} 2.5s depth {'candidate': 5, 'baseline': 5}
+r60-m12 fixed nodes {'baseline': 310755, 'candidate': 105651} 2.5s depth {'baseline': 5, 'candidate': 6}
+r60-m23 fixed nodes {'candidate': 50728, 'baseline': 112850} 2.5s depth {'candidate': 6, 'baseline': 6}
+r60-m29 fixed nodes {'baseline': 395478, 'candidate': 82626} 2.5s depth {'baseline': 5, 'candidate': 5}
+r60-m34 fixed nodes {'candidate': 59800, 'baseline': 103026} 2.5s depth {'candidate': 6, 'baseline': 5}

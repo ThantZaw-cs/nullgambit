@@ -18,6 +18,7 @@ from harness.sandbox import local
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--archive", type=Path, default=Path("submission.zip"))
+    parser.add_argument("--source", type=Path, default=Path("agent.py"))
     parser.add_argument("--out", type=Path, default=Path("benchmarks/positional-runtime.json"))
     args = parser.parse_args()
     root = Path(".venv").resolve()
@@ -29,10 +30,16 @@ def main() -> None:
     directory.mkdir()
     player = local(directory)
     try:
-        source = Path("agent.py").read_bytes()
+        source = args.source.read_bytes()
         with zipfile.ZipFile(args.archive) as archive:
-            if archive.namelist() != ["agent.py"] or archive.testzip() is not None:
-                raise SystemExit("Expected an intact ZIP containing only agent.py at its root")
+            names = archive.namelist()
+            if (
+                "agent.py" not in names
+                or len(set(names)) != len(names)
+                or set(names) - {"agent.py", "LICENSE"}
+                or archive.testzip() is not None
+            ):
+                raise SystemExit("Expected an intact root agent.py and optional LICENSE")
             if archive.read("agent.py") != source:
                 raise SystemExit("The ZIP is stale; rebuild it before checking")
             archive.extractall(directory)
@@ -58,6 +65,8 @@ def main() -> None:
         else:
             raise RuntimeError("Refusing to clean up a test directory outside the workspace")
     report = {
+        "source": str(args.source),
+        "archive": str(args.archive),
         "agent_sha256": hashlib.sha256(source).hexdigest(),
         "init_seconds": initialization,
         "checks": checks,

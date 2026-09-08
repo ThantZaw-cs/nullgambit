@@ -1,0 +1,7 @@
+{
+  "phase": "fast screen",
+  "started_utc": "2026-09-08T02:23:46.339819+00:00",
+  "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMBA_NUM_THREADS=1 .venv/bin/python -m tools.compare --agent prototypes/numba_kernel --opponent baselines/online_v3 --pairs 10 --suite development --base-ms 10000 --increment-ms 100 --out benchmarks/astra-v4/fast-screen",
+  "compare_script_sha256": "aeb0fa6b7f6534d5b77e0f7b7c2ef9d12eef0075f5bcda29905aeb1e50ea98c7",
+  "planned_games": 20
+}
