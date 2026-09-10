@@ -13,7 +13,7 @@ import numpy as np
 
 from harness.referee import FAILED_TERMINATIONS
 from tools.online_review import sha256
-from tools.v8_match import V7_SHA256
+from tools.v8_match import V7_SHA256, audit_retained_attempt
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -36,6 +36,9 @@ def summarize(directory: Path) -> dict[str, Any]:
     if report["status"] == "completed":
         assert len(rows) == requested
     pairs: dict[str, list[float]] = {}
+    retained_attempts = report.get("retained_infrastructure_attempts", [])
+    for reference in retained_attempts:
+        audit_retained_attempt(directory, reference)
     for index, row in enumerate(rows):
         assert row["index"] == index + 1
         opening = plan["openings"][index // 2]
@@ -144,7 +147,7 @@ def summarize(directory: Path) -> dict[str, Any]:
     return {
         "requested_games": requested,
         "actual_games": len(rows),
-        "complete": len(rows) == requested,
+        "complete": report["status"] == "completed" and len(rows) == requested,
         "wins": wins,
         "draws": draws,
         "losses": losses,
@@ -152,7 +155,13 @@ def summarize(directory: Path) -> dict[str, Any]:
         "failures": report["failures"],
         "infrastructure_interruptions": sum(
             r["termination"] == "infrastructure_interruption" for r in rows
-        ),
+        ) + len(retained_attempts),
+        "retained_infrastructure_void_attempts": len(retained_attempts),
+        "retained_infrastructure_attempts": retained_attempts,
+        "retained_attempt_archive_bytes_audited": True,
+        "execution_elapsed_s": report.get("execution_elapsed_s"),
+        "extra_execution_s": report.get("extra_execution_s", 0),
+        "execution_extensions": report.get("execution_extensions", []),
         "adjudications": report["adjudications"],
         "ply_cap_draws": report["ply_cap_draws"],
         "raw_referee_score": (wins + draws / 2) / (wins + draws + losses)

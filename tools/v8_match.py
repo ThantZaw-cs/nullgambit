@@ -3,8 +3,10 @@
 import argparse
 import io
 import json
+import shutil
 import signal
 import sys
+import tempfile
 import time
 from datetime import UTC, datetime
 from pathlib import Path
@@ -30,6 +32,132 @@ def checkpoint(path: Path, report: dict[str, Any]) -> None:
     temporary.replace(path)
 
 
+def audit_retained_attempt(out: Path, reference: dict[str, Any]) -> dict[str, Any]:
+    """Verify an immutable interrupted attempt without loading either engine."""
+    directory = out / reference["directory"]
+    assert directory.resolve().is_relative_to((out / "retained-attempts").resolve())
+    assert sha256(directory / "manifest.json") == reference["manifest_sha256"]
+    manifest: dict[str, Any] = json.loads((directory / "manifest.json").read_text())
+    for name, expected in manifest["files_sha256"].items():
+        assert Path(name).name == name
+        assert sha256(directory / name) == expected
+    row = manifest["row"]
+    assert row["index"] == reference["logical_index"]
+    assert row["result"] == "void" and row["termination"] == "infrastructure_interruption"
+    saved = json.loads((directory / "results-before-resume.json").read_text())
+    assert saved["games"][-1] == row
+    assert saved["plan_sha256"] == sha256(directory / "plan.json")
+    plan = json.loads((out / "plan.json").read_text())
+    opening = plan["openings"][(row["index"] - 1) // 2]
+    assert row["opening"] == opening["name"] and row["fen"] == opening["fen"]
+    assert row["candidate_white"] == (row["index"] % 2 == 1)
+    assert json.loads((directory / f"game-{row['index']:02d}.result.json").read_text()) == row
+    assert (directory / "plan.json").read_bytes() == (out / "plan.json").read_bytes()
+    for key in ("candidate_sha256", "opponent_sha256"):
+        assert saved[key] == plan[key]
+    return manifest
+
+
+def prepare_resume(
+    out: Path,
+    report: dict[str, Any],
+    plan: dict[str, Any],
+    *,
+    resume_infrastructure: bool,
+    extra_execution_s: int,
+    deadline_utc: str | None = None,
+) -> None:
+    """Keep completed results; retry only explicitly authorized unfinished infrastructure IDs."""
+    assert report["status"] == "incomplete" and "pending_game" not in report
+    if deadline_utc is not None:
+        deadline = datetime.fromisoformat(deadline_utc)
+        assert deadline.tzinfo is not None and datetime.now(UTC) < deadline, (
+            "UTC deadline exhausted"
+        )
+        if report.get("execution_deadline_utc"):
+            assert deadline <= datetime.fromisoformat(report["execution_deadline_utc"])
+    assert report["plan_sha256"] == sha256(out / "plan.json")
+    assert plan == json.loads((out / "plan.json").read_text())
+    for key in ("candidate_sha256", "opponent_sha256"):
+        assert report[key] == plan[key]
+    assert extra_execution_s >= 0
+    allocated = report.get("extra_execution_s", 0) + extra_execution_s
+    assert plan["execution_limit_s"] + allocated > report.get("execution_elapsed_s", 0.0), (
+        "Batch execution cap exhausted; an explicitly authorized additive allocation is required"
+    )
+    rows = report["games"]
+    for index, row in enumerate(rows, 1):
+        opening = plan["openings"][(index - 1) // 2]
+        assert row["index"] == index and row["opening"] == opening["name"]
+        assert row["fen"] == opening["fen"] and row["candidate_white"] == (index % 2 == 1)
+    retained = report.setdefault("retained_infrastructure_attempts", [])
+    for reference in retained:
+        audit_retained_attempt(out, reference)
+    if resume_infrastructure:
+        # An archive committed before an interrupted cleanup can be reused safely.
+        cleanup_reference = (
+            retained[-1] if retained and retained[-1]["logical_index"] == len(rows) + 1 else None
+        )
+        if rows and rows[-1]["result"] == "void":
+            row = rows[-1]
+            assert row["termination"] == "infrastructure_interruption", (
+                "Program failures and completed results cannot be retried"
+            )
+            index = row["index"]
+            directory = (
+                out / "retained-attempts" / f"game-{index:02d}-attempt-{len(retained) + 1:02d}"
+            )
+            names = [f"game-{index:02d}.{suffix}" for suffix in ("jsonl", "pgn", "result.json")]
+            assert json.loads((out / names[-1]).read_text()) == row
+            if not directory.exists():
+                directory.parent.mkdir(parents=True, exist_ok=True)
+                staging = Path(tempfile.mkdtemp(prefix=".pending-", dir=directory.parent))
+                for name in [*names, "plan.json"]:
+                    shutil.copy2(out / name, staging / name)
+                shutil.copy2(out / "results.json", staging / "results-before-resume.json")
+                manifest = {
+                    "row": row,
+                    "files_sha256": {
+                        p.name: sha256(p) for p in sorted(staging.iterdir()) if p.is_file()
+                    },
+                }
+                checkpoint(staging / "manifest.json", manifest)
+                staging.rename(directory)
+            reference = {
+                "directory": str(directory.relative_to(out)),
+                "logical_index": index,
+                "manifest_sha256": sha256(directory / "manifest.json"),
+            }
+            manifest = audit_retained_attempt(out, reference)
+            assert manifest["row"] == row
+            for name in names:
+                assert sha256(out / name) == manifest["files_sha256"][name]
+            retained.append(reference)
+            rows.pop()
+            report["actual_games"] = len(rows)
+            checkpoint(out / "results.json", report)
+            cleanup_reference = reference
+        elif cleanup_reference is None:
+            raise AssertionError("No unfinished infrastructure game to retry")
+        assert cleanup_reference is not None
+        manifest = audit_retained_attempt(out, cleanup_reference)
+        index = cleanup_reference["logical_index"]
+        for suffix in ("jsonl", "pgn", "result.json"):
+            path = out / f"game-{index:02d}.{suffix}"
+            if path.exists():
+                assert sha256(path) == manifest["files_sha256"][path.name]
+                path.unlink()
+    assert len(rows) < plan["requested_games"], "All scheduled IDs already have results"
+    report["extra_execution_s"] = allocated
+    if deadline_utc is not None:
+        report["execution_deadline_utc"] = deadline_utc
+    if extra_execution_s:
+        report.setdefault("execution_extensions", []).append(
+            {"utc": datetime.now(UTC).isoformat(), "additional_seconds": extra_execution_s}
+        )
+    checkpoint(out / "results.json", report)
+
+
 def save_interrupted(
     out: Path,
     report: dict[str, Any],
@@ -39,7 +167,7 @@ def save_interrupted(
     started: float,
     error: BaseException,
 ) -> None:
-    """Persist an interrupted game as VOID; a resume cannot replay its opening/color."""
+    """Persist every interrupted attempt; default resume never replays its opening/color."""
     index = len(report["games"]) + 1
     trace = out / f"game-{index:02d}.jsonl"
     board = chess.Board(opening["fen"])
@@ -94,7 +222,22 @@ def main() -> None:
     parser.add_argument(
         "--resume", action="store_true", help="Continue only unscheduled games; never replay a VOID"
     )
+    parser.add_argument(
+        "--resume-infrastructure", action="store_true",
+        help="With --resume, retain and retry only the final unfinished infrastructure ID",
+    )
+    parser.add_argument(
+        "--extra-execution-s", type=int, default=0,
+        help="With --resume, add authorized execution seconds without resetting elapsed time",
+    )
+    parser.add_argument("--deadline-utc", help="Absolute timezone-aware UTC execution deadline")
     args = parser.parse_args()
+    assert args.resume or (not args.resume_infrastructure and args.extra_execution_s == 0)
+    if args.deadline_utc:
+        deadline = datetime.fromisoformat(args.deadline_utc)
+        assert deadline.tzinfo is not None and datetime.now(UTC) < deadline, (
+            "UTC deadline exhausted"
+        )
     plan = json.loads(args.plan.read_text())
     assert plan["requested_games"] == 2 * len(plan["openings"])
     expected = {"fast": (40, 10000, 100), "formal": (20, 120000, 500)}[plan["stage"]]
@@ -152,13 +295,21 @@ def main() -> None:
     }
     if args.resume:
         report = json.loads((out / "results.json").read_text())
-        assert report["status"] == "incomplete" and "pending_game" not in report
-        assert len(report["games"]) < plan["requested_games"]
+        prepare_resume(
+            out, report, plan, resume_infrastructure=args.resume_infrastructure,
+            extra_execution_s=args.extra_execution_s, deadline_utc=args.deadline_utc,
+        )
         report["status"] = "running"
         report.setdefault("resumed_utc", []).append(datetime.now(UTC).isoformat())
     session_started = time.monotonic()
     elapsed_before = report.get("execution_elapsed_s", 0.0)
-    remaining = plan["execution_limit_s"] - elapsed_before
+    remaining = plan["execution_limit_s"] + report.get("extra_execution_s", 0) - elapsed_before
+    deadline_text = args.deadline_utc or report.get("execution_deadline_utc")
+    if deadline_text:
+        report["execution_deadline_utc"] = deadline_text
+        remaining = min(
+            remaining, (datetime.fromisoformat(deadline_text) - datetime.now(UTC)).total_seconds()
+        )
     assert remaining > 0, "The original batch execution cap is exhausted"
     signal.signal(signal.SIGTERM, stop_on_budget)
     signal.signal(signal.SIGALRM, stop_on_budget)

@@ -15,5 +15,12 @@
   "reused_linux_run": 34472928110,
   "rerun_completed_tests": false,
   "opening_schedule_changed": false,
-  "candidate_changed": false
+  "candidate_changed": false,
+  "infrastructure_extension_authorization": {
+    "recorded_utc": "2026-09-10T13:47:50.664901+00:00",
+    "user_reply": "\u5141\u8bb8\u8865\u9f50\u672a\u5b8c\u6210ID\uff0c\u4fdd\u6301\u4e09\u5c0f\u65f6\u603b\u622a\u6b62",
+    "allowed_change": "Only additive batch execution time and retrying unfinished infrastructure-interrupted IDs; all original WDL and raw interrupted attempts retained. No game-clock/600-ply/source/opening change.",
+    "provisioned_additional_seconds_if_needed": 600,
+    "activated": false
+  }
 }

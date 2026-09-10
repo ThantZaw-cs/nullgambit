@@ -25,7 +25,7 @@ env:
 
 jobs:
   acceptance:
-    if: "!contains(github.event.head_commit.message, '[v8-competition-once]')"
+    if: "!contains(github.event.head_commit.message, '[v8-competition-')"
     runs-on: ubuntu-24.04
     timeout-minutes: 125
     steps:
@@ -121,7 +121,7 @@ jobs:
           retention-days: 30
 
   competition:
-    if: contains(github.event.head_commit.message, '[v8-competition-once]') && github.run_attempt == 1
+    if: contains(github.event.head_commit.message, '[v8-competition-') && github.run_attempt == 1
     runs-on: ubuntu-24.04
     timeout-minutes: 125
     steps:
@@ -148,7 +148,7 @@ jobs:
           from pathlib import Path
           digest = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
           trigger = json.loads(Path("benchmarks/astra-v8/ci-trigger.json").read_text())
-          assert trigger["phase"] == "competition"
+          assert trigger["phase"] in {"competition", "competition-resume"}
           assert platform.machine() == "x86_64" and sys.version_info[:2] == (3, 12)
           assert digest("prototypes/search_core/agent.py") == trigger["candidate_sha256"]
           assert digest("baselines/online_v7/agent.py") == os.environ["V7_SHA"]
@@ -166,11 +166,41 @@ jobs:
           Path("artifacts/v8-search/promotion-rule.txt").write_text("Before game 1: complete40, zero failures/VOID, score>=50% -> original formal20. Practical continuation gate, not strength proof.\n")
           with open(os.environ["GITHUB_ENV"], "a") as handle:
               print("V8_CPU="+str(min(os.sched_getaffinity(0))), file=handle)
+              print("V8_PHASE="+trigger["phase"], file=handle)
+          if trigger["phase"] == "competition-resume":
+              import shutil
+              assert trigger["extra_execution_s"] == 600
+              assert trigger["resume_authorization"] == "User approved completing unfinished IDs after infrastructure cap; preserve all completed WDL and original interrupted attempt."
+              source=Path(trigger["checkpoint_directory"])
+              assert source.is_relative_to("benchmarks/astra-v8")
+              manifest=json.loads((source/"checkpoint-manifest.json").read_text())
+              assert digest(source/"checkpoint-manifest.json") == trigger["checkpoint_manifest_sha256"]
+              assert set(manifest) == {str(f.relative_to(source)) for f in source.rglob("*") if f.is_file() and f.name != "checkpoint-manifest.json"}
+              for name, sha in manifest.items():
+                  relative=Path(name)
+                  assert not relative.is_absolute() and ".." not in relative.parts
+                  assert not (source/relative).is_symlink()
+                  assert digest(source/relative) == sha
+              report=json.loads((source/"results.json").read_text())
+              assert report["status"] == "incomplete" and "pending_game" not in report
+              assert report["candidate_sha256"] == trigger["candidate_sha256"]
+              assert report["opponent_sha256"] == os.environ["V7_SHA"]
+              assert (source/"plan.json").read_bytes() == Path("benchmarks/astra-v8/fast-plan.json").read_bytes()
+              shutil.copytree(source,"artifacts/v8-search/fast")
           PYCODE
       - name: Original fixed40 real-entry games at 10+0.1
         run: |
           ulimit -v 2097152
-          timeout --signal=TERM --kill-after=30s 41m taskset -c "$V8_CPU" uv run --no-sync python -m tools.v8_match --plan benchmarks/astra-v8/fast-plan.json --out artifacts/v8-search/fast 2>&1 | tee artifacts/v8-search/fast.log
+          if test "$V8_PHASE" = competition-resume; then
+            V8_REMAINING=$(uv run --no-sync python - <<'PYCODE'
+          from datetime import UTC,datetime
+          print(max(1,min(660,int((datetime.fromisoformat("2026-09-10T15:36:03+00:00")-datetime.now(UTC)).total_seconds())-90)))
+          PYCODE
+            )
+            timeout --signal=TERM --kill-after=30s "${V8_REMAINING}s" taskset -c "$V8_CPU" uv run --no-sync python -m tools.v8_match --plan benchmarks/astra-v8/fast-plan.json --out artifacts/v8-search/fast --resume --resume-infrastructure --extra-execution-s 600 --deadline-utc 2026-09-10T15:36:03+00:00 2>&1 | tee artifacts/v8-search/fast-resume.log
+          else
+            timeout --signal=TERM --kill-after=30s 41m taskset -c "$V8_CPU" uv run --no-sync python -m tools.v8_match --plan benchmarks/astra-v8/fast-plan.json --out artifacts/v8-search/fast 2>&1 | tee artifacts/v8-search/fast.log
+          fi
       - name: Audit fast PGNs and clocks; apply predeclared gate
         if: always()
         id: promotion
