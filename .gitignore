@@ -14,3 +14,7 @@ data/online/
 
 # Generated release artifacts (packages, CI logs, checkpoints).
 artifacts/v7-release/
+
+# Private v8 labels, generated evidence and packages.
+artifacts/v8/
+artifacts/v8-search/
