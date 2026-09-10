@@ -1001,7 +1001,9 @@ def _negamax(
             _pick_search_ordered(board, state, moves, index, count, quiet_scores)
         )
         tactical = bool(board[(move >> 6) & 63] or move & (EP_FLAG | (7 << 12)))
-        reduce = use_lmr and _can_reduce(depth, index, alpha, beta, in_check, tactical, False)
+        reduce = use_lmr and _can_reduce(
+            depth, index, original_alpha, beta, in_check, tactical, False
+        )
         undo = np.empty(10, dtype=np.int64)
         _make(board, state, move, undo)
         if reduce:

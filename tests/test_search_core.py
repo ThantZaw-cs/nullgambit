@@ -170,7 +170,7 @@ class SearchCoreTests(unittest.TestCase):
         self.assertLess(data.nbytes + contexts.nbytes + keys.nbytes + moves.nbytes, 10_000_000)
         key = np.uint64(123456789)
         context = candidate._history_context(np.array([11, 23, 11], dtype=np.uint64), 3, 3)
-        c1, c2, length = context
+        c1, c2, length = np.uint64(context[0]), np.uint64(context[1]), int(context[2])
 
         def store(flag: int, score: int = 42) -> None:
             candidate._tt_store(key, 1234, 4, score, flag, 3, 3, length, c1, c2,
@@ -321,6 +321,29 @@ class SearchCoreTests(unittest.TestCase):
         self.assertEqual(calls[:3], [(3, -100, -10), (3, -11, -10), (3, -100, -10)])
         self.assertTrue(all(depth == 3 for depth, _, _ in calls))
         self.assertEqual(counts[9], 0)
+
+    def test_pv_classification_survives_alpha_narrowing_including_check_evasions(self) -> None:
+        # A good first move can shrink a PV window to one centipawn. The node
+        # remains PV; otherwise an initially checked PV node also loses its
+        # evasion protection because check detection only ran for null windows.
+        original = candidate._negamax.py_func
+        for source in (chess.Board(SPECIAL[5]), chess.Board()):
+            board, state, history, length, keys, moves, data, contexts = scratch(source)
+            counts = np.zeros(16, dtype=np.int64)
+            depths: list[int] = []
+
+            def fake_child(*args: Any, visited: list[int] = depths) -> int:
+                visited.append(int(args[2]))
+                return -20
+
+            with patch.object(candidate, "_negamax", side_effect=fake_child):
+                score = original(board, state, 4, 10, 21, 0, time.monotonic() + 2,
+                                 counts, history, length, keys, moves,
+                                 np.zeros((2, 64, 64), dtype=np.int64), data, contexts, False, True)
+            self.assertEqual(score, 20)
+            self.assertGreaterEqual(len(depths), 4)
+            self.assertTrue(all(depth == 3 for depth in depths), (source.fen(), depths))
+            self.assertEqual(counts[9], 0)
 
     def test_lmr_real_move_classification_including_discovered_checks(self) -> None:
         positions = [chess.Board(fen) for fen in SPECIAL[:6]]
