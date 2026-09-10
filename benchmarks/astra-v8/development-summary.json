@@ -1,0 +1,624 @@
+{
+  "status": "completed",
+  "rows": 192,
+  "expected_rows": 192,
+  "candidate_sha256": "43ce05eafcd9f76d75f0f5bf3fb675912d314311478329157c8656632b7480b8",
+  "position_source_sha256": "6400304b5eb4ef33903734d999cd88cbb52d5eade11ddbfaecb0ec2c35908272",
+  "split": "development",
+  "profiles": {
+    "v7": {
+      "calls": 48,
+      "labeled_calls": 48,
+      "ordinary_cp_calls": 48,
+      "mean_regret_cp": 223.875,
+      "errors_ge100_cp": 26,
+      "positions_any_ge100_cp": 13,
+      "positions_repeated_move_varies": 0,
+      "mate_transitions": [],
+      "mean_elapsed_s": 2.392477785605782,
+      "mean_nodes": 833728.4791666666,
+      "mean_completed_depth": 5.770833333333333,
+      "all_legal_clock_history_unmake": true,
+      "search_counters_sum": {}
+    },
+    "tt": {
+      "calls": 48,
+      "labeled_calls": 48,
+      "ordinary_cp_calls": 48,
+      "mean_regret_cp": 194.14583333333334,
+      "errors_ge100_cp": 23,
+      "positions_any_ge100_cp": 12,
+      "positions_repeated_move_varies": 1,
+      "mate_transitions": [],
+      "mean_elapsed_s": 2.392623325500608,
+      "mean_nodes": 841953.1875,
+      "mean_completed_depth": 5.958333333333333,
+      "all_legal_clock_history_unmake": true,
+      "search_counters_sum": {
+        "aborted": 48,
+        "lmr_full_window": 0,
+        "lmr_reductions": 0,
+        "lmr_researches": 0,
+        "move_hits": 1801657,
+        "nodes": 40413753,
+        "repetitions": 6,
+        "tt_context_rejects": 940570,
+        "tt_cutoffs": 332117,
+        "tt_hits": 861087,
+        "tt_probes": 4905033,
+        "tt_stores": 4572632
+      }
+    },
+    "lmr": {
+      "calls": 48,
+      "labeled_calls": 48,
+      "ordinary_cp_calls": 48,
+      "mean_regret_cp": 213.4375,
+      "errors_ge100_cp": 23,
+      "positions_any_ge100_cp": 12,
+      "positions_repeated_move_varies": 1,
+      "mate_transitions": [],
+      "mean_elapsed_s": 2.3927632700215327,
+      "mean_nodes": 849510.2916666666,
+      "mean_completed_depth": 6.5,
+      "all_legal_clock_history_unmake": true,
+      "search_counters_sum": {
+        "aborted": 48,
+        "lmr_full_window": 0,
+        "lmr_reductions": 891300,
+        "lmr_researches": 5947,
+        "move_hits": 1979244,
+        "nodes": 40776494,
+        "repetitions": 0,
+        "tt_context_rejects": 0,
+        "tt_cutoffs": 0,
+        "tt_hits": 0,
+        "tt_probes": 0,
+        "tt_stores": 0
+      }
+    },
+    "both": {
+      "calls": 48,
+      "labeled_calls": 48,
+      "ordinary_cp_calls": 48,
+      "mean_regret_cp": 195.4375,
+      "errors_ge100_cp": 21,
+      "positions_any_ge100_cp": 11,
+      "positions_repeated_move_varies": 1,
+      "mate_transitions": [],
+      "mean_elapsed_s": 2.3925283975452962,
+      "mean_nodes": 844336.3958333334,
+      "mean_completed_depth": 6.791666666666667,
+      "all_legal_clock_history_unmake": true,
+      "search_counters_sum": {
+        "aborted": 48,
+        "lmr_full_window": 0,
+        "lmr_reductions": 1035199,
+        "lmr_researches": 6574,
+        "move_hits": 1816685,
+        "nodes": 40528147,
+        "repetitions": 0,
+        "tt_context_rejects": 824792,
+        "tt_cutoffs": 403142,
+        "tt_hits": 991893,
+        "tt_probes": 4955491,
+        "tt_stores": 4552055
+      }
+    }
+  },
+  "contrasts_vs_v7": {
+    "tt": {
+      "positions_paired": 24,
+      "completed_depth_higher_equal_lower": [
+        5,
+        19,
+        0
+      ],
+      "teacher_cp_positions_paired": 24,
+      "mean_regret_change_cp": -29.729166666666668,
+      "better_equivalent_worse_at_50cp": [
+        2,
+        22,
+        0
+      ],
+      "worst_regret_increase_cp": 0,
+      "positions_worse_ge100_cp": 0,
+      "positions_better_ge100_cp": 2,
+      "new_ge100_error_positions": 0,
+      "resolved_ge100_error_positions": 1,
+      "anonymous_position_deltas": [
+        {
+          "id": "P01",
+          "v7_regret_cp": 6,
+          "candidate_regret_cp": 6,
+          "change_cp": 0
+        },
+        {
+          "id": "P02",
+          "v7_regret_cp": 532,
+          "candidate_regret_cp": 532,
+          "change_cp": 0
+        },
+        {
+          "id": "P03",
+          "v7_regret_cp": 140,
+          "candidate_regret_cp": 140,
+          "change_cp": 0
+        },
+        {
+          "id": "P04",
+          "v7_regret_cp": 45,
+          "candidate_regret_cp": 45,
+          "change_cp": 0
+        },
+        {
+          "id": "P05",
+          "v7_regret_cp": 24,
+          "candidate_regret_cp": 24,
+          "change_cp": 0
+        },
+        {
+          "id": "P06",
+          "v7_regret_cp": 603,
+          "candidate_regret_cp": 301.5,
+          "change_cp": -301.5
+        },
+        {
+          "id": "P07",
+          "v7_regret_cp": 355,
+          "candidate_regret_cp": 355,
+          "change_cp": 0
+        },
+        {
+          "id": "P08",
+          "v7_regret_cp": 66,
+          "candidate_regret_cp": 29,
+          "change_cp": -37
+        },
+        {
+          "id": "P09",
+          "v7_regret_cp": 126,
+          "candidate_regret_cp": 126,
+          "change_cp": 0
+        },
+        {
+          "id": "P10",
+          "v7_regret_cp": 199,
+          "candidate_regret_cp": 199,
+          "change_cp": 0
+        },
+        {
+          "id": "P11",
+          "v7_regret_cp": 712,
+          "candidate_regret_cp": 712,
+          "change_cp": 0
+        },
+        {
+          "id": "P12",
+          "v7_regret_cp": 0,
+          "candidate_regret_cp": 0,
+          "change_cp": 0
+        },
+        {
+          "id": "P13",
+          "v7_regret_cp": 692,
+          "candidate_regret_cp": 692,
+          "change_cp": 0
+        },
+        {
+          "id": "P14",
+          "v7_regret_cp": 170,
+          "candidate_regret_cp": 170,
+          "change_cp": 0
+        },
+        {
+          "id": "P15",
+          "v7_regret_cp": 348,
+          "candidate_regret_cp": 348,
+          "change_cp": 0
+        },
+        {
+          "id": "P16",
+          "v7_regret_cp": 135,
+          "candidate_regret_cp": 135,
+          "change_cp": 0
+        },
+        {
+          "id": "P17",
+          "v7_regret_cp": 66,
+          "candidate_regret_cp": 66,
+          "change_cp": 0
+        },
+        {
+          "id": "P18",
+          "v7_regret_cp": 0,
+          "candidate_regret_cp": 0,
+          "change_cp": 0
+        },
+        {
+          "id": "P19",
+          "v7_regret_cp": 0,
+          "candidate_regret_cp": 0,
+          "change_cp": 0
+        },
+        {
+          "id": "P20",
+          "v7_regret_cp": 67,
+          "candidate_regret_cp": 67,
+          "change_cp": 0
+        },
+        {
+          "id": "P21",
+          "v7_regret_cp": 582,
+          "candidate_regret_cp": 582,
+          "change_cp": 0
+        },
+        {
+          "id": "P22",
+          "v7_regret_cp": 66,
+          "candidate_regret_cp": 66,
+          "change_cp": 0
+        },
+        {
+          "id": "P23",
+          "v7_regret_cp": 46,
+          "candidate_regret_cp": 46,
+          "change_cp": 0
+        },
+        {
+          "id": "P24",
+          "v7_regret_cp": 393,
+          "candidate_regret_cp": 18,
+          "change_cp": -375
+        }
+      ]
+    },
+    "lmr": {
+      "positions_paired": 24,
+      "completed_depth_higher_equal_lower": [
+        19,
+        5,
+        0
+      ],
+      "teacher_cp_positions_paired": 24,
+      "mean_regret_change_cp": -10.4375,
+      "better_equivalent_worse_at_50cp": [
+        3,
+        20,
+        1
+      ],
+      "worst_regret_increase_cp": 438,
+      "positions_worse_ge100_cp": 1,
+      "positions_better_ge100_cp": 3,
+      "new_ge100_error_positions": 1,
+      "resolved_ge100_error_positions": 2,
+      "anonymous_position_deltas": [
+        {
+          "id": "P01",
+          "v7_regret_cp": 6,
+          "candidate_regret_cp": 7,
+          "change_cp": 1
+        },
+        {
+          "id": "P02",
+          "v7_regret_cp": 532,
+          "candidate_regret_cp": 532,
+          "change_cp": 0
+        },
+        {
+          "id": "P03",
+          "v7_regret_cp": 140,
+          "candidate_regret_cp": 140,
+          "change_cp": 0
+        },
+        {
+          "id": "P04",
+          "v7_regret_cp": 45,
+          "candidate_regret_cp": 45,
+          "change_cp": 0
+        },
+        {
+          "id": "P05",
+          "v7_regret_cp": 24,
+          "candidate_regret_cp": 26,
+          "change_cp": 2
+        },
+        {
+          "id": "P06",
+          "v7_regret_cp": 603,
+          "candidate_regret_cp": 603,
+          "change_cp": 0
+        },
+        {
+          "id": "P07",
+          "v7_regret_cp": 355,
+          "candidate_regret_cp": 355,
+          "change_cp": 0
+        },
+        {
+          "id": "P08",
+          "v7_regret_cp": 66,
+          "candidate_regret_cp": 66,
+          "change_cp": 0
+        },
+        {
+          "id": "P09",
+          "v7_regret_cp": 126,
+          "candidate_regret_cp": 126,
+          "change_cp": 0
+        },
+        {
+          "id": "P10",
+          "v7_regret_cp": 199,
+          "candidate_regret_cp": 1,
+          "change_cp": -198
+        },
+        {
+          "id": "P11",
+          "v7_regret_cp": 712,
+          "candidate_regret_cp": 712,
+          "change_cp": 0
+        },
+        {
+          "id": "P12",
+          "v7_regret_cp": 0,
+          "candidate_regret_cp": 0,
+          "change_cp": 0
+        },
+        {
+          "id": "P13",
+          "v7_regret_cp": 692,
+          "candidate_regret_cp": 692,
+          "change_cp": 0
+        },
+        {
+          "id": "P14",
+          "v7_regret_cp": 170,
+          "candidate_regret_cp": 196,
+          "change_cp": 26
+        },
+        {
+          "id": "P15",
+          "v7_regret_cp": 348,
+          "candidate_regret_cp": 203.5,
+          "change_cp": -144.5
+        },
+        {
+          "id": "P16",
+          "v7_regret_cp": 135,
+          "candidate_regret_cp": 135,
+          "change_cp": 0
+        },
+        {
+          "id": "P17",
+          "v7_regret_cp": 66,
+          "candidate_regret_cp": 66,
+          "change_cp": 0
+        },
+        {
+          "id": "P18",
+          "v7_regret_cp": 0,
+          "candidate_regret_cp": 0,
+          "change_cp": 0
+        },
+        {
+          "id": "P19",
+          "v7_regret_cp": 0,
+          "candidate_regret_cp": 0,
+          "change_cp": 0
+        },
+        {
+          "id": "P20",
+          "v7_regret_cp": 67,
+          "candidate_regret_cp": 505,
+          "change_cp": 438
+        },
+        {
+          "id": "P21",
+          "v7_regret_cp": 582,
+          "candidate_regret_cp": 582,
+          "change_cp": 0
+        },
+        {
+          "id": "P22",
+          "v7_regret_cp": 66,
+          "candidate_regret_cp": 66,
+          "change_cp": 0
+        },
+        {
+          "id": "P23",
+          "v7_regret_cp": 46,
+          "candidate_regret_cp": 46,
+          "change_cp": 0
+        },
+        {
+          "id": "P24",
+          "v7_regret_cp": 393,
+          "candidate_regret_cp": 18,
+          "change_cp": -375
+        }
+      ]
+    },
+    "both": {
+      "positions_paired": 24,
+      "completed_depth_higher_equal_lower": [
+        20,
+        4,
+        0
+      ],
+      "teacher_cp_positions_paired": 24,
+      "mean_regret_change_cp": -28.4375,
+      "better_equivalent_worse_at_50cp": [
+        3,
+        21,
+        0
+      ],
+      "worst_regret_increase_cp": 32,
+      "positions_worse_ge100_cp": 0,
+      "positions_better_ge100_cp": 3,
+      "new_ge100_error_positions": 0,
+      "resolved_ge100_error_positions": 2,
+      "anonymous_position_deltas": [
+        {
+          "id": "P01",
+          "v7_regret_cp": 6,
+          "candidate_regret_cp": 7,
+          "change_cp": 1
+        },
+        {
+          "id": "P02",
+          "v7_regret_cp": 532,
+          "candidate_regret_cp": 532,
+          "change_cp": 0
+        },
+        {
+          "id": "P03",
+          "v7_regret_cp": 140,
+          "candidate_regret_cp": 140,
+          "change_cp": 0
+        },
+        {
+          "id": "P04",
+          "v7_regret_cp": 45,
+          "candidate_regret_cp": 45,
+          "change_cp": 0
+        },
+        {
+          "id": "P05",
+          "v7_regret_cp": 24,
+          "candidate_regret_cp": 26,
+          "change_cp": 2
+        },
+        {
+          "id": "P06",
+          "v7_regret_cp": 603,
+          "candidate_regret_cp": 603,
+          "change_cp": 0
+        },
+        {
+          "id": "P07",
+          "v7_regret_cp": 355,
+          "candidate_regret_cp": 355,
+          "change_cp": 0
+        },
+        {
+          "id": "P08",
+          "v7_regret_cp": 66,
+          "candidate_regret_cp": 98,
+          "change_cp": 32
+        },
+        {
+          "id": "P09",
+          "v7_regret_cp": 126,
+          "candidate_regret_cp": 126,
+          "change_cp": 0
+        },
+        {
+          "id": "P10",
+          "v7_regret_cp": 199,
+          "candidate_regret_cp": 1,
+          "change_cp": -198
+        },
+        {
+          "id": "P11",
+          "v7_regret_cp": 712,
+          "candidate_regret_cp": 712,
+          "change_cp": 0
+        },
+        {
+          "id": "P12",
+          "v7_regret_cp": 0,
+          "candidate_regret_cp": 0,
+          "change_cp": 0
+        },
+        {
+          "id": "P13",
+          "v7_regret_cp": 692,
+          "candidate_regret_cp": 692,
+          "change_cp": 0
+        },
+        {
+          "id": "P14",
+          "v7_regret_cp": 170,
+          "candidate_regret_cp": 196,
+          "change_cp": 26
+        },
+        {
+          "id": "P15",
+          "v7_regret_cp": 348,
+          "candidate_regret_cp": 203.5,
+          "change_cp": -144.5
+        },
+        {
+          "id": "P16",
+          "v7_regret_cp": 135,
+          "candidate_regret_cp": 135,
+          "change_cp": 0
+        },
+        {
+          "id": "P17",
+          "v7_regret_cp": 66,
+          "candidate_regret_cp": 66,
+          "change_cp": 0
+        },
+        {
+          "id": "P18",
+          "v7_regret_cp": 0,
+          "candidate_regret_cp": 4,
+          "change_cp": 4
+        },
+        {
+          "id": "P19",
+          "v7_regret_cp": 0,
+          "candidate_regret_cp": 0,
+          "change_cp": 0
+        },
+        {
+          "id": "P20",
+          "v7_regret_cp": 67,
+          "candidate_regret_cp": 37,
+          "change_cp": -30
+        },
+        {
+          "id": "P21",
+          "v7_regret_cp": 582,
+          "candidate_regret_cp": 582,
+          "change_cp": 0
+        },
+        {
+          "id": "P22",
+          "v7_regret_cp": 66,
+          "candidate_regret_cp": 66,
+          "change_cp": 0
+        },
+        {
+          "id": "P23",
+          "v7_regret_cp": 46,
+          "candidate_regret_cp": 46,
+          "change_cp": 0
+        },
+        {
+          "id": "P24",
+          "v7_regret_cp": 393,
+          "candidate_regret_cp": 18,
+          "change_cp": -375
+        }
+      ]
+    }
+  },
+  "missing_unique_position_moves": 0,
+  "labels_sha256": [
+    "51020b7eb573707355897cee35bbfa861345b36b9e0304b49a04c2d82ffd04a3",
+    "22e58c106e50bc32e813286c649199da61d47186437b0b87a9ed14d52aa4e235",
+    "6907e643e3ff69b877cf5044b5ffa330f698e31e1696b3732d5c0ed2ccb554c7",
+    "936882a2cb4a81cc244cd8384d2ccec6a72a8b75888e54892846c007f43783f6"
+  ],
+  "minimum_teacher_nodes": 4000000,
+  "label_history_source_hash_verified": true,
+  "limitations": [
+    "Selective depth and NPS do not establish strength",
+    "Teacher cp and mate are separate; a first-move mismatch is not an error",
+    "Means with missing labels are incomplete; use matched-position contrasts",
+    "All online positions and old Slav losses are development regressions"
+  ]
+}

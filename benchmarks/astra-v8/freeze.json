@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-09-10T11:43:33.640034+00:00",
+  "candidate_sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
+  "configuration": "both",
+  "default_options": {
+    "USE_SCORE_TT": true,
+    "USE_LMR": true
+  },
+  "development_source_sha256": "43ce05eafcd9f76d75f0f5bf3fb675912d314311478329157c8656632b7480b8",
+  "only_change_after_development": "Single default USE_LMR False to True. All development and Linux ablations passed explicit switches; no algorithms or thresholds adjusted.",
+  "holdout_positions_sha256": "a59dc5a2c7a34359a8bb388034a9a2d0d6bf6583bf73a961195a60b87f45a35b",
+  "endgame_fixture_sha256": [
+    "7326b24cdf527859a8a41f0b63cf06b788a5b23b94e664af20b197f5d9505810",
+    "c6416bf8d8be4803364e3918bfd0173106f34df48e7830c1f16892330c560d63"
+  ],
+  "selection_reason": "Both: 3 improvements >50cp, 0 regressions >50cp, max+32cp; resolves two >=100cp-error positions with no new such position. LMR alone rejected for438cp regression. TT remains separate control.",
+  "strength_proven": false,
+  "holdout_status": "NOT RUN at freeze",
+  "fast_games": 0,
+  "formal_games": 0,
+  "deadline_utc": "2026-09-10T12:15:18+00:00"
+}

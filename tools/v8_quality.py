@@ -321,6 +321,92 @@ def summarize(args: argparse.Namespace) -> None:
     print(json.dumps(summary, indent=2))
 
 
+def endgames(args: argparse.Namespace) -> None:
+    """Reuse v5_suite WDL scoring on the predeclared first eight fixtures per source."""
+    freeze = json.loads(args.freeze.read_text())
+    selected = freeze["configuration"]
+    assert selected in OPTIONS and len(args.fixtures) == 2
+    assert [sha256(p) for p in args.fixtures] == freeze["endgame_fixture_sha256"]
+    if args.out.exists():
+        raise RuntimeError("Refusing to replace a final-validation result")
+    report: dict[str, Any] = {
+        "status": "running", "started_utc": datetime.now(UTC).isoformat(),
+        "candidate_sha256": freeze["candidate_sha256"], "configuration": selected,
+        "fixture_sha256": freeze["endgame_fixture_sha256"], "budget_s": 0.25, "repeats": 2,
+        "expected_rows": 64, "completed_rows": 0,
+        "scope": "First eight fixtures from each of two prior v5 validation sources; "
+                 "not used for v8 tuning, but previously seen across versions",
+        "environment": environment(), "runs": [],
+    }
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    write_json(args.out, report)
+    started = time.monotonic()
+    signal.signal(signal.SIGALRM, stop)
+    signal.alarm(180)
+    try:
+        modules = {"v7": importlib.import_module("baselines.online_v7.agent"),
+                   selected: importlib.import_module("prototypes.search_core.agent")}
+        for label, module in modules.items():
+            assert module.__file__ is not None
+            assert sha256(Path(module.__file__)) == (
+                V7_HASH if label == "v7" else freeze["candidate_sha256"])
+            configure(module, label)
+            module.timed_search(chess.Board(), 0.05)
+        wdl = {"loss": -1, "blessed-loss": 0, "draw": 0, "cursed-win": 0, "win": 1}
+        for group_index, fixture_path in enumerate(args.fixtures):
+            fixtures = json.loads(fixture_path.read_text())[:8]
+            assert len(fixtures) == 8
+            for index, fixture in enumerate(fixtures):
+                board = chess.Board(fixture["fen"])
+                for move in fixture["history"]:
+                    board.push_uci(move)
+                original = board.fen(), list(board.move_stack)
+                choices = {r["uci"]: r for r in fixture["label"]["moves"]}
+                root_wdl = wdl[fixture["label"]["category"]]
+                assert max(-wdl[r["category"]] for r in choices.values()) == root_wdl
+                for repeat in range(2):
+                    order = ["v7", selected] if (index + repeat) % 2 == 0 else [selected, "v7"]
+                    for label in order:
+                        configure(modules[label], label)
+                        tick = time.monotonic()
+                        move, depth, nodes = modules[label].timed_search(board, 0.25)
+                        elapsed = time.monotonic() - tick
+                        assert (board.fen(), list(board.move_stack)) == original
+                        assert chess.Move.from_uci(move) in board.legal_moves
+                        chosen_wdl = -wdl[choices[move]["category"]]
+                        report["runs"].append({
+                            "id": f"E{group_index * 8 + index + 1:02}", "configuration": label,
+                            "repeat": repeat + 1, "move": move, "depth": depth, "nodes": nodes,
+                            "elapsed_s": elapsed, "root_wdl": root_wdl, "chosen_wdl": chosen_wdl,
+                            "wdl_regret": root_wdl - chosen_wdl,
+                            "preserved_wdl": root_wdl == chosen_wdl,
+                        })
+                        report["completed_rows"] += 1
+                        write_json(args.out, report)
+        report["status"] = "completed"
+    except BaseException as exc:
+        report["status"], report["error"] = "failed", repr(exc)
+        raise
+    finally:
+        signal.alarm(0)
+        report["ended_utc"] = datetime.now(UTC).isoformat()
+        report["elapsed_s"] = time.monotonic() - started
+        write_json(args.out, report)
+    summary = {k: value for k, value in report.items() if k != "runs"}
+    summary["profiles"] = {}
+    for label in ("v7", selected):
+        measured = [r for r in report["runs"] if r["configuration"] == label]
+        summary["profiles"][label] = {
+            "calls": len(measured), "preserved_wdl": sum(r["preserved_wdl"] for r in measured),
+            "total_wdl_regret": sum(r["wdl_regret"] for r in measured),
+            "mean_elapsed_s": statistics.mean(r["elapsed_s"] for r in measured),
+            "max_budget_overrun_s": max(r["elapsed_s"] - 0.25 for r in measured),
+            "mean_depth": statistics.mean(r["depth"] for r in measured),
+        }
+    write_json(args.summary, summary)
+    print(json.dumps(summary, indent=2))
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
@@ -345,13 +431,20 @@ def main() -> None:
     score.add_argument("--minimum-label-nodes", type=int, default=4_000_000)
     score.add_argument("--missing", type=Path)
     score.add_argument("--out", type=Path, required=True)
+    endgame = commands.add_parser("endgames")
+    endgame.add_argument("--fixtures", nargs=2, type=Path, required=True)
+    endgame.add_argument("--freeze", type=Path, required=True)
+    endgame.add_argument("--out", type=Path, required=True)
+    endgame.add_argument("--summary", type=Path, required=True)
     args = parser.parse_args()
     if args.command == "measure":
         if args.repeats < 1 or len(set(args.configurations)) != len(args.configurations):
             raise ValueError("Positive repeats and distinct configurations required")
         run(args)
-    else:
+    elif args.command == "summarize":
         summarize(args)
+    else:
+        endgames(args)
 
 
 if __name__ == "__main__":
