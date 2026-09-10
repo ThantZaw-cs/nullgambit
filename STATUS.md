@@ -1,3 +1,20 @@
+# astra-v7 release acceptance — 2026-09-10
+
+Clean release branch based on remote astra-v4 9037a03. Candidate source is frozen
+at original commit 85093b9, prior result commit e444158; SHA-256
+aba3db18ebe424b2025b3d967b88057b6ad242978cc328accc1642e2c8a91b3d.
+Only the non-check quiescence quiet-tail continue becomes break. Frozen v4,
+root agent, historical harness, and all prior branches remain unchanged.
+
+Local clean-release 69 tests, ruff, strict mypy and YAML parse passed. Both exact
+v7 and v4 ZIPs passed isolated import/search, independent runner, and two smoke
+games per package. Linux compatibility/performance and the predeclared formal
+20 games at 120+0.5 are PENDING actual Actions execution. See
+benchmarks/astra-v7-release/REVIEW.md and formal-plan.json. No strength claim,
+competition upload, merge, or paid resources are authorized by these checks.
+
+---
+
 # NullGambit 开发状态
 
 ## v4 上线后诊断完成（2026-09-08）

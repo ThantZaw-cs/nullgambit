@@ -1,0 +1,10 @@
+{
+  "candidate_source_commit": "85093b9585660729f4a1ece1511e33e0a49c360d",
+  "prior_results_commit": "e444158aea97492dc3dfcd92437f632d4b7a1de9",
+  "clean_release_base": "9037a030a288a35b59c7c3644548f7d038b93d98",
+  "candidate_sha256": "aba3db18ebe424b2025b3d967b88057b6ad242978cc328accc1642e2c8a91b3d",
+  "opponent_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+  "original_review_manifest_sha256": "e6b8ad18b504af0c46c3f5361b166f7d83abff0ff7d2e2c3dbf418230a315f43",
+  "formal_plan_sha256": "840965433f9d564f5b1beb7ef5b504a00b7717680fae6aa15226f9ebb6aa7a58",
+  "unchanged_runtime": "One continue-to-break in non-check quiescence only; exact frozen source; no v5/v6 algorithms."
+}

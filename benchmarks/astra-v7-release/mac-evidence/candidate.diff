@@ -1,0 +1,13 @@
+--- baselines/online_v4/agent.py
++++ prototypes/qsearch_tail/agent.py
+@@ -777,7 +777,9 @@
+         move = _pick_ordered(board, moves, index, count)
+         target = (move >> 6) & 63
+         if not in_check and board[target] == 0 and not move & (EP_FLAG | (7 << 12)):
+-            continue
++            # _pick_ordered ranks every capture/EP/promotion above every quiet move.
++            # The remaining quiet tail cannot contribute to this non-check search.
++            break
+         undo = np.empty(10, dtype=np.int64)
+         _make(board, state, move, undo)
+         score = -_quiescence(

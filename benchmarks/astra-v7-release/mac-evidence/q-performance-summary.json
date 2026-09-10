@@ -1,0 +1,194 @@
+{
+  "stage_status": "completed",
+  "rows": 280,
+  "positions": [
+    {
+      "id": "ruy_lopez",
+      "median_elapsed_s": {
+        "v4": 0.07467329199425876,
+        "candidate": 0.07282304199179634
+      },
+      "latency_ratio": 0.975222064635845,
+      "nodes_ratio": 1.0,
+      "v4_median_absolute_deviation_fraction": 0.0014133837083423594,
+      "same_scores": true,
+      "same_moves": true
+    },
+    {
+      "id": "sicilian",
+      "median_elapsed_s": {
+        "v4": 0.07082783302757889,
+        "candidate": 0.067308709025383
+      },
+      "latency_ratio": 0.950314391224907,
+      "nodes_ratio": 1.0,
+      "v4_median_absolute_deviation_fraction": 0.0041467878711010315,
+      "same_scores": true,
+      "same_moves": true
+    },
+    {
+      "id": "french",
+      "median_elapsed_s": {
+        "v4": 0.15064754197373986,
+        "candidate": 0.1449312919867225
+      },
+      "latency_ratio": 0.9620554712534654,
+      "nodes_ratio": 1.0,
+      "v4_median_absolute_deviation_fraction": 0.0012744984915341907,
+      "same_scores": true,
+      "same_moves": true
+    },
+    {
+      "id": "caro_kann",
+      "median_elapsed_s": {
+        "v4": 0.050567541969940066,
+        "candidate": 0.04816312500042841
+      },
+      "latency_ratio": 0.9524513773886624,
+      "nodes_ratio": 1.0,
+      "v4_median_absolute_deviation_fraction": 0.010845237085076672,
+      "same_scores": true,
+      "same_moves": true
+    },
+    {
+      "id": "queens_gambit",
+      "median_elapsed_s": {
+        "v4": 0.07840379100525752,
+        "candidate": 0.07499525003368035
+      },
+      "latency_ratio": 0.9565258142766515,
+      "nodes_ratio": 1.0,
+      "v4_median_absolute_deviation_fraction": 0.003935294257233006,
+      "same_scores": true,
+      "same_moves": true
+    },
+    {
+      "id": "slav",
+      "median_elapsed_s": {
+        "v4": 0.04744262498570606,
+        "candidate": 0.04524754197336733
+      },
+      "latency_ratio": 0.9537318389739168,
+      "nodes_ratio": 1.0,
+      "v4_median_absolute_deviation_fraction": 0.003487539147685119,
+      "same_scores": true,
+      "same_moves": true
+    },
+    {
+      "id": "kings_indian",
+      "median_elapsed_s": {
+        "v4": 0.06128891702974215,
+        "candidate": 0.05896408302942291
+      },
+      "latency_ratio": 0.962067627998859,
+      "nodes_ratio": 1.0,
+      "v4_median_absolute_deviation_fraction": 0.005113077302734163,
+      "same_scores": true,
+      "same_moves": true
+    },
+    {
+      "id": "english",
+      "median_elapsed_s": {
+        "v4": 0.041486458969302475,
+        "candidate": 0.03998058300931007
+      },
+      "latency_ratio": 0.9637019886149679,
+      "nodes_ratio": 1.0,
+      "v4_median_absolute_deviation_fraction": 0.002888508133614745,
+      "same_scores": true,
+      "same_moves": true
+    },
+    {
+      "id": "scotch",
+      "median_elapsed_s": {
+        "v4": 0.12227024999447167,
+        "candidate": 0.11795979196904227
+      },
+      "latency_ratio": 0.9647464691891585,
+      "nodes_ratio": 1.0,
+      "v4_median_absolute_deviation_fraction": 0.0030887891379309277,
+      "same_scores": true,
+      "same_moves": true
+    },
+    {
+      "id": "italian",
+      "median_elapsed_s": {
+        "v4": 0.07097745803184807,
+        "candidate": 0.06836995796766132
+      },
+      "latency_ratio": 0.9632629832556592,
+      "nodes_ratio": 1.0,
+      "v4_median_absolute_deviation_fraction": 0.004846595243751727,
+      "same_scores": true,
+      "same_moves": true
+    },
+    {
+      "id": "slav11:25",
+      "median_elapsed_s": {
+        "v4": 0.12299158301902935,
+        "candidate": 0.11838841700227931
+      },
+      "latency_ratio": 0.9625733249076254,
+      "nodes_ratio": 1.0,
+      "v4_median_absolute_deviation_fraction": 0.02636020230556853,
+      "same_scores": true,
+      "same_moves": true
+    },
+    {
+      "id": "slav11:36",
+      "median_elapsed_s": {
+        "v4": 0.019080833008047193,
+        "candidate": 0.018393834005109966
+      },
+      "latency_ratio": 0.963995334865753,
+      "nodes_ratio": 1.0,
+      "v4_median_absolute_deviation_fraction": 0.021476630636792532,
+      "same_scores": true,
+      "same_moves": true
+    },
+    {
+      "id": "slav12:21",
+      "median_elapsed_s": {
+        "v4": 0.19799954199697822,
+        "candidate": 0.18751158396480605
+      },
+      "latency_ratio": 0.9470303924625632,
+      "nodes_ratio": 1.0,
+      "v4_median_absolute_deviation_fraction": 0.028886011006629655,
+      "same_scores": true,
+      "same_moves": true
+    },
+    {
+      "id": "slav12:22",
+      "median_elapsed_s": {
+        "v4": 0.11842904199147597,
+        "candidate": 0.11588112497702241
+      },
+      "latency_ratio": 0.9784857077993002,
+      "nodes_ratio": 1.0,
+      "v4_median_absolute_deviation_fraction": 0.003436657151394228,
+      "same_scores": true,
+      "same_moves": true
+    }
+  ],
+  "geometric_mean_latency_ratio": 0.9611174246710834,
+  "latency_ratio_bootstrap_95": [
+    0.9567787611101051,
+    0.9656838450042712
+  ],
+  "worst_latency_ratio": 0.9784857077993002,
+  "median_noise_fraction": 0.004041041064167019,
+  "geometric_mean_nodes_ratio": 1.0,
+  "timed_pairs": 42,
+  "timed_depth_higher_equal_lower": [
+    0,
+    42,
+    0
+  ],
+  "timed_different_moves": 0,
+  "timed_all_legal_clock_history_unmake": true,
+  "maximum_timed_elapsed_s": 0.289434208010789,
+  "note": "Position bootstrap describes this seen sample; no strength inference. Nodes include all completed and aborted work. Import/compile is excluded.",
+  "performance_gate_passed": true,
+  "all_fixed_repeats_exact_move_score_nodes": true
+}
