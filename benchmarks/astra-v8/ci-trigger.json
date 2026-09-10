@@ -1,14 +1,16 @@
 {
-  "phase": "preflight",
-  "created_utc": "2026-09-10T11:44:51.628739+00:00",
+  "phase": "competition",
+  "created_utc": "2026-09-10T13:27:04.588679+00:00",
   "candidate_sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
   "candidate_configuration": {
     "use_score_tt": true,
     "use_lmr": true
   },
-  "purpose": "Compatibility and packaging of development-selected TT+LMR defaults. Functions and measured ablation thresholds are unchanged from run34470325484; independent quality validation remains pending. No match rerun or formal batch.",
-  "formal_authorized_by_this_trigger": false,
-  "superseded_sha256": "20cf4c2163d5fb0195d38f8063476164293ad9cf3ff1630f81acb7930a78fa8b",
-  "superseded_reason": "The earlier quality batch was stopped after a PV-node classification defect was identified in LMR. Its partial rows are diagnostic failure evidence, not a passed gate.",
-  "previous_ablation_run": "https://github.com/ThantZaw-cs/nullgambit/actions/runs/34470325484"
+  "purpose": "One original fixed fast40, then automatically original formal20 only if complete, zero failures/VOID and score >=0.5. Reuse all prior correctness and packaging.",
+  "round_started_utc": "2026-09-10T12:36:03+00:00",
+  "deadline_utc": "2026-09-10T15:36:03+00:00",
+  "prior_compatibility_run": "https://github.com/ThantZaw-cs/nullgambit/actions/runs/34472928110",
+  "minimum_fast_score": 0.5,
+  "fast_plan_sha256": "1c5c20577ffa699a4f6922c5a074271d2878d1641d0100f76ba53c0cb0e31220",
+  "formal_plan_sha256": "b6af026ef255efb14aeb6a2648649884fe9e9528c5b356c4248705a11770f241"
 }

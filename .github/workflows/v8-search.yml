@@ -25,6 +25,7 @@ env:
 
 jobs:
   acceptance:
+    if: "!contains(github.event.head_commit.message, '[v8-competition-once]')"
     runs-on: ubuntu-24.04
     timeout-minutes: 125
     steps:
@@ -115,6 +116,116 @@ jobs:
         if: always()
         with:
           name: astra-v8-search-${{ github.sha }}-${{ github.run_attempt }}
+          path: artifacts/v8-search/
+          if-no-files-found: error
+          retention-days: 30
+
+  competition:
+    if: contains(github.event.head_commit.message, '[v8-competition-once]') && github.run_attempt == 1
+    runs-on: ubuntu-24.04
+    timeout-minutes: 125
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+      - uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.11.28"
+          python-version: "3.12"
+          enable-cache: false
+      - name: Install previously verified locked dependencies
+        run: uv sync --locked
+      - name: Check original plans, exact sources and record gate before first game
+        run: |
+          test ! -e data/online
+          test -z "$(git status --porcelain --untracked-files=all)"
+          mkdir -p artifacts/v8-search
+          uv pip freeze > artifacts/v8-search/installed.txt
+          git rev-parse HEAD > artifacts/v8-search/checkout.txt
+          uv run --no-sync python - <<'PYCODE'
+          import ast, hashlib, json, os, platform, sys
+          from datetime import UTC, datetime
+          from pathlib import Path
+          digest = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
+          trigger = json.loads(Path("benchmarks/astra-v8/ci-trigger.json").read_text())
+          assert trigger["phase"] == "competition"
+          assert platform.machine() == "x86_64" and sys.version_info[:2] == (3, 12)
+          assert digest("prototypes/search_core/agent.py") == trigger["candidate_sha256"]
+          assert digest("baselines/online_v7/agent.py") == os.environ["V7_SHA"]
+          options = {}
+          for node in ast.parse(Path("prototypes/search_core/agent.py").read_text()).body:
+              if isinstance(node, ast.Assign):
+                  for target in node.targets:
+                      if isinstance(target, ast.Name) and target.id in {"USE_SCORE_TT", "USE_LMR"}:
+                          options[target.id] = ast.literal_eval(node.value)
+          assert options == {"USE_SCORE_TT": True, "USE_LMR": True}, options
+          for stage in ("fast", "formal"):
+              assert digest(f"benchmarks/astra-v8/{stage}-plan.json") == trigger[f"{stage}_plan_sha256"]
+          assert datetime.now(UTC) < datetime.fromisoformat(trigger["deadline_utc"])
+          Path("artifacts/v8-search/acceptance-trigger.json").write_text(json.dumps(trigger, indent=2)+"\n")
+          Path("artifacts/v8-search/promotion-rule.txt").write_text("Before game 1: complete40, zero failures/VOID, score>=50% -> original formal20. Practical continuation gate, not strength proof.\n")
+          with open(os.environ["GITHUB_ENV"], "a") as handle:
+              print("V8_CPU="+str(min(os.sched_getaffinity(0))), file=handle)
+          PYCODE
+      - name: Original fixed40 real-entry games at 10+0.1
+        run: |
+          ulimit -v 2097152
+          timeout --signal=TERM --kill-after=30s 41m taskset -c "$V8_CPU" uv run --no-sync python -m tools.v8_match --plan benchmarks/astra-v8/fast-plan.json --out artifacts/v8-search/fast 2>&1 | tee artifacts/v8-search/fast.log
+      - name: Audit fast PGNs and clocks; apply predeclared gate
+        if: always()
+        id: promotion
+        run: |
+          if test -f artifacts/v8-search/fast/results.json; then
+            uv run --no-sync python -m tools.summarize_v8_matches artifacts/v8-search/fast | tee artifacts/v8-search/fast-summary.log
+          fi
+          uv run --no-sync python - <<'PYCODE'
+          import json, os
+          from pathlib import Path
+          p=Path("artifacts/v8-search/fast/summary.json")
+          s=json.loads(p.read_text()) if p.exists() else {}
+          promote=(s.get("complete",False) and s.get("actual_games")==40 and s.get("failures")==0 and s.get("voids")==0 and s.get("raw_referee_score",0)>=0.5)
+          with open(os.environ["GITHUB_OUTPUT"],"a") as f:
+              print("passed="+str(promote).lower(),file=f)
+          Path("artifacts/v8-search/promotion.json").write_text(json.dumps({"passed":promote,"fast_summary":s,"reason":"Complete40, zero failures/VOID, score>=0.5 required"},indent=2)+"\n")
+          if promote:
+              plan=json.loads(Path("benchmarks/astra-v8/formal-plan.json").read_text())
+              plan["gate"]["fast_screen_passed"]=True
+              plan["execution_status"]="Original formal20 automatically authorized by audited fast40 threshold."
+              Path("artifacts/v8-search/formal-plan.json").write_text(json.dumps(plan,indent=2)+"\n")
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: astra-v8-fast-${{ github.run_id }}
+          path: artifacts/v8-search/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Original formal20 real-entry games at 120+0.5
+        if: success() && steps.promotion.outputs.passed == 'true'
+        run: |
+          V8_REMAINING=$(uv run --no-sync python - <<'PYCODE'
+          import json
+          from datetime import UTC,datetime
+          from pathlib import Path
+          t=json.loads(Path("benchmarks/astra-v8/ci-trigger.json").read_text())
+          print(max(1,min(6060,int((datetime.fromisoformat(t["deadline_utc"])-datetime.now(UTC)).total_seconds())-90)))
+          PYCODE
+          )
+          ulimit -v 2097152
+          timeout --signal=TERM --kill-after=30s "${V8_REMAINING}s" taskset -c "$V8_CPU" uv run --no-sync python -m tools.v8_match --plan artifacts/v8-search/formal-plan.json --out artifacts/v8-search/formal 2>&1 | tee artifacts/v8-search/formal.log
+      - name: Audit formal results or preserve reason not started
+        if: always()
+        run: |
+          if test -f artifacts/v8-search/formal/results.json; then
+            uv run --no-sync python -m tools.summarize_v8_matches artifacts/v8-search/formal | tee artifacts/v8-search/formal-summary.log
+          else
+            echo 'Formal not started: fast threshold or preceding execution step did not pass; inspect promotion.json and step exit status.' | tee artifacts/v8-search/formal-not-run.txt
+          fi
+          git diff --exit-code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: astra-v8-competition-${{ github.run_id }}
           path: artifacts/v8-search/
           if-no-files-found: error
           retention-days: 30

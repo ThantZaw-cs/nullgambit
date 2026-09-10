@@ -12,7 +12,7 @@
   "source_sha256": "fcca15bd3d0060bade81a799fb42ecfdbaf70bcc8746488b7ad623b45431b805",
   "license": "CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
   "source_selection": "Existing February archive in original order. Valid standard games, both Elo>=2500, >=60 plies; skip first 24 eligible whole games reserved for prior tactical holdout. Take next 30 unique positions at ply16 excluding exact old January opening keys, with no result/engine filter. First20 fast, last10 formal. Source games disjoint.",
-  "execution_status": "NOT RUN in this round. Independent holdout is neutral; no playing-strength approval. Original UTC budget cannot accommodate complete40+20 chain. Fixed schedule retained unchanged.",
+  "execution_status": "Authorized by new frozen-candidate competitive acceptance request; not yet run.",
   "resume_rule": "Never replay completed or interrupted games. A saved infrastructure interruption counts VOID and resumes only with the next scheduled index.",
   "rules_sources": [
     "https://aichessathon.com/docs/agent-contract.md",
@@ -754,8 +754,13 @@
     "candidate_frozen": true,
     "correctness_passed": true,
     "development_positive": true,
-    "holdout_passed": false,
+    "holdout_passed": true,
     "fast_screen_passed": false
   },
-  "candidate_configuration": "TT+LMR default both enabled"
+  "candidate_configuration": "TT+LMR default both enabled",
+  "acceptance_decision": {
+    "recorded_utc": "2026-09-10T13:27:04.588679+00:00",
+    "holdout_gate_meaning": "Neutral independent evidence accepted for the original competitive test under explicit new user authorization; NOT a claim of improved tactical quality.",
+    "fast_promotion_rule": "Complete 40 games, zero program failures and VOID, score at least 50%; practical continuation gate, not statistical proof."
+  }
 }
