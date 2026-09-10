@@ -1,0 +1,16 @@
+{
+  "source_sha256": "20cf4c2163d5fb0195d38f8063476164293ad9cf3ff1630f81acb7930a78fa8b",
+  "started_utc": "2026-09-10T11:10:42.960068+00:00",
+  "ended_utc": "2026-09-10T11:10:55.633181+00:00",
+  "elapsed_s": 12.673074249993078,
+  "exit_code": 1,
+  "command": [
+    "/Users/chris/Projects/nullgambit-astra/.venv/bin/python",
+    "-m",
+    "unittest",
+    "tests.test_search_core.SearchCoreTests.test_pv_classification_survives_alpha_narrowing_including_check_evasions",
+    "-v"
+  ],
+  "status": "expected_regression_reproduced",
+  "source_unchanged": true
+}

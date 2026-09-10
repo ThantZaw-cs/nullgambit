@@ -1,0 +1,36 @@
+{
+  "status": "resumed_after_connection_interruption",
+  "recorded_utc": "2026-09-10T11:11:09.981459+00:00",
+  "round_started_utc": "2026-09-10T08:15:18+00:00",
+  "conservative_round_deadline_utc": "2026-09-10T12:15:18+00:00",
+  "source_base_commit": "f1e9966ae45aee3a4c15c7b86c3be451c6de0de2",
+  "source_base_pr": "https://github.com/ThantZaw-cs/nullgambit/pull/3",
+  "worktree": "/private/tmp/nullgambit-v8-search-20260910",
+  "branch": "astra-v8-search",
+  "tt_commit": "d4b6552afb288c5086d540b1f5f1f10815c86233",
+  "initial_lmr_commit": "0d781e78fec828191d6a365eff98d5d4541a8a1f",
+  "interrupted_candidate_sha256": "20cf4c2163d5fb0195d38f8063476164293ad9cf3ff1630f81acb7930a78fa8b",
+  "baseline_v7_sha256": "aba3db18ebe424b2025b3d967b88057b6ad242978cc328accc1642e2c8a91b3d",
+  "baseline_v4_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+  "old_root_sha256": "887d8ca093d429d305cac98272d28447611bdcf07ac25ab5174c41ca6b6018f5",
+  "reconnection_process": {
+    "pid": 28075,
+    "completed_rows_first_recheck": 97,
+    "expected_rows": 192,
+    "reported_process_elapsed": "32:54",
+    "reported_process_cpu": "4:23.00",
+    "duplicate_started": false
+  },
+  "clock_limitations": "UTC elapsed, process CPU time and Python monotonic elapsed differ substantially across connection interruption/suspension. The precise network-only duration is unmeasured; no subtraction is used to extend the conservative round deadline.",
+  "canonical_rules": {
+    "/private/tmp/astra-v8-rules.md": "659588b72f1374389196f35839c5210be61d14cb12d5d90f8eafa71b20197fea",
+    "/private/tmp/astra-v8-agent-contract.md": "6c1166856794f306cd32b7dca4a33a91f1690e3e9f5283471ff5e7074441f938"
+  },
+  "prechange_tests": {
+    "count": 69,
+    "result": "passed",
+    "test_body_elapsed_s": 13.236,
+    "init_compile_excluded_from_body": true
+  },
+  "lmrb_boundary_defect": "Initial LMR call classified a node using updated alpha, permitting PV window contraction to change eligibility. Reject old-hash LMR strength evidence; retain partial raw diagnostics and fix before acceptance."
+}

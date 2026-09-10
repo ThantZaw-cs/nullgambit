@@ -1,3 +1,23 @@
+# astra-v8-search: search-core experiment in progress
+
+Started 2026-09-10 08:15:18 UTC; conservative deadline 12:15:18 UTC, including
+unmeasured connection/suspension intervals. Independent branch `astra-v8-search`
+starts from PR #3 head `f1e9966`, with frozen v7 copied byte-for-byte from
+`prototypes/qsearch_tail/agent.py` into `baselines/online_v7/agent.py`.
+Candidate is `prototypes/search_core/agent.py`; root legacy, v4/v7, PR #3,
+failed v5/v6, and prior results remain unchanged.
+
+Score TT was saved separately at `d4b6552`; conservative LMR at `0d781e7`.
+An independent regression found that updated alpha could misclassify a PV node
+and reduce a quiet evasion. Old-hash development stopped with 170/192 calls,
+retained privately; it cannot establish LMR strength. The minimal fix freezes
+node classification at entry. Corrected tests and four-way evidence are pending.
+No selected strength configuration, match gate, formal game or release is claimed.
+See `benchmarks/astra-v8/` for plans, failed regression evidence and live checks.
+Online versions remain untouched; no merge or competition upload is authorized.
+
+---
+
 # astra-v7 release acceptance — 2026-09-10
 
 Clean release branch based on remote astra-v4 9037a03. Candidate source is frozen

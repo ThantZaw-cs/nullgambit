@@ -1,0 +1,36 @@
+{
+  "predeclared_before_v8_quality_run": true,
+  "development": {
+    "source": "Previously seen v6 B development; private input stays outside public checkout",
+    "position_file": "candidate-b-development-positions.jsonl",
+    "positions_sha256": "6400304b5eb4ef33903734d999cd88cbb52d5eade11ddbfaecb0ec2c35908272",
+    "positions": 24,
+    "composition": "20 online decisions including two R69 follow-ups, plus four negative Slav regressions",
+    "configurations": ["v7", "tt", "lmr", "both"],
+    "repeats": 2,
+    "entry_calls": 192,
+    "clocks": "Original recorded actual remaining clocks and complete observable histories",
+    "reuse_teacher": "Existing 4M-node cold forced-move labels; only new selected move union needs labels",
+    "raw_results": "Private data/online/teacher-v8; publish aggregate anonymous summaries only"
+  },
+  "holdout": {
+    "source": "https://database.lichess.org/broadcast/lichess_db_broadcast_2022-02.pgn.zst",
+    "source_sha256": "fcca15bd3d0060bade81a799fb42ecfdbaf70bcc8746488b7ad623b45431b805",
+    "license": "CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+    "positions_sha256": "a59dc5a2c7a34359a8bb388034a9a2d0d6bf6583bf73a961195a60b87f45a35b",
+    "positions": 24,
+    "selection": "Existing v6 B reservation: first 24 valid standard >=60-ply games with both ratings >=2500 in source order; one alternating ply36/49 position per game; no engine-result filter",
+    "configuration_selection": "V7 and one development-selected configuration; require recorded source hash/configuration freeze before running",
+    "repeats": 2,
+    "entry_calls": 96,
+    "labels": "Unsearched/unlabelled at declaration; bounded teacher labels only after candidate configuration freezes",
+    "separation": "Entire February source was excluded from January/online development; whole games never cross sets",
+    "scope": "Independent human middlegame positions, not a tactical puzzle gold standard"
+  },
+  "interpretation": [
+    "Use complete depth, time, nodes, TT/LMR counters, teacher regret and actual match results together",
+    "Teacher mate and centipawn scores stay separate; multiple equivalent moves are accepted",
+    "No match gate claim when teacher labels or required rows are missing",
+    "No retuning against final holdout and no resampling on an unfavorable result"
+  ]
+}

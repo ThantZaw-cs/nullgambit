@@ -1,0 +1,61 @@
+{
+  "source_sha256": "43ce05eafcd9f76d75f0f5bf3fb675912d314311478329157c8656632b7480b8",
+  "test_sha256": "8dcd8e1400271155d9f46806c68c4d6c2569a51b40130023438c300816b37135",
+  "started_utc": "2026-09-10T11:13:22.184378+00:00",
+  "status": "passed",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "python": "3.12.13",
+  "previous_attempt": "correctness-after-lmr-pv-fix.json",
+  "change_since_previous": "Explicit uint64 in Python test helper to match the compiled production probe signature; engine unchanged.",
+  "checks": [
+    {
+      "name": "unittest",
+      "started_utc": "2026-09-10T11:13:22.200606+00:00",
+      "ended_utc": "2026-09-10T11:13:58.851642+00:00",
+      "elapsed_s": 36.650869374978356,
+      "exit_code": 0,
+      "status": "passed",
+      "log": "benchmarks/astra-v8/correctness-final-unittest.log",
+      "command": [
+        "/Users/chris/Projects/nullgambit-astra/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "test_count": 86
+    },
+    {
+      "name": "ruff",
+      "started_utc": "2026-09-10T11:13:58.852070+00:00",
+      "ended_utc": "2026-09-10T11:13:58.892407+00:00",
+      "elapsed_s": 0.04034679202595726,
+      "exit_code": 0,
+      "status": "passed",
+      "log": "benchmarks/astra-v8/correctness-final-ruff.log",
+      "command": [
+        "/Users/chris/Projects/nullgambit-astra/.venv/bin/ruff",
+        "check",
+        "."
+      ]
+    },
+    {
+      "name": "mypy",
+      "started_utc": "2026-09-10T11:13:58.892739+00:00",
+      "ended_utc": "2026-09-10T11:13:59.189937+00:00",
+      "elapsed_s": 0.2972100420156494,
+      "exit_code": 0,
+      "status": "passed",
+      "log": "benchmarks/astra-v8/correctness-final-mypy.log",
+      "command": [
+        "/Users/chris/Projects/nullgambit-astra/.venv/bin/mypy"
+      ]
+    }
+  ],
+  "ended_utc": "2026-09-10T11:13:59.190196+00:00",
+  "elapsed_s": 37.006162915960886,
+  "source_unchanged": true
+}

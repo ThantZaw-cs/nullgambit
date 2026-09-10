@@ -1,0 +1,58 @@
+{
+  "source_sha256": "43ce05eafcd9f76d75f0f5bf3fb675912d314311478329157c8656632b7480b8",
+  "started_utc": "2026-09-10T11:11:40.691398+00:00",
+  "status": "failed",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "python": "3.12.13",
+  "checks": [
+    {
+      "name": "unittest",
+      "started_utc": "2026-09-10T11:11:40.702505+00:00",
+      "ended_utc": "2026-09-10T11:12:17.551374+00:00",
+      "elapsed_s": 36.84870604198659,
+      "exit_code": 1,
+      "status": "failed",
+      "log": "benchmarks/astra-v8/correctness-after-lmr-pv-fix-unittest.log",
+      "command": [
+        "/Users/chris/Projects/nullgambit-astra/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "test_count": 86
+    },
+    {
+      "name": "ruff",
+      "started_utc": "2026-09-10T11:12:17.551708+00:00",
+      "ended_utc": "2026-09-10T11:12:17.592067+00:00",
+      "elapsed_s": 0.04036841599736363,
+      "exit_code": 0,
+      "status": "passed",
+      "log": "benchmarks/astra-v8/correctness-after-lmr-pv-fix-ruff.log",
+      "command": [
+        "/Users/chris/Projects/nullgambit-astra/.venv/bin/ruff",
+        "check",
+        "."
+      ]
+    },
+    {
+      "name": "mypy",
+      "started_utc": "2026-09-10T11:12:17.592291+00:00",
+      "ended_utc": "2026-09-10T11:12:17.939750+00:00",
+      "elapsed_s": 0.3474699590005912,
+      "exit_code": 0,
+      "status": "passed",
+      "log": "benchmarks/astra-v8/correctness-after-lmr-pv-fix-mypy.log",
+      "command": [
+        "/Users/chris/Projects/nullgambit-astra/.venv/bin/mypy"
+      ]
+    }
+  ],
+  "ended_utc": "2026-09-10T11:12:17.939978+00:00",
+  "elapsed_s": 37.24845158302924,
+  "source_unchanged": true
+}

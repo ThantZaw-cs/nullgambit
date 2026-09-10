@@ -1,0 +1,14 @@
+test_pv_classification_survives_alpha_narrowing_including_check_evasions (tests.test_search_core.SearchCoreTests.test_pv_classification_survives_alpha_narrowing_including_check_evasions) ... FAIL
+
+======================================================================
+FAIL: test_pv_classification_survives_alpha_narrowing_including_check_evasions (tests.test_search_core.SearchCoreTests.test_pv_classification_survives_alpha_narrowing_including_check_evasions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nullgambit-v8-search-20260910/tests/test_search_core.py", line 345, in test_pv_classification_survives_alpha_narrowing_including_check_evasions
+    self.assertTrue(all(depth == 3 for depth in depths), (source.fen(), depths))
+AssertionError: False is not true : ('4r2k/2P5/8/8/8/8/8/4K3 w - - 0 1', [3, 3, 3, 2])
+
+----------------------------------------------------------------------
+Ran 1 test in 0.021s
+
+FAILED (failures=1)

@@ -1,0 +1,59 @@
+{
+  "created_utc": "2026-09-10T08:28:39.780621+00:00",
+  "source": "https://database.lichess.org/broadcast/lichess_db_broadcast_2022-02.pgn.zst",
+  "source_sha256": "fcca15bd3d0060bade81a799fb42ecfdbaf70bcc8746488b7ad623b45431b805",
+  "source_selection": "Existing February archive in original order. Valid standard games, both Elo>=2500, >=60 plies; skip first 24 eligible whole games reserved for prior tactical holdout. Take next 30 unique positions at ply16 excluding exact old January opening keys, with no result/engine filter. First20 fast, last10 formal. Source games disjoint.",
+  "license": "CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+  "counts": {
+    "parsed": 1084,
+    "eligible": 56,
+    "errors": 31,
+    "duplicate_opening": 2,
+    "reserved_games": 24
+  },
+  "fast_ids": [
+    "feb2022-eligible-025",
+    "feb2022-eligible-026",
+    "feb2022-eligible-027",
+    "feb2022-eligible-028",
+    "feb2022-eligible-029",
+    "feb2022-eligible-030",
+    "feb2022-eligible-031",
+    "feb2022-eligible-032",
+    "feb2022-eligible-033",
+    "feb2022-eligible-034",
+    "feb2022-eligible-035",
+    "feb2022-eligible-036",
+    "feb2022-eligible-037",
+    "feb2022-eligible-038",
+    "feb2022-eligible-039",
+    "feb2022-eligible-040",
+    "feb2022-eligible-041",
+    "feb2022-eligible-042",
+    "feb2022-eligible-043",
+    "feb2022-eligible-045"
+  ],
+  "formal_ids": [
+    "feb2022-eligible-046",
+    "feb2022-eligible-047",
+    "feb2022-eligible-048",
+    "feb2022-eligible-049",
+    "feb2022-eligible-050",
+    "feb2022-eligible-051",
+    "feb2022-eligible-053",
+    "feb2022-eligible-054",
+    "feb2022-eligible-055",
+    "feb2022-eligible-056"
+  ],
+  "result_filter": false,
+  "engine_label_filter": false,
+  "private_inputs_copied": false,
+  "initial_unfrozen_plan_sha256": {
+    "fast": "af9e08951d1446ec5938834bae71a47a802558ad2ea286ad31f9f9bdb4395990",
+    "formal": "eb4ba82d7cf3d79041120fd5bdb8fbc593c6d22fbcd52abe0f0ca2a67f057b5c"
+  },
+  "opening_lists_sha256": {
+    "fast": "0f690f38227ef686fed59c46065fb24f588f5ec3c464b8b6041f9e3161015529",
+    "formal": "a2748075d4097d8d1daec5392b0135e32c986aa4783f989636dace1c02914375"
+  }
+}

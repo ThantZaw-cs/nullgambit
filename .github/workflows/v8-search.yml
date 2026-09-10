@@ -1,0 +1,120 @@
+name: astra-v8-search
+
+on:
+  push:
+    branches: [astra-v8-search]
+    paths: [benchmarks/astra-v8/ci-trigger.json]
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: astra-v8-search-fixed-batch
+  cancel-in-progress: false
+
+env:
+  OMP_NUM_THREADS: "1"
+  OPENBLAS_NUM_THREADS: "1"
+  NUMBA_NUM_THREADS: "1"
+  MKL_NUM_THREADS: "1"
+  V7_SHA: aba3db18ebe424b2025b3d967b88057b6ad242978cc328accc1642e2c8a91b3d
+
+jobs:
+  acceptance:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 125
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+      - uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.11.28"
+          python-version: "3.12"
+          enable-cache: false
+      - name: Install locked Python 3.12 dependencies
+        run: uv sync --locked
+      - name: Validate explicit freeze trigger and one CPU
+        id: freeze
+        run: |
+          test ! -e data/online
+          test -z "$(git status --porcelain --untracked-files=all)"
+          mkdir -p artifacts/v8-search
+          uv pip freeze > artifacts/v8-search/installed.txt
+          git rev-parse HEAD > artifacts/v8-search/checkout.txt
+          uv run --no-sync python - <<'PY'
+          import hashlib, json, os, platform, sys
+          from pathlib import Path
+          assert platform.machine() == "x86_64" and sys.version_info[:2] == (3, 12)
+          digest = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
+          trigger = json.loads(Path("benchmarks/astra-v8/ci-trigger.json").read_text())
+          assert trigger["phase"] in {"preflight", "formal"}
+          assert digest("prototypes/search_core/agent.py") == trigger["candidate_sha256"]
+          assert digest("baselines/online_v7/agent.py") == os.environ["V7_SHA"]
+          if trigger["phase"] == "formal":
+              assert digest("benchmarks/astra-v8/formal-plan.json") == trigger["formal_plan_sha256"]
+              plan = json.loads(Path("benchmarks/astra-v8/formal-plan.json").read_text())
+              assert plan["candidate_sha256"] == trigger["candidate_sha256"]
+              assert all(plan["gate"].values())
+              summary_path = Path(trigger["fast_summary_path"])
+              assert summary_path.is_relative_to("benchmarks/astra-v8")
+              assert digest(summary_path) == trigger["fast_summary_sha256"]
+              fast = json.loads(summary_path.read_text())
+              assert fast["complete"] and fast["actual_games"] == 40
+              assert fast["candidate_sha256"] == trigger["candidate_sha256"]
+              assert fast["opponent_sha256"] == os.environ["V7_SHA"]
+              assert fast["voids"] == fast["failures"] == 0
+          with open(os.environ["GITHUB_ENV"], "a") as handle:
+              print("V8_CPU=" + str(min(os.sched_getaffinity(0))), file=handle)
+              print("V8_SHA=" + trigger["candidate_sha256"], file=handle)
+          with open(os.environ["GITHUB_OUTPUT"], "a") as handle:
+              print("phase=" + trigger["phase"], file=handle)
+          Path("artifacts/v8-search/ci-trigger.json").write_text(json.dumps(trigger, indent=2) + "\n")
+          PY
+      - name: Ruff
+        run: taskset -c "$V8_CPU" uv run --no-sync ruff check . 2>&1 | tee artifacts/v8-search/ruff.log
+      - name: Strict mypy
+        run: taskset -c "$V8_CPU" uv run --no-sync mypy 2>&1 | tee artifacts/v8-search/mypy.log
+      - name: Complete correctness suite
+        run: timeout 10m taskset -c "$V8_CPU" uv run --no-sync python -m unittest discover -s tests -v 2>&1 | tee artifacts/v8-search/tests.log
+      - name: Warm rotating four-way fixed-depth search measurement
+        run: |
+          ulimit -v 2097152
+          timeout 11m taskset -c "$V8_CPU" uv run --no-sync python -m tools.v8_perf --out artifacts/v8-search/performance --depth 5 --repeats 3 --limit-s 600 2>&1 | tee artifacts/v8-search/performance.log
+      - name: Candidate ZIP, isolated real search and independent runner
+        run: |
+          ulimit -v 2097152
+          timeout 5m taskset -c "$V8_CPU" uv run --no-sync python -m tools.v8_package --source prototypes/search_core/agent.py --sha256 "$V8_SHA" --out artifacts/v8-search/packages/v8 2>&1 | tee artifacts/v8-search/package.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: astra-v8-preflight-${{ github.sha }}
+          path: artifacts/v8-search/
+          if-no-files-found: error
+          retention-days: 30
+      - name: One predeclared formal batch, 20 games at 120+0.5
+        if: success() && steps.freeze.outputs.phase == 'formal' && github.run_attempt == 1 && contains(github.event.head_commit.message, '[v8-formal-once]')
+        run: |
+          ulimit -v 2097152
+          timeout --signal=TERM --kill-after=30s 101m taskset -c "$V8_CPU" uv run --no-sync python -m tools.v8_match --plan benchmarks/astra-v8/formal-plan.json --out artifacts/v8-search/formal 2>&1 | tee artifacts/v8-search/formal.log
+      - name: Audit every completed formal PGN and exact clock trace
+        if: always()
+        run: |
+          if test -f artifacts/v8-search/formal/results.json; then
+            uv run --no-sync python -m tools.summarize_v8_matches artifacts/v8-search/formal | tee artifacts/v8-search/formal-summary.log
+          else
+            echo 'Formal NOT RUN. Requires formal freeze trigger, explicit [v8-formal-once] head commit, first run attempt, and successful preflight. No automatic match replay.' | tee artifacts/v8-search/formal-not-run.txt
+          fi
+      - name: Verify tracked inputs unchanged
+        if: always()
+        run: git diff --exit-code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: astra-v8-search-${{ github.sha }}-${{ github.run_attempt }}
+          path: artifacts/v8-search/
+          if-no-files-found: error
+          retention-days: 30
