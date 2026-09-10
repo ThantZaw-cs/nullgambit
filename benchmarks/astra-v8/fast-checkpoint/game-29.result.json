@@ -1,0 +1,13 @@
+{
+  "index": 29,
+  "opening": "feb2022-eligible-039",
+  "fen": "r1bq1rk1/bpp2ppp/2np1n2/p3p3/2B1P3/2PP1N2/PP1N1PPP/R1BQR1K1 w - - 4 9",
+  "candidate_white": true,
+  "result": "white",
+  "termination": "checkmate",
+  "plies": 65,
+  "total_plies": 81,
+  "elapsed_s": 57.21842859900016,
+  "white_stderr": "",
+  "black_stderr": ""
+}

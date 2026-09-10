@@ -1,0 +1,52 @@
+{
+  "requested_games": 40,
+  "actual_games": 39,
+  "complete": false,
+  "wins": 17,
+  "draws": 9,
+  "losses": 12,
+  "voids": 1,
+  "failures": 0,
+  "infrastructure_interruptions": 1,
+  "adjudications": 0,
+  "ply_cap_draws": 0,
+  "raw_referee_score": 0.5657894736842105,
+  "terminations": {
+    "checkmate": 29,
+    "threefold_repetition": 8,
+    "fifty_moves": 1,
+    "infrastructure_interruption": 1
+  },
+  "paired_scores": [
+    0.75,
+    0.5,
+    0.75,
+    1.0,
+    0.5,
+    1.0,
+    0.5,
+    0.5,
+    0.5,
+    0.25,
+    0.75,
+    0.5,
+    0.25,
+    0.75,
+    0.5,
+    0.5,
+    0.25,
+    0.5,
+    0.5
+  ],
+  "pair_bootstrap_95": [
+    0.47368421052631576,
+    0.6578947368421053
+  ],
+  "descriptive_two_sided_pair_sign_p": 0.5078125,
+  "elapsed_s": 2400.010047,
+  "plan_sha256": "1c5c20577ffa699a4f6922c5a074271d2878d1641d0100f76ba53c0cb0e31220",
+  "candidate_sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
+  "opponent_sha256": "aba3db18ebe424b2025b3d967b88057b6ad242978cc328accc1642e2c8a91b3d",
+  "all_completed_pgns_and_traces_audited": true,
+  "interpretation": "Predeclared February source-disjoint opening pairs, frozen v7 opponent. Small-sample descriptive uncertainty; not an Elo estimate or official container test. 600 total plies draw, with opening plies included; no material adjudication."
+}

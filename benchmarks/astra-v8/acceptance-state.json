@@ -8,7 +8,7 @@
   "job_id": 102889532921,
   "workflow_commit": "1780e14d0f917f3eb79596c6198f93c483cdf7c2",
   "ci_url": "https://github.com/ThantZaw-cs/nullgambit/actions/runs/34482804548",
-  "stage": "fast_running",
+  "stage": "fast_resume_prepared",
   "candidate_sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
   "opponent_sha256": "aba3db18ebe424b2025b3d967b88057b6ad242978cc328accc1642e2c8a91b3d",
   "prior_process_check": "No relevant live agent/match/teacher processes; no prior fixed-batch results.",
@@ -21,6 +21,13 @@
     "user_reply": "\u5141\u8bb8\u8865\u9f50\u672a\u5b8c\u6210ID\uff0c\u4fdd\u6301\u4e09\u5c0f\u65f6\u603b\u622a\u6b62",
     "allowed_change": "Only additive batch execution time and retrying unfinished infrastructure-interrupted IDs; all original WDL and raw interrupted attempts retained. No game-clock/600-ply/source/opening change.",
     "provisioned_additional_seconds_if_needed": 600,
-    "activated": false
-  }
+    "activated": true
+  },
+  "first_batch_completed_games": 38,
+  "first_batch_wins": 17,
+  "first_batch_draws": 9,
+  "first_batch_losses": 12,
+  "first_batch_program_failures": 0,
+  "first_batch_infrastructure_void": 1,
+  "first_batch_execution_s": 2400.01004141
 }

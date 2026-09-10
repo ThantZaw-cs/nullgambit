@@ -1,0 +1,13 @@
+{
+  "index": 18,
+  "opening": "feb2022-eligible-033",
+  "fen": "r3kbnr/1pqn1ppp/p3p3/2ppPb2/3P4/1N3N2/PPP1BPPP/R1BQ1RK1 w kq - 0 9",
+  "candidate_white": false,
+  "result": "draw",
+  "termination": "threefold_repetition",
+  "plies": 101,
+  "total_plies": 117,
+  "elapsed_s": 63.239794733999815,
+  "white_stderr": "",
+  "black_stderr": ""
+}

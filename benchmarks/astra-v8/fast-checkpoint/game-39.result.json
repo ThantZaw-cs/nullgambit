@@ -1,0 +1,14 @@
+{
+  "index": 39,
+  "opening": "feb2022-eligible-045",
+  "fen": "r2qkb1r/pp1b1ppp/2n2n2/1B1p4/3N4/2N1P3/PP3PPP/R1BQK2R w KQkq - 1 9",
+  "candidate_white": true,
+  "result": "void",
+  "termination": "infrastructure_interruption",
+  "plies": 0,
+  "total_plies": 16,
+  "elapsed_s": 2.483914261999871,
+  "error": "TimeoutError: Predeclared execution budget exhausted; no outcome-based retry",
+  "white_stderr": "See preserved trace",
+  "black_stderr": "See preserved trace"
+}
