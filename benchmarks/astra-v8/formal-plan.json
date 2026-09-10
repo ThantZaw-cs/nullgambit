@@ -2,7 +2,7 @@
   "created_utc": "2026-09-10T08:28:39.780621+00:00",
   "candidate_name": "search-core-v8",
   "candidate_directory": "prototypes/search_core",
-  "candidate_sha256": null,
+  "candidate_sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
   "opponent_name": "v7",
   "opponent_directory": "baselines/online_v7",
   "opponent_sha256": "aba3db18ebe424b2025b3d967b88057b6ad242978cc328accc1642e2c8a91b3d",
@@ -12,7 +12,7 @@
   "source_sha256": "fcca15bd3d0060bade81a799fb42ecfdbaf70bcc8746488b7ad623b45431b805",
   "license": "CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
   "source_selection": "Existing February archive in original order. Valid standard games, both Elo>=2500, >=60 plies; skip first 24 eligible whole games reserved for prior tactical holdout. Take next 30 unique positions at ply16 excluding exact old January opening keys, with no result/engine filter. First20 fast, last10 formal. Source games disjoint.",
-  "execution_status": "NOT RUN; candidate hash and gate must be frozen before execution.",
+  "execution_status": "NOT RUN in this round. Independent holdout is neutral; no playing-strength approval. Original UTC budget cannot accommodate complete40+20 chain. Fixed schedule retained unchanged.",
   "resume_rule": "Never replay completed or interrupted games. A saved infrastructure interruption counts VOID and resumes only with the next scheduled index.",
   "rules_sources": [
     "https://aichessathon.com/docs/agent-contract.md",
@@ -390,10 +390,11 @@
     "linux"
   ],
   "gate": {
-    "candidate_frozen": false,
-    "correctness_passed": false,
-    "development_positive": false,
+    "candidate_frozen": true,
+    "correctness_passed": true,
+    "development_positive": true,
     "holdout_passed": false,
     "fast_screen_passed": false
-  }
+  },
+  "candidate_configuration": "TT+LMR default both enabled"
 }

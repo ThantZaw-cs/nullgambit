@@ -1,0 +1,1 @@
+Formal NOT RUN. Requires formal freeze trigger, explicit [v8-formal-once] head commit, first run attempt, and successful preflight. No automatic match replay.

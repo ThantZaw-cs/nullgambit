@@ -1,0 +1,49 @@
+{
+  "recorded_utc": "2026-09-10T12:06:18.976588+00:00",
+  "round_started_utc": "2026-09-10T08:15:18+00:00",
+  "utc_elapsed_s": 13860.976588,
+  "deadline_utc": "2026-09-10T12:15:18+00:00",
+  "within_original_utc_budget": true,
+  "candidate_commit": "74ebe2b",
+  "candidate_sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
+  "candidate_options": {
+    "tt": true,
+    "lmr": true
+  },
+  "completed": {
+    "development_calls": 192,
+    "development_labels": 192,
+    "balanced_holdout_calls": 96,
+    "holdout_labels": 96,
+    "endgame_calls": 64,
+    "primary_linux_fixed_rows": 168,
+    "linux_followup_rows_separate": 168,
+    "full_tests_mac": 86,
+    "full_tests_final_linux": 86,
+    "additional_tool_tests": 3
+  },
+  "excluded_failed_partial_calls": {
+    "initial_lmr_defect": 170,
+    "holdout_order_defect": 79
+  },
+  "strength_games": {
+    "fast_actual": 0,
+    "fast_predeclared": 40,
+    "formal_actual": 0,
+    "formal_predeclared": 20
+  },
+  "packaging_smoke_games": {
+    "first_default_tt": 2,
+    "frozen_default_both": 2,
+    "not_strength_screens": true
+  },
+  "conclusion": "Development/efficiency show a reason to continue. Independent quality is neutral, not confirmed regression; no evidence sufficient to replace v7. Full fixed matches remain unrun, no automatic continuation.",
+  "active_related_processes": [],
+  "protected_primary_worktree": {
+    "branch": "astra-v7",
+    "commit": "0f7ca00bf55e047b117ce0f4f487d0b91f435d45",
+    "clean": true
+  },
+  "published_only": "Independent astra-v8-search branch for free LinuxCI; protected remotes/PR3 not modified; no merge/upload/payment.",
+  "timing_caveat": "Separate UTC and monotonic clocks are preserved in quality-phases. Unknown connection/suspension time was not invented or subtracted."
+}

@@ -1,0 +1,24 @@
+{
+  "candidate_sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
+  "positions_sha256": "a59dc5a2c7a34359a8bb388034a9a2d0d6bf6583bf73a961195a60b87f45a35b",
+  "rows": 96,
+  "positions": 24,
+  "counterbalanced_position_pairs": 24,
+  "all_legal_clock_history_unmake": true,
+  "started_utc": "2026-09-10T11:48:41.422129+00:00",
+  "ended_utc": "2026-09-10T11:52:53.380633+00:00",
+  "elapsed_s": 251.96542779100128,
+  "root_modules": {
+    "baselines.online_v7.agent": {
+      "sha256": "aba3db18ebe424b2025b3d967b88057b6ad242978cc328accc1642e2c8a91b3d",
+      "import_including_compile_s": 5.526186959003098,
+      "compiled_search_warmup_s": 3.7925175839918666
+    },
+    "prototypes.search_core.agent": {
+      "sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
+      "import_including_compile_s": 6.062593624985311,
+      "compiled_search_warmup_s": 5.040220208000392
+    }
+  },
+  "teacher_status": "completed: all24 positions cold2M labels plus P21 cold4M verification; see holdout-summary.json and quality-phases.json"
+}

@@ -45,6 +45,15 @@ def position(row: dict[str, Any]) -> chess.Board:
     return board
 
 
+def configuration_order(
+    configurations: list[str], position_index: int, repeat_index: int
+) -> list[str]:
+    """Rotate by position only; odd repetitions exactly reverse their paired even run."""
+    offset = position_index % len(configurations)
+    ordered = configurations[offset:] + configurations[:offset]
+    return list(reversed(ordered)) if repeat_index % 2 else ordered
+
+
 def configure(module: Any, label: str) -> None:
     if label != "v7":
         tt, lmr = OPTIONS[label]
@@ -96,7 +105,7 @@ def run(args: argparse.Namespace) -> None:
             len(rows) * len(args.configurations) * args.repeats),
         "completed_rows": len(completed), "started_utc": datetime.now(UTC).isoformat(),
         "environment": environment(), "limit_s": args.limit_s,
-        "order": "Rotate then reverse configuration order across positions and repeats",
+        "order": "Position rotation; second repetition exactly reverses the first",
         "clock_policy": "Original recorded remaining clocks; unchanged entry time allocation",
         "previous_attempts": ([*previous.get("previous_attempts", []), {
             k: previous.get(k) for k in ("status", "started_utc", "ended_utc", "elapsed_s")
@@ -137,14 +146,14 @@ def run(args: argparse.Namespace) -> None:
                 board = position(row)
                 clock = round(row["position"]["clock_before_s"] * 1000)
                 for repetition in range(args.repeats):
-                    offset = (i + repetition) % len(args.configurations)
-                    order = args.configurations[offset:] + args.configurations[:offset]
-                    if (i + repetition) % 2:
-                        order = list(reversed(order))
+                    order = configuration_order(args.configurations, i, repetition)
                     for label in order:
                         identity = row["key"], label, repetition + 1
                         if identity in done:
                             continue
+                        if (args.stop_utc and datetime.now(UTC)
+                                >= datetime.fromisoformat(args.stop_utc)):
+                            raise TimeoutError("Absolute UTC stop before another search")
                         module = modules[
                             "baselines.online_v7.agent" if label == "v7" else args.candidate]
                         configure(module, label)
@@ -273,15 +282,37 @@ def summarize(args: argparse.Namespace) -> None:
                  - statistics.mean(r["depth"] for r in old) for old, new in pairs]
         matched_cp = []
         anonymous_deltas = []
+        stable_better, stable_worse = [], []
+        mate_comparisons = []
         for old, new in pairs:
+            if all(not r["quality"]["missing"] for r in old + new) and any(
+                    any(m is not None for m in r["quality"]["mate_transition"])
+                    for r in old + new):
+                mate_comparisons.append({
+                    "id": old[0]["id"],
+                    "v7_root_and_chosen_mates": [r["quality"]["mate_transition"] for r in old],
+                    "candidate_root_and_chosen_mates": [
+                        r["quality"]["mate_transition"] for r in new],
+                })
             if all(not r["quality"]["missing"] and r["quality"]["regret_cp"] is not None
                    and not r["quality"]["bound_uncertain"] for r in old + new):
                 old_cp = statistics.mean(r["quality"]["regret_cp"] for r in old)
                 new_cp = statistics.mean(r["quality"]["regret_cp"] for r in new)
                 matched_cp.append(new_cp - old_cp)
+                old_repeats = {r["repeat"]: r for r in old}
+                new_repeats = {r["repeat"]: r for r in new}
+                deltas = [new_repeats[n]["quality"]["regret_cp"]
+                          - old_repeats[n]["quality"]["regret_cp"]
+                          for n in sorted(old_repeats.keys() & new_repeats.keys())]
+                if len(deltas) == stage["immutable"]["repeats"]:
+                    if all(d < -50 for d in deltas):
+                        stable_better.append(old[0]["id"])
+                    if all(d > 50 for d in deltas):
+                        stable_worse.append(old[0]["id"])
                 anonymous_deltas.append({"id": old[0]["id"], "v7_regret_cp": old_cp,
                                          "candidate_regret_cp": new_cp,
-                                         "change_cp": new_cp - old_cp})
+                                         "change_cp": new_cp - old_cp,
+                                         "paired_repeat_changes_cp": deltas})
         contrasts[label] = {
             "positions_paired": len(pairs), "completed_depth_higher_equal_lower": [
                 sum(d > 0 for d in depth), sum(d == 0 for d in depth), sum(d < 0 for d in depth)],
@@ -297,7 +328,17 @@ def summarize(args: argparse.Namespace) -> None:
             "resolved_ge100_error_positions": sum(p["v7_regret_cp"] >= 100
                 and p["candidate_regret_cp"] < 100 for p in anonymous_deltas),
             "anonymous_position_deltas": anonymous_deltas,
+            "all_repeats_better_gt50cp_positions": stable_better,
+            "all_repeats_worse_gt50cp_positions": stable_worse,
+            "mate_comparisons_separate_from_cp": mate_comparisons,
         }
+    orders: dict[tuple[str, int], list[str]] = {}
+    for row in rows:
+        orders.setdefault((row["id"], row["repeat"]), []).append(row["configuration"])
+    complete_orders = [(orders[(name, 1)], orders[(name, 2)]) for name in by_position
+                       if len(orders.get((name, 1), [])) == len(configurations)
+                       and len(orders.get((name, 2), [])) == len(configurations)]
+    balanced = sum(second == list(reversed(first)) for first, second in complete_orders)
     summary = {
         "status": stage["status"], "rows": len(rows), "expected_rows": stage["expected_rows"],
         "candidate_sha256": stage["immutable"]["candidate_sha256"],
@@ -307,6 +348,9 @@ def summarize(args: argparse.Namespace) -> None:
         "labels_sha256": [sha256(p) for p in args.labels],
         "minimum_teacher_nodes": args.minimum_label_nodes,
         "label_history_source_hash_verified": True,
+        "measurement_order_audit": {"complete_position_pairs": len(complete_orders),
+                                    "exactly_counterbalanced_pairs": balanced,
+                                    "all_counterbalanced": balanced == len(complete_orders)},
         "limitations": ["Selective depth and NPS do not establish strength",
                          "Teacher cp and mate are separate; a first-move mismatch is not an error",
                          "Means with missing labels are incomplete; use matched-position contrasts",
@@ -367,6 +411,9 @@ def endgames(args: argparse.Namespace) -> None:
                 for repeat in range(2):
                     order = ["v7", selected] if (index + repeat) % 2 == 0 else [selected, "v7"]
                     for label in order:
+                        if (args.stop_utc and datetime.now(UTC)
+                                >= datetime.fromisoformat(args.stop_utc)):
+                            raise TimeoutError("Absolute UTC stop before another search")
                         configure(modules[label], label)
                         tick = time.monotonic()
                         move, depth, nodes = modules[label].timed_search(board, 0.25)
@@ -421,6 +468,7 @@ def main() -> None:
     measure.add_argument("--split", choices=["development", "holdout"], default="development")
     measure.add_argument("--freeze", type=Path)
     measure.add_argument("--limit-s", type=int, default=900)
+    measure.add_argument("--stop-utc")
     measure.add_argument("--resume", action="store_true")
     measure.add_argument("--out", type=Path, required=True)
     score = commands.add_parser("summarize")
@@ -436,6 +484,7 @@ def main() -> None:
     endgame.add_argument("--freeze", type=Path, required=True)
     endgame.add_argument("--out", type=Path, required=True)
     endgame.add_argument("--summary", type=Path, required=True)
+    endgame.add_argument("--stop-utc")
     args = parser.parse_args()
     if args.command == "measure":
         if args.repeats < 1 or len(set(args.configurations)) != len(args.configurations):

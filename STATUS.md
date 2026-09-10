@@ -1,20 +1,37 @@
-# astra-v8-search: search-core experiment in progress
+# astra-v8-search：能力已实现，棋力证据不足，保留 v7
 
-Started 2026-09-10 08:15:18 UTC; conservative deadline 12:15:18 UTC, including
-unmeasured connection/suspension intervals. Independent branch `astra-v8-search`
-starts from PR #3 head `f1e9966`, with frozen v7 copied byte-for-byte from
-`prototypes/qsearch_tail/agent.py` into `baselines/online_v7/agent.py`.
-Candidate is `prototypes/search_core/agent.py`; root legacy, v4/v7, PR #3,
-failed v5/v6, and prior results remain unchanged.
+本轮从 PR #3 的干净已验证提交 f1e9966 建立独立 astra-v8-search 工作树：
+`/private/tmp/nullgambit-v8-search-20260910`。原 astra-v7 工作区、冻结 v4/v7、
+失败 v5/v6、PR #3 与线上版本均未改动。候选是 prototypes/search_core/agent.py，
+来自 prototypes/qsearch_tail/agent.py；根目录旧 agent.py 未混入。
 
-Score TT was saved separately at `d4b6552`; conservative LMR at `0d781e7`.
-An independent regression found that updated alpha could misclassify a PV node
-and reduce a quiet evasion. Old-hash development stopped with 170/192 calls,
-retained privately; it cannot establish LMR strength. The minimal fix freezes
-node classification at entry. Corrected tests and four-way evidence are pending.
-No selected strength configuration, match gate, formal game or release is claimed.
-See `benchmarks/astra-v8/` for plans, failed regression evidence and live checks.
-Online versions remain untouched; no merge or competition upload is authorized.
+- 分数 TT 提交 d4b6552；保守 LMR 提交 0d781e7；PV 窗口收缩应将缺陷修复 9ba1b2a。
+- 开发后冻结组合提交 74ebe2b；源码 SHA-256：
+  `31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221`。
+  唯一冻结修改是 USE_LMR 默认打开；无评价、时间策略、空步或延伸变化。
+- 完整正确性 86 tests、ruff、mypy、真实入口四开关通过；最终默认组合 Linux
+  [run34472928110](https://github.com/ThantZaw-cs/nullgambit/actions/runs/34472928110)
+  也通过同样检查、独立 ZIP/runner 和两局打包冒烟。不是官网完整容器验证。
+- 首批 Linux 固定 D1–5 共168行：TT/LMR/组合耗时下降7.11%/41.77%/47.30%。
+  TT全窗口210次配对分数相同，实测截断14973次；重复CI只验证默认打包，不合并样本。
+- 开发24局面×4配置×2=192调用全有老师标签：>=100cp失误局面 v7/TT/LMR/组合
+  为13/12/12/11。组合有两处稳定明显改善；LMR单项有438cp严重退步，不选择单项。
+  开发顺序未做到每局面严格反序，限制已记录，没有抹去或重跑其完整结果。
+- 冻结后独立24局面×2配置×2=96调用严格反序：最终老师均值48.54→52.00cp，
+  大错均为3/24局面，所有差异在±50cp内。P21初2M疑似78cp退步在4M缩为1cp，
+  不能称确认回退。另16个跨版本已有残局64调用，两版均保住32/32 WDL，无新增收益。
+- 快棋筛选0/40，Linux正式0/20，均未启动；两份原固定开局计划与继续命令保留。
+  打包冒烟不计入棋力对战。开发和效率有继续验证信号，但独立结果中性，尚不足替换v7。
+
+阶段报告、全部公开原始Linux文本、匿名质量摘要及继续步骤在 benchmarks/astra-v8/。
+私有运行、老师标签与中断记录留在主项目 data/online/teacher-v8/，没有公开。
+旧缺陷开发170/192和旧顺序留出79/96原样保留，不混入最终结果；两次重测均有明确
+实现/测量缺陷原因，未依据胜负重跑。正式比赛包只作CI artifact，无上传、合并或额外付费。
+
+本轮起点08:15:18 UTC，保守截止12:15:18 UTC；断线未重置预算。阶段UTC跨度与
+monotonic在暂停期间差异显著，均分别保留，不能把纯搜索耗时冒充总体墙钟。
+最终建议：保留实验与v7，后续只在足够执行预算下审查并跑原40局，再有支持才跑原20局。
+不在已看过的holdout上调参或切换配置刷结果；不保证涨分。详见 REVIEW.md / NEXT.md。
 
 ---
 

@@ -1,0 +1,256 @@
+diff --git a/baselines/online_v7/agent.py b/prototypes/search_core/agent.py
+index 9f0a91a..e0ab735 100644
+--- a/baselines/online_v7/agent.py
++++ b/prototypes/search_core/agent.py
+@@ -16,0 +17,5 @@ TT_LIMIT = 65_536
++TT_EXACT, TT_LOWER, TT_UPPER = 1, 2, 3
++COUNTER_SIZE = 16
++USE_SCORE_TT = True
++USE_LMR = True
++LAST_SEARCH_STATS: dict[str, int] = {}
+@@ -808,0 +814,92 @@ def _quiescence(
++@njit(cache=False)
++def _score_to_tt(score: int, ply: int) -> int:
++    if score >= 99_000:
++        return score + ply
++    if score <= -99_000:
++        return score - ply
++    return score
++
++
++@njit(cache=False)
++def _score_from_tt(score: int, ply: int) -> int:
++    if score >= 99_000:
++        return score - ply
++    if score <= -99_000:
++        return score + ply
++    return score
++
++
++@njit(cache=False)
++def _history_context(
++    history: np.ndarray, length: int, halfmove: int
++) -> tuple[np.uint64, np.uint64, int]:
++    """Count-sensitive fingerprints of every still-reachable prior position.
++
++    Pawn moves/captures make earlier positions unreachable. Order within this
++    suffix does not affect future threefold counts; multiplicities do. Two
++    independent 64-bit sums retain multiplicity (plain XOR would not).
++    """
++    first, second = np.uint64(0), np.uint64(0)
++    start = max(0, length - halfmove)
++    for index in range(start, length):
++        key = history[index]
++        first += key
++        mixed = key ^ (key >> np.uint64(30))
++        mixed *= np.uint64(0xBF58476D1CE4E5B9)
++        mixed ^= mixed >> np.uint64(27)
++        mixed *= np.uint64(0x94D049BB133111EB)
++        second += mixed ^ (mixed >> np.uint64(31))
++    return first, second, length - start
++
++
++@njit(cache=False)
++def _tt_probe(
++    key: np.uint64, depth: int, alpha: int, beta: int, ply: int,
++    halfmove: int, history_length: int, first: np.uint64, second: np.uint64,
++    tt_keys: np.ndarray, data: np.ndarray, contexts: np.ndarray, use_lmr: bool,
++) -> tuple[bool, int, bool]:
++    index = int(key & np.uint64(len(tt_keys) - 1))
++    if tt_keys[index] != key or data[index, 2] == 0:
++        return False, 0, False
++    if (data[index, 3] != halfmove or data[index, 4] != ply
++            or data[index, 5] != history_length or data[index, 6] != int(use_lmr)
++            or contexts[index, 0] != first or contexts[index, 1] != second):
++        return False, 0, False
++    # Matching ply also matches the MAX_PLY horizon. A shallow/reduced result
++    # cannot answer a deeper verification. No window tightening is performed.
++    if data[index, 0] < depth:
++        return False, 0, True
++    score = _score_from_tt(int(data[index, 1]), ply)
++    flag = data[index, 2]
++    usable = (flag == TT_EXACT or (flag == TT_LOWER and score >= beta)
++              or (flag == TT_UPPER and score <= alpha))
++    return usable, score, True
++
++
++@njit(cache=False)
++def _tt_store(
++    key: np.uint64, move: int, depth: int, score: int, flag: int, ply: int,
++    halfmove: int, history_length: int, first: np.uint64, second: np.uint64,
++    tt_keys: np.ndarray, tt_moves: np.ndarray, data: np.ndarray,
++    contexts: np.ndarray, use_lmr: bool,
++) -> None:
++    index = int(key & np.uint64(len(tt_keys) - 1))
++    # Direct-mapped bounded replacement. Key, move and score metadata are always
++    # replaced together; a colliding move-only entry cannot inherit a score.
++    tt_keys[index], tt_moves[index] = key, move
++    data[index, 0], data[index, 1], data[index, 2] = depth, _score_to_tt(score, ply), flag
++    data[index, 3], data[index, 4], data[index, 5] = halfmove, ply, history_length
++    data[index, 6] = int(use_lmr)
++    contexts[index, 0], contexts[index, 1] = first, second
++
++
++@njit(cache=False)
++def _can_reduce(
++    depth: int, index: int, alpha: int, beta: int, in_check: bool,
++    is_tactical: bool, gives_check: bool,
++) -> bool:
++    """One ply only, fourth or later quiet move at a non-PV node."""
++    return (depth >= 3 and index >= 3 and beta - alpha == 1
++            and not in_check and not is_tactical and not gives_check)
++
++
+@@ -823,0 +921,4 @@ def _negamax(
++    score_data: np.ndarray,
++    score_context: np.ndarray,
++    use_tt: bool,
++    use_lmr: bool,
+@@ -864,0 +966,23 @@ def _negamax(
++    first, second, context_len = np.uint64(0), np.uint64(0), 0
++    original_alpha = alpha
++    if use_tt:
++        counters[4] += 1
++        first, second, context_len = _history_context(history, history_len, int(state[3]))
++        hit, cached, compatible = _tt_probe(
++            key, depth, alpha, beta, ply, int(state[3]), context_len, first, second,
++            tt_keys, score_data, score_context, use_lmr,
++        )
++        if compatible:
++            counters[5] += 1
++        elif tt_keys[tt_index] == key and score_data[tt_index, 2]:
++            counters[7] += 1
++        if hit:
++            counters[6] += 1
++            return cached
++    in_check = False
++    if use_lmr and depth >= 3 and beta - alpha == 1:
++        side = int(state[0])
++        for square in range(64):
++            if board[square] == side * KING:
++                in_check = _attacked(board, square, -side)
++                break
+@@ -878,0 +1003,4 @@ def _negamax(
++        tactical = bool(board[(move >> 6) & 63] or move & (EP_FLAG | (7 << 12)))
++        reduce = use_lmr and _can_reduce(
++            depth, index, original_alpha, beta, in_check, tactical, False
++        )
+@@ -880,0 +1009,9 @@ def _negamax(
++        if reduce:
++            # Check giving is determined on the made board, including discoveries.
++            side = int(state[0])
++            for square in range(64):
++                if board[square] == side * KING:
++                    reduce = not _attacked(board, square, -side)
++                    break
++            if reduce:
++                counters[9] += 1
+@@ -895,0 +1033,4 @@ def _negamax(
++                score_data,
++                score_context,
++                use_tt,
++                use_lmr,
+@@ -901 +1042 @@ def _negamax(
+-                depth - 1,
++                depth - 1 - int(reduce),
+@@ -911,0 +1053,4 @@ def _negamax(
++                score_data,
++                score_context,
++                use_tt,
++                use_lmr,
+@@ -912,0 +1058,9 @@ def _negamax(
++            if reduce and score > alpha and not counters[1]:
++                # A reduced fail-high is a hypothesis; verify the full depth
++                # before it may raise alpha or cut off. A shallow TT cannot answer it.
++                counters[10] += 1
++                score = -_negamax(
++                    board, state, depth - 1, -alpha - 1, -alpha, ply + 1,
++                    deadline, counters, history, history_len + 1, tt_keys, tt_moves,
++                    quiet_scores, score_data, score_context, use_tt, use_lmr,
++                )
+@@ -913,0 +1068,2 @@ def _negamax(
++                if reduce:
++                    counters[11] += 1
+@@ -927,0 +1084,4 @@ def _negamax(
++                    score_data,
++                    score_context,
++                    use_tt,
++                    use_lmr,
+@@ -946,2 +1106,9 @@ def _negamax(
+-    tt_keys[tt_index] = key
+-    tt_moves[tt_index] = best_move
++    if use_tt:
++        flag = TT_LOWER if best >= beta else (TT_UPPER if best <= original_alpha else TT_EXACT)
++        _tt_store(key, best_move, depth, best, flag, ply, int(state[3]), context_len,
++                  first, second, tt_keys, tt_moves, score_data, score_context, use_lmr)
++        counters[8] += 1
++    else:
++        tt_keys[tt_index] = key
++        tt_moves[tt_index] = best_move
++        score_data[tt_index, 2] = 0
+@@ -962,0 +1130,4 @@ def _root_search(
++    score_data: np.ndarray,
++    score_context: np.ndarray,
++    use_tt: bool,
++    use_lmr: bool,
+@@ -1006,0 +1178,4 @@ def _root_search(
++                score_data,
++                score_context,
++                use_tt,
++                use_lmr,
+@@ -1022,0 +1198,4 @@ def _root_search(
++                score_data,
++                score_context,
++                use_tt,
++                use_lmr,
+@@ -1038,0 +1218,4 @@ def _root_search(
++                    score_data,
++                    score_context,
++                    use_tt,
++                    use_lmr,
+@@ -1052,0 +1236,17 @@ compiled_root_search = _root_search
++def new_score_table() -> tuple[np.ndarray, np.ndarray]:
++    return np.zeros((TT_LIMIT, 8), dtype=np.int64), np.zeros((TT_LIMIT, 2), dtype=np.uint64)
++
++
++def set_search_options(tt: bool, lmr: bool) -> None:
++    """Offline ablation switch; fresh score tables are allocated for every call."""
++    global USE_SCORE_TT, USE_LMR
++    USE_SCORE_TT, USE_LMR = bool(tt), bool(lmr)
++
++
++def _stats(counts: np.ndarray) -> dict[str, int]:
++    names = ("nodes", "aborted", "move_hits", "repetitions", "tt_probes", "tt_hits",
++             "tt_cutoffs", "tt_context_rejects", "tt_stores", "lmr_reductions",
++             "lmr_researches", "lmr_full_window")
++    return {name: int(counts[index]) for index, name in enumerate(names)}
++
++
+@@ -1054,0 +1255 @@ def timed_search(source: chess.Board, seconds: float) -> tuple[str, int, int]:
++    global LAST_SEARCH_STATS
+@@ -1065,0 +1267,2 @@ def timed_search(source: chess.Board, seconds: float) -> tuple[str, int, int]:
++    score_data, score_context = new_score_table()
++    total_counts = np.zeros(COUNTER_SIZE, dtype=np.int64)
+@@ -1067 +1270 @@ def timed_search(source: chess.Board, seconds: float) -> tuple[str, int, int]:
+-        counters = np.zeros(4, dtype=np.int64)
++        counters = np.zeros(COUNTER_SIZE, dtype=np.int64)
+@@ -1078,0 +1282 @@ def timed_search(source: chess.Board, seconds: float) -> tuple[str, int, int]:
++            score_data, score_context, USE_SCORE_TT, USE_LMR,
+@@ -1080,0 +1285 @@ def timed_search(source: chess.Board, seconds: float) -> tuple[str, int, int]:
++        total_counts += counters
+@@ -1083,0 +1289 @@ def timed_search(source: chess.Board, seconds: float) -> tuple[str, int, int]:
++    LAST_SEARCH_STATS = _stats(total_counts)
+@@ -1092 +1298 @@ def fixed_score(source: chess.Board, depth: int) -> int:
+-    counters = np.zeros(4, dtype=np.int64)
++    counters = np.zeros(COUNTER_SIZE, dtype=np.int64)
+@@ -1094,0 +1301 @@ def fixed_score(source: chess.Board, depth: int) -> int:
++    score_data, score_context = new_score_table()
+@@ -1109,0 +1317 @@ def fixed_score(source: chess.Board, depth: int) -> int:
++            score_data, score_context, USE_SCORE_TT, USE_LMR,
+@@ -1179 +1387 @@ LAST_SEARCH_DEPTH = 0
+-_search_counters = np.zeros(4, dtype=np.int64)
++_search_counters = np.zeros(COUNTER_SIZE, dtype=np.int64)
+@@ -1182,0 +1391 @@ _search_tt_moves = np.full(TT_LIMIT, -1, dtype=np.int64)
++_search_score_data, _search_score_context = new_score_table()
+@@ -1193,0 +1403 @@ compiled_root_search(
++    _search_score_data, _search_score_context, True, False,

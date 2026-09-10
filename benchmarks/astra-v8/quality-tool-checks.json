@@ -1,0 +1,52 @@
+{
+  "started_utc": "2026-09-10T12:03:03.507662+00:00",
+  "scope": "Only public measurement-order/cache-source/score-unit regression; no engine imports or searches",
+  "initial_checks": "Initial three tests and mypy passed; two ruff line-length findings were then fixed",
+  "checks": [
+    {
+      "name": "ruff",
+      "command": [
+        "/Users/chris/Projects/nullgambit-astra/.venv/bin/ruff",
+        "check",
+        "tools/v8_quality.py",
+        "tests/test_v8_quality.py"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 0.04116679198341444,
+      "log": "benchmarks/astra-v8/quality-tool-ruff.log"
+    },
+    {
+      "name": "mypy",
+      "command": [
+        "/Users/chris/Projects/nullgambit-astra/.venv/bin/mypy",
+        "--strict",
+        "tools/v8_quality.py",
+        "tests/test_v8_quality.py"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 0.2220879169763066,
+      "log": "benchmarks/astra-v8/quality-tool-mypy.log"
+    },
+    {
+      "name": "unittest",
+      "command": [
+        "/Users/chris/Projects/nullgambit-astra/.venv/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_v8_quality",
+        "-v"
+      ],
+      "exit_code": 0,
+      "elapsed_s": 0.10941329196793959,
+      "log": "benchmarks/astra-v8/quality-tool-unittest.log"
+    }
+  ],
+  "ended_utc": "2026-09-10T12:03:03.880605+00:00",
+  "status": "passed",
+  "sha256": {
+    "tools/v8_quality.py": "e6de85b68979b15af25fdbe27dfd1f6ca676312364b064caf0e9c8e4a5cf1e25",
+    "tests/test_v8_quality.py": "3cc1f1f447c0dd228d8eaf64504edb7e3f117a1eb0ab191a6386256b39d01ec4",
+    "prototypes/search_core/agent.py": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221"
+  },
+  "tests": 3
+}

@@ -1,0 +1,66 @@
+{
+  "run": "https://github.com/ThantZaw-cs/nullgambit/actions/runs/34470325484",
+  "scope": "Primary Linux fixed-depth raw text and compatibility logs. No ZIP, teacher, labels or online originals.",
+  "files": [
+    {
+      "path": "performance/runs.jsonl",
+      "sha256": "8fd309d0a51307c2254d8a0f6b347fbf734dcd689e4aaf5a9ad29d1d152e3ddc",
+      "bytes": 246796
+    },
+    {
+      "path": "performance/stage.json",
+      "sha256": "54f687ac256c11338d401773ece375ab0423465a837e16b30cf5a17aaae61d41",
+      "bytes": 18830
+    },
+    {
+      "path": "performance/summary.json",
+      "sha256": "8870fc1dad84aa2a9140e75432e607b1d024b69605605d38a082a018e1264bec",
+      "bytes": 24754
+    },
+    {
+      "path": "tests.log",
+      "sha256": "45f8f7886cb5fe92ec2b6220495b98124d36e7fc043d350e3070aba6977696bd",
+      "bytes": 11744
+    },
+    {
+      "path": "ruff.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    {
+      "path": "mypy.log",
+      "sha256": "522d7b3a15704213950b7053c882b6ddd0c41149631300ce6c1933d21b5971c3",
+      "bytes": 44
+    },
+    {
+      "path": "installed.txt",
+      "sha256": "86c4cce248bf417080a48f9a4bb62fa73ba7076df65920b6900268f45fddd250",
+      "bytes": 405
+    },
+    {
+      "path": "checkout.txt",
+      "sha256": "87be041fb75e2207fd4e9cb76fdf52442d301cd7b1f269cb9703996d024b4369",
+      "bytes": 41
+    },
+    {
+      "path": "ci-trigger.json",
+      "sha256": "71b380546f53774c673b7a896becbc86c51f37c387dfa7d77839f21edb84c6ef",
+      "bytes": 789
+    },
+    {
+      "path": "formal-not-run.txt",
+      "sha256": "33e7b996b898aac2afcf5a44f2ab5ca265290928cb901d52971c6242c7662394",
+      "bytes": 159
+    },
+    {
+      "path": "packages/v8/runtime.json",
+      "sha256": "1675dd117a0d4443962979578709b6dd8809bfbcb3ce28e4405a9f3108051127",
+      "bytes": 11893
+    },
+    {
+      "path": "packages/v8/SHA256SUMS.txt",
+      "sha256": "41892977b787fe6a2e36d2c33f48aed2958d89f54efd8feb6e0d7f630b5d7828",
+      "bytes": 177
+    }
+  ]
+}

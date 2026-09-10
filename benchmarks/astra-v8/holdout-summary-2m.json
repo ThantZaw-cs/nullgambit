@@ -1,0 +1,339 @@
+{
+  "status": "completed",
+  "rows": 96,
+  "expected_rows": 96,
+  "candidate_sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
+  "position_source_sha256": "a59dc5a2c7a34359a8bb388034a9a2d0d6bf6583bf73a961195a60b87f45a35b",
+  "split": "holdout",
+  "profiles": {
+    "v7": {
+      "calls": 48,
+      "labeled_calls": 48,
+      "ordinary_cp_calls": 48,
+      "mean_regret_cp": 46.416666666666664,
+      "errors_ge100_cp": 6,
+      "positions_any_ge100_cp": 3,
+      "positions_repeated_move_varies": 0,
+      "mate_transitions": [],
+      "mean_elapsed_s": 2.501497438395745,
+      "mean_nodes": 949290.125,
+      "mean_completed_depth": 6.375,
+      "all_legal_clock_history_unmake": true,
+      "search_counters_sum": {}
+    },
+    "both": {
+      "calls": 48,
+      "labeled_calls": 48,
+      "ordinary_cp_calls": 48,
+      "mean_regret_cp": 53.083333333333336,
+      "errors_ge100_cp": 6,
+      "positions_any_ge100_cp": 3,
+      "positions_repeated_move_varies": 0,
+      "mate_transitions": [],
+      "mean_elapsed_s": 2.5016969479414306,
+      "mean_nodes": 960608.4583333334,
+      "mean_completed_depth": 7.333333333333333,
+      "all_legal_clock_history_unmake": true,
+      "search_counters_sum": {
+        "aborted": 48,
+        "lmr_full_window": 0,
+        "lmr_reductions": 1578800,
+        "lmr_researches": 7095,
+        "move_hits": 2557644,
+        "nodes": 46109206,
+        "repetitions": 38,
+        "tt_context_rejects": 1232901,
+        "tt_cutoffs": 584530,
+        "tt_hits": 1324743,
+        "tt_probes": 6891809,
+        "tt_stores": 6306983
+      }
+    }
+  },
+  "contrasts_vs_v7": {
+    "both": {
+      "positions_paired": 24,
+      "completed_depth_higher_equal_lower": [
+        20,
+        4,
+        0
+      ],
+      "teacher_cp_positions_paired": 24,
+      "mean_regret_change_cp": 6.666666666666667,
+      "better_equivalent_worse_at_50cp": [
+        0,
+        23,
+        1
+      ],
+      "worst_regret_increase_cp": 78,
+      "positions_worse_ge100_cp": 0,
+      "positions_better_ge100_cp": 0,
+      "new_ge100_error_positions": 0,
+      "resolved_ge100_error_positions": 0,
+      "anonymous_position_deltas": [
+        {
+          "id": "P01",
+          "v7_regret_cp": 287,
+          "candidate_regret_cp": 287,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P02",
+          "v7_regret_cp": 0,
+          "candidate_regret_cp": 0,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P03",
+          "v7_regret_cp": 0,
+          "candidate_regret_cp": 0,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P04",
+          "v7_regret_cp": 22,
+          "candidate_regret_cp": 22,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P05",
+          "v7_regret_cp": 1,
+          "candidate_regret_cp": 1,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P06",
+          "v7_regret_cp": 16,
+          "candidate_regret_cp": 16,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P07",
+          "v7_regret_cp": 6,
+          "candidate_regret_cp": 6,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P08",
+          "v7_regret_cp": 53,
+          "candidate_regret_cp": 53,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P09",
+          "v7_regret_cp": 0,
+          "candidate_regret_cp": 3,
+          "change_cp": 3,
+          "paired_repeat_changes_cp": [
+            3,
+            3
+          ]
+        },
+        {
+          "id": "P10",
+          "v7_regret_cp": 68,
+          "candidate_regret_cp": 68,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P11",
+          "v7_regret_cp": 1,
+          "candidate_regret_cp": 33,
+          "change_cp": 32,
+          "paired_repeat_changes_cp": [
+            32,
+            32
+          ]
+        },
+        {
+          "id": "P12",
+          "v7_regret_cp": 9,
+          "candidate_regret_cp": 9,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P13",
+          "v7_regret_cp": 11,
+          "candidate_regret_cp": 11,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P14",
+          "v7_regret_cp": 10,
+          "candidate_regret_cp": 10,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P15",
+          "v7_regret_cp": 0,
+          "candidate_regret_cp": 0,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P16",
+          "v7_regret_cp": 13,
+          "candidate_regret_cp": 13,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P17",
+          "v7_regret_cp": 9,
+          "candidate_regret_cp": 9,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P18",
+          "v7_regret_cp": 15,
+          "candidate_regret_cp": 62,
+          "change_cp": 47,
+          "paired_repeat_changes_cp": [
+            47,
+            47
+          ]
+        },
+        {
+          "id": "P19",
+          "v7_regret_cp": 0,
+          "candidate_regret_cp": 0,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P20",
+          "v7_regret_cp": 0,
+          "candidate_regret_cp": 0,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P21",
+          "v7_regret_cp": 416,
+          "candidate_regret_cp": 494,
+          "change_cp": 78,
+          "paired_repeat_changes_cp": [
+            78,
+            78
+          ]
+        },
+        {
+          "id": "P22",
+          "v7_regret_cp": 147,
+          "candidate_regret_cp": 147,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P23",
+          "v7_regret_cp": 30,
+          "candidate_regret_cp": 30,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P24",
+          "v7_regret_cp": 0,
+          "candidate_regret_cp": 0,
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
+        }
+      ],
+      "all_repeats_better_gt50cp_positions": [],
+      "all_repeats_worse_gt50cp_positions": [
+        "P21"
+      ],
+      "mate_comparisons_separate_from_cp": []
+    }
+  },
+  "missing_unique_position_moves": 0,
+  "labels_sha256": [
+    "b802c3626344b4cc81a13315b2cc220febcab71952a11b0c11cf3c72b5a53846"
+  ],
+  "minimum_teacher_nodes": 2000000,
+  "label_history_source_hash_verified": true,
+  "measurement_order_audit": {
+    "complete_position_pairs": 24,
+    "exactly_counterbalanced_pairs": 24,
+    "all_counterbalanced": true
+  },
+  "limitations": [
+    "Selective depth and NPS do not establish strength",
+    "Teacher cp and mate are separate; a first-move mismatch is not an error",
+    "Means with missing labels are incomplete; use matched-position contrasts",
+    "All online positions and old Slav losses are development regressions"
+  ]
+}

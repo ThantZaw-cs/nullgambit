@@ -1,0 +1,8 @@
+test_each_pair_exactly_reverses_for_two_and_four_configurations (tests.test_v8_quality.QualityMeasurementTests.test_each_pair_exactly_reverses_for_two_and_four_configurations) ... ok
+test_near_equivalent_moves_and_mate_keep_distinct_units (tests.test_v8_quality.QualityMeasurementTests.test_near_equivalent_moves_and_mate_keep_distinct_units) ... ok
+test_teacher_cache_requires_exact_history_even_when_final_fen_matches (tests.test_v8_quality.QualityMeasurementTests.test_teacher_cache_requires_exact_history_even_when_final_fen_matches) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK

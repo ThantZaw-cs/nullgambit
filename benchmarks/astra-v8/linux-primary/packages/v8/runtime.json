@@ -1,0 +1,124 @@
+{
+  "scope": "Current source compatibility artifact; not strength selection or release approval",
+  "candidate_sha256": "43ce05eafcd9f76d75f0f5bf3fb675912d314311478329157c8656632b7480b8",
+  "archive_sha256": "44cdc5f387b60998128f2972024f9007994ff6cc46c80a9a705d0cbec2f55b2e",
+  "environment": {
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+    "cpu_count": 4,
+    "packages": {
+      "chess": "1.11.2",
+      "numpy": "2.5.2",
+      "numba": "0.67.0",
+      "llvmlite": "0.49.0",
+      "torch": "2.13.0+cpu",
+      "onnxruntime": "1.29.0",
+      "ruff": "0.16.5",
+      "mypy": "2.3.1"
+    },
+    "uv_lock_sha256": "206d8c2f00d47060d2c2b9749c8a33baa99f35e3c9d699fb9dbff2ba77a74fbe",
+    "address_space_limit": [
+      2147483648,
+      2147483648
+    ],
+    "runner_os": "Linux",
+    "runner_arch": "X64",
+    "image_os": "ubuntu24",
+    "image_version": "20260907.300.1",
+    "github_sha": "28beb38b524b37100e5ae1089422a295b8460094",
+    "github_run_id": "34470325484",
+    "thread_limits": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "NUMBA_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "scope": "Ordinary host compatibility and paired control; not official container",
+    "limitations": [
+      "One selected CPU affinity and one numerical-library thread on Linux",
+      "Formal run inherits the same 2 GiB address-space limit in both agent processes",
+      "Address-space limit is not the official container memory cgroup",
+      "No official EPYC hardware, read-only filesystem or network isolation",
+      "Opponent suspension is not emulated; these frozen engines do not ponder",
+      "Repeated regression positions do not establish playing strength"
+    ],
+    "cpu_affinity": [
+      0
+    ],
+    "meminfo": "MemTotal:       16372440 kB\nMemFree:        11688952 kB\nMemAvailable:   15310960 kB\nBuffers:          103888 kB\nCached:          3735532 kB\nSwapCached:            0 kB\nActive:           760668 kB\nInactive:        3414224 kB\nActive(anon):     394000 kB\nInactive(anon):        0 kB\nActive(file):     366668 kB\nInactive(file):  3414224 kB\nUnevictable:       46724 kB\nMlocked:           43652 kB\nSwapTotal:       3145724 kB\nSwapFree:        3145724 kB\nZswap:                 0 kB\nZswapped:              0 kB\nDirty:               480 kB\nWriteback:             0 kB\nAnonPages:        379948 kB\nMapped:           351308 kB\nShmem:             49796 kB\nKReclaimable:     187076 kB\nSlab:             273016 kB\nSReclaimable:     187076 kB\nSUnreclaim:        85940 kB\nKernelStack:        3952 kB\nPageTables:         6664 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    11331944 kB\nCommitted_AS:    2138572 kB\nVmallocTotal:   13743895347199 kB\nVmallocUsed:       37668 kB\nVmallocChunk:          0 kB\nPercpu:             2240 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:    186368 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nCmaTotal:              0 kB\nCmaFree:               0 kB\nUnaccepted:            0 kB\nBalloon:               0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:      107648 kB\nDirectMap2M:     6178816 kB\nDirectMap1G:    12582912 kB\n",
+    "cpuinfo": "processor\t: 0\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 207\nmodel name\t: INTEL(R) XEON(R) PLATINUM 8573C\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3000.031\ncache size\t: 266240 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 0\ncpu cores\t: 2\napicid\t\t: 0\ninitial apicid\t: 0\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves user_shstk avx_vnni avx512_bf16 vnmi avx512vbmi umip waitpkg avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq la57 rdpid cldemote movdiri movdir64b fsrm serialize tsxldtrk ibt amx_bf16 avx512_fp16 amx_tile amx_int8 arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb ept_5level tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed bhi spectre_v2_user its\nbogomips\t: 4600.00\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 48 bits physical, 57 bits virtual\npower management:\n\nprocessor\t: 1\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 207\nmodel name\t: INTEL(R) XEON(R) PLATINUM 8573C\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2300.000\ncache size\t: 266240 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 0\ncpu cores\t: 2\napicid\t\t: 1\ninitial apicid\t: 1\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves user_shstk avx_vnni avx512_bf16 vnmi avx512vbmi umip waitpkg avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq la57 rdpid cldemote movdiri movdir64b fsrm serialize tsxldtrk ibt amx_bf16 avx512_fp16 amx_tile amx_int8 arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb ept_5level tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed bhi spectre_v2_user its\nbogomips\t: 4600.00\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 48 bits physical, 57 bits virtual\npower management:\n\nprocessor\t: 2\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 207\nmodel name\t: INTEL(R) XEON(R) PLATINUM 8573C\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2300.000\ncache size\t: 266240 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 1\ncpu cores\t: 2\napicid\t\t: 2\ninitial apicid\t: 2\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves user_shstk avx_vnni avx512_bf16 vnmi avx512vbmi umip waitpkg avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq la57 rdpid cldemote movdiri movdir64b fsrm serialize tsxldtrk ibt amx_bf16 avx512_fp16 amx_tile amx_int8 arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb ept_5level tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed bhi spectre_v2_user its\nbogomips\t: 4600.00\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 48 bits physical, 57 bits virtual\npower management:\n\nprocessor\t: 3\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 207\nmodel name\t: INTEL(R) XEON(R) PLATINUM 8573C\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2300.000\ncache size\t: 266240 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 1\ncpu cores\t: 2\napicid\t\t: 3\ninitial apicid\t: 3\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves user_shstk avx_vnni avx512_bf16 vnmi avx512vbmi umip waitpkg avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq la57 rdpid cldemote movdiri movdir64b fsrm serialize tsxldtrk ibt amx_bf16 avx512_fp16 amx_tile amx_int8 arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb ept_5level tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed bhi spectre_v2_user its\nbogomips\t: 4600.00\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 48 bits physical, 57 bits virtual\npower management:\n\n"
+  },
+  "games": [
+    {
+      "index": 1,
+      "candidate_white": true,
+      "result": "white",
+      "termination": "checkmate",
+      "elapsed_s": 53.821332770000026,
+      "white_stderr": "",
+      "black_stderr": ""
+    },
+    {
+      "index": 2,
+      "candidate_white": false,
+      "result": "draw",
+      "termination": "threefold_repetition",
+      "elapsed_s": 47.213003172000015,
+      "white_stderr": "",
+      "black_stderr": ""
+    }
+  ],
+  "isolated_import_and_search": {
+    "sha256": "43ce05eafcd9f76d75f0f5bf3fb675912d314311478329157c8656632b7480b8",
+    "init_s": 18.007596487,
+    "move": "g1f3",
+    "depth": 5,
+    "elapsed_s": 0.1462287809999907,
+    "signatures_before": 1,
+    "signatures_after": 1,
+    "counter_size": 16,
+    "search_stats": {
+      "nodes": 26953,
+      "aborted": 1,
+      "move_hits": 1752,
+      "repetitions": 0,
+      "tt_probes": 4555,
+      "tt_hits": 1343,
+      "tt_cutoffs": 388,
+      "tt_context_rejects": 409,
+      "tt_stores": 4162,
+      "lmr_reductions": 0,
+      "lmr_researches": 0,
+      "lmr_full_window": 0
+    },
+    "options": {
+      "tt": true,
+      "lmr": false
+    }
+  },
+  "independent_runner": {
+    "init_seconds": 18.35211055100001,
+    "checks": [
+      {
+        "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+        "remaining_ms": 5000,
+        "move": "g1f3",
+        "round_trip_ms": 147.21016799995823
+      },
+      {
+        "fen": "7k/8/8/3pP3/8/8/8/K7 w - d6 0 1",
+        "remaining_ms": 1000,
+        "move": "e5d6",
+        "round_trip_ms": 29.283501000008982
+      },
+      {
+        "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+        "remaining_ms": 1,
+        "move": "g1h3",
+        "round_trip_ms": 0.1643749999971078
+      }
+    ],
+    "stderr": ""
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "updated_utc": "2026-09-10T12:00:31.747949+00:00",
+  "status": "all authorized quality phases ended; no further search",
+  "phases": [
+    {
+      "phase": "development_before_lmr_pv_fix",
+      "started_utc": "2026-09-10T10:35:11.649876+00:00",
+      "ended_utc": "2026-09-10T11:10:38.736488+00:00",
+      "monotonic_elapsed_s": 423.7032162079704,
+      "utc_elapsed_s": 2127.086612,
+      "utc_minus_monotonic_s": 1703.3833957920297,
+      "actual_status": "failed",
+      "counts": {
+        "completed_calls": 170,
+        "planned_calls": 192
+      },
+      "source_sha256": "20cf4c2163d5fb0195d38f8063476164293ad9cf3ff1630f81acb7930a78fa8b",
+      "raw_status_file_sha256": "97d17c59805a540401730a1e38724a2f8366d992143ed6871554f36712e04503",
+      "interpretation": "Stopped one verified owned PID after a correctness defect was identified. SIGTERM surfaced through Numba as SystemError; not a scored chess failure. No teacher completion or strength conclusion from this batch."
+    },
+    {
+      "phase": "development_fixed",
+      "started_utc": "2026-09-10T11:14:57.747486+00:00",
+      "ended_utc": "2026-09-10T11:39:27.546562+00:00",
+      "monotonic_elapsed_s": 470.91432370903203,
+      "utc_elapsed_s": 1469.799076,
+      "utc_minus_monotonic_s": 998.884752290968,
+      "actual_status": "completed",
+      "counts": {
+        "completed_calls": 192,
+        "planned_calls": 192,
+        "positions": 24
+      },
+      "source_sha256": "43ce05eafcd9f76d75f0f5bf3fb675912d314311478329157c8656632b7480b8",
+      "raw_status_file_sha256": "a104d8b3b38328d925cf5a9f488824fbc39de364e0a1b06b4a833165c2d89705",
+      "interpretation": "Candidate implementation corrected before this batch. All rows retained. Ordering was not fully counterbalanced, a disclosed development limitation; not rerun for scores."
+    },
+    {
+      "phase": "development_new_move_teacher",
+      "started_utc": "2026-09-10T11:40:25.486604+00:00",
+      "ended_utc": "2026-09-10T11:40:42.112355+00:00",
+      "monotonic_elapsed_s": 16.626234250026755,
+      "utc_elapsed_s": 16.625751,
+      "utc_minus_monotonic_s": -0.00048325002675397855,
+      "actual_status": "completed",
+      "counts": {
+        "positions": 3,
+        "unique_new_moves": 4
+      },
+      "source_sha256": "43ce05eafcd9f76d75f0f5bf3fb675912d314311478329157c8656632b7480b8",
+      "raw_status_file_sha256": "2b4051ad0b2633c08a2608a26da1713f040b161ff66929bc252fee313309cc03",
+      "interpretation": "Existing teacher labels verified against exact original FEN and complete history; only four new moves plus corresponding teacher best moves checked at 4M.",
+      "source_hash_role": "Candidate whose measured decisions were teacher-labeled; teacher binary hash recorded separately"
+    },
+    {
+      "phase": "holdout_before_order_fix",
+      "started_utc": "2026-09-10T11:44:45.374098+00:00",
+      "ended_utc": "2026-09-10T11:48:15.829146+00:00",
+      "monotonic_elapsed_s": 210.46082258300157,
+      "utc_elapsed_s": 210.455048,
+      "utc_minus_monotonic_s": -0.005774583001567635,
+      "actual_status": "interrupted",
+      "counts": {
+        "completed_calls": 79,
+        "planned_calls": 96
+      },
+      "source_sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
+      "raw_status_file_sha256": "9ce3e612c01588bbbe030bec919befa284e0dd5ea66a2bf6e68352895f9b02e8",
+      "interpretation": "Stopped verified owned PID before inspecting teacher answers: two-config scheduling was always v7 first. Same frozen candidate and same source positions retained; no result-based resampling."
+    },
+    {
+      "phase": "holdout_balanced",
+      "started_utc": "2026-09-10T11:48:41.422129+00:00",
+      "ended_utc": "2026-09-10T11:52:53.380633+00:00",
+      "monotonic_elapsed_s": 251.96542779100128,
+      "utc_elapsed_s": 251.958504,
+      "utc_minus_monotonic_s": -0.006923791001270274,
+      "actual_status": "completed",
+      "counts": {
+        "completed_calls": 96,
+        "planned_calls": 96,
+        "positions": 24,
+        "counterbalanced_pairs": 24
+      },
+      "source_sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
+      "raw_status_file_sha256": "0f9e33879e6ca538b74d95e25030928ab558fb5d87ed6e258b6b64230e00a725",
+      "interpretation": "Each position has two repeats in exact reverse version order. Final complete independent-quality measurement after measurement-order repair."
+    },
+    {
+      "phase": "previous_endgame_validation_regression",
+      "started_utc": "2026-09-10T11:53:38.429483+00:00",
+      "ended_utc": "2026-09-10T11:54:09.016383+00:00",
+      "monotonic_elapsed_s": 30.569681250024587,
+      "utc_elapsed_s": 30.5869,
+      "utc_minus_monotonic_s": 0.01721874997541306,
+      "actual_status": "completed",
+      "counts": {
+        "completed_calls": 64,
+        "planned_calls": 64,
+        "positions": 16
+      },
+      "source_sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
+      "raw_status_file_sha256": "521dc4b8d522e76a09c39ea857c3f2ba4e9c09e86c73ff017610a362eeeaec9f",
+      "interpretation": "Prior cross-version WDL-validation positions, not used for v8 tuning, not claimed entirely unseen; first eight per source. Both preserve WDL on all 32 calls."
+    },
+    {
+      "phase": "holdout_cold_teacher_2m",
+      "started_utc": "2026-09-10T11:55:22.544232+00:00",
+      "ended_utc": "2026-09-10T11:56:27.935676+00:00",
+      "monotonic_elapsed_s": 65.30905008298578,
+      "utc_elapsed_s": 65.391444,
+      "utc_minus_monotonic_s": 0.0823939170142296,
+      "actual_status": "completed",
+      "counts": {
+        "positions": 24,
+        "planned_positions": 24
+      },
+      "source_sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
+      "raw_status_file_sha256": "294fb1d1a2da31bc5764dcda241c3d33683247d1f53394311b8fd1ed2a66efbb",
+      "interpretation": "Cold root MultiPV3 and forced unique measured moves; two million nodes per query, full actual human-game history. No old labels reused.",
+      "source_hash_role": "Candidate whose measured decisions were teacher-labeled; teacher binary hash recorded separately"
+    },
+    {
+      "phase": "holdout_P21_teacher_4m",
+      "started_utc": "2026-09-10T11:57:44.747440+00:00",
+      "ended_utc": "2026-09-10T11:57:55.552934+00:00",
+      "monotonic_elapsed_s": 10.805594916979317,
+      "utc_elapsed_s": 10.805494,
+      "utc_minus_monotonic_s": -0.00010091697931713384,
+      "actual_status": "completed",
+      "counts": {
+        "positions": 1,
+        "planned_positions": 1
+      },
+      "source_sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
+      "raw_status_file_sha256": "0e9a4b60abcbac61786dad59981ebb7003d6ccb5a15a82640ac95e389a9cc69c",
+      "interpretation": "Only the stable >50cp difference at 2M rechecked with cold root and both moves. Difference shrinks 78cp to1cp; apparent regression not confirmed.",
+      "source_hash_role": "Candidate whose measured decisions were teacher-labeled; teacher binary hash recorded separately"
+    }
+  ],
+  "teacher": {
+    "version": "Stockfish19 official macOS universal",
+    "binary_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5",
+    "embedded_network": "nn-1a298aa575a0.nnue",
+    "threads": 1,
+    "Hash_MiB": 128,
+    "scope": "Offline development only; no binary/weights/labels in candidate or public Git"
+  },
+  "clock_interpretation": "UTC and monotonic are recorded separately. Large differences are observed, but their attribution to network or sleep is unconfirmed. Do not treat monotonic sums as total task wall time.",
+  "decision": "Independent sample shows no confirmed quality benefit: keep v7, do not run the strength screen or formal games in this round. No switch to TT-only after seeing the holdout.",
+  "strength_games": {
+    "fast": 0,
+    "formal": 0
+  },
+  "all_raw_evidence_location": "Private local data/online/teacher-v8; hashes and aggregate summaries only are public",
+  "baseline_sha256": "aba3db18ebe424b2025b3d967b88057b6ad242978cc328accc1642e2c8a91b3d"
+}

@@ -51,7 +51,8 @@
     "positions": 16,
     "repeats": 2,
     "wall_budget_s": 0.25,
-    "entry_calls": 64,
-    "scope": "Previously seen cross-version validation data, not used in v8 tuning. Never described as entirely unseen. Labels remain private and are never packaged."
+    "scope": "Previously seen cross-version validation data, not used in v8 tuning. Never described as entirely unseen. Labels remain private and are never packaged.",
+    "search_calls": 64,
+    "entry": "timed_search with 0.25s equal wall budget; development/human probes separately use actual get_move entry"
   }
 }

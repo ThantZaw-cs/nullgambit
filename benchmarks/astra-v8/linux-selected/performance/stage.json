@@ -1,0 +1,439 @@
+{
+  "started_utc": "2026-09-10T11:47:25.807886+00:00",
+  "status": "completed",
+  "environment": {
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+    "cpu_count": 4,
+    "packages": {
+      "chess": "1.11.2",
+      "numpy": "2.5.2",
+      "numba": "0.67.0",
+      "llvmlite": "0.49.0",
+      "torch": "2.13.0+cpu",
+      "onnxruntime": "1.29.0",
+      "ruff": "0.16.5",
+      "mypy": "2.3.1"
+    },
+    "uv_lock_sha256": "206d8c2f00d47060d2c2b9749c8a33baa99f35e3c9d699fb9dbff2ba77a74fbe",
+    "address_space_limit": [
+      2147483648,
+      2147483648
+    ],
+    "runner_os": "Linux",
+    "runner_arch": "X64",
+    "image_os": "ubuntu24",
+    "image_version": "20260907.300.1",
+    "github_sha": "046a92565c23c5352bac48bddc8379f924e5efed",
+    "github_run_id": "34472928110",
+    "thread_limits": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "NUMBA_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "scope": "Ordinary host compatibility and paired control; not official container",
+    "limitations": [
+      "One selected CPU affinity and one numerical-library thread on Linux",
+      "Formal run inherits the same 2 GiB address-space limit in both agent processes",
+      "Address-space limit is not the official container memory cgroup",
+      "No official EPYC hardware, read-only filesystem or network isolation",
+      "Opponent suspension is not emulated; these frozen engines do not ponder",
+      "Repeated regression positions do not establish playing strength"
+    ],
+    "cpu_affinity": [
+      0
+    ],
+    "meminfo": "MemTotal:       16373448 kB\nMemFree:        11707448 kB\nMemAvailable:   15337344 kB\nBuffers:          104044 kB\nCached:          3739912 kB\nSwapCached:            0 kB\nActive:           717136 kB\nInactive:        3419632 kB\nActive(anon):     350352 kB\nInactive(anon):        0 kB\nActive(file):     366784 kB\nInactive(file):  3419632 kB\nUnevictable:       46756 kB\nMlocked:           43684 kB\nSwapTotal:       3145724 kB\nSwapFree:        3145724 kB\nZswap:                 0 kB\nZswapped:              0 kB\nDirty:               272 kB\nWriteback:             0 kB\nAnonPages:        338316 kB\nMapped:           348716 kB\nShmem:             48808 kB\nKReclaimable:     189432 kB\nSlab:             276808 kB\nSReclaimable:     189432 kB\nSUnreclaim:        87376 kB\nKernelStack:        4032 kB\nPageTables:         6432 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    11332448 kB\nCommitted_AS:    2106160 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:       39344 kB\nVmallocChunk:          0 kB\nPercpu:             2256 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:    161792 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nCmaTotal:              0 kB\nCmaFree:               0 kB\nUnaccepted:            0 kB\nBalloon:               0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:      132224 kB\nDirectMap2M:     4057088 kB\nDirectMap1G:    14680064 kB\n",
+    "cpuinfo": "processor\t: 0\nvendor_id\t: AuthenticAMD\ncpu family\t: 25\nmodel\t\t: 17\nmodel name\t: AMD EPYC 9V74 80-Core Processor\nstepping\t: 1\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2870.931\ncache size\t: 1024 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 0\ncpu cores\t: 2\napicid\t\t: 0\ninitial apicid\t: 0\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves user_shstk clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm\nbugs\t\t: sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass srso spectre_v2_user tsa\nbogomips\t: 5192.28\nTLB size\t: 3584 4K pages\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 48 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 1\nvendor_id\t: AuthenticAMD\ncpu family\t: 25\nmodel\t\t: 17\nmodel name\t: AMD EPYC 9V74 80-Core Processor\nstepping\t: 1\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2860.889\ncache size\t: 1024 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 0\ncpu cores\t: 2\napicid\t\t: 1\ninitial apicid\t: 1\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves user_shstk clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm\nbugs\t\t: sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass srso spectre_v2_user tsa\nbogomips\t: 5192.28\nTLB size\t: 3584 4K pages\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 48 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 2\nvendor_id\t: AuthenticAMD\ncpu family\t: 25\nmodel\t\t: 17\nmodel name\t: AMD EPYC 9V74 80-Core Processor\nstepping\t: 1\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2870.895\ncache size\t: 1024 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 1\ncpu cores\t: 2\napicid\t\t: 2\ninitial apicid\t: 2\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves user_shstk clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm\nbugs\t\t: sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass srso spectre_v2_user tsa\nbogomips\t: 5192.28\nTLB size\t: 3584 4K pages\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 48 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 3\nvendor_id\t: AuthenticAMD\ncpu family\t: 25\nmodel\t\t: 17\nmodel name\t: AMD EPYC 9V74 80-Core Processor\nstepping\t: 1\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2870.720\ncache size\t: 1024 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 1\ncpu cores\t: 2\napicid\t\t: 3\ninitial apicid\t: 3\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves user_shstk clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm\nbugs\t\t: sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass srso spectre_v2_user tsa\nbogomips\t: 5192.28\nTLB size\t: 3584 4K pages\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 48 bits physical, 48 bits virtual\npower management:\n\n"
+  },
+  "parameters": {
+    "depth": 5,
+    "repeats": 3,
+    "limit_s": 600
+  },
+  "modules": {
+    "v7": {
+      "name": "baselines.online_v7.agent",
+      "file": "/home/runner/work/nullgambit/nullgambit/baselines/online_v7/agent.py",
+      "sha256": "aba3db18ebe424b2025b3d967b88057b6ad242978cc328accc1642e2c8a91b3d",
+      "import_including_compile_s": 19.80453116600006,
+      "search_warmup_s": 14.433489567000038,
+      "root_signatures": [
+        "(Array(int8, 1, 'C', False, aligned=True), Array(int64, 1, 'C', False, aligned=True), int64, float64, Array(int64, 1, 'C', False, aligned=True), int64, Array(uint64, 1, 'C', False, aligned=True), int64, Array(uint64, 1, 'C', False, aligned=True), Array(int64, 1, 'C', False, aligned=True))"
+      ]
+    },
+    "candidate": {
+      "name": "prototypes.search_core.agent",
+      "file": "/home/runner/work/nullgambit/nullgambit/prototypes/search_core/agent.py",
+      "sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
+      "import_including_compile_s": 21.864402669000015,
+      "search_warmup_s": 18.445546005999972,
+      "root_signatures": [
+        "(Array(int8, 1, 'C', False, aligned=True), Array(int64, 1, 'C', False, aligned=True), int64, float64, Array(int64, 1, 'C', False, aligned=True), int64, Array(uint64, 1, 'C', False, aligned=True), int64, Array(uint64, 1, 'C', False, aligned=True), Array(int64, 1, 'C', False, aligned=True), Array(int64, 2, 'C', False, aligned=True), Array(uint64, 2, 'C', False, aligned=True), bool, bool)"
+      ]
+    }
+  },
+  "scope": "14 previously seen ordinary/Slav positions; not independent validation",
+  "order": "All four configurations warm per position, then rotating order by position/repeat",
+  "completed_rows": 168,
+  "elapsed_s": 164.38802606399997,
+  "position_ids": [
+    "ruy_lopez",
+    "sicilian",
+    "french",
+    "caro_kann",
+    "queens_gambit",
+    "slav",
+    "kings_indian",
+    "english",
+    "scotch",
+    "italian",
+    "slav11:25",
+    "slav11:36",
+    "slav12:21",
+    "slav12:22"
+  ],
+  "expected_rows": 168,
+  "warmups": [
+    {
+      "id": "ruy_lopez",
+      "label": "v7",
+      "elapsed_s": 0.7101806289999786,
+      "complete": true
+    },
+    {
+      "id": "ruy_lopez",
+      "label": "tt",
+      "elapsed_s": 0.6797880130000067,
+      "complete": true
+    },
+    {
+      "id": "ruy_lopez",
+      "label": "lmr",
+      "elapsed_s": 0.37198966100004327,
+      "complete": true
+    },
+    {
+      "id": "ruy_lopez",
+      "label": "both",
+      "elapsed_s": 0.3498343680000744,
+      "complete": true
+    },
+    {
+      "id": "sicilian",
+      "label": "v7",
+      "elapsed_s": 1.0289475790000324,
+      "complete": true
+    },
+    {
+      "id": "sicilian",
+      "label": "tt",
+      "elapsed_s": 1.0064141289999498,
+      "complete": true
+    },
+    {
+      "id": "sicilian",
+      "label": "lmr",
+      "elapsed_s": 0.41025910100006513,
+      "complete": true
+    },
+    {
+      "id": "sicilian",
+      "label": "both",
+      "elapsed_s": 0.37333214400007364,
+      "complete": true
+    },
+    {
+      "id": "french",
+      "label": "v7",
+      "elapsed_s": 0.8068958160000648,
+      "complete": true
+    },
+    {
+      "id": "french",
+      "label": "tt",
+      "elapsed_s": 0.7898421339999686,
+      "complete": true
+    },
+    {
+      "id": "french",
+      "label": "lmr",
+      "elapsed_s": 0.6351242829999819,
+      "complete": true
+    },
+    {
+      "id": "french",
+      "label": "both",
+      "elapsed_s": 0.5806124920000002,
+      "complete": true
+    },
+    {
+      "id": "caro_kann",
+      "label": "v7",
+      "elapsed_s": 0.6047267689999671,
+      "complete": true
+    },
+    {
+      "id": "caro_kann",
+      "label": "tt",
+      "elapsed_s": 0.5601974549999795,
+      "complete": true
+    },
+    {
+      "id": "caro_kann",
+      "label": "lmr",
+      "elapsed_s": 0.4091188539999848,
+      "complete": true
+    },
+    {
+      "id": "caro_kann",
+      "label": "both",
+      "elapsed_s": 0.34039749399994434,
+      "complete": true
+    },
+    {
+      "id": "queens_gambit",
+      "label": "v7",
+      "elapsed_s": 0.6415371169999844,
+      "complete": true
+    },
+    {
+      "id": "queens_gambit",
+      "label": "tt",
+      "elapsed_s": 0.633644444999959,
+      "complete": true
+    },
+    {
+      "id": "queens_gambit",
+      "label": "lmr",
+      "elapsed_s": 0.6393978830000151,
+      "complete": true
+    },
+    {
+      "id": "queens_gambit",
+      "label": "both",
+      "elapsed_s": 0.6184113550000347,
+      "complete": true
+    },
+    {
+      "id": "slav",
+      "label": "v7",
+      "elapsed_s": 0.4123973410000872,
+      "complete": true
+    },
+    {
+      "id": "slav",
+      "label": "tt",
+      "elapsed_s": 0.3871959689998903,
+      "complete": true
+    },
+    {
+      "id": "slav",
+      "label": "lmr",
+      "elapsed_s": 0.23440551700002743,
+      "complete": true
+    },
+    {
+      "id": "slav",
+      "label": "both",
+      "elapsed_s": 0.21551614600002722,
+      "complete": true
+    },
+    {
+      "id": "kings_indian",
+      "label": "v7",
+      "elapsed_s": 0.6976613540000471,
+      "complete": true
+    },
+    {
+      "id": "kings_indian",
+      "label": "tt",
+      "elapsed_s": 0.5413257299999259,
+      "complete": true
+    },
+    {
+      "id": "kings_indian",
+      "label": "lmr",
+      "elapsed_s": 0.2826162569999724,
+      "complete": true
+    },
+    {
+      "id": "kings_indian",
+      "label": "both",
+      "elapsed_s": 0.25842679200002294,
+      "complete": true
+    },
+    {
+      "id": "english",
+      "label": "v7",
+      "elapsed_s": 0.4135543270000426,
+      "complete": true
+    },
+    {
+      "id": "english",
+      "label": "tt",
+      "elapsed_s": 0.37215488699996513,
+      "complete": true
+    },
+    {
+      "id": "english",
+      "label": "lmr",
+      "elapsed_s": 0.22889057899999443,
+      "complete": true
+    },
+    {
+      "id": "english",
+      "label": "both",
+      "elapsed_s": 0.2143125149999605,
+      "complete": true
+    },
+    {
+      "id": "scotch",
+      "label": "v7",
+      "elapsed_s": 1.2897048519999998,
+      "complete": true
+    },
+    {
+      "id": "scotch",
+      "label": "tt",
+      "elapsed_s": 1.1839230500000895,
+      "complete": true
+    },
+    {
+      "id": "scotch",
+      "label": "lmr",
+      "elapsed_s": 0.6293380630000911,
+      "complete": true
+    },
+    {
+      "id": "scotch",
+      "label": "both",
+      "elapsed_s": 0.5701002450000487,
+      "complete": true
+    },
+    {
+      "id": "italian",
+      "label": "v7",
+      "elapsed_s": 0.6577180760000374,
+      "complete": true
+    },
+    {
+      "id": "italian",
+      "label": "tt",
+      "elapsed_s": 0.5881713019999779,
+      "complete": true
+    },
+    {
+      "id": "italian",
+      "label": "lmr",
+      "elapsed_s": 0.3962104409999938,
+      "complete": true
+    },
+    {
+      "id": "italian",
+      "label": "both",
+      "elapsed_s": 0.3585498090000101,
+      "complete": true
+    },
+    {
+      "id": "slav11:25",
+      "label": "v7",
+      "elapsed_s": 0.7692872989999842,
+      "complete": true
+    },
+    {
+      "id": "slav11:25",
+      "label": "tt",
+      "elapsed_s": 0.7036230510000223,
+      "complete": true
+    },
+    {
+      "id": "slav11:25",
+      "label": "lmr",
+      "elapsed_s": 0.5062895550000803,
+      "complete": true
+    },
+    {
+      "id": "slav11:25",
+      "label": "both",
+      "elapsed_s": 0.440509153999983,
+      "complete": true
+    },
+    {
+      "id": "slav11:36",
+      "label": "v7",
+      "elapsed_s": 0.12108093999995617,
+      "complete": true
+    },
+    {
+      "id": "slav11:36",
+      "label": "tt",
+      "elapsed_s": 0.11641192899992348,
+      "complete": true
+    },
+    {
+      "id": "slav11:36",
+      "label": "lmr",
+      "elapsed_s": 0.066861571000004,
+      "complete": true
+    },
+    {
+      "id": "slav11:36",
+      "label": "both",
+      "elapsed_s": 0.06023867400006111,
+      "complete": true
+    },
+    {
+      "id": "slav12:21",
+      "label": "v7",
+      "elapsed_s": 1.0761634310000545,
+      "complete": true
+    },
+    {
+      "id": "slav12:21",
+      "label": "tt",
+      "elapsed_s": 0.9918462449999197,
+      "complete": true
+    },
+    {
+      "id": "slav12:21",
+      "label": "lmr",
+      "elapsed_s": 0.6637930690000076,
+      "complete": true
+    },
+    {
+      "id": "slav12:21",
+      "label": "both",
+      "elapsed_s": 0.5425257879999208,
+      "complete": true
+    },
+    {
+      "id": "slav12:22",
+      "label": "v7",
+      "elapsed_s": 0.7924452050000355,
+      "complete": true
+    },
+    {
+      "id": "slav12:22",
+      "label": "tt",
+      "elapsed_s": 0.701526403999992,
+      "complete": true
+    },
+    {
+      "id": "slav12:22",
+      "label": "lmr",
+      "elapsed_s": 0.4960260020000078,
+      "complete": true
+    },
+    {
+      "id": "slav12:22",
+      "label": "both",
+      "elapsed_s": 0.44830949300001066,
+      "complete": true
+    }
+  ],
+  "exit_code": 0,
+  "finished_utc": "2026-09-10T11:50:10.202458+00:00"
+}

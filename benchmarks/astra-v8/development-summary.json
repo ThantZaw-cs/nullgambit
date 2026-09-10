@@ -131,147 +131,247 @@
           "id": "P01",
           "v7_regret_cp": 6,
           "candidate_regret_cp": 6,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P02",
           "v7_regret_cp": 532,
           "candidate_regret_cp": 532,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P03",
           "v7_regret_cp": 140,
           "candidate_regret_cp": 140,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P04",
           "v7_regret_cp": 45,
           "candidate_regret_cp": 45,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P05",
           "v7_regret_cp": 24,
           "candidate_regret_cp": 24,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P06",
           "v7_regret_cp": 603,
           "candidate_regret_cp": 301.5,
-          "change_cp": -301.5
+          "change_cp": -301.5,
+          "paired_repeat_changes_cp": [
+            0,
+            -603
+          ]
         },
         {
           "id": "P07",
           "v7_regret_cp": 355,
           "candidate_regret_cp": 355,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P08",
           "v7_regret_cp": 66,
           "candidate_regret_cp": 29,
-          "change_cp": -37
+          "change_cp": -37,
+          "paired_repeat_changes_cp": [
+            -37,
+            -37
+          ]
         },
         {
           "id": "P09",
           "v7_regret_cp": 126,
           "candidate_regret_cp": 126,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P10",
           "v7_regret_cp": 199,
           "candidate_regret_cp": 199,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P11",
           "v7_regret_cp": 712,
           "candidate_regret_cp": 712,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P12",
           "v7_regret_cp": 0,
           "candidate_regret_cp": 0,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P13",
           "v7_regret_cp": 692,
           "candidate_regret_cp": 692,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P14",
           "v7_regret_cp": 170,
           "candidate_regret_cp": 170,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P15",
           "v7_regret_cp": 348,
           "candidate_regret_cp": 348,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P16",
           "v7_regret_cp": 135,
           "candidate_regret_cp": 135,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P17",
           "v7_regret_cp": 66,
           "candidate_regret_cp": 66,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P18",
           "v7_regret_cp": 0,
           "candidate_regret_cp": 0,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P19",
           "v7_regret_cp": 0,
           "candidate_regret_cp": 0,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P20",
           "v7_regret_cp": 67,
           "candidate_regret_cp": 67,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P21",
           "v7_regret_cp": 582,
           "candidate_regret_cp": 582,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P22",
           "v7_regret_cp": 66,
           "candidate_regret_cp": 66,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P23",
           "v7_regret_cp": 46,
           "candidate_regret_cp": 46,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P24",
           "v7_regret_cp": 393,
           "candidate_regret_cp": 18,
-          "change_cp": -375
+          "change_cp": -375,
+          "paired_repeat_changes_cp": [
+            -375,
+            -375
+          ]
         }
-      ]
+      ],
+      "all_repeats_better_gt50cp_positions": [
+        "P24"
+      ],
+      "all_repeats_worse_gt50cp_positions": []
     },
     "lmr": {
       "positions_paired": 24,
@@ -297,146 +397,249 @@
           "id": "P01",
           "v7_regret_cp": 6,
           "candidate_regret_cp": 7,
-          "change_cp": 1
+          "change_cp": 1,
+          "paired_repeat_changes_cp": [
+            1,
+            1
+          ]
         },
         {
           "id": "P02",
           "v7_regret_cp": 532,
           "candidate_regret_cp": 532,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P03",
           "v7_regret_cp": 140,
           "candidate_regret_cp": 140,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P04",
           "v7_regret_cp": 45,
           "candidate_regret_cp": 45,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P05",
           "v7_regret_cp": 24,
           "candidate_regret_cp": 26,
-          "change_cp": 2
+          "change_cp": 2,
+          "paired_repeat_changes_cp": [
+            2,
+            2
+          ]
         },
         {
           "id": "P06",
           "v7_regret_cp": 603,
           "candidate_regret_cp": 603,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P07",
           "v7_regret_cp": 355,
           "candidate_regret_cp": 355,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P08",
           "v7_regret_cp": 66,
           "candidate_regret_cp": 66,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P09",
           "v7_regret_cp": 126,
           "candidate_regret_cp": 126,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P10",
           "v7_regret_cp": 199,
           "candidate_regret_cp": 1,
-          "change_cp": -198
+          "change_cp": -198,
+          "paired_repeat_changes_cp": [
+            -198,
+            -198
+          ]
         },
         {
           "id": "P11",
           "v7_regret_cp": 712,
           "candidate_regret_cp": 712,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P12",
           "v7_regret_cp": 0,
           "candidate_regret_cp": 0,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P13",
           "v7_regret_cp": 692,
           "candidate_regret_cp": 692,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P14",
           "v7_regret_cp": 170,
           "candidate_regret_cp": 196,
-          "change_cp": 26
+          "change_cp": 26,
+          "paired_repeat_changes_cp": [
+            26,
+            26
+          ]
         },
         {
           "id": "P15",
           "v7_regret_cp": 348,
           "candidate_regret_cp": 203.5,
-          "change_cp": -144.5
+          "change_cp": -144.5,
+          "paired_repeat_changes_cp": [
+            -289,
+            0
+          ]
         },
         {
           "id": "P16",
           "v7_regret_cp": 135,
           "candidate_regret_cp": 135,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P17",
           "v7_regret_cp": 66,
           "candidate_regret_cp": 66,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P18",
           "v7_regret_cp": 0,
           "candidate_regret_cp": 0,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P19",
           "v7_regret_cp": 0,
           "candidate_regret_cp": 0,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P20",
           "v7_regret_cp": 67,
           "candidate_regret_cp": 505,
-          "change_cp": 438
+          "change_cp": 438,
+          "paired_repeat_changes_cp": [
+            438,
+            438
+          ]
         },
         {
           "id": "P21",
           "v7_regret_cp": 582,
           "candidate_regret_cp": 582,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P22",
           "v7_regret_cp": 66,
           "candidate_regret_cp": 66,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P23",
           "v7_regret_cp": 46,
           "candidate_regret_cp": 46,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P24",
           "v7_regret_cp": 393,
           "candidate_regret_cp": 18,
-          "change_cp": -375
+          "change_cp": -375,
+          "paired_repeat_changes_cp": [
+            -375,
+            -375
+          ]
         }
+      ],
+      "all_repeats_better_gt50cp_positions": [
+        "P10",
+        "P24"
+      ],
+      "all_repeats_worse_gt50cp_positions": [
+        "P20"
       ]
     },
     "both": {
@@ -463,147 +666,248 @@
           "id": "P01",
           "v7_regret_cp": 6,
           "candidate_regret_cp": 7,
-          "change_cp": 1
+          "change_cp": 1,
+          "paired_repeat_changes_cp": [
+            1,
+            1
+          ]
         },
         {
           "id": "P02",
           "v7_regret_cp": 532,
           "candidate_regret_cp": 532,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P03",
           "v7_regret_cp": 140,
           "candidate_regret_cp": 140,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P04",
           "v7_regret_cp": 45,
           "candidate_regret_cp": 45,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P05",
           "v7_regret_cp": 24,
           "candidate_regret_cp": 26,
-          "change_cp": 2
+          "change_cp": 2,
+          "paired_repeat_changes_cp": [
+            2,
+            2
+          ]
         },
         {
           "id": "P06",
           "v7_regret_cp": 603,
           "candidate_regret_cp": 603,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P07",
           "v7_regret_cp": 355,
           "candidate_regret_cp": 355,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P08",
           "v7_regret_cp": 66,
           "candidate_regret_cp": 98,
-          "change_cp": 32
+          "change_cp": 32,
+          "paired_repeat_changes_cp": [
+            32,
+            32
+          ]
         },
         {
           "id": "P09",
           "v7_regret_cp": 126,
           "candidate_regret_cp": 126,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P10",
           "v7_regret_cp": 199,
           "candidate_regret_cp": 1,
-          "change_cp": -198
+          "change_cp": -198,
+          "paired_repeat_changes_cp": [
+            -198,
+            -198
+          ]
         },
         {
           "id": "P11",
           "v7_regret_cp": 712,
           "candidate_regret_cp": 712,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P12",
           "v7_regret_cp": 0,
           "candidate_regret_cp": 0,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P13",
           "v7_regret_cp": 692,
           "candidate_regret_cp": 692,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P14",
           "v7_regret_cp": 170,
           "candidate_regret_cp": 196,
-          "change_cp": 26
+          "change_cp": 26,
+          "paired_repeat_changes_cp": [
+            26,
+            26
+          ]
         },
         {
           "id": "P15",
           "v7_regret_cp": 348,
           "candidate_regret_cp": 203.5,
-          "change_cp": -144.5
+          "change_cp": -144.5,
+          "paired_repeat_changes_cp": [
+            -289,
+            0
+          ]
         },
         {
           "id": "P16",
           "v7_regret_cp": 135,
           "candidate_regret_cp": 135,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P17",
           "v7_regret_cp": 66,
           "candidate_regret_cp": 66,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P18",
           "v7_regret_cp": 0,
           "candidate_regret_cp": 4,
-          "change_cp": 4
+          "change_cp": 4,
+          "paired_repeat_changes_cp": [
+            4,
+            4
+          ]
         },
         {
           "id": "P19",
           "v7_regret_cp": 0,
           "candidate_regret_cp": 0,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P20",
           "v7_regret_cp": 67,
           "candidate_regret_cp": 37,
-          "change_cp": -30
+          "change_cp": -30,
+          "paired_repeat_changes_cp": [
+            -30,
+            -30
+          ]
         },
         {
           "id": "P21",
           "v7_regret_cp": 582,
           "candidate_regret_cp": 582,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P22",
           "v7_regret_cp": 66,
           "candidate_regret_cp": 66,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P23",
           "v7_regret_cp": 46,
           "candidate_regret_cp": 46,
-          "change_cp": 0
+          "change_cp": 0,
+          "paired_repeat_changes_cp": [
+            0,
+            0
+          ]
         },
         {
           "id": "P24",
           "v7_regret_cp": 393,
           "candidate_regret_cp": 18,
-          "change_cp": -375
+          "change_cp": -375,
+          "paired_repeat_changes_cp": [
+            -375,
+            -375
+          ]
         }
-      ]
+      ],
+      "all_repeats_better_gt50cp_positions": [
+        "P10",
+        "P24"
+      ],
+      "all_repeats_worse_gt50cp_positions": []
     }
   },
   "missing_unique_position_moves": 0,
@@ -615,6 +919,11 @@
   ],
   "minimum_teacher_nodes": 4000000,
   "label_history_source_hash_verified": true,
+  "measurement_order_audit": {
+    "complete_position_pairs": 24,
+    "exactly_counterbalanced_pairs": 0,
+    "all_counterbalanced": false
+  },
   "limitations": [
     "Selective depth and NPS do not establish strength",
     "Teacher cp and mate are separate; a first-move mismatch is not an error",

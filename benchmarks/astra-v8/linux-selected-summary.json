@@ -1,0 +1,142 @@
+{
+  "run_id": 34472928110,
+  "run_url": "https://github.com/ThantZaw-cs/nullgambit/actions/runs/34472928110",
+  "job_id": 102856817962,
+  "head_commit": "046a92565c23c5352bac48bddc8379f924e5efed",
+  "status": "completed",
+  "conclusion": "success",
+  "candidate_sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
+  "algorithm_source_commit": "74ebe2b",
+  "actual_default_options": {
+    "tt": true,
+    "lmr": true
+  },
+  "only_change_from_first_linux_source": "USE_LMR default False to True; independently byte verified",
+  "first_primary_performance_run_id": 34470325484,
+  "purpose": "Verify final selected default configuration package and Linux compatibility; not match/strength acceptance",
+  "artifact_id": 10150547464,
+  "artifact_url": "https://github.com/ThantZaw-cs/nullgambit/actions/runs/34472928110/artifacts/10150547464",
+  "artifact_sha256": "e035788338e0f5e0b231026534a6db5f605b30b46d7877661e5c92cd6241772b",
+  "artifact_expires_utc": "2026-10-10T11:53:01Z",
+  "checks": {
+    "tests": 86,
+    "test_elapsed_s": 32.055,
+    "tests_status": "passed",
+    "ruff_status": "passed",
+    "mypy_status": "passed",
+    "package_status": "passed"
+  },
+  "formal_games": 0,
+  "formal_status": "NOT RUN; preflight-only trigger, formal step skipped",
+  "fixed_performance_repeat": {
+    "rows": 168,
+    "complete": true,
+    "all_nodes_scores_moves_counters_match_primary": true,
+    "primary_run_id": 34470325484,
+    "not_pooled_or_selected": true,
+    "interpretation": "First completed Linux measurement remains primary. This repeated CI step is retained separately to verify unchanged functional rows after the default-only freeze; its timing is not pooled or selected to improve the headline.",
+    "raw_summary_sha256": "8d15b681de2e0d5b61038be102f8c246c086c945f8d7b28a3d9ec0aace36b15b",
+    "secondary_latency_ratios": {
+      "v7": 1.0,
+      "tt": 0.9218749380788058,
+      "lmr": 0.5876494582181139,
+      "both": 0.5282039494986038
+    }
+  },
+  "package": {
+    "scope": "Current source compatibility artifact; not strength selection or release approval",
+    "candidate_sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
+    "archive_sha256": "580adaba115debc80bee33f564035b1c9d60c4855b9ef203bc072c6cd95d5818",
+    "games": [
+      {
+        "index": 1,
+        "candidate_white": true,
+        "result": "white",
+        "termination": "checkmate",
+        "elapsed_s": 64.53220143099998,
+        "white_stderr": "",
+        "black_stderr": ""
+      },
+      {
+        "index": 2,
+        "candidate_white": false,
+        "result": "black",
+        "termination": "checkmate",
+        "elapsed_s": 55.8460964599999,
+        "white_stderr": "",
+        "black_stderr": ""
+      }
+    ],
+    "isolated_import_and_search": {
+      "sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
+      "init_s": 23.628728713999976,
+      "move": "c2c4",
+      "depth": 5,
+      "elapsed_s": 0.1465585830000009,
+      "signatures_before": 1,
+      "signatures_after": 1,
+      "counter_size": 16,
+      "search_stats": {
+        "nodes": 32885,
+        "aborted": 1,
+        "move_hits": 3580,
+        "repetitions": 0,
+        "tt_probes": 8854,
+        "tt_hits": 2776,
+        "tt_cutoffs": 1184,
+        "tt_context_rejects": 804,
+        "tt_stores": 7665,
+        "lmr_reductions": 1235,
+        "lmr_researches": 40,
+        "lmr_full_window": 0
+      },
+      "options": {
+        "tt": true,
+        "lmr": true
+      }
+    },
+    "independent_runner": {
+      "init_seconds": 24.03292972700001,
+      "checks": [
+        {
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "remaining_ms": 5000,
+          "move": "c2c4",
+          "round_trip_ms": 143.60780300000897
+        },
+        {
+          "fen": "7k/8/8/3pP3/8/8/8/K7 w - d6 0 1",
+          "remaining_ms": 1000,
+          "move": "e5d6",
+          "round_trip_ms": 31.315124999991895
+        },
+        {
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "remaining_ms": 1,
+          "move": "g1h3",
+          "round_trip_ms": 0.1727779999782797
+        }
+      ],
+      "stderr": ""
+    }
+  },
+  "input_artifact_files_sha256": {
+    "checkout.txt": "3ad98a98148e9c98ab525625e1c1dec2aee0542b35d0c3c4a1b0260f7433e8c4",
+    "ci-trigger.json": "5b9ab03c99d4caa6ee583c23bb23ab45b57f08861473d85fff68c3405a089379",
+    "formal-not-run.txt": "33e7b996b898aac2afcf5a44f2ab5ca265290928cb901d52971c6242c7662394",
+    "installed.txt": "86c4cce248bf417080a48f9a4bb62fa73ba7076df65920b6900268f45fddd250",
+    "mypy.log": "522d7b3a15704213950b7053c882b6ddd0c41149631300ce6c1933d21b5971c3",
+    "package.log": "3a0ff3ae885818f6b3ba4cf8a50983d4c97f9ee46e911d19687c8baac88a0847",
+    "packages/v8/SHA256SUMS.txt": "12125c8778b3b5d203f2626a204661e2cffbc4de6050956f681afda5946c9a56",
+    "packages/v8/agent-31128444d171.zip": "580adaba115debc80bee33f564035b1c9d60c4855b9ef203bc072c6cd95d5818",
+    "packages/v8/runtime.json": "3a0ff3ae885818f6b3ba4cf8a50983d4c97f9ee46e911d19687c8baac88a0847",
+    "packages/v8/smoke-1.pgn": "f6c7e64cafc7fc186bd876a1dde060b173ab8df5d2a1f50ff8ab13699c1d0cc6",
+    "packages/v8/smoke-2.pgn": "1bee4afe76758598d284fc636bd4a742aa562c0d0f22912bfe822779bc50dede",
+    "performance/runs.jsonl": "ba51f59b49b0cbcd6385a32f426d4fa9a616828680ee299ffc142136de286bf7",
+    "performance/stage.json": "2e8cd912236c7b83aa37acce7b1b6797e9db21aaf7166f3d8c25cc7fab5570ae",
+    "performance/summary.json": "8d15b681de2e0d5b61038be102f8c246c086c945f8d7b28a3d9ec0aace36b15b",
+    "performance.log": "ba81d80727feba28408c6aa3a7bb32cabc55f79889d1cd420c9e4c56913a1d4e",
+    "ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "tests.log": "e85705f847c6dee1a29c3b86fbf3e9750f0559a9c7745fa9fba48fa78aa0ebe9"
+  }
+}
