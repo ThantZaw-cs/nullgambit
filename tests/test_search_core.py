@@ -7,6 +7,7 @@ import time
 import unittest
 from pathlib import Path
 from typing import Any
+from unittest.mock import patch
 
 import chess
 import numpy as np
@@ -264,6 +265,156 @@ class SearchCoreTests(unittest.TestCase):
             key = candidate._position_hash(board, state)
             index = int(key & np.uint64(candidate.TT_LIMIT - 1))
             self.assertFalse(keys[index] == key and data[index, 2] != 0)
+
+    def test_lmr_eligibility_excludes_every_protected_move_class(self) -> None:
+        self.assertTrue(candidate._can_reduce(3, 3, 0, 1, False, False, False))
+        self.assertFalse(candidate._can_reduce(2, 3, 0, 1, False, False, False))
+        for index in range(3):
+            self.assertFalse(candidate._can_reduce(4, index, 0, 1, False, False, False))
+        self.assertFalse(candidate._can_reduce(4, 3, -100, 100, False, False, False))
+        for checked, tactical, checking in ((True, False, False), (False, True, False),
+                                           (False, False, True)):
+            self.assertFalse(candidate._can_reduce(4, 3, 0, 1, checked, tactical, checking))
+
+    def test_lmr_reduced_fail_high_always_verifies_full_depth(self) -> None:
+        source = chess.Board()
+        board, state, history, length, keys, moves, data, contexts = scratch(source)
+        before = board.copy(), state.copy(), history[:length].copy()
+        counts = np.zeros(16, dtype=np.int64)
+        original = candidate._negamax.py_func
+        calls: list[tuple[int, int, int]] = []
+
+        def fake_child(*args: Any) -> int:
+            calls.append((int(args[2]), int(args[3]), int(args[4])))
+            # First three moves fail low. Move four appears to beat beta at
+            # reduced depth, but its mandatory full-depth verification fails low.
+            return -12 if len(calls) == 4 else 0
+
+        with patch.object(candidate, "_negamax", side_effect=fake_child):
+            score = original(board, state, 4, 10, 11, 0, time.monotonic() + 2,
+                             counts, history, length, keys, moves,
+                             np.zeros((2, 64, 64), dtype=np.int64), data, contexts, False, True)
+        self.assertEqual(score, 0)
+        self.assertEqual(calls[:5], [(3, -11, -10)] * 3 + [(2, -11, -10), (3, -11, -10)])
+        self.assertEqual(counts[10], 1)
+        self.assertGreater(counts[9], 0)
+        np.testing.assert_array_equal(board, before[0])
+        np.testing.assert_array_equal(state, before[1])
+        np.testing.assert_array_equal(history[:length], before[2])
+
+    def test_pvs_still_researches_full_window_and_pv_moves_are_not_reduced(self) -> None:
+        source = chess.Board()
+        board, state, history, length, keys, moves, data, contexts = scratch(source)
+        counts = np.zeros(16, dtype=np.int64)
+        original = candidate._negamax.py_func
+        calls: list[tuple[int, int, int]] = []
+
+        def fake_child(*args: Any) -> int:
+            calls.append((int(args[2]), int(args[3]), int(args[4])))
+            return -20 if len(calls) in (2, 3) else 0
+
+        with patch.object(candidate, "_negamax", side_effect=fake_child):
+            score = original(board, state, 4, 10, 100, 0, time.monotonic() + 2,
+                             counts, history, length, keys, moves,
+                             np.zeros((2, 64, 64), dtype=np.int64), data, contexts, False, True)
+        self.assertEqual(score, 20)
+        self.assertEqual(calls[:3], [(3, -100, -10), (3, -11, -10), (3, -100, -10)])
+        self.assertTrue(all(depth == 3 for depth, _, _ in calls))
+        self.assertEqual(counts[9], 0)
+
+    def test_lmr_real_move_classification_including_discovered_checks(self) -> None:
+        positions = [chess.Board(fen) for fen in SPECIAL[:6]]
+        positions += [chess.Board("4k3/8/8/8/8/8/4B3/4R1K1 w - - 0 1"), chess.Board()]
+        original = candidate._negamax.py_func
+        reduced_total = 0
+        protected_total = 0
+        for source in positions:
+            board, state, history, length, keys, moves, data, contexts = scratch(source)
+            snapshots: dict[bytes, chess.Move] = {}
+            for move in source.legal_moves:
+                copy = source.copy(stack=True)
+                copy.push(move)
+                next_board, next_state = candidate.from_chess(copy)
+                snapshots[next_board.tobytes() + next_state.tobytes()] = move
+            counts = np.zeros(16, dtype=np.int64)
+            visits = 0
+
+            def fake_child(*args: Any, position: chess.Board = source,
+                           child_moves: dict[bytes, chess.Move] = snapshots) -> int:
+                nonlocal visits, reduced_total, protected_total
+                position_key = args[0].tobytes() + args[1].tobytes()
+                move = child_moves[position_key]
+                protected = (position.is_check() or position.is_capture(move)
+                             or bool(move.promotion) or position.gives_check(move) or visits < 3)
+                if protected:
+                    self.assertEqual(args[2], 3, (position.fen(), move.uci()))
+                    protected_total += 1
+                elif args[2] == 2:
+                    reduced_total += 1
+                visits += 1
+                return 0
+
+            before = board.copy(), state.copy()
+            with patch.object(candidate, "_negamax", side_effect=fake_child):
+                original(board, state, 4, 10, 11, 0, time.monotonic() + 2,
+                         counts, history, length, keys, moves,
+                         np.zeros((2, 64, 64), dtype=np.int64), data, contexts, False, True)
+            self.assertEqual(visits, source.legal_moves.count())
+            np.testing.assert_array_equal(board, before[0])
+            np.testing.assert_array_equal(state, before[1])
+        self.assertGreater(protected_total, 10)
+        self.assertGreater(reduced_total, 0)
+
+    def test_lmr_timeout_during_verification_unwinds_and_discards_node(self) -> None:
+        source = chess.Board()
+        board, state, history, length, keys, moves, data, contexts = scratch(source)
+        before = board.copy(), state.copy(), history[:length].copy()
+        original = candidate._negamax.py_func
+        counts = np.zeros(16, dtype=np.int64)
+        calls = 0
+
+        def fake_child(*args: Any) -> int:
+            nonlocal calls
+            calls += 1
+            if calls == 4:
+                return -12
+            if calls == 5:
+                args[7][1] = 1
+            return 0
+
+        with patch.object(candidate, "_negamax", side_effect=fake_child):
+            score = original(board, state, 4, 10, 11, 0, time.monotonic() + 2,
+                             counts, history, length, keys, moves,
+                             np.zeros((2, 64, 64), dtype=np.int64), data, contexts, True, True)
+        self.assertEqual(score, 0)
+        self.assertEqual(calls, 5)
+        self.assertEqual(counts[1], 1)
+        self.assertFalse(np.any(data[:, 2]))
+        np.testing.assert_array_equal(board, before[0])
+        np.testing.assert_array_equal(state, before[1])
+        np.testing.assert_array_equal(history[:length], before[2])
+
+    def test_real_entry_all_configurations_use_warmed_signatures(self) -> None:
+        functions = (candidate.compiled_root_search, candidate._negamax, candidate._quiescence)
+        signatures = [tuple(function.signatures) for function in functions]
+        saved = candidate.USE_SCORE_TT, candidate.USE_LMR
+        source = chess.Board()
+        for san in ("e4", "e5", "Nf3", "Nc6", "Bb5", "a6"):
+            source.push_san(san)
+        try:
+            for tt, lmr in ((False, False), (True, False), (False, True), (True, True)):
+                candidate.set_search_options(tt, lmr)
+                candidate._previous_board = None
+                started = time.monotonic()
+                move = chess.Move.from_uci(candidate.get_move(source.fen(), 1000))
+                elapsed = time.monotonic() - started
+                self.assertIn(move, source.legal_moves)
+                self.assertGreater(candidate.LAST_SEARCH_DEPTH, 0)
+                self.assertLess(elapsed, 1.0)
+                self.assertEqual([tuple(function.signatures) for function in functions], signatures)
+        finally:
+            candidate.set_search_options(*saved)
+            candidate._previous_board = None
 
     def test_low_clock_legal_return_and_existing_history_recovery(self) -> None:
         # Keep the inherited sub-20ms fallback policy; it is deliberately not a v8 time change.

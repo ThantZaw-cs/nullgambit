@@ -894,6 +894,16 @@ def _tt_store(
 
 
 @njit(cache=False)
+def _can_reduce(
+    depth: int, index: int, alpha: int, beta: int, in_check: bool,
+    is_tactical: bool, gives_check: bool,
+) -> bool:
+    """One ply only, fourth or later quiet move at a non-PV node."""
+    return (depth >= 3 and index >= 3 and beta - alpha == 1
+            and not in_check and not is_tactical and not gives_check)
+
+
+@njit(cache=False)
 def _negamax(
     board: np.ndarray,
     state: np.ndarray,
@@ -969,6 +979,13 @@ def _negamax(
         if hit:
             counters[6] += 1
             return cached
+    in_check = False
+    if use_lmr and depth >= 3 and beta - alpha == 1:
+        side = int(state[0])
+        for square in range(64):
+            if board[square] == side * KING:
+                in_check = _attacked(board, square, -side)
+                break
     best = -101_000
     best_move = -1
     for index in range(count):
@@ -983,8 +1000,19 @@ def _negamax(
             int(moves[0]) if use_preferred else
             _pick_search_ordered(board, state, moves, index, count, quiet_scores)
         )
+        tactical = bool(board[(move >> 6) & 63] or move & (EP_FLAG | (7 << 12)))
+        reduce = use_lmr and _can_reduce(depth, index, alpha, beta, in_check, tactical, False)
         undo = np.empty(10, dtype=np.int64)
         _make(board, state, move, undo)
+        if reduce:
+            # Check giving is determined on the made board, including discoveries.
+            side = int(state[0])
+            for square in range(64):
+                if board[square] == side * KING:
+                    reduce = not _attacked(board, square, -side)
+                    break
+            if reduce:
+                counters[9] += 1
         if index == 0:
             score = -_negamax(
                 board,
@@ -1009,7 +1037,7 @@ def _negamax(
             score = -_negamax(
                 board,
                 state,
-                depth - 1,
+                depth - 1 - int(reduce),
                 -alpha - 1,
                 -alpha,
                 ply + 1,
@@ -1025,7 +1053,18 @@ def _negamax(
                 use_tt,
                 use_lmr,
             )
+            if reduce and score > alpha and not counters[1]:
+                # A reduced fail-high is a hypothesis; verify the full depth
+                # before it may raise alpha or cut off. A shallow TT cannot answer it.
+                counters[10] += 1
+                score = -_negamax(
+                    board, state, depth - 1, -alpha - 1, -alpha, ply + 1,
+                    deadline, counters, history, history_len + 1, tt_keys, tt_moves,
+                    quiet_scores, score_data, score_context, use_tt, use_lmr,
+                )
             if alpha < score < beta and not counters[1]:
+                if reduce:
+                    counters[11] += 1
                 score = -_negamax(
                     board,
                     state,
