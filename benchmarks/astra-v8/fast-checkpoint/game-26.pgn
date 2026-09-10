@@ -1,0 +1,14 @@
+[Event "Predeclared astra-v8 search control"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "26"]
+[White "v7"]
+[Black "search-core-v8"]
+[Result "1/2-1/2"]
+[FEN "r3kbnr/pp3ppp/2n1p3/2ppPb2/3P4/2N1BN2/PqP1BPPP/R2Q1RK1 w kq - 0 9"]
+[SetUp "1"]
+[Termination "fifty_moves"]
+[Opening "feb2022-eligible-037"]
+[TimeControl "10+0.1"]
+
+9. Na4 Qxc2 10. Nxc5 Bxc5 11. Qxc2 Bxc2 12. dxc5 Be4 13. Bb5 Bxf3 14. gxf3 Ne7 15. f4 O-O 16. Rad1 f6 17. Bxc6 Nxc6 18. f5 d4 19. Bxd4 fxe5 20. Bxe5 Nxe5 21. fxe6 Nf3+ 22. Kg2 Rae8 23. Rd6 Nh4+ 24. Kg1 Nf5 25. Re1 b6 26. Rd5 Nh4 27. Re3 bxc5 28. Rxc5 Rd8 29. Rc1 Rc8 30. Rxc8 Rxc8 31. Kf1 Rc1+ 32. Ke2 Rc2+ 33. Kd3 Rc8 34. Ke4 g6 35. Rd3 Nf5 36. f4 a5 37. Rd7 a4 38. a3 Rc4+ 39. Ke5 h5 40. Kf6 Nh4 41. e7 Rc6+ 42. Kg5 Nf3+ 43. Kh6 Kf7 44. f5 gxf5+ 45. Kxh5 Rc2 46. h3 Rh2 47. e8=Q+ Kxe8 48. Ra7 Rxh3+ 49. Kg6 Rg3+ 50. Kf6 Nd4 51. Rxa4 Rg4 52. Ra5 Kd7 53. Rd5+ Kc6 54. Rd8 Re4 55. Rc8+ Kb6 56. Rb8+ Kc5 57. a4 f4 58. a5 f3 59. Kg6 f2 60. Rf8 Re6+ 61. Kg5 Re2 62. Kg4 Ne6 63. Rf5+ Kb4 64. a6 Nd4 65. Rf4 Kc5 66. a7 Ra2 67. a8=Q Rxa8 68. Rxf2 Rg8+ 69. Kh5 Rh8+ 70. Kg4 Rg8+ 71. Kh5 Kd5 72. Rf7 Rg2 73. Rd7+ Ke5 74. Kh4 Rf2 75. Re7+ Kd6 76. Ra7 Re2 77. Kg4 Nc6 78. Kf3 Nd4+ 79. Kf4 Kc6 80. Kg4 Rf2 81. Kg3 Re2 82. Kg4 Rf2 83. Kg3 Rd2 84. Kf4 Kc5 85. Rc7+ Kd6 86. Rc8 Ne6+ 87. Ke3 Rh2 88. Ke4 Rh4+ 89. Kf3 Ke5 90. Re8 Rf4+ 91. Ke3 Re4+ 92. Kd2 Kf6 93. Kc3 Ke5 94. Re7 Rf4 95. Rd7 Nc5 96. Rg7 Ne4+ 97. Kb4 Rf2 98. Re7+ Kd5 99. Rd7+ Ke6 100. Rg7 Rd2 101. Kc4 Kf6 102. Rh7 Ke6 103. Rg7 Ke5 104. Re7+ Kf4 105. Rf7+ Kg4 106. Kb4 Kg5 107. Ka4 Kg6 108. Re7 Kf5 109. Kb4 Re2 110. Rd7 Ke6 111. Rg7 Ke5 112. Re7+ Kd6 113. Re8 Kd5 114. Re7 Rb2+ 115. Ka4 Kd4 116. Ka3 Re2 117. Kb4 Rc2 1/2-1/2

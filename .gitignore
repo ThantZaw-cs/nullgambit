@@ -18,3 +18,6 @@ artifacts/v7-release/
 # Private v8 labels, generated evidence and packages.
 artifacts/v8/
 artifacts/v8-search/
+
+# Only generated v8-v7 CI test games; private data/online remains ignored.
+!benchmarks/astra-v8/fast-checkpoint/*.pgn

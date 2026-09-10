@@ -1,0 +1,13 @@
+[Event "?"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "39"]
+[White "search-core-v8"]
+[Black "v7"]
+[Result "*"]
+[FEN "r2qkb1r/pp1b1ppp/2n2n2/1B1p4/3N4/2N1P3/PP3PPP/R1BQK2R w KQkq - 1 9"]
+[SetUp "1"]
+[Opening "feb2022-eligible-045"]
+[Termination "infrastructure_interruption"]
+
+*

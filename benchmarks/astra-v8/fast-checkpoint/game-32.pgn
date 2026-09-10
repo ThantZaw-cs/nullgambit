@@ -1,0 +1,14 @@
+[Event "Predeclared astra-v8 search control"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "32"]
+[White "v7"]
+[Black "search-core-v8"]
+[Result "0-1"]
+[FEN "r1bq1rk1/2ppbppp/p1n2n2/4p3/Pp2P3/1B3N2/1PPP1PPP/RNBQR1K1 w - - 0 9"]
+[SetUp "1"]
+[Termination "checkmate"]
+[Opening "feb2022-eligible-040"]
+[TimeControl "10+0.1"]
+
+9. d4 exd4 10. e5 Ng4 11. h3 Nxf2 12. Kxf2 d6 13. Bd5 Bh4+ 14. g3 Nxe5 15. Bxa8 Bxh3 16. Nxh4 Qxa8 17. Qxd4 Qc6 18. Bd2 a5 19. c3 b3 20. Kg1 f5 21. Rxe5 dxe5 22. Qxe5 Re8 23. Qb5 Qxb5 24. axb5 Bg4 25. Rxa5 g5 26. Ng2 Bf3 27. Bxg5 Bxg2 28. Kxg2 Re2+ 29. Kf1 Rxb2 30. Nd2 Rxd2 31. Ra8+ Kf7 32. Rf8+ Kxf8 33. c4 Rd6 34. c5 b2 35. cxd6 b1=Q+ 36. Kg2 cxd6 37. b6 Qxb6 38. Bh6+ Kf7 39. Bf4 d5 40. Kh3 h5 41. Be5 Qg1 42. g4 Qxg4+ 43. Kh2 Qe2+ 44. Kg3 Qxe5+ 45. Kh3 d4 46. Kh4 Qe3 47. Kxh5 Qg3 48. Kh6 Qg6# 0-1
