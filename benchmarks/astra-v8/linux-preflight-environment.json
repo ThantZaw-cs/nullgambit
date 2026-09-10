@@ -1,0 +1,47 @@
+{
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+  "cpu_count": 4,
+  "packages": {
+    "chess": "1.11.2",
+    "numpy": "2.5.2",
+    "numba": "0.67.0",
+    "llvmlite": "0.49.0",
+    "torch": "2.13.0+cpu",
+    "onnxruntime": "1.29.0",
+    "ruff": "0.16.5",
+    "mypy": "2.3.1"
+  },
+  "uv_lock_sha256": "206d8c2f00d47060d2c2b9749c8a33baa99f35e3c9d699fb9dbff2ba77a74fbe",
+  "address_space_limit": [
+    2147483648,
+    2147483648
+  ],
+  "runner_os": "Linux",
+  "runner_arch": "X64",
+  "image_os": "ubuntu24",
+  "image_version": "20260907.300.1",
+  "github_sha": "28beb38b524b37100e5ae1089422a295b8460094",
+  "github_run_id": "34470325484",
+  "thread_limits": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMBA_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "scope": "Ordinary host compatibility and paired control; not official container",
+  "limitations": [
+    "One selected CPU affinity and one numerical-library thread on Linux",
+    "Formal run inherits the same 2 GiB address-space limit in both agent processes",
+    "Address-space limit is not the official container memory cgroup",
+    "No official EPYC hardware, read-only filesystem or network isolation",
+    "Opponent suspension is not emulated; these frozen engines do not ponder",
+    "Repeated regression positions do not establish playing strength"
+  ],
+  "cpu_affinity": [
+    0
+  ],
+  "cpu_model": "INTEL(R) XEON(R) PLATINUM 8573C",
+  "raw_environment_source_sha256": "54f687ac256c11338d401773ece375ab0423465a837e16b30cf5a17aaae61d41"
+}

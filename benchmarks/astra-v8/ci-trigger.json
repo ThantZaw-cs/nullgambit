@@ -1,13 +1,14 @@
 {
   "phase": "preflight",
-  "created_utc": "2026-09-10T11:12:34.437330+00:00",
-  "candidate_sha256": "43ce05eafcd9f76d75f0f5bf3fb675912d314311478329157c8656632b7480b8",
+  "created_utc": "2026-09-10T11:44:51.628739+00:00",
+  "candidate_sha256": "31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221",
   "candidate_configuration": {
     "use_score_tt": true,
-    "use_lmr": false
+    "use_lmr": true
   },
-  "purpose": "Linux compatibility of the current TT-only default ablation. Four-way fixed-depth measurement includes v7, TT, LMR, both. This is not the selected strength candidate or a release approval.",
+  "purpose": "Compatibility and packaging of development-selected TT+LMR defaults. Functions and measured ablation thresholds are unchanged from run34470325484; independent quality validation remains pending. No match rerun or formal batch.",
   "formal_authorized_by_this_trigger": false,
   "superseded_sha256": "20cf4c2163d5fb0195d38f8063476164293ad9cf3ff1630f81acb7930a78fa8b",
-  "superseded_reason": "The earlier quality batch was stopped after a PV-node classification defect was identified in LMR. Its partial rows are diagnostic failure evidence, not a passed gate."
+  "superseded_reason": "The earlier quality batch was stopped after a PV-node classification defect was identified in LMR. Its partial rows are diagnostic failure evidence, not a passed gate.",
+  "previous_ablation_run": "https://github.com/ThantZaw-cs/nullgambit/actions/runs/34470325484"
 }

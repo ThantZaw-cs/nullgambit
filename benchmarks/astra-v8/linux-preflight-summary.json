@@ -1,0 +1,1368 @@
+{
+  "run_id": 34470325484,
+  "run_url": "https://github.com/ThantZaw-cs/nullgambit/actions/runs/34470325484",
+  "job_id": 102848465105,
+  "status": "completed",
+  "conclusion": "success",
+  "head_commit": "28beb38b524b37100e5ae1089422a295b8460094",
+  "candidate_sha256": "43ce05eafcd9f76d75f0f5bf3fb675912d314311478329157c8656632b7480b8",
+  "default_options": {
+    "tt": true,
+    "lmr": false
+  },
+  "purpose": "Compatibility and seen fixed-depth efficiency; not strength selection",
+  "artifact_id": 10149481954,
+  "artifact_url": "https://github.com/ThantZaw-cs/nullgambit/actions/runs/34470325484/artifacts/10149481954",
+  "artifact_sha256": "ba7db879d7c1566d7ddef7a29b46c5e686eb3a5b3b752d70fd56051067c9bacc",
+  "artifact_expires_utc": "2026-10-10T11:22:45Z",
+  "checks": {
+    "tests": 86,
+    "test_elapsed_s": 28.846,
+    "tests_status": "passed",
+    "ruff_status": "passed",
+    "mypy_status": "passed",
+    "package_status": "passed"
+  },
+  "formal_games": 0,
+  "formal_status": "NOT RUN; preflight-only trigger, formal step skipped",
+  "fast_games_counted_as_strength": 0,
+  "performance": {
+    "stage_status": "completed",
+    "rows": 168,
+    "expected_rows": 168,
+    "source_modules": {
+      "v7": {
+        "name": "baselines.online_v7.agent",
+        "file": "/home/runner/work/nullgambit/nullgambit/baselines/online_v7/agent.py",
+        "sha256": "aba3db18ebe424b2025b3d967b88057b6ad242978cc328accc1642e2c8a91b3d",
+        "import_including_compile_s": 14.768960384999986,
+        "search_warmup_s": 10.564493687999999,
+        "root_signatures": [
+          "(Array(int8, 1, 'C', False, aligned=True), Array(int64, 1, 'C', False, aligned=True), int64, float64, Array(int64, 1, 'C', False, aligned=True), int64, Array(uint64, 1, 'C', False, aligned=True), int64, Array(uint64, 1, 'C', False, aligned=True), Array(int64, 1, 'C', False, aligned=True))"
+        ]
+      },
+      "candidate": {
+        "name": "prototypes.search_core.agent",
+        "file": "/home/runner/work/nullgambit/nullgambit/prototypes/search_core/agent.py",
+        "sha256": "43ce05eafcd9f76d75f0f5bf3fb675912d314311478329157c8656632b7480b8",
+        "import_including_compile_s": 15.852546281000002,
+        "search_warmup_s": 13.270758465,
+        "root_signatures": [
+          "(Array(int8, 1, 'C', False, aligned=True), Array(int64, 1, 'C', False, aligned=True), int64, float64, Array(int64, 1, 'C', False, aligned=True), int64, Array(uint64, 1, 'C', False, aligned=True), int64, Array(uint64, 1, 'C', False, aligned=True), Array(int64, 1, 'C', False, aligned=True), Array(int64, 2, 'C', False, aligned=True), Array(uint64, 2, 'C', False, aligned=True), bool, bool)"
+        ]
+      }
+    },
+    "complete": true,
+    "positions": [
+      {
+        "id": "ruy_lopez",
+        "median_elapsed_s": {
+          "v7": 0.872250140999995,
+          "tt": 0.8148196989999974,
+          "lmr": 0.44486775499999,
+          "both": 0.4329645259999779
+        },
+        "latency_ratios": {
+          "v7": 1.0,
+          "tt": 0.9341582886599982,
+          "lmr": 0.5100231391077442,
+          "both": 0.4963765617780283
+        },
+        "v7_relative_mad": 0.010443835514375246,
+        "scores": {
+          "v7": [
+            30,
+            -30,
+            10,
+            -24,
+            0
+          ],
+          "tt": [
+            30,
+            -30,
+            10,
+            -24,
+            0
+          ],
+          "lmr": [
+            30,
+            -30,
+            10,
+            -24,
+            -25
+          ],
+          "both": [
+            30,
+            -30,
+            10,
+            -24,
+            -25
+          ]
+        },
+        "moves": {
+          "v7": [
+            "b1c3",
+            "a2a4",
+            "a2a4",
+            "b1c3",
+            "a2a4"
+          ],
+          "tt": [
+            "b1c3",
+            "a2a4",
+            "a2a4",
+            "b1c3",
+            "a2a4"
+          ],
+          "lmr": [
+            "b1c3",
+            "a2a4",
+            "a2a4",
+            "b1c3",
+            "b1c3"
+          ],
+          "both": [
+            "b1c3",
+            "a2a4",
+            "a2a4",
+            "b1c3",
+            "b1c3"
+          ]
+        },
+        "median_nodes": {
+          "v7": 128257,
+          "tt": 120880,
+          "lmr": 67199,
+          "both": 63100
+        }
+      },
+      {
+        "id": "sicilian",
+        "median_elapsed_s": {
+          "v7": 1.2720034150000004,
+          "tt": 1.2076790549999998,
+          "lmr": 0.4911515920000227,
+          "both": 0.43166876200001525
+        },
+        "latency_ratios": {
+          "v7": 1.0,
+          "tt": 0.9494306703571228,
+          "lmr": 0.38612442876186975,
+          "both": 0.33936132317696266
+        },
+        "v7_relative_mad": 0.0013483729522719458,
+        "scores": {
+          "v7": [
+            50,
+            -6,
+            15,
+            -22,
+            52
+          ],
+          "tt": [
+            50,
+            -6,
+            15,
+            -22,
+            52
+          ],
+          "lmr": [
+            50,
+            -6,
+            15,
+            -22,
+            -4
+          ],
+          "both": [
+            50,
+            -6,
+            15,
+            -22,
+            -4
+          ]
+        },
+        "moves": {
+          "v7": [
+            "f1c4",
+            "f1c4",
+            "f1c4",
+            "f1c4",
+            "f1e2"
+          ],
+          "tt": [
+            "f1c4",
+            "f1c4",
+            "f1c4",
+            "f1c4",
+            "f1e2"
+          ],
+          "lmr": [
+            "f1c4",
+            "f1c4",
+            "f1c4",
+            "f1c4",
+            "f1c4"
+          ],
+          "both": [
+            "f1c4",
+            "f1c4",
+            "f1c4",
+            "f1c4",
+            "f1c4"
+          ]
+        },
+        "median_nodes": {
+          "v7": 176673,
+          "tt": 169531,
+          "lmr": 67834,
+          "both": 59999
+        }
+      },
+      {
+        "id": "french",
+        "median_elapsed_s": {
+          "v7": 0.9963757920000091,
+          "tt": 0.9742267119999894,
+          "lmr": 0.7907065490000207,
+          "both": 0.7140291219999995
+        },
+        "latency_ratios": {
+          "v7": 1.0,
+          "tt": 0.9777703551432535,
+          "lmr": 0.7935826576164081,
+          "both": 0.7166263248595596
+        },
+        "v7_relative_mad": 0.013732152175764496,
+        "scores": {
+          "v7": [
+            16,
+            -7,
+            16,
+            -5,
+            43
+          ],
+          "tt": [
+            16,
+            -7,
+            16,
+            -5,
+            43
+          ],
+          "lmr": [
+            16,
+            -7,
+            16,
+            -5,
+            20
+          ],
+          "both": [
+            16,
+            -7,
+            16,
+            -5,
+            20
+          ]
+        },
+        "moves": {
+          "v7": [
+            "b8c6",
+            "b8c6",
+            "f8e7",
+            "b8c6",
+            "c5d4"
+          ],
+          "tt": [
+            "b8c6",
+            "b8c6",
+            "f8e7",
+            "b8c6",
+            "c5d4"
+          ],
+          "lmr": [
+            "b8c6",
+            "b8c6",
+            "f8e7",
+            "b8c6",
+            "b8c6"
+          ],
+          "both": [
+            "b8c6",
+            "b8c6",
+            "f8e7",
+            "b8c6",
+            "b8c6"
+          ]
+        },
+        "median_nodes": {
+          "v7": 130737,
+          "tt": 123885,
+          "lmr": 100252,
+          "both": 91484
+        }
+      },
+      {
+        "id": "caro_kann",
+        "median_elapsed_s": {
+          "v7": 0.7449415469999963,
+          "tt": 0.6867425540000056,
+          "lmr": 0.49652717399999347,
+          "both": 0.4146302759999969
+        },
+        "latency_ratios": {
+          "v7": 1.0,
+          "tt": 0.921874416543999,
+          "lmr": 0.6665317245354231,
+          "both": 0.5565943766591918
+        },
+        "v7_relative_mad": 0.027857044735347686,
+        "scores": {
+          "v7": [
+            61,
+            13,
+            65,
+            28,
+            79
+          ],
+          "tt": [
+            61,
+            13,
+            65,
+            28,
+            79
+          ],
+          "lmr": [
+            61,
+            13,
+            65,
+            28,
+            79
+          ],
+          "both": [
+            61,
+            13,
+            65,
+            28,
+            79
+          ]
+        },
+        "moves": {
+          "v7": [
+            "g1e2",
+            "g1e2",
+            "g1f3",
+            "g1f3",
+            "h4h5"
+          ],
+          "tt": [
+            "g1e2",
+            "g1e2",
+            "g1f3",
+            "g1f3",
+            "h4h5"
+          ],
+          "lmr": [
+            "g1e2",
+            "g1e2",
+            "g1f3",
+            "g1f3",
+            "h4h5"
+          ],
+          "both": [
+            "g1e2",
+            "g1e2",
+            "g1f3",
+            "g1f3",
+            "h4h5"
+          ]
+        },
+        "median_nodes": {
+          "v7": 102853,
+          "tt": 94991,
+          "lmr": 68415,
+          "both": 57724
+        }
+      },
+      {
+        "id": "queens_gambit",
+        "median_elapsed_s": {
+          "v7": 0.79948177899999,
+          "tt": 0.7673028210000155,
+          "lmr": 0.7613366719999988,
+          "both": 0.7395807000000048
+        },
+        "latency_ratios": {
+          "v7": 1.0,
+          "tt": 0.9597502296547338,
+          "lmr": 0.9522877093613016,
+          "both": 0.9250751166900754
+        },
+        "v7_relative_mad": 0.006422619170145108,
+        "scores": {
+          "v7": [
+            43,
+            1,
+            39,
+            15,
+            39
+          ],
+          "tt": [
+            43,
+            1,
+            39,
+            15,
+            39
+          ],
+          "lmr": [
+            43,
+            1,
+            39,
+            15,
+            39
+          ],
+          "both": [
+            43,
+            1,
+            39,
+            15,
+            39
+          ]
+        },
+        "moves": {
+          "v7": [
+            "b8d7",
+            "h7h6",
+            "b8d7",
+            "b8d7",
+            "b8d7"
+          ],
+          "tt": [
+            "b8d7",
+            "h7h6",
+            "b8d7",
+            "b8d7",
+            "b8d7"
+          ],
+          "lmr": [
+            "b8d7",
+            "h7h6",
+            "b8d7",
+            "b8d7",
+            "b8d7"
+          ],
+          "both": [
+            "b8d7",
+            "h7h6",
+            "b8d7",
+            "b8d7",
+            "b8d7"
+          ]
+        },
+        "median_nodes": {
+          "v7": 112071,
+          "tt": 109409,
+          "lmr": 111584,
+          "both": 107435
+        }
+      },
+      {
+        "id": "slav",
+        "median_elapsed_s": {
+          "v7": 0.49643008399999644,
+          "tt": 0.48189351900001043,
+          "lmr": 0.28124201800000037,
+          "both": 0.266825960999995
+        },
+        "latency_ratios": {
+          "v7": 1.0,
+          "tt": 0.9707178000115196,
+          "lmr": 0.566528957580263,
+          "both": 0.537489506780167
+        },
+        "v7_relative_mad": 0.004321800932586445,
+        "scores": {
+          "v7": [
+            -24,
+            -20,
+            5,
+            49,
+            72
+          ],
+          "tt": [
+            -24,
+            -20,
+            5,
+            49,
+            72
+          ],
+          "lmr": [
+            -24,
+            -20,
+            5,
+            49,
+            72
+          ],
+          "both": [
+            -24,
+            -20,
+            5,
+            49,
+            72
+          ]
+        },
+        "moves": {
+          "v7": [
+            "f3e5",
+            "f3e5",
+            "e2e3",
+            "e2e3",
+            "e2e3"
+          ],
+          "tt": [
+            "f3e5",
+            "f3e5",
+            "e2e3",
+            "e2e3",
+            "e2e3"
+          ],
+          "lmr": [
+            "f3e5",
+            "f3e5",
+            "e2e3",
+            "e2e3",
+            "e2e3"
+          ],
+          "both": [
+            "f3e5",
+            "f3e5",
+            "e2e3",
+            "e2e3",
+            "e2e3"
+          ]
+        },
+        "median_nodes": {
+          "v7": 69838,
+          "tt": 64908,
+          "lmr": 39557,
+          "both": 36093
+        }
+      },
+      {
+        "id": "kings_indian",
+        "median_elapsed_s": {
+          "v7": 0.8543388599999844,
+          "tt": 0.6781197110000221,
+          "lmr": 0.3365435800000114,
+          "both": 0.3217180280000207
+        },
+        "latency_ratios": {
+          "v7": 1.0,
+          "tt": 0.7937362359942687,
+          "lmr": 0.3939228282323685,
+          "both": 0.37656958270635915
+        },
+        "v7_relative_mad": 0.001072094508258798,
+        "scores": {
+          "v7": [
+            86,
+            38,
+            79,
+            40,
+            63
+          ],
+          "tt": [
+            86,
+            38,
+            79,
+            40,
+            63
+          ],
+          "lmr": [
+            86,
+            38,
+            79,
+            40,
+            62
+          ],
+          "both": [
+            86,
+            38,
+            79,
+            40,
+            62
+          ]
+        },
+        "moves": {
+          "v7": [
+            "e1g1",
+            "e1g1",
+            "d4e5",
+            "e1g1",
+            "d4d5"
+          ],
+          "tt": [
+            "e1g1",
+            "e1g1",
+            "d4e5",
+            "e1g1",
+            "d4d5"
+          ],
+          "lmr": [
+            "e1g1",
+            "e1g1",
+            "d4e5",
+            "e1g1",
+            "e1g1"
+          ],
+          "both": [
+            "e1g1",
+            "e1g1",
+            "d4e5",
+            "e1g1",
+            "e1g1"
+          ]
+        },
+        "median_nodes": {
+          "v7": 124581,
+          "tt": 96104,
+          "lmr": 49798,
+          "both": 45736
+        }
+      },
+      {
+        "id": "english",
+        "median_elapsed_s": {
+          "v7": 0.5038845249999895,
+          "tt": 0.45936416199998575,
+          "lmr": 0.2811616170000093,
+          "both": 0.26409755899999254
+        },
+        "latency_ratios": {
+          "v7": 1.0,
+          "tt": 0.9116457029514755,
+          "lmr": 0.5579881958073929,
+          "both": 0.5241231788176032
+        },
+        "v7_relative_mad": 0.004865505643341836,
+        "scores": {
+          "v7": [
+            80,
+            24,
+            108,
+            46,
+            118
+          ],
+          "tt": [
+            80,
+            24,
+            108,
+            46,
+            118
+          ],
+          "lmr": [
+            80,
+            24,
+            108,
+            46,
+            118
+          ],
+          "both": [
+            80,
+            24,
+            108,
+            46,
+            118
+          ]
+        },
+        "moves": {
+          "v7": [
+            "d2d3",
+            "d2d3",
+            "g1f3",
+            "g1f3",
+            "g1f3"
+          ],
+          "tt": [
+            "d2d3",
+            "d2d3",
+            "g1f3",
+            "g1f3",
+            "g1f3"
+          ],
+          "lmr": [
+            "d2d3",
+            "d2d3",
+            "g1f3",
+            "g1f3",
+            "g1f3"
+          ],
+          "both": [
+            "d2d3",
+            "d2d3",
+            "g1f3",
+            "g1f3",
+            "g1f3"
+          ]
+        },
+        "median_nodes": {
+          "v7": 65226,
+          "tt": 58951,
+          "lmr": 37569,
+          "both": 34979
+        }
+      },
+      {
+        "id": "scotch",
+        "median_elapsed_s": {
+          "v7": 1.5760075640000082,
+          "tt": 1.479261332999954,
+          "lmr": 0.785694245000002,
+          "both": 0.7070273190000194
+        },
+        "latency_ratios": {
+          "v7": 1.0,
+          "tt": 0.9386130922147949,
+          "lmr": 0.4985345647744606,
+          "both": 0.44861924215994164
+        },
+        "v7_relative_mad": 0.011737836430855903,
+        "scores": {
+          "v7": [
+            23,
+            -2,
+            0,
+            -22,
+            11
+          ],
+          "tt": [
+            23,
+            -2,
+            0,
+            -22,
+            11
+          ],
+          "lmr": [
+            23,
+            -2,
+            0,
+            -22,
+            11
+          ],
+          "both": [
+            23,
+            -2,
+            0,
+            -22,
+            11
+          ]
+        },
+        "moves": {
+          "v7": [
+            "f2f3",
+            "d1f3",
+            "d4f3",
+            "d1f3",
+            "f1c4"
+          ],
+          "tt": [
+            "f2f3",
+            "d1f3",
+            "d4f3",
+            "d1f3",
+            "f1c4"
+          ],
+          "lmr": [
+            "f2f3",
+            "d1f3",
+            "d4f3",
+            "d1f3",
+            "b2b4"
+          ],
+          "both": [
+            "f2f3",
+            "d1f3",
+            "d4f3",
+            "d1f3",
+            "b2b4"
+          ]
+        },
+        "median_nodes": {
+          "v7": 196120,
+          "tt": 180948,
+          "lmr": 101841,
+          "both": 92352
+        }
+      },
+      {
+        "id": "italian",
+        "median_elapsed_s": {
+          "v7": 0.8164045860000329,
+          "tt": 0.8176927040000237,
+          "lmr": 0.504734773999985,
+          "both": 0.4497508929999867
+        },
+        "latency_ratios": {
+          "v7": 1.0,
+          "tt": 1.0015777936847488,
+          "lmr": 0.618240983276354,
+          "both": 0.5508921688001991
+        },
+        "v7_relative_mad": 0.001245976587447164,
+        "scores": {
+          "v7": [
+            31,
+            6,
+            69,
+            10,
+            28
+          ],
+          "tt": [
+            31,
+            6,
+            69,
+            10,
+            28
+          ],
+          "lmr": [
+            31,
+            6,
+            69,
+            10,
+            27
+          ],
+          "both": [
+            31,
+            6,
+            69,
+            10,
+            27
+          ]
+        },
+        "moves": {
+          "v7": [
+            "f3g5",
+            "d3d4",
+            "b2b4",
+            "b2b4",
+            "d3d4"
+          ],
+          "tt": [
+            "f3g5",
+            "d3d4",
+            "b2b4",
+            "b2b4",
+            "d3d4"
+          ],
+          "lmr": [
+            "f3g5",
+            "d3d4",
+            "b2b4",
+            "b2b4",
+            "b2b4"
+          ],
+          "both": [
+            "f3g5",
+            "d3d4",
+            "b2b4",
+            "b2b4",
+            "b2b4"
+          ]
+        },
+        "median_nodes": {
+          "v7": 110785,
+          "tt": 98255,
+          "lmr": 68518,
+          "both": 61825
+        }
+      },
+      {
+        "id": "slav11:25",
+        "median_elapsed_s": {
+          "v7": 0.9531272289999606,
+          "tt": 0.8725929629999882,
+          "lmr": 0.628117833000033,
+          "both": 0.551661939999974
+        },
+        "latency_ratios": {
+          "v7": 1.0,
+          "tt": 0.9155052299948765,
+          "lmr": 0.6590073327976017,
+          "both": 0.5787915015068748
+        },
+        "v7_relative_mad": 0.012511231068845774,
+        "scores": {
+          "v7": [
+            -81,
+            -82,
+            -85,
+            -82,
+            -43
+          ],
+          "tt": [
+            -81,
+            -82,
+            -85,
+            -82,
+            -43
+          ],
+          "lmr": [
+            -81,
+            -82,
+            -85,
+            -82,
+            -43
+          ],
+          "both": [
+            -81,
+            -82,
+            -85,
+            -82,
+            -43
+          ]
+        },
+        "moves": {
+          "v7": [
+            "f2f3",
+            "e4e5",
+            "e4e5",
+            "e4e5",
+            "e4e5"
+          ],
+          "tt": [
+            "f2f3",
+            "e4e5",
+            "e4e5",
+            "e4e5",
+            "e4e5"
+          ],
+          "lmr": [
+            "f2f3",
+            "e4e5",
+            "e4e5",
+            "e4e5",
+            "e4e5"
+          ],
+          "both": [
+            "f2f3",
+            "e4e5",
+            "e4e5",
+            "e4e5",
+            "e4e5"
+          ]
+        },
+        "median_nodes": {
+          "v7": 124922,
+          "tt": 113639,
+          "lmr": 84743,
+          "both": 74498
+        }
+      },
+      {
+        "id": "slav11:36",
+        "median_elapsed_s": {
+          "v7": 0.14800705400000425,
+          "tt": 0.14158280200001627,
+          "lmr": 0.08398915700001908,
+          "both": 0.07385447999996586
+        },
+        "latency_ratios": {
+          "v7": 1.0,
+          "tt": 0.9565949606699976,
+          "lmr": 0.5674672573377257,
+          "both": 0.4989929736724828
+        },
+        "v7_relative_mad": 0.013057884389593726,
+        "scores": {
+          "v7": [
+            -159,
+            -195,
+            -187,
+            -200,
+            -178
+          ],
+          "tt": [
+            -159,
+            -195,
+            -187,
+            -200,
+            -178
+          ],
+          "lmr": [
+            -159,
+            -195,
+            -187,
+            -200,
+            -178
+          ],
+          "both": [
+            -159,
+            -195,
+            -187,
+            -200,
+            -178
+          ]
+        },
+        "moves": {
+          "v7": [
+            "c5c7",
+            "c5e5",
+            "a4a5",
+            "c5e5",
+            "c5e5"
+          ],
+          "tt": [
+            "c5c7",
+            "c5e5",
+            "a4a5",
+            "c5e5",
+            "c5e5"
+          ],
+          "lmr": [
+            "c5c7",
+            "c5e5",
+            "a4a5",
+            "c5e5",
+            "c5e5"
+          ],
+          "both": [
+            "c5c7",
+            "c5e5",
+            "a4a5",
+            "c5e5",
+            "c5e5"
+          ]
+        },
+        "median_nodes": {
+          "v7": 27426,
+          "tt": 26131,
+          "lmr": 15843,
+          "both": 14251
+        }
+      },
+      {
+        "id": "slav12:21",
+        "median_elapsed_s": {
+          "v7": 1.413739349000025,
+          "tt": 1.2969760130000054,
+          "lmr": 0.8520964289999711,
+          "both": 0.6861363090000054
+        },
+        "latency_ratios": {
+          "v7": 1.0,
+          "tt": 0.9174081586661578,
+          "lmr": 0.6027252687015335,
+          "both": 0.48533437898954124
+        },
+        "v7_relative_mad": 0.0015899316953873882,
+        "scores": {
+          "v7": [
+            117,
+            87,
+            66,
+            76,
+            84
+          ],
+          "tt": [
+            117,
+            87,
+            66,
+            76,
+            84
+          ],
+          "lmr": [
+            117,
+            87,
+            66,
+            76,
+            76
+          ],
+          "both": [
+            117,
+            87,
+            66,
+            76,
+            76
+          ]
+        },
+        "moves": {
+          "v7": [
+            "f6e4",
+            "f6e4",
+            "f6e4",
+            "h5d1",
+            "f6e4"
+          ],
+          "tt": [
+            "f6e4",
+            "f6e4",
+            "f6e4",
+            "h5d1",
+            "f6e4"
+          ],
+          "lmr": [
+            "f6e4",
+            "f6e4",
+            "f6e4",
+            "h5d1",
+            "h5d1"
+          ],
+          "both": [
+            "f6e4",
+            "f6e4",
+            "f6e4",
+            "h5d1",
+            "h5d1"
+          ]
+        },
+        "median_nodes": {
+          "v7": 172289,
+          "tt": 156165,
+          "lmr": 106978,
+          "both": 87364
+        }
+      },
+      {
+        "id": "slav12:22",
+        "median_elapsed_s": {
+          "v7": 1.0348407730000417,
+          "tt": 0.9056886809999583,
+          "lmr": 0.6210907980000115,
+          "both": 0.5772132390000024
+        },
+        "latency_ratios": {
+          "v7": 1.0,
+          "tt": 0.8751961699134961,
+          "lmr": 0.6001800607444625,
+          "both": 0.5577797609642301
+        },
+        "v7_relative_mad": 0.010336820194118012,
+        "scores": {
+          "v7": [
+            66,
+            56,
+            84,
+            -67,
+            -22
+          ],
+          "tt": [
+            66,
+            56,
+            84,
+            -67,
+            -22
+          ],
+          "lmr": [
+            66,
+            56,
+            84,
+            -67,
+            -22
+          ],
+          "both": [
+            66,
+            56,
+            84,
+            -67,
+            -22
+          ]
+        },
+        "moves": {
+          "v7": [
+            "e4d6",
+            "c5d4",
+            "e4d6",
+            "e4d6",
+            "e4d6"
+          ],
+          "tt": [
+            "e4d6",
+            "c5d4",
+            "e4d6",
+            "e4d6",
+            "e4d6"
+          ],
+          "lmr": [
+            "e4d6",
+            "c5d4",
+            "e4d6",
+            "e4d6",
+            "e4d6"
+          ],
+          "both": [
+            "e4d6",
+            "c5d4",
+            "e4d6",
+            "e4d6",
+            "e4d6"
+          ]
+        },
+        "median_nodes": {
+          "v7": 123115,
+          "tt": 108474,
+          "lmr": 80111,
+          "both": 72331
+        }
+      }
+    ],
+    "variants": {
+      "v7": {
+        "rows": 42,
+        "complete_rows": 42,
+        "total_stats": {
+          "nodes": 4994679,
+          "aborted": 0,
+          "move_hits": 142431,
+          "repetitions": 0,
+          "tt_probes": 0,
+          "tt_hits": 0,
+          "tt_cutoffs": 0,
+          "tt_context_rejects": 0,
+          "tt_stores": 0,
+          "lmr_reductions": 0,
+          "lmr_researches": 0,
+          "lmr_full_window": 0,
+          "reserved12": 0,
+          "reserved13": 0,
+          "reserved14": 0,
+          "reserved15": 0
+        },
+        "gmean_latency_ratio": 1.0,
+        "worst_position_median_ratio": 1.0
+      },
+      "tt": {
+        "rows": 42,
+        "complete_rows": 42,
+        "total_stats": {
+          "nodes": 4566813,
+          "aborted": 0,
+          "move_hits": 134193,
+          "repetitions": 0,
+          "tt_probes": 328977,
+          "tt_hits": 91638,
+          "tt_cutoffs": 14973,
+          "tt_context_rejects": 42555,
+          "tt_stores": 314004,
+          "lmr_reductions": 0,
+          "lmr_researches": 0,
+          "lmr_full_window": 0,
+          "reserved12": 0,
+          "reserved13": 0,
+          "reserved14": 0,
+          "reserved15": 0
+        },
+        "gmean_latency_ratio": 0.9289318714324563,
+        "worst_position_median_ratio": 1.0015777936847488
+      },
+      "lmr": {
+        "rows": 42,
+        "complete_rows": 42,
+        "total_stats": {
+          "nodes": 3000726,
+          "aborted": 0,
+          "move_hits": 93951,
+          "repetitions": 0,
+          "tt_probes": 0,
+          "tt_hits": 0,
+          "tt_cutoffs": 0,
+          "tt_context_rejects": 0,
+          "tt_stores": 0,
+          "lmr_reductions": 48399,
+          "lmr_researches": 96,
+          "lmr_full_window": 0,
+          "reserved12": 0,
+          "reserved13": 0,
+          "reserved14": 0,
+          "reserved15": 0
+        },
+        "gmean_latency_ratio": 0.5822795654176047,
+        "worst_position_median_ratio": 0.9522877093613016
+      },
+      "both": {
+        "rows": 42,
+        "complete_rows": 42,
+        "total_stats": {
+          "nodes": 2697513,
+          "aborted": 0,
+          "move_hits": 93531,
+          "repetitions": 0,
+          "tt_probes": 222762,
+          "tt_hits": 64320,
+          "tt_cutoffs": 35127,
+          "tt_context_rejects": 29211,
+          "tt_stores": 187635,
+          "lmr_reductions": 48399,
+          "lmr_researches": 96,
+          "lmr_full_window": 0,
+          "reserved12": 0,
+          "reserved13": 0,
+          "reserved14": 0,
+          "reserved15": 0
+        },
+        "gmean_latency_ratio": 0.5269867424533337,
+        "worst_position_median_ratio": 0.9250751166900754
+      }
+    },
+    "tt_full_window_score_mismatches": [],
+    "tt_full_window_scores_match": true,
+    "scope": "Previously seen regressions; LMR scores/nodes may differ. Fixed-depth speed alone does not establish same-clock move quality or strength.",
+    "cost_scope": "Allocations, seeding and complete iterative D1..D search are timed; imports and per-case warmup are separately recorded."
+  },
+  "independent_json_audit": {
+    "tt": {
+      "worst_individual_matched_ratio": {
+        "id": "slav11:36",
+        "repeat": 0,
+        "ratio": 1.0364086258920393
+      },
+      "slower_individual_pairs": 4,
+      "matched_pairs": 42,
+      "final_score_differences": 0,
+      "final_move_differences": 0,
+      "node_ratio": 0.914335635983814,
+      "tt_hit_fraction": 0.27855442781714224,
+      "tt_cutoff_fraction": 0.045513820115084036
+    },
+    "lmr": {
+      "worst_individual_matched_ratio": {
+        "id": "queens_gambit",
+        "repeat": 1,
+        "ratio": 0.967220196454881
+      },
+      "slower_individual_pairs": 0,
+      "matched_pairs": 42,
+      "final_score_differences": 18,
+      "final_move_differences": 21,
+      "node_ratio": 0.6007845549233495,
+      "tt_hit_fraction": null,
+      "tt_cutoff_fraction": null
+    },
+    "both": {
+      "worst_individual_matched_ratio": {
+        "id": "queens_gambit",
+        "repeat": 1,
+        "ratio": 0.9456830511751214
+      },
+      "slower_individual_pairs": 0,
+      "matched_pairs": 42,
+      "final_score_differences": 18,
+      "final_move_differences": 21,
+      "node_ratio": 0.5400773503162065,
+      "tt_hit_fraction": 0.2887386538098958,
+      "tt_cutoff_fraction": 0.15768847469496594
+    }
+  },
+  "v7_median_relative_mad": 0.00837971968213156,
+  "performance_stage_utc": {
+    "started": "2026-09-10T11:17:21.835007+00:00",
+    "finished": "2026-09-10T11:20:25.419355+00:00",
+    "elapsed_s": 183.579700248
+  },
+  "input_artifact_files_sha256": {
+    "performance/runs.jsonl": "8fd309d0a51307c2254d8a0f6b347fbf734dcd689e4aaf5a9ad29d1d152e3ddc",
+    "performance/stage.json": "54f687ac256c11338d401773ece375ab0423465a837e16b30cf5a17aaae61d41",
+    "performance/summary.json": "8870fc1dad84aa2a9140e75432e607b1d024b69605605d38a082a018e1264bec",
+    "packages/v8/runtime.json": "1675dd117a0d4443962979578709b6dd8809bfbcb3ce28e4405a9f3108051127",
+    "tests.log": "45f8f7886cb5fe92ec2b6220495b98124d36e7fc043d350e3070aba6977696bd",
+    "ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "mypy.log": "522d7b3a15704213950b7053c882b6ddd0c41149631300ce6c1933d21b5971c3"
+  }
+}

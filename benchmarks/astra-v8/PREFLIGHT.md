@@ -1,3 +1,16 @@
+# Frozen combination compatibility follow-up
+
+After complete development results, commit `74ebe2b` freezes **TT+LMR**.
+The only source edit after the four-way measurements is `USE_LMR = True`;
+all search functions and thresholds remain identical. The source is now
+`31128444d171cc2526c99ff13cb92da43ad89ada9d99d14ec4bd53a0cc4da221`.
+The follow-up preflight checks its actual defaults and ZIP. Previous Linux
+measurements (run 34470325484) remain the primary predeclared performance result;
+this compatibility follow-up does not multiply the sample or start matches.
+Independent whole-game holdout is in progress. No release approval is claimed.
+
+---
+
 # Linux preflight protocol (not a release)
 
 The current source is `prototypes/search_core/agent.py`, SHA-256
