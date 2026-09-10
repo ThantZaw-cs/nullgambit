@@ -11,3 +11,6 @@ artifacts/v4-formal/
 # Private online originals and derived move logs stay local.
 data/online/
 .DS_Store
+
+# Generated release artifacts (packages, CI logs, checkpoints).
+artifacts/v7-release/

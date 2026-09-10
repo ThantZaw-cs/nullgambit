@@ -1,0 +1,11 @@
+{
+  "frozen_utc": "2026-09-10T03:23:02.125225+00:00",
+  "candidate_sha256": "aba3db18ebe424b2025b3d967b88057b6ad242978cc328accc1642e2c8a91b3d",
+  "baseline_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+  "candidate_path": "prototypes/qsearch_tail/agent.py",
+  "change": "Only qsearch non-check quiet tail continue -> break; no other function or runtime parameter changed.",
+  "correctness_gate": "Exact full-window scores, same searched tactical set and fixed-depth nodes; narrow-window bound semantics, checked evasions and state restoration.",
+  "performance_plan": "Same 14 regressions, 7 alternating fixed-depth-4 repeats plus 3 real-entry repeats at 10000ms clock.",
+  "strength_gate": "Only run fixed 20 games 10+0.1 after correctness and clear efficiency benefit.",
+  "candidate_commit": "85093b9"
+}

@@ -1,0 +1,134 @@
+{
+  "requested_games": 20,
+  "actual_games": 20,
+  "complete": true,
+  "wins": 9,
+  "draws": 4,
+  "losses": 7,
+  "voids": 0,
+  "failures": 0,
+  "adjudications": 0,
+  "raw_referee_score": 0.55,
+  "terminations": {
+    "checkmate": 16,
+    "threefold_repetition": 4
+  },
+  "paired_scores": [
+    0.5,
+    0.5,
+    0.0,
+    0.75,
+    0.5,
+    0.75,
+    0.5,
+    1.0,
+    0.5,
+    0.5
+  ],
+  "pair_bootstrap_95": [
+    0.4,
+    0.7
+  ],
+  "descriptive_two_sided_pair_sign_p": 0.625,
+  "elapsed_s": 623.415782,
+  "plan_sha256": "fa78574c4c6bc77dd4fe1e01c0c3d420801f9fe7687ec4287963a7459711115e",
+  "candidate_sha256": "aba3db18ebe424b2025b3d967b88057b6ad242978cc328accc1642e2c8a91b3d",
+  "opponent_sha256": "7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4",
+  "all_completed_pgns_and_traces_audited": true,
+  "interpretation": "Source-reserved opening pairs, one opponent. Small-sample descriptive uncertainty; not an Elo estimate or official container test. Raw referee scores are preserved; any cap adjudications must be considered separately.",
+  "audited_plies": 1986,
+  "max_initialization_s": 6.4465520000085235,
+  "max_move_round_trip_ms": 316.0952919861302,
+  "minimum_recorded_clock_ms": 4071,
+  "increment_rounding_and_outer_overhead_delta_ms": [
+    -3.0913329981267452,
+    0.8126250188797712
+  ],
+  "paired_positive_negative_tied": [
+    3,
+    1,
+    6
+  ],
+  "pair_details": [
+    {
+      "opening": "human-130",
+      "candidate_pair_score": 0.5,
+      "results": [
+        "white",
+        "white"
+      ]
+    },
+    {
+      "opening": "human-132",
+      "candidate_pair_score": 0.5,
+      "results": [
+        "black",
+        "black"
+      ]
+    },
+    {
+      "opening": "human-133",
+      "candidate_pair_score": 0.0,
+      "results": [
+        "black",
+        "white"
+      ]
+    },
+    {
+      "opening": "human-134",
+      "candidate_pair_score": 0.75,
+      "results": [
+        "draw",
+        "black"
+      ]
+    },
+    {
+      "opening": "human-136",
+      "candidate_pair_score": 0.5,
+      "results": [
+        "white",
+        "white"
+      ]
+    },
+    {
+      "opening": "human-138",
+      "candidate_pair_score": 0.75,
+      "results": [
+        "draw",
+        "black"
+      ]
+    },
+    {
+      "opening": "human-140",
+      "candidate_pair_score": 0.5,
+      "results": [
+        "white",
+        "white"
+      ]
+    },
+    {
+      "opening": "human-141",
+      "candidate_pair_score": 1.0,
+      "results": [
+        "white",
+        "black"
+      ]
+    },
+    {
+      "opening": "human-144",
+      "candidate_pair_score": 0.5,
+      "results": [
+        "black",
+        "black"
+      ]
+    },
+    {
+      "opening": "human-145",
+      "candidate_pair_score": 0.5,
+      "results": [
+        "draw",
+        "draw"
+      ]
+    }
+  ]
+}

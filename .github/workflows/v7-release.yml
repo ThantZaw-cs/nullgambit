@@ -1,0 +1,104 @@
+name: astra-v7-release
+
+on:
+  pull_request:
+    branches: [astra-v4]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: astra-v7-release-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+env:
+  OMP_NUM_THREADS: "1"
+  OPENBLAS_NUM_THREADS: "1"
+  NUMBA_NUM_THREADS: "1"
+  MKL_NUM_THREADS: "1"
+  V7_SHA: aba3db18ebe424b2025b3d967b88057b6ad242978cc328accc1642e2c8a91b3d
+  V4_SHA: 7f451006dd0d00ec29a0f10bca02f4f9301cf27e72547509bab6858816db87c4
+
+jobs:
+  acceptance:
+    if: github.head_ref == 'release/astra-v7'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 125
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.11.28"
+          python-version: "3.12"
+          enable-cache: false
+      - name: Install locked Python 3.12 dependencies
+        run: uv sync --locked
+      - name: Verify clean inputs and select one CPU
+        run: |
+          test ! -e data/online
+          test -z "$(git status --porcelain --untracked-files=all)"
+          mkdir -p artifacts/v7-release
+          uv run --no-sync python -c 'import os,platform,sys; assert platform.machine() == "x86_64" and sys.version_info[:2] == (3,12); print("V7_CPU=" + str(min(os.sched_getaffinity(0))))' >> "$GITHUB_ENV"
+          uv pip freeze > artifacts/v7-release/installed.txt
+          git rev-parse HEAD > artifacts/v7-release/checkout.txt
+          printf '%s  %s\n' "$V7_SHA" prototypes/qsearch_tail/agent.py "$V4_SHA" baselines/online_v4/agent.py | sha256sum --check
+      - name: Ruff
+        run: taskset -c "$V7_CPU" uv run --no-sync ruff check . 2>&1 | tee artifacts/v7-release/ruff.log
+      - name: Strict mypy
+        run: taskset -c "$V7_CPU" uv run --no-sync mypy 2>&1 | tee artifacts/v7-release/mypy.log
+      - name: Complete test suite including tactical completeness and recovery
+        run: timeout 8m taskset -c "$V7_CPU" uv run --no-sync python -m unittest discover -s tests -v 2>&1 | tee artifacts/v7-release/tests.log
+      - name: Warm alternating fixed-depth and equal-clock measurements
+        run: |
+          taskset -c "$V7_CPU" uv run --no-sync python -m tools.qsearch_bench --candidate prototypes.qsearch_tail.agent --sha256 "$V7_SHA" --out artifacts/v7-release/performance --limit-s 480 2>&1 | tee artifacts/v7-release/performance.log
+          uv run --no-sync python -c 'from pathlib import Path; import json; from tools.qsearch_bench import summarize; print(json.dumps(summarize(Path("artifacts/v7-release/performance")),indent=2))' | tee artifacts/v7-release/performance-summary.log
+      - name: Genuine candidate ZIP, isolated search and independent runner
+        run: |
+          ulimit -v 2097152
+          timeout 5m taskset -c "$V7_CPU" uv run --no-sync python -m tools.v7_package --source prototypes/qsearch_tail/agent.py --sha256 "$V7_SHA" --out artifacts/v7-release/packages/v7 2>&1 | tee artifacts/v7-release/v7-package.log
+      - name: Frozen v4 rollback ZIP and independent verification
+        run: |
+          ulimit -v 2097152
+          timeout 5m taskset -c "$V7_CPU" uv run --no-sync python -m tools.v7_package --source baselines/online_v4/agent.py --sha256 "$V4_SHA" --out artifacts/v7-release/packages/v4 2>&1 | tee artifacts/v7-release/v4-package.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: astra-v7-packages-${{ github.event.pull_request.head.sha }}
+          path: artifacts/v7-release/packages/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: astra-v7-preflight-${{ github.event.pull_request.head.sha }}
+          path: artifacts/v7-release/
+          if-no-files-found: error
+          retention-days: 30
+      - name: One fixed formal batch, 20 games at 120+0.5, no score-based retry
+        if: success() && github.event.action == 'opened' && github.run_attempt == 1
+        run: |
+          ulimit -v 2097152
+          timeout --signal=TERM --kill-after=30s 101m taskset -c "$V7_CPU" uv run --no-sync python -m tools.v7_match --plan benchmarks/astra-v7-release/formal-plan.json --out artifacts/v7-release/formal 2>&1 | tee artifacts/v7-release/formal.log
+      - name: Audit every completed formal PGN and clock trace
+        if: always()
+        run: |
+          if test -f artifacts/v7-release/formal/results.json; then
+            uv run --no-sync python -m tools.summarize_v7_matches artifacts/v7-release/formal | tee artifacts/v7-release/formal-summary.log
+          else
+            echo 'Formal batch NOT RUN in this attempt. Only the initial PR opened event runs it; never automatically replay games.' | tee artifacts/v7-release/formal-not-run.txt
+          fi
+      - name: Verify tracked inputs unchanged
+        if: always()
+        run: git diff --exit-code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: astra-v7-acceptance-${{ github.event.pull_request.head.sha }}-${{ github.run_attempt }}
+          path: artifacts/v7-release/
+          if-no-files-found: error
+          retention-days: 30
