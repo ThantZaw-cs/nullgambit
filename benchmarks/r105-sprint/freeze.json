@@ -1,0 +1,14 @@
+{
+  "candidate_sha256": "bcb0ee9ea4aba034c03d41a354e58b08f56b2ae7fd2260c58b9a70f07004f1a1",
+  "baseline_source_sha256": "aba3db18ebe424b2025b3d967b88057b6ad242978cc328accc1642e2c8a91b3d",
+  "baseline_zip_sha256": "8738311a097a76d4a1d57d53b1bca3e42de2b3fd9dd5801c78760f4bb1400ece",
+  "batch_deadline_utc": "2026-09-11T08:39:00+00:00",
+  "engineering_deadline_utc": "2026-09-11T08:44:33Z",
+  "official_upload_deadline_timezone": "unknown",
+  "specific_improvement_supported": true,
+  "specific_improvement_basis": "24 development calls across four supplied positions, both versions and three alternating repeats. Three changed choices independently checked by offline teacher; one unchanged poor choice costs substantially more time. All legal/history/restore/clock assertions pass. Raw private positions and labels retained locally, never part of candidate or public repository. This is development evidence, not generalization or strength proof.",
+  "candidate_scope": "v7 search/evaluation AST unchanged; completion-aware soft/hard time allocation, single-legal fastreturn with history, bounded diagnostics; OFF delegates exact legacy entry",
+  "predeclared_promotion": "Fast20 score>=50%, no failures/VOID; formal12 score>50%, no failures/VOID and specific improvement. Reused regression openings. No retries of completed results.",
+  "fast_plan_sha256": "da315f8fdcaa4f3ee386f97d9b2c3ec6946860409463bdfaa121d597bfa0aa88",
+  "formal_plan_sha256": "6d71f8f50ebc123b6d1666e30049a4891797dfa097c90804ad62627b7d4b51a9"
+}

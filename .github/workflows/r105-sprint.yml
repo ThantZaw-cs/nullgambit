@@ -1,0 +1,153 @@
+name: r105-clock-completion-sprint
+
+on:
+  push:
+    branches: [astra-r105-time-sprint]
+    paths:
+      - benchmarks/r105-sprint/freeze.json
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: r105-clock-completion-fixed-batch
+  cancel-in-progress: false
+
+env:
+  OMP_NUM_THREADS: "1"
+  OPENBLAS_NUM_THREADS: "1"
+  NUMBA_NUM_THREADS: "1"
+  MKL_NUM_THREADS: "1"
+
+jobs:
+  acceptance:
+    if: contains(github.event.head_commit.message, '[r105-sprint-once]') && github.run_attempt == 1
+    runs-on: ubuntu-24.04
+    timeout-minutes: 110
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+      - uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.11.28"
+          python-version: "3.12"
+          enable-cache: false
+      - name: Install locked dependencies
+        run: uv sync --locked
+      - name: Verify frozen public inputs and absolute execution deadline
+        run: |
+          test ! -e data/online
+          test -z "$(git status --porcelain --untracked-files=all)"
+          mkdir -p artifacts/r105-sprint
+          uv pip freeze > artifacts/r105-sprint/installed.txt
+          git rev-parse HEAD > artifacts/r105-sprint/checkout.txt
+          uv run --no-sync python - <<'PYCODE'
+          import hashlib,json,os,platform,sys
+          from datetime import UTC,datetime
+          from pathlib import Path
+          digest=lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
+          p=Path('benchmarks/r105-sprint')
+          f=json.loads((p/'freeze.json').read_text())
+          assert platform.machine()=='x86_64' and sys.version_info[:2]==(3,12)
+          assert digest('prototypes/clock_completion/agent.py')==f['candidate_sha256']
+          assert digest('baselines/online_v7/agent.py')=='aba3db18ebe424b2025b3d967b88057b6ad242978cc328accc1642e2c8a91b3d'
+          assert f['batch_deadline_utc']=='2026-09-11T08:39:00+00:00'
+          assert datetime.now(UTC)<datetime.fromisoformat(f['batch_deadline_utc'])
+          for stage in ('fast','formal'):
+              assert digest(p/f'{stage}-plan.json')==f[f'{stage}_plan_sha256']
+              plan=json.loads((p/f'{stage}-plan.json').read_text())
+              assert plan['candidate_sha256']==f['candidate_sha256']
+              assert not any(plan['gate'].values())
+          Path('artifacts/r105-sprint/freeze.json').write_bytes((p/'freeze.json').read_bytes())
+          with open(os.environ['GITHUB_ENV'],'a') as handle:
+              print('SPRINT_CPU='+str(min(os.sched_getaffinity(0))),file=handle)
+              print('SPRINT_SHA='+f['candidate_sha256'],file=handle)
+              print('SPRINT_DEADLINE='+f['batch_deadline_utc'],file=handle)
+          PYCODE
+      - name: Changed-file Ruff and strict mypy
+        run: |
+          taskset -c "$SPRINT_CPU" uv run --no-sync ruff check prototypes/clock_completion/agent.py tests/test_clock_completion.py tools/sprint_match.py tools/sprint_summary.py 2>&1 | tee artifacts/r105-sprint/ruff.log
+          taskset -c "$SPRINT_CPU" uv run --no-sync mypy prototypes/clock_completion/agent.py tests/test_clock_completion.py tools/sprint_match.py tools/sprint_summary.py 2>&1 | tee artifacts/r105-sprint/mypy.log
+      - name: Targeted clock and restoration correctness
+        run: |
+          ulimit -v 2097152
+          timeout --signal=TERM --kill-after=15s 5m taskset -c "$SPRINT_CPU" uv run --no-sync python -m unittest discover -s tests -p test_clock_completion.py -v 2>&1 | tee artifacts/r105-sprint/tests.log
+      - name: Genuine candidate package, isolated search, runner, two compatibility smokes
+        run: |
+          ulimit -v 2097152
+          timeout --signal=TERM --kill-after=15s 5m taskset -c "$SPRINT_CPU" uv run --no-sync python -m tools.v7_package --source prototypes/clock_completion/agent.py --sha256 "$SPRINT_SHA" --out artifacts/r105-sprint/packages/candidate 2>&1 | tee artifacts/r105-sprint/package.log
+      - name: Record successful preflight and immutable execution plans
+        run: |
+          uv run --no-sync python - <<'PYCODE'
+          import json
+          from pathlib import Path
+          for stage in ('fast','formal'):
+              p=json.loads(Path(f'benchmarks/r105-sprint/{stage}-plan.json').read_text())
+              p['gate'].update(candidate_frozen=True,targeted_correctness_passed=True,package_passed=True)
+              p['execution_status']='Frozen source passed this run targeted correctness and isolated package checks.'
+              Path(f'artifacts/r105-sprint/{stage}-execution-plan.json').write_text(json.dumps(p,indent=2)+'\n')
+          PYCODE
+      - name: Fixed20 paired games, real 10+0.1 clocks
+        run: |
+          ulimit -v 2097152
+          timeout --signal=TERM --kill-after=30s 31m taskset -c "$SPRINT_CPU" uv run --no-sync python -m tools.sprint_match --plan artifacts/r105-sprint/fast-execution-plan.json --out artifacts/r105-sprint/fast --deadline-utc "$SPRINT_DEADLINE" 2>&1 | tee artifacts/r105-sprint/fast.log
+      - name: Audit fast results and apply predeclared formal gate
+        if: always()
+        id: fast_gate
+        run: |
+          if test -f artifacts/r105-sprint/fast/results.json; then
+            uv run --no-sync python -m tools.sprint_summary artifacts/r105-sprint/fast | tee artifacts/r105-sprint/fast-summary.log
+          fi
+          uv run --no-sync python - <<'PYCODE'
+          import json,os
+          from pathlib import Path
+          p=Path('artifacts/r105-sprint/fast/summary.json')
+          s=json.loads(p.read_text()) if p.exists() else {}
+          passed=(s.get('complete',False) and s.get('actual_games')==20 and s.get('failures')==0 and s.get('voids')==0 and s.get('raw_referee_score',0)>=0.5)
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f: print('passed='+str(passed).lower(),file=f)
+          Path('artifacts/r105-sprint/fast-gate.json').write_text(json.dumps({'passed':passed,'rule':'Complete20, no failures/VOID, score>=0.5; practical continuation gate, not strength proof.','summary':s},indent=2)+'\n')
+          if passed:
+              p=Path('artifacts/r105-sprint/formal-execution-plan.json')
+              plan=json.loads(p.read_text());plan['gate']['fast_screen_passed']=True
+              p.write_text(json.dumps(plan,indent=2)+'\n')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r105-sprint-fast-${{ github.run_id }}
+          path: artifacts/r105-sprint/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Fixed12 paired formal games, real 120+0.5 clocks
+        if: success() && steps.fast_gate.outputs.passed == 'true'
+        run: |
+          ulimit -v 2097152
+          timeout --signal=TERM --kill-after=30s 71m taskset -c "$SPRINT_CPU" uv run --no-sync python -m tools.sprint_match --plan artifacts/r105-sprint/formal-execution-plan.json --out artifacts/r105-sprint/formal --deadline-utc "$SPRINT_DEADLINE" 2>&1 | tee artifacts/r105-sprint/formal.log
+      - name: Audit formal results and record final promotion decision
+        if: always()
+        run: |
+          if test -f artifacts/r105-sprint/formal/results.json; then
+            uv run --no-sync python -m tools.sprint_summary artifacts/r105-sprint/formal | tee artifacts/r105-sprint/formal-summary.log
+          fi
+          uv run --no-sync python - <<'PYCODE'
+          import json
+          from pathlib import Path
+          p=Path('artifacts/r105-sprint/formal/summary.json')
+          s=json.loads(p.read_text()) if p.exists() else {}
+          f=json.loads(Path('benchmarks/r105-sprint/freeze.json').read_text())
+          passed=(s.get('complete',False) and s.get('actual_games')==12 and s.get('failures')==0 and s.get('voids')==0 and s.get('raw_referee_score',0)>0.5 and f.get('specific_improvement_supported',False))
+          Path('artifacts/r105-sprint/release-gate.json').write_text(json.dumps({'passed':passed,'rule':'Complete12, no failures/VOID, score>0.5 plus independently documented specific improvement. All openings reused regression. Linux compatibility is not official validation.','formal_started':p.exists(),'summary':s},indent=2)+'\n')
+          PYCODE
+          git diff --exit-code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r105-sprint-complete-${{ github.run_id }}
+          path: artifacts/r105-sprint/
+          if-no-files-found: error
+          retention-days: 14
